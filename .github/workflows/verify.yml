@@ -1,4 +1,4 @@
-name: Verify certificates and presentation
+name: Verify certificates and manuscript
 on:
   push:
     branches: [main]
@@ -17,18 +17,14 @@ jobs:
       - run: python -m pip install -r code/requirements.txt
       - run: python code/run.py verify
       - run: python code/run.py run --module all --independent
-  presentation:
+  manuscript:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: npm install --ignore-scripts
-      - run: npm run build
-      - run: npm run check
-      - run: git diff --exit-code -- docs manuscript
+      - run: python scripts/build_report.py
+      - run: python scripts/check_report.py
+      - run: git diff --exit-code -- manuscript

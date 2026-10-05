@@ -1,4 +1,4 @@
-"""Build GitHub Markdown and structured web content from the public TeX source.
+"""Build GitHub Markdown and structured mathematical content from the public TeX source.
 
 Uses only the Python standard library. Run from the repository root:
     python scripts/build_report.py
@@ -102,6 +102,11 @@ def compact_space(s):
     return re.sub(r'\s+', ' ', s)
 
 
+def github_tex(s):
+    # The labeled implication has an equivalent form in the base AMS package.
+    return s.replace(r'\xRightarrow{\ \Phi\ }', r'\overset{\ \Phi\ }{\Longrightarrow}')
+
+
 def inlines(s, citations):
     result, buf, i = [], [], 0
 
@@ -168,7 +173,7 @@ def inline_md(nodes):
         if kind == 'text':
             out.append(n['text'])
         elif kind == 'math':
-            out.append('$' + n['tex'] + '$')
+            out.append('$`' + compact_space(github_tex(n['tex'])) + '`$')
         elif kind == 'code':
             out.append('`' + n['text'] + '`')
         elif kind == 'strong':
@@ -279,7 +284,7 @@ def make_blocks(s, citations, abstract=False):
         elif kind == 'display':
             tags = re.findall(r'\\tag\*?\{([^}]*)\}', text)
             b = {'type': 'display_math', 'id': 'eq-' + tags[0].lower().replace('.', '-') if tags else 'display-' + hashlib.sha256(text.encode()).hexdigest()[:12],
-                 'tex': text, 'tags': tags, 'markdown': '$$\n' + text.strip() + '\n$$'}
+                 'tex': text, 'tags': tags, 'markdown': '```math\n' + github_tex(text.strip()) + '\n```'}
         elif kind == 'prose':
             for p in re.split(r'\n\s*\n', clean_prose(text)):
                 p = p.strip()

@@ -6,28 +6,28 @@ A theory-led study of a practical pricing question: **how much can a finite-step
 
 The project connects a common Gaussian factor, a weighted payoff remainder, and validated transform arithmetic to obtain explicit error bounds for a specified Heston model and its projected Euler scheme. The analysis retains the actual arithmetic payoff and accounts for projection, transform inversion, infinite tails, and rounding in one finite calculation.
 
-**[Read the full paper](manuscript/report.md)** · **[HTML reading edition](docs/index.html)** · **[Reproduce the certificates](code/README.md)**
+**[Read the full paper](manuscript/report.md)** · **[Reproduce the certificates](code/README.md)**
 
 ## Principal result
 
-For a one-year arithmetic Asian call spread with 12 monthly observations, initial stock price 100, strikes 95 and 110, and Euler step size $h=1/768$, the certified price difference is
+For a one-year arithmetic Asian call spread with 12 monthly observations, initial stock price 100, strikes 95 and 110, and Euler step size $`h=1/768`$, the certified price difference is
 
-$$
+```math
 p_h-p_c\in[-0.011024692273,\;0.010642371599],
 \qquad |p_h-p_c|<0.011025.
-$$
+```
 
 The continuous-model price is enclosed by
 
-$$
+```math
 p_c\in[6.508371733,\;6.518868974].
-$$
+```
 
 These are deterministic enclosures in price units at
 
-$$
+```math
 (\kappa,\bar v,\xi,\rho,v_0)=(3,\;0.045,\;0.23,\;-0.55,\;0.045),\qquad r=0.01.
-$$
+```
 
 They bound implementation bias at the stated grid, rather than statistical uncertainty from sampled paths. The complete definitions and proof appear in Sections 2–5 and Appendices A–C of the paper.
 
@@ -45,10 +45,10 @@ The contribution is the model-specific proof and effective certificate connectin
 
 | Result | Domain of validity | Quantitative output |
 | --- | --- | --- |
-| Complete arithmetic Asian certificate | The Heston parameter point above; 12 monthly observations; original positive-part variance Euler and current-variance log-price update; $h=1/768$ | Absolute pricing bias below **0.011025** and a continuous-price interval |
-| Joint weak expansion | Volatility of volatility $\xi=0$; aligned grids; bounded payoffs; a deterministic-variance family with explicit bounds | A common first-order representation and computable second-order remainder; a uniform Asian remainder bound below **0.000165217** on the stated family |
+| Complete arithmetic Asian certificate | The Heston parameter point above; 12 monthly observations; original positive-part variance Euler and current-variance log-price update; $`h=1/768`$ | Absolute pricing bias below **0.011025** and a continuous-price interval |
+| Joint weak expansion | Volatility of volatility $`\xi=0`$; aligned grids; bounded payoffs; a deterministic-variance family with explicit bounds | A common first-order representation and computable second-order remainder; a uniform Asian remainder bound below **0.000165217** on the stated family |
 | Uniform small-volatility price control | The positive-volume five-parameter box in equation (7.4) | Asian bias at most **0.020948**; each of nine put biases at most **0.016702** |
-| Posterior target quantiles | The three-dimensional continuous prior in equation (7.5), with $\xi\in[10^{-7},10^{-6}]$ and the exact synthetic observations in Appendix F | Every quantile shifts by at most **0.008018821658** for the single-quote case or **0.012716404217** for nine quotes |
+| Posterior target quantiles | The three-dimensional continuous prior in equation (7.5), with $`\xi\in[10^{-7},10^{-6}]`$ and the exact synthetic observations in Appendix F | Every quantile shifts by at most **0.008018821658** for the single-quote case or **0.012716404217** for nine quotes |
 
 Each row has its own parameter domain, assumptions, and proof. This makes the result directly checkable for its intended use.
 
@@ -80,11 +80,10 @@ To reproduce all modules and their independent checks, replace `asian` with `all
 | Material | Purpose |
 | --- | --- |
 | [Full paper](manuscript/report.md) | The structural framework, theorems, proofs, applications, and references |
-| [HTML reading edition](docs/index.html) | A self-contained reading layout with vector formulas, a navigable contents panel, and the complete proof appendices; see the [reading guide](docs/README.md) |
 | [Numerical code](code/) | Deterministic calculations, independent checks, and exact reference results |
 | [Validation receipt](code/verification/validation.json) | Recorded execution and reference-comparison outcomes |
 | [Manuscript structure](manuscript/FORMAT.md) | Source and structured formats used to reproduce the presentation |
 
-Independent research originating in 2023.
+Independent research originating in 2024.
 
 **Contact:** [10@alumni.duke.edu](mailto:10@alumni.duke.edu) · [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com)

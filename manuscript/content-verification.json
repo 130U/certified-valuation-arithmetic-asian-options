@@ -14,8 +14,8 @@
   "formula_sequence_exactly_preserved": true,
   "forbidden_provenance_strings_absent": true,
   "artifacts": {
-    "report.md": "5cb123d1c705a189c765f12c485293902717b6d15028040a649bcb1c7e883f78",
-    "report.json": "42f07e38bd5c4d2c5f064663cb307f4b2ac0e8ddfcf719f8af5c5b0b32b02731",
+    "report.md": "dbad3089edf2a1215ee2831d3fb9ca90844759208bc4c59f20f9237ec67dbebc",
+    "report.json": "37f57fdbd7863e2a9ebe232867e41869e3d3efa12289b7f9862e7b88889db661",
     "report-source.tex": "e0b526fe78a812bc57e937ad918d5c6d84452a244a3cd2aa7539a9657a927806"
   }
 }
