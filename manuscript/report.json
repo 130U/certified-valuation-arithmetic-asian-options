@@ -415,7 +415,7 @@
           "text": " a positive integer. The continuous model is"
         }
       ],
-      "markdown": "Let $`W,B`$ be independent standard Brownian motions, and let $`\\theta=(\\kappa,\\bar v,\\xi,\\rho,v_0)`$. Assume $`S_0,\\kappa,\\bar v,v_0>0`$, $`\\xi\\ge0`$, $`|\\rho|<1`$, and $`r\\in\\mathbb R`$. The discrete model uses $`h>0`$, with each $`t_i/h`$ a positive integer. The continuous model is"
+      "markdown": "Let $`W,B`$ be independent standard Brownian motions, and let $`\\theta=(\\kappa,\\bar v,\\xi,\\rho,v_0)`$. Assume $`S_0,\\kappa,\\bar v,v_0\\gt 0`$, $`\\xi\\ge0`$, $`|\\rho|\\lt 1`$, and $`r\\in\\mathbb R`$. The discrete model uses $`h\\gt 0`$, with each $`t_i/h`$ a positive integer. The continuous model is"
     },
     {
       "type": "display_math",
@@ -511,7 +511,7 @@
           "text": ", and set"
         }
       ],
-      "markdown": "Fix $`0<t_1<\\cdots<t_n=T`$, and set"
+      "markdown": "Fix $`0\\lt t_1\\lt \\cdots\\lt t_n=T`$, and set"
     },
     {
       "type": "display_math",
@@ -538,7 +538,7 @@
           "text": ". Write"
         }
       ],
-      "markdown": "where $`0<K_1<K_2`$. Write"
+      "markdown": "where $`0\\lt K_1\\lt K_2`$. Write"
     },
     {
       "type": "display_math",
@@ -728,7 +728,7 @@
       "tags": [
         "2.7"
       ],
-      "markdown": "```math\n\\begin{gathered}\nE_\\nu(A+G)<\\infty,\\qquad\nD_\\nu(c):=E_\\nu\\!\\left[\\frac{(A-cG)^2}{\\sigma}\\right]<\\infty.\n\\end{gathered}\n\\tag{2.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_\\nu(A+G)\\lt \\infty,\\qquad\nD_\\nu(c):=E_\\nu\\!\\left[\\frac{(A-cG)^2}{\\sigma}\\right]\\lt \\infty.\n\\end{gathered}\n\\tag{2.7}\n```"
     },
     {
       "type": "paragraph",
@@ -746,7 +746,7 @@
           "text": " is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition already contains the price-difference conclusion to be proved."
         }
       ],
-      "markdown": "Here $`c>0`$ is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition already contains the price-difference conclusion to be proved."
+      "markdown": "Here $`c\\gt 0`$ is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition already contains the price-difference conclusion to be proved."
     },
     {
       "type": "heading",
@@ -968,7 +968,7 @@
           "text": ", define"
         }
       ],
-      "markdown": "**Lemma 3.1.** Suppose that $`\\mathsf H_s(c)`$ holds. For $`K>0`$, define"
+      "markdown": "**Lemma 3.1.** Suppose that $`\\mathsf H_s(c)`$ holds. For $`K\\gt 0`$, define"
     },
     {
       "type": "display_math",
@@ -977,7 +977,7 @@
       "tags": [
         "3.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\nR_{K,\\nu}=E_\\nu\\!\\left[(A-K)^+-(cG-K)^+\n-(A-cG)\\mathbf1_{\\{cG>K\\}}\\right].\n\\end{gathered}\n\\tag{3.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\nR_{K,\\nu}=E_\\nu\\!\\left[(A-K)^+-(cG-K)^+\n-(A-cG)\\mathbf1_{\\{cG\\gt K\\}}\\right].\n\\end{gathered}\n\\tag{3.1}\n```"
     },
     {
       "type": "paragraph",
@@ -1030,7 +1030,7 @@
       "id": "display-c831684f9999",
       "tex": "\nF_K(x)=E[(xe^U-K)^+\\mid\\mathcal G],\\qquad x>0.\n",
       "tags": [],
-      "markdown": "```math\nF_K(x)=E[(xe^U-K)^+\\mid\\mathcal G],\\qquad x>0.\n```"
+      "markdown": "```math\nF_K(x)=E[(xe^U-K)^+\\mid\\mathcal G],\\qquad x\\gt 0.\n```"
     },
     {
       "type": "paragraph",
@@ -1048,7 +1048,7 @@
           "text": ", this function is twice differentiable, with"
         }
       ],
-      "markdown": "Since $`\\sigma>0`$, this function is twice differentiable, with"
+      "markdown": "Since $`\\sigma\\gt 0`$, this function is twice differentiable, with"
     },
     {
       "type": "display_math",
@@ -1125,7 +1125,7 @@
       "id": "display-452290ec95f8",
       "tex": "\n(a-cg)F_K'(cg)\n=E[(A-cG)\\mathbf1_{\\{cG>K\\}}\\mid\\mathcal G].\n",
       "tags": [],
-      "markdown": "```math\n(a-cg)F_K'(cg)\n=E[(A-cG)\\mathbf1_{\\{cG>K\\}}\\mid\\mathcal G].\n```"
+      "markdown": "```math\n(a-cg)F_K'(cg)\n=E[(A-cG)\\mathbf1_{\\{cG\\gt K\\}}\\mid\\mathcal G].\n```"
     },
     {
       "type": "paragraph",
@@ -1176,7 +1176,7 @@
           "tex": "\\square"
         }
       ],
-      "markdown": "taking expectations proves (3.2). The call and linear terms are integrable because $`E(A+G)<\\infty`$. The conditional second-moment identity is used in the sense of nonnegative conditional expectations, and the weighted remainder is controlled by $`D_\\nu(c)<\\infty`$.  $`\\square`$"
+      "markdown": "taking expectations proves (3.2). The call and linear terms are integrable because $`E(A+G)\\lt \\infty`$. The conditional second-moment identity is used in the sense of nonnegative conditional expectations, and the weighted remainder is controlled by $`D_\\nu(c)\\lt \\infty`$.  $`\\square`$"
     },
     {
       "type": "paragraph",
@@ -1235,7 +1235,7 @@
       "tags": [
         "3.4"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\mathcal L=\\psi(cG)+(A-cG)\\mathbf1_{\\{K_1<cG\\le K_2\\}}.\n\\end{gathered}\n\\tag{3.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathcal L=\\psi(cG)+(A-cG)\\mathbf1_{\\{K_1\\lt cG\\le K_2\\}}.\n\\end{gathered}\n\\tag{3.4}\n```"
     },
     {
       "type": "paragraph",
@@ -1570,7 +1570,7 @@
       "tags": [
         "4.4"
       ],
-      "markdown": "```math\n\\begin{gathered}\ne_h\\in[-.011024692273,\\;.010642371599],\\qquad |e_h|<.011025<.025.\n\\end{gathered}\n\\tag{4.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne_h\\in[-.011024692273,\\;.010642371599],\\qquad |e_h|\\lt .011025\\lt .025.\n\\end{gathered}\n\\tag{4.4}\n```"
     },
     {
       "type": "paragraph",
@@ -1726,7 +1726,7 @@
       "tags": [
         "5.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\n0<I_1=\\int_0^{t_1}v(t)\\,dt,\\qquad \\int_0^T v(t)\\,dt<\\infty.\n\\end{gathered}\n\\tag{5.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n0\\lt I_1=\\int_0^{t_1}v(t)\\,dt,\\qquad \\int_0^T v(t)\\,dt\\lt \\infty.\n\\end{gathered}\n\\tag{5.1}\n```"
     },
     {
       "type": "paragraph",
@@ -1777,7 +1777,7 @@
       "id": "display-c550ed24e101",
       "tex": "\nD_\\nu(c)=I_1^{-1/2}E_\\nu(A-cG)^2<\\infty.\n",
       "tags": [],
-      "markdown": "```math\nD_\\nu(c)=I_1^{-1/2}E_\\nu(A-cG)^2<\\infty.\n```"
+      "markdown": "```math\nD_\\nu(c)=I_1^{-1/2}E_\\nu(A-cG)^2\\lt \\infty.\n```"
     },
     {
       "type": "paragraph",
@@ -1892,7 +1892,7 @@
           "text": " from (2.5) and the parameters in (4.3); the common Gaussian construction below is valid under the structural parameter assumptions just stated."
         }
       ],
-      "markdown": "Condition $`\\mathsf C`$ requires $`\\kappa,\\bar v,\\xi,v_0>0`$, $`|\\rho|<1`$, the model (2.1) or (2.2), observation dates aligned with the discrete grid, and the finite-transform, moment-growth, projection, and infinite-tail inequalities listed in Appendices A–C. The actual verification in this section uses $`S_0,r,T,h`$ from (2.5) and the parameters in (4.3); the common Gaussian construction below is valid under the structural parameter assumptions just stated."
+      "markdown": "Condition $`\\mathsf C`$ requires $`\\kappa,\\bar v,\\xi,v_0\\gt 0`$, $`|\\rho|\\lt 1`$, the model (2.1) or (2.2), observation dates aligned with the discrete grid, and the finite-transform, moment-growth, projection, and infinite-tail inequalities listed in Appendices A–C. The actual verification in this section uses $`S_0,r,T,h`$ from (2.5) and the parameters in (4.3); the common Gaussian construction below is valid under the structural parameter assumptions just stated."
     },
     {
       "type": "paragraph",
@@ -1978,7 +1978,7 @@
           "text": " almost surely. For the discrete model, there is the exact lower bound"
         }
       ],
-      "markdown": "For the continuous model, $`v_0>0`$ and continuity of the variance paths imply $`I_P>0`$ almost surely. For the discrete model, there is the exact lower bound"
+      "markdown": "For the continuous model, $`v_0\\gt 0`$ and continuity of the variance paths imply $`I_P\\gt 0`$ almost surely. For the discrete model, there is the exact lower bound"
     },
     {
       "type": "display_math",
@@ -1987,7 +1987,7 @@
       "tags": [
         "5.4"
       ],
-      "markdown": "```math\n\\begin{gathered}\nI_Q\\ge hv_0>0.\n\\end{gathered}\n\\tag{5.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\nI_Q\\ge hv_0\\gt 0.\n\\end{gathered}\n\\tag{5.4}\n```"
     },
     {
       "type": "paragraph",
@@ -2013,7 +2013,7 @@
           "text": ". At the parameters in (4.3), all these inequalities and finite-node checks hold."
         }
       ],
-      "markdown": "The transform and tail bounds in the appendices verify $`W_\\nu<\\infty`$ and supply an upper bound, while the exponential-moment growth bounds ensure integrability of the required price terms. Therefore $`\\mathsf C\\Rightarrow\\mathsf H`$. At the parameters in (4.3), all these inequalities and finite-node checks hold."
+      "markdown": "The transform and tail bounds in the appendices verify $`W_\\nu\\lt \\infty`$ and supply an upper bound, while the exponential-moment growth bounds ensure integrability of the required price terms. Therefore $`\\mathsf C\\Rightarrow\\mathsf H`$. At the parameters in (4.3), all these inequalities and finite-node checks hold."
     },
     {
       "type": "heading",
@@ -2054,7 +2054,7 @@
       "tags": [
         "5.5"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\operatorname{Var}(V_t)=\\xi^2\\int_0^t e^{-2\\kappa(t-s)}EV_s\\,ds>0\n\\quad(t>0),\n\\end{gathered}\n\\tag{5.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathop{\\mathrm{Var}}\\nolimits(V_t)=\\xi^2\\int_0^t e^{-2\\kappa(t-s)}EV_s\\,ds\\gt 0\n\\quad(t\\gt 0),\n\\end{gathered}\n\\tag{5.5}\n```"
     },
     {
       "type": "paragraph",
@@ -2160,7 +2160,7 @@
       "tags": [
         "6.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\kappa>0,\\quad \\bar v,v_0>0,\\quad\nt_j=j/12,\\quad h=1/(12m)\\le h_0<1/\\kappa,\\quad m\\in\\mathbb N.\n\\end{gathered}\n\\tag{6.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\kappa\\gt 0,\\quad \\bar v,v_0\\gt 0,\\quad\nt_j=j/12,\\quad h=1/(12m)\\le h_0\\lt 1/\\kappa,\\quad m\\in\\mathbb N.\n\\end{gathered}\n\\tag{6.1}\n```"
     },
     {
       "type": "paragraph",
@@ -2248,7 +2248,7 @@
           "text": "."
         }
       ],
-      "markdown": "and the discrete law replaces $`s_j`$ by $`s_{h,j}`$. Both satisfy the lower bound $`s_j,s_{h,j}\\ge u_*:=\\min(v_0,\\bar v)/12>0`$."
+      "markdown": "and the discrete law replaces $`s_j`$ by $`s_{h,j}`$. Both satisfy the lower bound $`s_j,s_{h,j}\\ge u_*:=\\min(v_0,\\bar v)/12\\gt 0`$."
     },
     {
       "type": "paragraph",
@@ -2646,7 +2646,7 @@
           "text": ", and assume"
         }
       ],
-      "markdown": "Suppose that the deterministic reference variance and its Euler values lie in $`[m,M]`$, where $`0<m\\le M<\\infty`$ and $`\\kappa\\ge\\kappa_->0`$, and assume"
+      "markdown": "Suppose that the deterministic reference variance and its Euler values lie in $`[m,M]`$, where $`0\\lt m\\le M\\lt \\infty`$ and $`\\kappa\\ge\\kappa_-\\gt 0`$, and assume"
     },
     {
       "type": "display_math",
@@ -3027,7 +3027,7 @@
       "tags": [
         "7.7"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\boxed{\\quad\n|q_Q(p)-q_P(p)|\n\\le \\varepsilon_0+e_{P,J}+e_{Q,J}+L_0\\delta_u\n\\quad(0<p<1).\\quad}\n\\end{gathered}\n\\tag{7.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\boxed{\\quad\n|q_Q(p)-q_P(p)|\n\\le \\varepsilon_0+e_{P,J}+e_{Q,J}+L_0\\delta_u\n\\quad(0\\lt p\\lt 1).\\quad}\n\\end{gathered}\n\\tag{7.7}\n```"
     },
     {
       "type": "paragraph",
@@ -3242,7 +3242,7 @@
       "tags": [
         "7.8"
       ],
-      "markdown": "```math\n\\begin{array}{c|c|c}\n\\text{Case}&\\delta_u&\\sup_{0<p<1}|q_Q(p)-q_P(p)|\\\\ \\hline\n\\text{Single quote}&3/204800&\\le.008018821658\\\\\n\\text{Nine quotes}&3/81920&\\le.012716404217\n\\end{array}\n\\tag{7.8}\n```"
+      "markdown": "```math\n\\begin{array}{c|c|c}\n\\text{Case}&\\delta_u&\\sup_{0\\lt p\\lt 1}|q_Q(p)-q_P(p)|\\\\ \\hline\n\\text{Single quote}&3/204800&\\le.008018821658\\\\\n\\text{Nine quotes}&3/81920&\\le.012716404217\n\\end{array}\n\\tag{7.8}\n```"
     },
     {
       "type": "paragraph",
@@ -3914,7 +3914,7 @@
           "text": ","
         }
       ],
-      "markdown": "For $`I>0`$,"
+      "markdown": "For $`I\\gt 0`$,"
     },
     {
       "type": "display_math",
@@ -4461,7 +4461,7 @@
           "text": " is decreasing throughout this tail region. Define"
         }
       ],
-      "markdown": "Furthermore, $`\\Delta(x)\\ge2\\sqrt\\alpha(x-1/X)`$ and $`\\Delta(X)t_1>1`$, so $`\\Delta e^{-\\Delta t_1}`$ is decreasing throughout this tail region. Define"
+      "markdown": "Furthermore, $`\\Delta(x)\\ge2\\sqrt\\alpha(x-1/X)`$ and $`\\Delta(X)t_1\\gt 1`$, so $`\\Delta e^{-\\Delta t_1}`$ is decreasing throughout this tail region. Define"
     },
     {
       "type": "display_math",
@@ -4660,7 +4660,7 @@
           "text": ", then"
         }
       ],
-      "markdown": "with the external factor $`\\exp(rph+\\gamma_p hv)`$, where $`\\gamma_p=(p^2-p)/2`$. For a future complex variance coefficient $`b`$, if the candidate is $`Y=-z<0`$, then"
+      "markdown": "with the external factor $`\\exp(rph+\\gamma_p hv)`$, where $`\\gamma_p=(p^2-p)/2`$. For a future complex variance coefficient $`b`$, if the candidate is $`Y=-z\\lt 0`$, then"
     },
     {
       "type": "display_math",
@@ -4838,7 +4838,7 @@
       "tags": [
         "B.4"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\delta_Q=\n\\frac{b_*}{12e}\\exp(C_f+C_{\\rm pre}-12d)\\,\nh\\sum_{j=0}^{767}\n\\exp\\!\\left[-d\\sum_{k<j}u_k-\\frac{v_0u_j}{h}\\right].\n\\end{gathered}\n\\tag{B.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\delta_Q=\n\\frac{b_*}{12e}\\exp(C_f+C_{\\rm pre}-12d)\\,\nh\\sum_{j=0}^{767}\n\\exp\\!\\left[-d\\sum_{k\\lt j}u_k-\\frac{v_0u_j}{h}\\right].\n\\end{gathered}\n\\tag{B.4}\n```"
     },
     {
       "type": "paragraph",
@@ -5059,7 +5059,7 @@
           "text": " is applied to this sum."
         }
       ],
-      "markdown": "The finite catalog checks both $`\\operatorname{Re}b\\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum."
+      "markdown": "The finite catalog checks both $`\\mathop{\\mathrm{Re}}\\nolimitsb\\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum."
     },
     {
       "type": "heading",
@@ -5206,7 +5206,7 @@
       "id": "display-446ac21c5fa3",
       "tex": "\n12\\eta_{5/2}-144\\alpha-\\frac{15}{8}h^2\n=\\frac{8001336523}{983040000}>0.\n",
       "tags": [],
-      "markdown": "```math\n12\\eta_{5/2}-144\\alpha-\\frac{15}{8}h^2\n=\\frac{8001336523}{983040000}>0.\n```"
+      "markdown": "```math\n12\\eta_{5/2}-144\\alpha-\\frac{15}{8}h^2\n=\\frac{8001336523}{983040000}\\gt 0.\n```"
     },
     {
       "type": "paragraph",
@@ -5225,7 +5225,7 @@
       "tags": [
         "B.6"
       ],
-      "markdown": "```math\n\\begin{gathered}\n4d+\\frac52r+\\frac{4e^{-12d}}{12e}\n<.589267620943<.6.\n\\end{gathered}\n\\tag{B.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\n4d+\\frac52r+\\frac{4e^{-12d}}{12e}\n\\lt .589267620943\\lt .6.\n\\end{gathered}\n\\tag{B.6}\n```"
     },
     {
       "type": "paragraph",
@@ -5286,7 +5286,7 @@
           "text": " bound for the stopped family, implying uniform integrability. Removing the stopping identifies the Riccati expression with the true transform expectation. The finite discrete telescoping sum involves only finitely many integrable conditional expectations, to which the same moment-growth estimate applies."
         }
       ],
-      "markdown": "First stop the continuous affine expression on bounded variance domains. Raising its modulus to the power $`5/4`$ scales the stock loadings into the range above. The future positive variance coefficient is at most $`5/4<4`$, and the nonpositive killing contribution can be omitted in an upper bound. Equations (B.5)–(B.6) therefore give a uniform $`L^{5/4}`$ bound for the stopped family, implying uniform integrability. Removing the stopping identifies the Riccati expression with the true transform expectation. The finite discrete telescoping sum involves only finitely many integrable conditional expectations, to which the same moment-growth estimate applies."
+      "markdown": "First stop the continuous affine expression on bounded variance domains. Raising its modulus to the power $`5/4`$ scales the stock loadings into the range above. The future positive variance coefficient is at most $`5/4\\lt 4`$, and the nonpositive killing contribution can be omitted in an upper bound. Equations (B.5)–(B.6) therefore give a uniform $`L^{5/4}`$ bound for the stopped family, implying uniform integrability. Removing the stopping identifies the Riccati expression with the true transform expectation. The finite discrete telescoping sum involves only finitely many integrable conditional expectations, to which the same moment-growth estimate applies."
     },
     {
       "type": "heading",
@@ -5555,7 +5555,7 @@
           "text": ". The sum of the nonzero-index terms is then at most"
         }
       ],
-      "markdown": "For $`k>0`$, use the total mass $`M_{\\mu,0}`$. For $`k=-j<0`$, use $`F_\\mu(y-jL)\\le e^{y-jL}M_{\\mu,-1}`$. The sum of the nonzero-index terms is then at most"
+      "markdown": "For $`k\\gt 0`$, use the total mass $`M_{\\mu,0}`$. For $`k=-j\\lt 0`$, use $`F_\\mu(y-jL)\\le e^{y-jL}M_{\\mu,-1}`$. The sum of the nonzero-index terms is then at most"
     },
     {
       "type": "display_math",
@@ -6031,7 +6031,7 @@
       "tags": [
         "C.10"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\cosh(|D_q|\\Delta t/2)-1+\n\\frac{|\\kappa_q-2\\alpha b|\\Delta t}{2}\n\\cosh(|D_q|\\Delta t/2)<1.\n\\end{gathered}\n\\tag{C.10}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\cosh(|D_q|\\Delta t/2)-1+\n\\frac{|\\kappa_q-2\\alpha b|\\Delta t}{2}\n\\cosh(|D_q|\\Delta t/2)\\lt 1.\n\\end{gathered}\n\\tag{C.10}\n```"
     },
     {
       "type": "paragraph",
@@ -6057,14 +6057,14 @@
           "text": ", the imaginary-part quadratic form"
         }
       ],
-      "markdown": "Absolute-value bounds on the power series imply $`|\\mathcal D_t-1|<1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\\operatorname{Re}b=1`$, the imaginary-part quadratic form"
+      "markdown": "Absolute-value bounds on the power series imply $`|\\mathcal D_t-1|\\lt 1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\\mathop{\\mathrm{Re}}\\nolimitsb=1`$, the imaginary-part quadratic form"
     },
     {
       "type": "display_math",
       "id": "display-fb590c8f4778",
       "tex": "\n-\\alpha(\\operatorname{Im}b)^2\n-\\rho\\xi(\\operatorname{Im}q)(\\operatorname{Im}b)\n-(\\operatorname{Im}q)^2/2\n",
       "tags": [],
-      "markdown": "```math\n-\\alpha(\\operatorname{Im}b)^2\n-\\rho\\xi(\\operatorname{Im}q)(\\operatorname{Im}b)\n-(\\operatorname{Im}q)^2/2\n```"
+      "markdown": "```math\n-\\alpha(\\mathop{\\mathrm{Im}}\\nolimitsb)^2\n-\\rho\\xi(\\mathop{\\mathrm{Im}}\\nolimitsq)(\\mathop{\\mathrm{Im}}\\nolimitsb)\n-(\\mathop{\\mathrm{Im}}\\nolimitsq)^2/2\n```"
     },
     {
       "type": "paragraph",
@@ -6082,7 +6082,7 @@
           "text": ". Appendix B.3 identifies the affine expression with the true transform."
         }
       ],
-      "markdown": "is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\\operatorname{Re}b\\le1`$. Appendix B.3 identifies the affine expression with the true transform."
+      "markdown": "is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\\mathop{\\mathrm{Re}}\\nolimitsb\\le1`$. Appendix B.3 identifies the affine expression with the true transform."
     },
     {
       "type": "heading",
@@ -6418,7 +6418,7 @@
           "text": ". Integrating the first-order score along the segment gives"
         }
       ],
-      "markdown": "For two variance vectors $`s,\\tilde s`$, suppose that their endpoints and the segment joining them satisfy $`s_j,\\tilde s_j\\ge u_j>0`$. Integrating the first-order score along the segment gives"
+      "markdown": "For two variance vectors $`s,\\tilde s`$, suppose that their endpoints and the segment joining them satisfy $`s_j,\\tilde s_j\\ge u_j\\gt 0`$. Integrating the first-order score along the segment gives"
     },
     {
       "type": "display_math",
@@ -6427,7 +6427,7 @@
       "tags": [
         "D.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\operatorname{TV}(p_s,p_{\\tilde s})\n\\le\\left\\{\n\\sum_j(\\tilde s_j-s_j)^2\n\\left(\\frac1{8u_j^2}+\\frac1{16u_j}\\right)\n\\right\\}^{1/2}.\n\\end{gathered}\n\\tag{D.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathop{\\mathrm{TV}}\\nolimits(p_s,p_{\\tilde s})\n\\le\\left\\{\n\\sum_j(\\tilde s_j-s_j)^2\n\\left(\\frac1{8u_j^2}+\\frac1{16u_j}\\right)\n\\right\\}^{1/2}.\n\\end{gathered}\n\\tag{D.1}\n```"
     },
     {
       "type": "paragraph",
@@ -6469,7 +6469,7 @@
           "text": ", finite computation gives"
         }
       ],
-      "markdown": "For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\\tau}\\operatorname{TV}`$. On (6.10), using the uniform bounds $`|D|\\le.015`$ and $`u_j\\ge.03/12`$, finite computation gives"
+      "markdown": "For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\\tau}\\mathop{\\mathrm{TV}}\\nolimits`$. On (6.10), using the uniform bounds $`|D|\\le.015`$ and $`u_j\\ge.03/12`$, finite computation gives"
     },
     {
       "type": "display_math",
@@ -6543,7 +6543,7 @@
           "text": " incurs error at most"
         }
       ],
-      "markdown": "After centering the payoff, omitting the region $`\\max_j|G_j|>R`$ incurs error at most"
+      "markdown": "After centering the payoff, omitting the region $`\\max_j|G_j|\\gt R`$ incurs error at most"
     },
     {
       "type": "display_math",
@@ -6887,7 +6887,7 @@
           "text": ","
         }
       ],
-      "markdown": "For a put, the absolute derivative with respect to log stock price is at most $`K`$ on the active region. For the capped Asian, consider a line segment in the fixing log-price vector. On the active region $`K_1<A<K_2`$, the gradient has $`\\ell^1`$-norm $`A\\le K_2`$; elsewhere it is zero. Piecewise absolute continuity gives the global Lipschitz constant 110. Thus, for maturity $`T`$,"
+      "markdown": "For a put, the absolute derivative with respect to log stock price is at most $`K`$ on the active region. For the capped Asian, consider a line segment in the fixing log-price vector. On the active region $`K_1\\lt A\\lt K_2`$, the gradient has $`\\ell^1`$-norm $`A\\le K_2`$; elsewhere it is zero. Piecewise absolute continuity gives the global Lipschitz constant 110. Thus, for maturity $`T`$,"
     },
     {
       "type": "display_math",
@@ -7145,7 +7145,7 @@
           "text": "."
         }
       ],
-      "markdown": "Since $`b_\\nu(T)>0`$ and vega is positive, the reference price over each entire $`u`$-cell is enclosed by its endpoint values. Expanding both endpoints by (E.3) then encloses the true prices over the entire cell and all $`\\zeta`$."
+      "markdown": "Since $`b_\\nu(T)\\gt 0`$ and vega is positive, the reference price over each entire $`u`$-cell is enclosed by its endpoint values. Expanding both endpoints by (E.3) then encloses the true prices over the entire cell and all $`\\zeta`$."
     },
     {
       "type": "paragraph",
@@ -7254,7 +7254,7 @@
       "tags": [
         "F.4"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\frac12r^T\\Sigma_d^{-1}r=\n\\frac{32}{27(d+3)}\n\\left(3\\sum_i r_i^2+\\sum_{i<j}(r_i-r_j)^2\\right).\n\\end{gathered}\n\\tag{F.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\frac12r^T\\Sigma_d^{-1}r=\n\\frac{32}{27(d+3)}\n\\left(3\\sum_i r_i^2+\\sum_{i\\lt j}(r_i-r_j)^2\\right).\n\\end{gathered}\n\\tag{F.4}\n```"
     },
     {
       "type": "paragraph",
@@ -7279,7 +7279,7 @@
       "id": "display-426d15f3e0d3",
       "tex": "\n0<l_{\\nu,i}\\le w_\\nu(u,\\zeta)\\le u_{\\nu,i}\\le1\n",
       "tags": [],
-      "markdown": "```math\n0<l_{\\nu,i}\\le w_\\nu(u,\\zeta)\\le u_{\\nu,i}\\le1\n```"
+      "markdown": "```math\n0\\lt l_{\\nu,i}\\le w_\\nu(u,\\zeta)\\le u_{\\nu,i}\\le1\n```"
     },
     {
       "type": "paragraph",
@@ -7361,7 +7361,7 @@
           "text": " satisfies"
         }
       ],
-      "markdown": "Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_<,U_<`$, and those to its right by $`L_>,U_>`$. The marginal CDF $`G_\\nu`$ satisfies"
+      "markdown": "Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_\\lt ,U_\\lt `$, and those to its right by $`L_\\gt ,U_\\gt `$. The marginal CDF $`G_\\nu`$ satisfies"
     },
     {
       "type": "display_math",
@@ -7370,7 +7370,7 @@
       "tags": [
         "F.5"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\underline G_\\nu(x_k)=\\frac{L_<}{L_<+U_>},\n\\qquad\n\\overline G_\\nu(x_k)=\\frac{U_<}{U_<+L_>}.\n\\end{gathered}\n\\tag{F.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\underline G_\\nu(x_k)=\\frac{L_\\lt }{L_\\lt +U_\\gt },\n\\qquad\n\\overline G_\\nu(x_k)=\\frac{U_\\lt }{U_\\lt +L_\\gt }.\n\\end{gathered}\n\\tag{F.5}\n```"
     },
     {
       "type": "paragraph",

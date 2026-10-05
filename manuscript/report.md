@@ -65,7 +65,7 @@ Here $`\Phi`$ denotes conditional Gaussian smoothing and rigorous transform erro
 
 ### 2.1 The continuous model, discrete kernel, and payoff
 
-Let $`W,B`$ be independent standard Brownian motions, and let $`\theta=(\kappa,\bar v,\xi,\rho,v_0)`$. Assume $`S_0,\kappa,\bar v,v_0>0`$, $`\xi\ge0`$, $`|\rho|<1`$, and $`r\in\mathbb R`$. The discrete model uses $`h>0`$, with each $`t_i/h`$ a positive integer. The continuous model is
+Let $`W,B`$ be independent standard Brownian motions, and let $`\theta=(\kappa,\bar v,\xi,\rho,v_0)`$. Assume $`S_0,\kappa,\bar v,v_0\gt 0`$, $`\xi\ge0`$, $`|\rho|\lt 1`$, and $`r\in\mathbb R`$. The discrete model uses $`h\gt 0`$, with each $`t_i/h`$ a positive integer. The continuous model is
 
 ```math
 \begin{aligned}
@@ -91,7 +91,7 @@ Z_{j+1}^h&=Z_j^h+(r-V_j^h/2)h+
 
 where $`G_j,H_j`$ are independent standard normal variables, the two updates at the same step share $`G_j`$, and the initial conditions agree. In particular, the price update uses $`V_j^h`$.
 
-Fix $`0<t_1<\cdots<t_n=T`$, and set
+Fix $`0\lt t_1\lt \cdots\lt t_n=T`$, and set
 
 ```math
 \begin{gathered}
@@ -102,7 +102,7 @@ G=\left(\prod_{i=1}^nS_{t_i}\right)^{1/n},\qquad
 \tag{2.3}
 ```
 
-where $`0<K_1<K_2`$. Write
+where $`0\lt K_1\lt K_2`$. Write
 
 ```math
 \begin{gathered}
@@ -138,13 +138,13 @@ Set $`a=n^{-1}\sum_i a_i`$ and $`g=(\prod_i a_i)^{1/n}`$. We require
 
 ```math
 \begin{gathered}
-E_\nu(A+G)<\infty,\qquad
-D_\nu(c):=E_\nu\!\left[\frac{(A-cG)^2}{\sigma}\right]<\infty.
+E_\nu(A+G)\lt \infty,\qquad
+D_\nu(c):=E_\nu\!\left[\frac{(A-cG)^2}{\sigma}\right]\lt \infty.
 \end{gathered}
 \tag{2.7}
 ```
 
-Here $`c>0`$ is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition already contains the price-difference conclusion to be proved.
+Here $`c\gt 0`$ is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition already contains the price-difference conclusion to be proved.
 
 ### 2.3 The finite verification condition $`\mathsf H_v`$
 
@@ -173,12 +173,12 @@ Each endpoint is obtained by finitely many rational operations and validated enc
 
 ### 3.1 A conditional smoothing lemma
 
-**Lemma 3.1.** Suppose that $`\mathsf H_s(c)`$ holds. For $`K>0`$, define
+**Lemma 3.1.** Suppose that $`\mathsf H_s(c)`$ holds. For $`K\gt 0`$, define
 
 ```math
 \begin{gathered}
 R_{K,\nu}=E_\nu\!\left[(A-K)^+-(cG-K)^+
--(A-cG)\mathbf1_{\{cG>K\}}\right].
+-(A-cG)\mathbf1_{\{cG\gt K\}}\right].
 \end{gathered}
 \tag{3.1}
 ```
@@ -195,10 +195,10 @@ Then
 *Proof.* Convexity of the positive-part function gives pathwise nonnegativity. Conditional on $`\mathcal G`$, let
 
 ```math
-F_K(x)=E[(xe^U-K)^+\mid\mathcal G],\qquad x>0.
+F_K(x)=E[(xe^U-K)^+\mid\mathcal G],\qquad x\gt 0.
 ```
 
-Since $`\sigma>0`$, this function is twice differentiable, with
+Since $`\sigma\gt 0`$, this function is twice differentiable, with
 
 ```math
 \begin{gathered}
@@ -222,7 +222,7 @@ The conditional derivative satisfies
 
 ```math
 (a-cg)F_K'(cg)
-=E[(A-cG)\mathbf1_{\{cG>K\}}\mid\mathcal G].
+=E[(A-cG)\mathbf1_{\{cG\gt K\}}\mid\mathcal G].
 ```
 
 Since
@@ -231,7 +231,7 @@ Since
 E[(A-cG)^2\mid\mathcal G]=e^{2\sigma^2}(a-cg)^2,
 ```
 
-taking expectations proves (3.2). The call and linear terms are integrable because $`E(A+G)<\infty`$. The conditional second-moment identity is used in the sense of nonnegative conditional expectations, and the weighted remainder is controlled by $`D_\nu(c)<\infty`$.  $`\square`$
+taking expectations proves (3.2). The call and linear terms are integrable because $`E(A+G)\lt \infty`$. The conditional second-moment identity is used in the sense of nonnegative conditional expectations, and the weighted remainder is controlled by $`D_\nu(c)\lt \infty`$.  $`\square`$
 
 The crucial point is that the two factors $`e^{2\sigma^2}`$ match exactly. Consequently, the curvature contribution from conditional smoothing can be expressed directly as a weighted second moment under the true model. The residual $`A-cG`$ may have either sign.
 
@@ -241,7 +241,7 @@ Define
 
 ```math
 \begin{gathered}
-\mathcal L=\psi(cG)+(A-cG)\mathbf1_{\{K_1<cG\le K_2\}}.
+\mathcal L=\psi(cG)+(A-cG)\mathbf1_{\{K_1\lt cG\le K_2\}}.
 \end{gathered}
 \tag{3.4}
 ```
@@ -332,7 +332,7 @@ Then
 
 ```math
 \begin{gathered}
-e_h\in[-.011024692273,\;.010642371599],\qquad |e_h|<.011025<.025.
+e_h\in[-.011024692273,\;.010642371599],\qquad |e_h|\lt .011025\lt .025.
 \end{gathered}
 \tag{4.4}
 ```
@@ -367,7 +367,7 @@ Define $`\mathsf A`$ as follows: the model's variance coefficient itself is a de
 
 ```math
 \begin{gathered}
-0<I_1=\int_0^{t_1}v(t)\,dt,\qquad \int_0^T v(t)\,dt<\infty.
+0\lt I_1=\int_0^{t_1}v(t)\,dt,\qquad \int_0^T v(t)\,dt\lt \infty.
 \end{gathered}
 \tag{5.1}
 ```
@@ -377,7 +377,7 @@ Computability conclusions additionally require these integrals to be supplied as
 Take the stock Brownian integral over the first interval as $`U`$. Then $`\sigma^2=I_1`$ is a positive constant; the remaining log increments and deterministic drift can all be included in $`\mathcal G`$. Every observed price has the common factor in (2.6). The finite positive moments of the joint lognormal distribution give
 
 ```math
-D_\nu(c)=I_1^{-1/2}E_\nu(A-cG)^2<\infty.
+D_\nu(c)=I_1^{-1/2}E_\nu(A-cG)^2\lt \infty.
 ```
 
 The second moment is computed directly from
@@ -396,7 +396,7 @@ This shows that classical lognormal conditioning models fit within the framework
 
 ### 5.2 Heston and the actual projected kernel: $`\mathsf C\Rightarrow\mathsf H`$
 
-Condition $`\mathsf C`$ requires $`\kappa,\bar v,\xi,v_0>0`$, $`|\rho|<1`$, the model (2.1) or (2.2), observation dates aligned with the discrete grid, and the finite-transform, moment-growth, projection, and infinite-tail inequalities listed in Appendices A–C. The actual verification in this section uses $`S_0,r,T,h`$ from (2.5) and the parameters in (4.3); the common Gaussian construction below is valid under the structural parameter assumptions just stated.
+Condition $`\mathsf C`$ requires $`\kappa,\bar v,\xi,v_0\gt 0`$, $`|\rho|\lt 1`$, the model (2.1) or (2.2), observation dates aligned with the discrete grid, and the finite-transform, moment-growth, projection, and infinite-tail inequalities listed in Appendices A–C. The actual verification in this section uses $`S_0,r,T,h`$ from (2.5) and the parameters in (4.3); the common Gaussian construction below is valid under the structural parameter assumptions just stated.
 
 Condition on the entire variance driver $`W`$ and on the independent stock driver $`B`$ outside the first interval. Let
 
@@ -414,16 +414,16 @@ U\mid\mathcal G\sim N(0,(1-\rho^2)I_\nu),\qquad S_{t_i}=e^Ua_i.
 \tag{5.3}
 ```
 
-For the continuous model, $`v_0>0`$ and continuity of the variance paths imply $`I_P>0`$ almost surely. For the discrete model, there is the exact lower bound
+For the continuous model, $`v_0\gt 0`$ and continuity of the variance paths imply $`I_P\gt 0`$ almost surely. For the discrete model, there is the exact lower bound
 
 ```math
 \begin{gathered}
-I_Q\ge hv_0>0.
+I_Q\ge hv_0\gt 0.
 \end{gathered}
 \tag{5.4}
 ```
 
-The transform and tail bounds in the appendices verify $`W_\nu<\infty`$ and supply an upper bound, while the exponential-moment growth bounds ensure integrability of the required price terms. Therefore $`\mathsf C\Rightarrow\mathsf H`$. At the parameters in (4.3), all these inequalities and finite-node checks hold.
+The transform and tail bounds in the appendices verify $`W_\nu\lt \infty`$ and supply an upper bound, while the exponential-moment growth bounds ensure integrability of the required price terms. Therefore $`\mathsf C\Rightarrow\mathsf H`$. At the parameters in (4.3), all these inequalities and finite-node checks hold.
 
 ### 5.3 A strict extension of the class of models covered
 
@@ -431,8 +431,8 @@ Let $`X_*`$ be the continuous/discrete model pair at (4.3). For the continuous m
 
 ```math
 \begin{gathered}
-\operatorname{Var}(V_t)=\xi^2\int_0^t e^{-2\kappa(t-s)}EV_s\,ds>0
-\quad(t>0),
+\mathop{\mathrm{Var}}\nolimits(V_t)=\xi^2\int_0^t e^{-2\kappa(t-s)}EV_s\,ds\gt 0
+\quad(t\gt 0),
 \end{gathered}
 \tag{5.5}
 ```
@@ -457,8 +457,8 @@ For background on weak error expansions and distributional error analysis, see [
 
 ```math
 \begin{gathered}
-\kappa>0,\quad \bar v,v_0>0,\quad
-t_j=j/12,\quad h=1/(12m)\le h_0<1/\kappa,\quad m\in\mathbb N.
+\kappa\gt 0,\quad \bar v,v_0\gt 0,\quad
+t_j=j/12,\quad h=1/(12m)\le h_0\lt 1/\kappa,\quad m\in\mathbb N.
 \end{gathered}
 \tag{6.1}
 ```
@@ -482,7 +482,7 @@ N(r/12-s_j/2,s_j),\qquad s_j=I(t_j)-I(t_{j-1}),
 \tag{6.3}
 ```
 
-and the discrete law replaces $`s_j`$ by $`s_{h,j}`$. Both satisfy the lower bound $`s_j,s_{h,j}\ge u_*:=\min(v_0,\bar v)/12>0`$.
+and the discrete law replaces $`s_j`$ by $`s_{h,j}`$. Both satisfy the lower bound $`s_j,s_{h,j}\ge u_*:=\min(v_0,\bar v)/12\gt 0`$.
 
 Define
 
@@ -592,7 +592,7 @@ The leading Asian coefficient has the exact integral representation (6.7) and an
 
 ### 7.1 Price transfer for small positive volatility of volatility
 
-Suppose that the deterministic reference variance and its Euler values lie in $`[m,M]`$, where $`0<m\le M<\infty`$ and $`\kappa\ge\kappa_->0`$, and assume
+Suppose that the deterministic reference variance and its Euler values lie in $`[m,M]`$, where $`0\lt m\le M\lt \infty`$ and $`\kappa\ge\kappa_-\gt 0`$, and assume
 
 ```math
 \begin{gathered}
@@ -691,7 +691,7 @@ and that the true targets satisfy $`|J_m(u,\zeta)-J_m^0(u)|\le e_{m,J}`$. Then t
 \boxed{\quad
 |q_Q(p)-q_P(p)|
 \le \varepsilon_0+e_{P,J}+e_{Q,J}+L_0\delta_u
-\quad(0<p<1).\quad}
+\quad(0\lt p\lt 1).\quad}
 \end{gathered}
 \tag{7.7}
 ```
@@ -725,7 +725,7 @@ e_{P,J}+e_{Q,J}\le.000393595478,
 
 ```math
 \begin{array}{c|c|c}
-\text{Case}&\delta_u&\sup_{0<p<1}|q_Q(p)-q_P(p)|\\ \hline
+\text{Case}&\delta_u&\sup_{0\lt p\lt 1}|q_Q(p)-q_P(p)|\\ \hline
 \text{Single quote}&3/204800&\le.008018821658\\
 \text{Nine quotes}&3/81920&\le.012716404217
 \end{array}
@@ -813,7 +813,7 @@ Throughout, $`c`$ denotes the geometric scaling coefficient in (4.3).
 
 ### A.1 A nonnegative integral and the loading catalog
 
-For $`I>0`$,
+For $`I\gt 0`$,
 
 ```math
 I^{-1/2}=\frac2{\sqrt\pi}\int_0^\infty e^{-x^2I}\,dx.
@@ -932,7 +932,7 @@ The cross-ratio solution of the Riccati equation yields
 \tag{A.7}
 ```
 
-Furthermore, $`\Delta(x)\ge2\sqrt\alpha(x-1/X)`$ and $`\Delta(X)t_1>1`$, so $`\Delta e^{-\Delta t_1}`$ is decreasing throughout this tail region. Define
+Furthermore, $`\Delta(x)\ge2\sqrt\alpha(x-1/X)`$ and $`\Delta(X)t_1\gt 1`$, so $`\Delta e^{-\Delta t_1}`$ is decreasing throughout this tail region. Define
 
 ```math
 C_0=\frac{\kappa'}{2\alpha}+\frac1{X\sqrt\alpha},\quad
@@ -980,7 +980,7 @@ Y\sim N(\eta_pv+dh,\;\xi^2hv),\qquad
 \eta_p=1-(\kappa-\rho\xi p)h,
 ```
 
-with the external factor $`\exp(rph+\gamma_p hv)`$, where $`\gamma_p=(p^2-p)/2`$. For a future complex variance coefficient $`b`$, if the candidate is $`Y=-z<0`$, then
+with the external factor $`\exp(rph+\gamma_p hv)`$, where $`\gamma_p=(p^2-p)/2`$. For a future complex variance coefficient $`b`$, if the candidate is $`Y=-z\lt 0`$, then
 
 ```math
 \begin{gathered}
@@ -1021,7 +1021,7 @@ Nonnegativity $`u_j\ge0`$ is checked at all 768 levels. For $`u\ge0`$, $`e^{-uY^
 \delta_Q=
 \frac{b_*}{12e}\exp(C_f+C_{\rm pre}-12d)\,
 h\sum_{j=0}^{767}
-\exp\!\left[-d\sum_{k<j}u_k-\frac{v_0u_j}{h}\right].
+\exp\!\left[-d\sum_{k\lt j}u_k-\frac{v_0u_j}{h}\right].
 \end{gathered}
 \tag{B.4}
 ```
@@ -1033,7 +1033,7 @@ Here $`C_f`$ bounds the future constant term and $`C_{\rm pre}`$ bounds the stoc
 | Weighted second moment | $`[0,2]`$ | 512 | $`1-(\kappa-2\rho\xi)h`$ | 1 | $`4r+d`$ |
 | Thirteen linear transforms | $`[-1/2,1]`$ | 1024 | $`1-(\kappa-\rho\xi)h`$ | $`3/8`$ | $`2r+d`$ |
 
-The finite catalog checks both $`\operatorname{Re}b\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum.
+The finite catalog checks both $`\mathop{\mathrm{Re}}\nolimitsb\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum.
 
 ### B.3 Moment growth and removal of stopping
 
@@ -1056,7 +1056,7 @@ Over the same enlarged range, the state coefficient in the tilted exponent remai
 
 ```math
 12\eta_{5/2}-144\alpha-\frac{15}{8}h^2
-=\frac{8001336523}{983040000}>0.
+=\frac{8001336523}{983040000}\gt 0.
 ```
 
 The total constant growth satisfies
@@ -1064,7 +1064,7 @@ The total constant growth satisfies
 ```math
 \begin{gathered}
 4d+\frac52r+\frac{4e^{-12d}}{12e}
-<.589267620943<.6.
+\lt .589267620943\lt .6.
 \end{gathered}
 \tag{B.6}
 ```
@@ -1078,7 +1078,7 @@ M_2=e^{4v_0+.6}=e^{.78}
 \tag{B.7}
 ```
 
-First stop the continuous affine expression on bounded variance domains. Raising its modulus to the power $`5/4`$ scales the stock loadings into the range above. The future positive variance coefficient is at most $`5/4<4`$, and the nonpositive killing contribution can be omitted in an upper bound. Equations (B.5)–(B.6) therefore give a uniform $`L^{5/4}`$ bound for the stopped family, implying uniform integrability. Removing the stopping identifies the Riccati expression with the true transform expectation. The finite discrete telescoping sum involves only finitely many integrable conditional expectations, to which the same moment-growth estimate applies.
+First stop the continuous affine expression on bounded variance domains. Raising its modulus to the power $`5/4`$ scales the stock loadings into the range above. The future positive variance coefficient is at most $`5/4\lt 4`$, and the nonpositive killing contribution can be omitted in an upper bound. Equations (B.5)–(B.6) therefore give a uniform $`L^{5/4}`$ bound for the stopped family, implying uniform integrability. Removing the stopping identifies the Riccati expression with the true transform expectation. The finite discrete telescoping sum involves only finitely many integrable conditional expectations, to which the same moment-growth estimate applies.
 
 ## Appendix C. Complete error control for inversion of the thirteen linear transforms
 
@@ -1128,7 +1128,7 @@ Poisson periodization gives
 \sum_{k\in\mathbb Z}e^{-\delta kL}F_\mu(y+kL).
 ```
 
-For $`k>0`$, use the total mass $`M_{\mu,0}`$. For $`k=-j<0`$, use $`F_\mu(y-jL)\le e^{y-jL}M_{\mu,-1}`$. The sum of the nonzero-index terms is then at most
+For $`k\gt 0`$, use the total mass $`M_{\mu,0}`$. For $`k=-j\lt 0`$, use $`F_\mu(y-jL)\le e^{y-jL}M_{\mu,-1}`$. The sum of the nonzero-index terms is then at most
 
 ```math
 \begin{gathered}
@@ -1256,20 +1256,20 @@ On every subinterval, verify
 \begin{gathered}
 \cosh(|D_q|\Delta t/2)-1+
 \frac{|\kappa_q-2\alpha b|\Delta t}{2}
-\cosh(|D_q|\Delta t/2)<1.
+\cosh(|D_q|\Delta t/2)\lt 1.
 \end{gathered}
 \tag{C.10}
 ```
 
-Absolute-value bounds on the power series imply $`|\mathcal D_t-1|<1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\operatorname{Re}b=1`$, the imaginary-part quadratic form
+Absolute-value bounds on the power series imply $`|\mathcal D_t-1|\lt 1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\mathop{\mathrm{Re}}\nolimitsb=1`$, the imaginary-part quadratic form
 
 ```math
--\alpha(\operatorname{Im}b)^2
--\rho\xi(\operatorname{Im}q)(\operatorname{Im}b)
--(\operatorname{Im}q)^2/2
+-\alpha(\mathop{\mathrm{Im}}\nolimitsb)^2
+-\rho\xi(\mathop{\mathrm{Im}}\nolimitsq)(\mathop{\mathrm{Im}}\nolimitsb)
+-(\mathop{\mathrm{Im}}\nolimitsq)^2/2
 ```
 
-is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\operatorname{Re}b\le1`$. Appendix B.3 identifies the affine expression with the true transform.
+is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\mathop{\mathrm{Re}}\nolimitsb\le1`$. Appendix B.3 identifies the affine expression with the true transform.
 
 ### C.5 Combination and precision
 
@@ -1346,11 +1346,11 @@ Independence of the coordinates makes the cross-score expectations vanish, yield
 
 ### D.3 A complete finite-step comparison
 
-For two variance vectors $`s,\tilde s`$, suppose that their endpoints and the segment joining them satisfy $`s_j,\tilde s_j\ge u_j>0`$. Integrating the first-order score along the segment gives
+For two variance vectors $`s,\tilde s`$, suppose that their endpoints and the segment joining them satisfy $`s_j,\tilde s_j\ge u_j\gt 0`$. Integrating the first-order score along the segment gives
 
 ```math
 \begin{gathered}
-\operatorname{TV}(p_s,p_{\tilde s})
+\mathop{\mathrm{TV}}\nolimits(p_s,p_{\tilde s})
 \le\left\{
 \sum_j(\tilde s_j-s_j)^2
 \left(\frac1{8u_j^2}+\frac1{16u_j}\right)
@@ -1359,7 +1359,7 @@ For two variance vectors $`s,\tilde s`$, suppose that their endpoints and the se
 \tag{D.1}
 ```
 
-For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\tau}\operatorname{TV}`$. On (6.10), using the uniform bounds $`|D|\le.015`$ and $`u_j\ge.03/12`$, finite computation gives
+For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\tau}\mathop{\mathrm{TV}}\nolimits`$. On (6.10), using the uniform bounds $`|D|\le.015`$ and $`u_j\ge.03/12`$, finite computation gives
 
 ```math
 |e_{h,\rm Asian}|\le.004990923469,\qquad
@@ -1377,7 +1377,7 @@ S_d(G)=\sum_jd_j\left[\frac{G_j^2-1}{2s_j}-\frac{G_j}{2\sqrt{s_j}}\right],
 \qquad F=\sum_jd_j^2J(s_j).
 ```
 
-After centering the payoff, omitting the region $`\max_j|G_j|>R`$ incurs error at most
+After centering the payoff, omitting the region $`\max_j|G_j|\gt R`$ incurs error at most
 
 ```math
 \begin{gathered}
@@ -1438,7 +1438,7 @@ For the deterministic reference $`v\ge m`$,
 
 The drift contribution to the log-stock difference is bounded by $`T\xi C_\nu/2`$. The Itô isometry and Doob's $`L^2`$ inequality bound the martingale contribution by $`2\xi C_\nu\sqrt{T/m}`$, proving (7.3). Correlation between the stock Brownian motion and the variance driver does not alter these inequalities for adapted stochastic integrals.
 
-For a put, the absolute derivative with respect to log stock price is at most $`K`$ on the active region. For the capped Asian, consider a line segment in the fixing log-price vector. On the active region $`K_1<A<K_2`$, the gradient has $`\ell^1`$-norm $`A\le K_2`$; elsewhere it is zero. Piecewise absolute continuity gives the global Lipschitz constant 110. Thus, for maturity $`T`$,
+For a put, the absolute derivative with respect to log stock price is at most $`K`$ on the active region. For the capped Asian, consider a line segment in the fixing log-price vector. On the active region $`K_1\lt A\lt K_2`$, the gradient has $`\ell^1`$-norm $`A\le K_2`$; elsewhere it is zero. Piecewise absolute continuity gives the global Lipschitz constant 110. Thus, for maturity $`T`$,
 
 ```math
 e_{\nu,i}=K_i e^{-rT_i}\xi_{\max}C_\nu
@@ -1522,7 +1522,7 @@ d_2=d_1-\sqrt{I_\nu}.
 \tag{F.2}
 ```
 
-Since $`b_\nu(T)>0`$ and vega is positive, the reference price over each entire $`u`$-cell is enclosed by its endpoint values. Expanding both endpoints by (E.3) then encloses the true prices over the entire cell and all $`\zeta`$.
+Since $`b_\nu(T)\gt 0`$ and vega is positive, the reference price over each entire $`u`$-cell is enclosed by its endpoint values. Expanding both endpoints by (E.3) then encloses the true prices over the entire cell and all $`\zeta`$.
 
 Let
 
@@ -1564,7 +1564,7 @@ Writing the residual vector as $`r`$, its potential is a sum of nonnegative term
 \begin{gathered}
 \frac12r^T\Sigma_d^{-1}r=
 \frac{32}{27(d+3)}
-\left(3\sum_i r_i^2+\sum_{i<j}(r_i-r_j)^2\right).
+\left(3\sum_i r_i^2+\sum_{i\lt j}(r_i-r_j)^2\right).
 \end{gathered}
 \tag{F.4}
 ```
@@ -1572,20 +1572,20 @@ Writing the residual vector as $`r`$, its potential is a sum of nonnegative term
 Evaluate this expression and its exponential outward, then round to the exact integer lattice with spacing $`2^{-96}`$, to obtain
 
 ```math
-0<l_{\nu,i}\le w_\nu(u,\zeta)\le u_{\nu,i}\le1
+0\lt l_{\nu,i}\le w_\nu(u,\zeta)\le u_{\nu,i}\le1
 ```
 
 throughout the entire cell and nuisance-parameter domain. Integration against the probability measure $`\nu(d\zeta)`$ gives the same enclosure for $`\bar w_\nu(u)`$.
 
 ### F.4 Shared normalization and inverse-CDF pairing
 
-Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_<,U_<`$, and those to its right by $`L_>,U_>`$. The marginal CDF $`G_\nu`$ satisfies
+Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_\lt ,U_\lt `$, and those to its right by $`L_\gt ,U_\gt `$. The marginal CDF $`G_\nu`$ satisfies
 
 ```math
 \begin{gathered}
-\underline G_\nu(x_k)=\frac{L_<}{L_<+U_>},
+\underline G_\nu(x_k)=\frac{L_\lt }{L_\lt +U_\gt },
 \qquad
-\overline G_\nu(x_k)=\frac{U_<}{U_<+L_>}.
+\overline G_\nu(x_k)=\frac{U_\lt }{U_\lt +L_\gt }.
 \end{gathered}
 \tag{F.5}
 ```
