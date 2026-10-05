@@ -106,7 +106,7 @@ def github_tex(s):
     # Equivalent base macros avoid HTML parsing and optional extension filters.
     s = s.replace(r'\xRightarrow{\ \Phi\ }', r'\overset{\ \Phi\ }{\Longrightarrow}')
     s = re.sub(r'\\operatorname\{(Var|Re|Im|TV)\}',
-               lambda m: r'\mathop{\mathrm{' + m.group(1) + r'}}\nolimits', s)
+               lambda m: r'\mathop{\mathrm{' + m.group(1) + r'}}\nolimits ', s)
     return re.sub(r'(?<!\\)[<>]', lambda m: r'\lt ' if m.group() == '<' else r'\gt ', s)
 
 

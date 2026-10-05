@@ -431,7 +431,7 @@ Let $`X_*`$ be the continuous/discrete model pair at (4.3). For the continuous m
 
 ```math
 \begin{gathered}
-\mathop{\mathrm{Var}}\nolimits(V_t)=\xi^2\int_0^t e^{-2\kappa(t-s)}EV_s\,ds\gt 0
+\mathop{\mathrm{Var}}\nolimits (V_t)=\xi^2\int_0^t e^{-2\kappa(t-s)}EV_s\,ds\gt 0
 \quad(t\gt 0),
 \end{gathered}
 \tag{5.5}
@@ -1033,7 +1033,7 @@ Here $`C_f`$ bounds the future constant term and $`C_{\rm pre}`$ bounds the stoc
 | Weighted second moment | $`[0,2]`$ | 512 | $`1-(\kappa-2\rho\xi)h`$ | 1 | $`4r+d`$ |
 | Thirteen linear transforms | $`[-1/2,1]`$ | 1024 | $`1-(\kappa-\rho\xi)h`$ | $`3/8`$ | $`2r+d`$ |
 
-The finite catalog checks both $`\mathop{\mathrm{Re}}\nolimitsb\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum.
+The finite catalog checks both $`\mathop{\mathrm{Re}}\nolimits b\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum.
 
 ### B.3 Moment growth and removal of stopping
 
@@ -1261,15 +1261,15 @@ On every subinterval, verify
 \tag{C.10}
 ```
 
-Absolute-value bounds on the power series imply $`|\mathcal D_t-1|\lt 1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\mathop{\mathrm{Re}}\nolimitsb=1`$, the imaginary-part quadratic form
+Absolute-value bounds on the power series imply $`|\mathcal D_t-1|\lt 1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\mathop{\mathrm{Re}}\nolimits b=1`$, the imaginary-part quadratic form
 
 ```math
--\alpha(\mathop{\mathrm{Im}}\nolimitsb)^2
--\rho\xi(\mathop{\mathrm{Im}}\nolimitsq)(\mathop{\mathrm{Im}}\nolimitsb)
--(\mathop{\mathrm{Im}}\nolimitsq)^2/2
+-\alpha(\mathop{\mathrm{Im}}\nolimits b)^2
+-\rho\xi(\mathop{\mathrm{Im}}\nolimits q)(\mathop{\mathrm{Im}}\nolimits b)
+-(\mathop{\mathrm{Im}}\nolimits q)^2/2
 ```
 
-is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\mathop{\mathrm{Re}}\nolimitsb\le1`$. Appendix B.3 identifies the affine expression with the true transform.
+is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\mathop{\mathrm{Re}}\nolimits b\le1`$. Appendix B.3 identifies the affine expression with the true transform.
 
 ### C.5 Combination and precision
 
@@ -1350,7 +1350,7 @@ For two variance vectors $`s,\tilde s`$, suppose that their endpoints and the se
 
 ```math
 \begin{gathered}
-\mathop{\mathrm{TV}}\nolimits(p_s,p_{\tilde s})
+\mathop{\mathrm{TV}}\nolimits (p_s,p_{\tilde s})
 \le\left\{
 \sum_j(\tilde s_j-s_j)^2
 \left(\frac1{8u_j^2}+\frac1{16u_j}\right)
@@ -1359,7 +1359,7 @@ For two variance vectors $`s,\tilde s`$, suppose that their endpoints and the se
 \tag{D.1}
 ```
 
-For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\tau}\mathop{\mathrm{TV}}\nolimits`$. On (6.10), using the uniform bounds $`|D|\le.015`$ and $`u_j\ge.03/12`$, finite computation gives
+For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\tau}\mathop{\mathrm{TV}}\nolimits `$. On (6.10), using the uniform bounds $`|D|\le.015`$ and $`u_j\ge.03/12`$, finite computation gives
 
 ```math
 |e_{h,\rm Asian}|\le.004990923469,\qquad

@@ -52,6 +52,10 @@ def main():
             actual.append(('inline', compact(tex)))
     assert actual == expected, 'Markdown formulas differ from the structured source'
     assert Counter(kind for kind, _ in actual) == {'display': 147, 'inline': 373}
+    for _, tex in actual:
+        assert not re.search(r'(?<!\\)[<>]', tex), 'Use TeX comparison macros in rendered formulas'
+        assert r'\operatorname' not in tex, 'Use a base operator macro in rendered formulas'
+        assert not re.search(r'\\nolimits[A-Za-z]', tex), 'A macro needs a token separator'
     tags = re.findall(r'\\tag\*?\{([^}]+)\}', md)
     assert len(tags) == 88 and len(set(tags)) == 88
     assert '$$' not in md and re.sub(pattern, '', md).count('$') == 0

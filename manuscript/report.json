@@ -2054,7 +2054,7 @@
       "tags": [
         "5.5"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\mathop{\\mathrm{Var}}\\nolimits(V_t)=\\xi^2\\int_0^t e^{-2\\kappa(t-s)}EV_s\\,ds\\gt 0\n\\quad(t\\gt 0),\n\\end{gathered}\n\\tag{5.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathop{\\mathrm{Var}}\\nolimits (V_t)=\\xi^2\\int_0^t e^{-2\\kappa(t-s)}EV_s\\,ds\\gt 0\n\\quad(t\\gt 0),\n\\end{gathered}\n\\tag{5.5}\n```"
     },
     {
       "type": "paragraph",
@@ -5059,7 +5059,7 @@
           "text": " is applied to this sum."
         }
       ],
-      "markdown": "The finite catalog checks both $`\\mathop{\\mathrm{Re}}\\nolimitsb\\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum."
+      "markdown": "The finite catalog checks both $`\\mathop{\\mathrm{Re}}\\nolimits b\\le1`$ and the modulus bound for the future coefficients. In the first case, (B.4) is multiplied by $`10000(1+c)^2`$ to obtain the error allowance at each Laplace node. In the second case, it is multiplied by the sum of the absolute values of all Fourier coefficients. No additional factor of $`h`$ is applied to this sum."
     },
     {
       "type": "heading",
@@ -6057,14 +6057,14 @@
           "text": ", the imaginary-part quadratic form"
         }
       ],
-      "markdown": "Absolute-value bounds on the power series imply $`|\\mathcal D_t-1|\\lt 1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\\mathop{\\mathrm{Re}}\\nolimitsb=1`$, the imaginary-part quadratic form"
+      "markdown": "Absolute-value bounds on the power series imply $`|\\mathcal D_t-1|\\lt 1`$ along the entire subinterval. The principal logarithm therefore remains continuously connected to the initial value 1 of the denominator. At the boundary $`\\mathop{\\mathrm{Re}}\\nolimits b=1`$, the imaginary-part quadratic form"
     },
     {
       "type": "display_math",
       "id": "display-fb590c8f4778",
       "tex": "\n-\\alpha(\\operatorname{Im}b)^2\n-\\rho\\xi(\\operatorname{Im}q)(\\operatorname{Im}b)\n-(\\operatorname{Im}q)^2/2\n",
       "tags": [],
-      "markdown": "```math\n-\\alpha(\\mathop{\\mathrm{Im}}\\nolimitsb)^2\n-\\rho\\xi(\\mathop{\\mathrm{Im}}\\nolimitsq)(\\mathop{\\mathrm{Im}}\\nolimitsb)\n-(\\mathop{\\mathrm{Im}}\\nolimitsq)^2/2\n```"
+      "markdown": "```math\n-\\alpha(\\mathop{\\mathrm{Im}}\\nolimits b)^2\n-\\rho\\xi(\\mathop{\\mathrm{Im}}\\nolimits q)(\\mathop{\\mathrm{Im}}\\nolimits b)\n-(\\mathop{\\mathrm{Im}}\\nolimits q)^2/2\n```"
     },
     {
       "type": "paragraph",
@@ -6082,7 +6082,7 @@
           "text": ". Appendix B.3 identifies the affine expression with the true transform."
         }
       ],
-      "markdown": "is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\\mathop{\\mathrm{Re}}\\nolimitsb\\le1`$. Appendix B.3 identifies the affine expression with the true transform."
+      "markdown": "is nonpositive and the remaining real drift is strictly negative. Thus the continuous flow satisfies $`\\mathop{\\mathrm{Re}}\\nolimits b\\le1`$. Appendix B.3 identifies the affine expression with the true transform."
     },
     {
       "type": "heading",
@@ -6427,7 +6427,7 @@
       "tags": [
         "D.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\mathop{\\mathrm{TV}}\\nolimits(p_s,p_{\\tilde s})\n\\le\\left\\{\n\\sum_j(\\tilde s_j-s_j)^2\n\\left(\\frac1{8u_j^2}+\\frac1{16u_j}\\right)\n\\right\\}^{1/2}.\n\\end{gathered}\n\\tag{D.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathop{\\mathrm{TV}}\\nolimits (p_s,p_{\\tilde s})\n\\le\\left\\{\n\\sum_j(\\tilde s_j-s_j)^2\n\\left(\\frac1{8u_j^2}+\\frac1{16u_j}\\right)\n\\right\\}^{1/2}.\n\\end{gathered}\n\\tag{D.1}\n```"
     },
     {
       "type": "paragraph",
@@ -6469,7 +6469,7 @@
           "text": ", finite computation gives"
         }
       ],
-      "markdown": "For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\\tau}\\mathop{\\mathrm{TV}}\\nolimits`$. On (6.10), using the uniform bounds $`|D|\\le.015`$ and $`u_j\\ge.03/12`$, finite computation gives"
+      "markdown": "For a payoff with range length $`L`$, the price difference is at most $`Le^{-r\\tau}\\mathop{\\mathrm{TV}}\\nolimits `$. On (6.10), using the uniform bounds $`|D|\\le.015`$ and $`u_j\\ge.03/12`$, finite computation gives"
     },
     {
       "type": "display_math",
