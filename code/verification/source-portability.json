@@ -1,0 +1,84 @@
+{
+  "method": "Directory relocation, dependency import, documentation identity, output naming, and descriptive metadata changes only; numerical algorithms and numeric literal tokens retained. All numerical outputs are checked against reference values prepared before execution.",
+  "sources": [
+    {
+      "source_original_sha256": "b7c2d86e4a2450d5bf9c41f61a7946c771ceab230343c761591e5f5c5b8bdb41",
+      "public_path": "core/check-asian-remainder.py",
+      "public_sha256": "30702cc306d9c5456fd1ff505e8fb15f4773ef38955a22a6b0db67f9440a4347",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "9c8c8a24ade563a93529da60220b20df8674dbd0ca81b0e0c17a4dc1a7ee6e09",
+      "public_path": "core/asian-remainder-certificate.py",
+      "public_sha256": "7c9a8d15a8576250e601f97950a2e6b8142852308e762a7711c2c1a1bf7f901f",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "6286f1a922e7947a6bf97e4946b2eed095a05ba115a9d827d2ac057c02c19296",
+      "public_path": "core/asian-linear-certificate.py",
+      "public_sha256": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "624ae305351ff3a1901194a668b57ea3100ab5a6f90c186b529a7f77856564b9",
+      "public_path": "core/check-asian-linear.py",
+      "public_sha256": "28fddd6f239e8a923e67b0e6f4b89775652ca7f22baccb3de7c23873da15abce",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "36966d799f1b00eba861e7f8dd62ec3d5f0d3c05f7347b500068138e99ca4c80",
+      "public_path": "core/check-small-xi.py",
+      "public_sha256": "a64d6182f80745f4318925c5949d5a65b80786bc65efb22addd71a2b1317bd98",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "a4aea81353a376bd8458fa77ed9435124891ab6fae60ba6441b42049837cb8bf",
+      "public_path": "core/check-posterior.py",
+      "public_sha256": "982cda8fac6f3d96a17ed8e8e95a63460b0a2bf1fcea7df345d8c5ed358f3d13",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "820ccc347514fe301d07f6f748acf8da63f08f85617ea1b504a97f11d8382e54",
+      "public_path": "core/posterior-compat-certificate.py",
+      "public_sha256": "7f604e33d2329c8167299eaae90b3e3b41dd1195da37b687049210e7f5ad8015",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "49bccf3e99bfde61ff815fb6ba8ac48ab4ab8672eac9fdbc6e81eefcb9d016d6",
+      "public_path": "core/posterior-certificate.py",
+      "public_sha256": "4f3b06d84ed9a12e26cc9170de1f0ccf608226c7dd297232c1dd0c9aef6b9f6c",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "42e26f1b80802b0f0bf5ed0c69dfaf46802c9d4249bdaf61546b9347416560f0",
+      "public_path": "core/posterior-zero-certificate.py",
+      "public_sha256": "26f2cad6bdcc8ff6a74640235455a507af4dee3137d29cf1ae385c784345da8d",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "9d27eb6bab3bf0f17b8db92df502afa2c0d8b3a4f5a34aad83a1aaeb45823d6d",
+      "public_path": "core/check-posterior-zero.py",
+      "public_sha256": "c648e642e9f9fd93b53c1b01d03e51c1f5d3ebacf0b6cf6d12e7f47c04b29c99",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "d440104984c3dfef8c786951110704332ba2b94c7e5ab8e45ec1ac26a58dc271",
+      "public_path": "core/small-xi-certificate.py",
+      "public_sha256": "e575be1a88cb67f32c806d3b545f38e735b4fc856ce5fe160323800affe9e328",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "c64c6cc72037de9632fbbd9611f6bd2ecfc6a792ed2d22c6c2fc3215ff384d2f",
+      "public_path": "core/deterministic-tt-certificate.py",
+      "public_sha256": "7748ccc9086d02b89851b7c757cab66d0f6a0d072bc9b66f85495e691ff676a7",
+      "numeric_literal_tokens_unchanged": true
+    },
+    {
+      "source_original_sha256": "46430d2f3591a49b4bb36bbf9d9e997cd230de07e48f0b62a09faa7c28ff361f",
+      "public_path": "core/check-tt.py",
+      "public_sha256": "333b3e0f2e1880f8e62a77383faa1a8af1d5792058ca38a2a75668ceae522927",
+      "numeric_literal_tokens_unchanged": true
+    }
+  ],
+  "helper_sha256": "300d8960faa25be959bbf73cf58ec91100abe10214634d08124b91ad6893255b"
+}

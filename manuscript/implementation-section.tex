@@ -1,0 +1,42 @@
+\section{Reproducible implementation}
+
+The public \href{../code/README.md}{implementation guide} describes the numerical
+entry point \texttt{code/run.py}. The configuration in
+\texttt{code/configuration.json} specifies the parameter domain and module
+dependencies for each theorem. Core programs are stored in \texttt{code/core/},
+reference results in \texttt{code/reference/}, and the exact synthetic calibration
+inputs in \texttt{code/data/synthetic\_quotes.json}.
+Each execution creates an isolated output directory and preserves the reference results.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+Module & Corresponding result \\
+\midrule
+\texttt{asian} & The complete certificate at the original point in Theorem~4.1 and Corollary~4.2 \\
+\texttt{tt} & Theorem~6.1 and the effective constants on (6.10) \\
+\texttt{small-xi} & The five-dimensional parameter box (7.4) \\
+\texttt{posterior-zero} & Posterior and target constants for the Gaussian reference \\
+\texttt{posterior} & Theorem~7.1 and the full three-dimensional prior (7.5) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+From the repository root, install the specified dependency with
+\texttt{python -m pip install -r code/requirements.txt}.
+Run all author modules and independent recomputations with
+\texttt{python code/run.py run --module all --independent}.
+The \texttt{--module} option also accepts any single module in the table.
+The \texttt{verify} command checks the per-file SHA manifest; the
+\texttt{check --run} command compares the mathematical fields of an execution
+directory with their reference values. Runtime and output-location metadata are
+separate from these mathematical comparisons.
+
+The reference environment is Windows x86-64, CPython~3.12, and python-flint~0.8.0.
+Each numerical worker uses one thread and a hard memory limit of 256~MiB;
+an outer controller enforces timeouts and checks the results.
+The implementation's domains and theorem associations are documented in
+\href{../code/SCOPE.md}{the numerical scope guide}.
+The price conclusions rely on mathematical proofs and validated arithmetic
+enclosures; the implementation makes the finite numerical inputs and error
+bounds reproducible.

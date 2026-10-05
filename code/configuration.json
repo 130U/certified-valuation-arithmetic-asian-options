@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "global_contract": {
+    "S0": "100",
+    "r": "1/100",
+    "h": "1/768",
+    "Asian_fixings": 12,
+    "Asian_strikes": [
+      95,
+      110
+    ],
+    "bias_sign": "Q minus P",
+    "worker_threads": 1,
+    "worker_memory_MiB": 256,
+    "minimum_available_memory_MiB": 512
+  },
+  "domains": {
+    "asian": {
+      "theta_order": [
+        "kappa",
+        "vbar",
+        "xi",
+        "rho",
+        "v0"
+      ],
+      "theta": [
+        "3",
+        "9/200",
+        "23/100",
+        "-11/20",
+        "9/200"
+      ],
+      "threshold": ".025",
+      "scope": "Single original parameter point; original arithmetic payoff and positive-part Euler."
+    },
+    "tt": {
+      "kappa": "3",
+      "vbar": ".045",
+      "xi": "0",
+      "v0": [
+        ".03",
+        ".06"
+      ],
+      "scope": "All aligned h <= 1/768 on the deterministic-variance face; Asian leading coefficient is not numerically integrated."
+    },
+    "small-xi": {
+      "kappa": [
+        "2.999",
+        "3.001"
+      ],
+      "vbar": [
+        ".04499",
+        ".04501"
+      ],
+      "xi": [
+        ".00001",
+        ".00004"
+      ],
+      "rho": [
+        "-.8",
+        "-.3"
+      ],
+      "v0": [
+        ".03001",
+        ".05999"
+      ],
+      "scope": "Positive-volume box outside the original xi in [.18,.28] domain."
+    },
+    "posterior-zero": {
+      "kappa": "3",
+      "vbar": ".045",
+      "xi": "0",
+      "prior_v0": [
+        ".03",
+        ".06"
+      ],
+      "cells": 4096,
+      "quotes": "Fixed synthetic binary64 values; not market data."
+    },
+    "posterior": {
+      "kappa": "3",
+      "vbar": ".045",
+      "prior_v0": [
+        ".03",
+        ".06"
+      ],
+      "prior_xi": [
+        "1e-7",
+        "1e-6"
+      ],
+      "prior_rho": [
+        "-.8",
+        "-.3"
+      ],
+      "prior": "Independent uniforms on these three coordinates",
+      "cells": 4096,
+      "quotes": "Fixed synthetic binary64 values; not market data.",
+      "scope": "All-quantile P/Q shift; does not certify the original five-dimensional prior."
+    }
+  },
+  "modules": {
+    "tt": {
+      "author": [
+        "tt"
+      ],
+      "independent": [
+        "tt-check"
+      ]
+    },
+    "small-xi": {
+      "author": [
+        "small-xi"
+      ],
+      "independent": [
+        "small-xi-check"
+      ]
+    },
+    "posterior-zero": {
+      "author": [
+        "posterior-zero"
+      ],
+      "independent": [
+        "posterior-zero-check"
+      ]
+    },
+    "posterior": {
+      "author": [
+        "posterior-zero",
+        "posterior"
+      ],
+      "independent": [
+        "posterior-zero-check",
+        "posterior-compat",
+        "posterior-check"
+      ]
+    },
+    "asian": {
+      "author": [
+        "asian-W",
+        "asian-pilot",
+        "asian-linear"
+      ],
+      "independent": [
+        "asian-W-check",
+        "asian-linear-check"
+      ]
+    }
+  },
+  "jobs": {
+    "tt": [
+      "deterministic-tt-certificate.py",
+      [],
+      75,
+      "deterministic-tt-result.json"
+    ],
+    "small-xi": [
+      "small-xi-certificate.py",
+      [],
+      75,
+      "small-xi-result.json"
+    ],
+    "posterior-zero": [
+      "posterior-zero-certificate.py",
+      [
+        "4096"
+      ],
+      110,
+      "posterior-zero-4096-result.json"
+    ],
+    "posterior": [
+      "posterior-certificate.py",
+      [
+        "4096"
+      ],
+      110,
+      "posterior-4096-result.json"
+    ],
+    "asian-W": [
+      "asian-remainder-certificate.py",
+      [],
+      75,
+      "asian-remainder-result.json"
+    ],
+    "asian-pilot": [
+      "asian-linear-certificate.py",
+      [
+        "--pilot"
+      ],
+      40,
+      "asian-linear-pilot-result.json"
+    ],
+    "asian-linear": [
+      "asian-linear-certificate.py",
+      [],
+      195,
+      "asian-linear-result.json"
+    ],
+    "tt-check": [
+      "check-tt.py",
+      [],
+      75,
+      "check-tt-result.json"
+    ],
+    "small-xi-check": [
+      "check-small-xi.py",
+      [],
+      45,
+      "check-small-xi-result.json"
+    ],
+    "posterior-zero-check": [
+      "check-posterior-zero.py",
+      [],
+      110,
+      "check-posterior-zero-result.json"
+    ],
+    "posterior-compat": [
+      "posterior-compat-certificate.py",
+      [
+        "4096"
+      ],
+      110,
+      "posterior-compat-4096-result.json"
+    ],
+    "posterior-check": [
+      "check-posterior.py",
+      [],
+      110,
+      "check-posterior-result.json"
+    ],
+    "asian-W-check": [
+      "check-asian-remainder.py",
+      [],
+      70,
+      "check-asian-remainder-result.json"
+    ],
+    "asian-linear-check": [
+      "check-asian-linear.py",
+      [],
+      195,
+      "check-asian-linear-result.json"
+    ]
+  },
+  "contract": "Numerical parameters are fixed in the numerical source; this file selects modules and resource limits only."
+}

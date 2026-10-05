@@ -1,0 +1,5 @@
+This directory contains the numerical implementations and synthetic test inputs accompanying the paper.
+
+python-flint is a separately installed third-party dependency. It and its native dependencies retain their respective licenses and attribution. No dependency binary or third-party source is redistributed in this directory. See https://github.com/flintlib/python-flint for the upstream project and license information.
+
+The numerical claims depend on the accompanying mathematical proofs, the explicitly stated parameter domains, and standard outward-inclusion semantics of interval arithmetic. Independent numerical verification is distinct from external peer review.

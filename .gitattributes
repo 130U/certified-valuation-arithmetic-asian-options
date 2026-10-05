@@ -1,0 +1,2 @@
+# Preserve byte identities used by the numerical integrity checks.
+code/** -text
