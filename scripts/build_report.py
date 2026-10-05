@@ -107,6 +107,16 @@ def github_tex(s):
     return s.replace(r'\xRightarrow{\ \Phi\ }', r'\overset{\ \Phi\ }{\Longrightarrow}')
 
 
+def github_display_tex(s):
+    s = github_tex(s.strip())
+    # A row container keeps tagged expressions horizontal in native MathML.
+    tag = re.search(r'\\tag\*?\{[^}]*\}\s*$', s)
+    if tag and not s.startswith(r'\begin{'):
+        return (r'\begin{gathered}' + '\n' + s[:tag.start()].strip() + '\n'
+                + r'\end{gathered}' + '\n' + tag.group().strip())
+    return s
+
+
 def inlines(s, citations):
     result, buf, i = [], [], 0
 
@@ -284,7 +294,7 @@ def make_blocks(s, citations, abstract=False):
         elif kind == 'display':
             tags = re.findall(r'\\tag\*?\{([^}]*)\}', text)
             b = {'type': 'display_math', 'id': 'eq-' + tags[0].lower().replace('.', '-') if tags else 'display-' + hashlib.sha256(text.encode()).hexdigest()[:12],
-                 'tex': text, 'tags': tags, 'markdown': '```math\n' + github_tex(text.strip()) + '\n```'}
+                 'tex': text, 'tags': tags, 'markdown': '```math\n' + github_display_tex(text) + '\n```'}
         elif kind == 'prose':
             for p in re.split(r'\n\s*\n', clean_prose(text)):
                 p = p.strip()

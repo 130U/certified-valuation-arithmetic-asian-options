@@ -94,24 +94,30 @@ where $`G_j,H_j`$ are independent standard normal variables, the two updates at 
 Fix $`0<t_1<\cdots<t_n=T`$, and set
 
 ```math
+\begin{gathered}
 A=\frac1n\sum_{i=1}^nS_{t_i},\qquad
 G=\left(\prod_{i=1}^nS_{t_i}\right)^{1/n},\qquad
 \psi(x)=(x-K_1)^+-(x-K_2)^+,
+\end{gathered}
 \tag{2.3}
 ```
 
 where $`0<K_1<K_2`$. Write
 
 ```math
+\begin{gathered}
 p_c=e^{-rT}E_P\psi(A),\qquad
 p_h=e^{-rT}E_{Q_h}\psi(A),\qquad e_h=p_h-p_c.
+\end{gathered}
 \tag{2.4}
 ```
 
 This sign convention for the error is used throughout. The numerical example uses $`n=12,t_i=i/12,T=1`$, and
 
 ```math
+\begin{gathered}
 S_0=100,\quad r=.01,\quad K_1=95,\quad K_2=110,\quad h=1/768.
+\end{gathered}
 \tag{2.5}
 ```
 
@@ -122,15 +128,19 @@ The calibration payoffs are the nine European puts with maturities $`1/4,1/2,1`$
 A pricing law $`\nu`$ is said to satisfy $`\mathsf H_s(c)`$ if there exist a sub-$`\sigma`$-algebra $`\mathcal G`$, positive $`\mathcal G`$-measurable random variables $`a_1,\ldots,a_n,\sigma`$, and a random variable $`U`$ such that
 
 ```math
+\begin{gathered}
 U\mid\mathcal G\sim N(0,\sigma^2),\qquad S_{t_i}=e^Ua_i.
+\end{gathered}
 \tag{2.6}
 ```
 
 Set $`a=n^{-1}\sum_i a_i`$ and $`g=(\prod_i a_i)^{1/n}`$. We require
 
 ```math
+\begin{gathered}
 E_\nu(A+G)<\infty,\qquad
 D_\nu(c):=E_\nu\!\left[\frac{(A-cG)^2}{\sigma}\right]<\infty.
+\end{gathered}
 \tag{2.7}
 ```
 
@@ -151,7 +161,9 @@ These inputs are defined in terms of specific transforms or moments. Their conne
 The property $`\mathsf M`$ has two components: an exact decomposition of the actual payoff into a linear term and a remainder, and signed enclosures for each remainder and each linear-transform error. The target conclusion $`\mathsf B`$ is a definite finite interval $`[\underline e,\overline e]`$ such that
 
 ```math
+\begin{gathered}
 e_h\in[\underline e,\overline e].
+\end{gathered}
 \tag{2.8}
 ```
 
@@ -164,15 +176,19 @@ Each endpoint is obtained by finitely many rational operations and validated enc
 **Lemma 3.1.** Suppose that $`\mathsf H_s(c)`$ holds. For $`K>0`$, define
 
 ```math
+\begin{gathered}
 R_{K,\nu}=E_\nu\!\left[(A-K)^+-(cG-K)^+
 -(A-cG)\mathbf1_{\{cG>K\}}\right].
+\end{gathered}
 \tag{3.1}
 ```
 
 Then
 
 ```math
+\begin{gathered}
 0\le R_{K,\nu}\le \frac{D_\nu(c)}{2K\sqrt{2\pi}}.
+\end{gathered}
 \tag{3.2}
 ```
 
@@ -185,9 +201,11 @@ F_K(x)=E[(xe^U-K)^+\mid\mathcal G],\qquad x>0.
 Since $`\sigma>0`$, this function is twice differentiable, with
 
 ```math
+\begin{gathered}
 F_K''(x)=\frac{K}{\sigma x^2}
 \varphi\!\left(\frac{\log(x/K)}{\sigma}\right)
 \le\frac{e^{2\sigma^2}}{K\sigma\sqrt{2\pi}},
+\end{gathered}
 \tag{3.3}
 ```
 
@@ -222,14 +240,18 @@ The crucial point is that the two factors $`e^{2\sigma^2}`$ match exactly. Conse
 Define
 
 ```math
+\begin{gathered}
 \mathcal L=\psi(cG)+(A-cG)\mathbf1_{\{K_1<cG\le K_2\}}.
+\end{gathered}
 \tag{3.4}
 ```
 
 The conditional normal variance is strictly positive, so $`G`$ has no atom at any positive threshold. By (3.1),
 
 ```math
+\begin{gathered}
 E_\nu\psi(A)=E_\nu\mathcal L+R_{K_1,\nu}-R_{K_2,\nu}.
+\end{gathered}
 \tag{3.5}
 ```
 
@@ -245,18 +267,22 @@ F_{A,\nu}(y)=E_\nu[A\mathbf1_{\{Y\le y\}}].
 Expanding (3.4) on each of its intervals gives
 
 ```math
+\begin{gathered}
 E_\nu\mathcal L=(K_2-K_1)
 +K_1F_{0,\nu}(y_{K_1})-K_2F_{0,\nu}(y_{K_2})
 -F_{A,\nu}(y_{K_1})+F_{A,\nu}(y_{K_2}).
+\end{gathered}
 \tag{3.6}
 ```
 
 The corresponding transforms are
 
 ```math
+\begin{gathered}
 \widehat\mu_0(z)=E_\nu e^{zY},\qquad
 \widehat\mu_A(z)=\frac{S_0}{n}\sum_{i=1}^n
 E_\nu e^{Z_{t_i}+zY}.
+\end{gathered}
 \tag{3.7}
 ```
 
@@ -267,13 +293,16 @@ Thus the linear part requires thirteen loadings when $`n=12`$.
 **Theorem 4.1 (A signed enclosure of the price difference between two models).** Suppose that $`P,Q_h`$ each satisfy $`\mathsf H_s(c)`$, and that computable constants satisfy $`D_P(c)\le d_P,D_Q(c)\le d_Q`$. If $`\mathsf H_v`$ provides
 
 ```math
+\begin{gathered}
 e^{-rT}(E_Q\mathcal L-E_P\mathcal L)\in[\ell,u],
+\end{gathered}
 \tag{4.1}
 ```
 
 then, with $`\gamma=e^{-rT}/(2\sqrt{2\pi})`$,
 
 ```math
+\begin{gathered}
 \boxed{
 e_h\in
 \left[
@@ -281,6 +310,7 @@ e_h\in
 \quad
 u+\gamma\!\left(\frac{d_Q}{K_1}+\frac{d_P}{K_2}\right)
 \right].}
+\end{gathered}
 \tag{4.2}
 ```
 
@@ -291,15 +321,19 @@ The final step of the main theorem consists only of combining intervals. Its mat
 **Corollary 4.2 (The specified Heston parameter point).** For (2.1)–(2.5), take
 
 ```math
+\begin{gathered}
 \theta_*=(3,\;9/200,\;23/100,\;-11/20,\;9/200),\qquad
 c=\frac{1254433}{1250000}.
+\end{gathered}
 \tag{4.3}
 ```
 
 Then
 
 ```math
+\begin{gathered}
 e_h\in[-.011024692273,\;.010642371599],\qquad |e_h|<.011025<.025.
+\end{gathered}
 \tag{4.4}
 ```
 
@@ -316,8 +350,10 @@ p_h&\in[6.507844281,\;6.519014106].
 *Proof.* Section 5 establishes the common Gaussian structure. Appendices A–C specify all requirements for the validated arithmetic computation, which yields
 
 ```math
+\begin{gathered}
 W_P:=E_P[(A-cG)^2I^{-1/2}]\le2.172471592802,\qquad
 W_Q\le2.242189951600.
+\end{gathered}
 \tag{4.6}
 ```
 
@@ -330,7 +366,9 @@ Here $`d_\nu=W_\nu/\sqrt{1-\rho^2}`$. The center of the finite linear difference
 Define $`\mathsf A`$ as follows: the model's variance coefficient itself is a deterministic function $`v(t)\ge0`$, the stock price follows the corresponding linear geometric diffusion, and
 
 ```math
+\begin{gathered}
 0<I_1=\int_0^{t_1}v(t)\,dt,\qquad \int_0^T v(t)\,dt<\infty.
+\end{gathered}
 \tag{5.1}
 ```
 
@@ -345,8 +383,10 @@ D_\nu(c)=I_1^{-1/2}E_\nu(A-cG)^2<\infty.
 The second moment is computed directly from
 
 ```math
+\begin{gathered}
 E(A-cG)^2=\frac1{n^2}\sum_{i,j}ES_iS_j
 -\frac{2c}{n}\sum_iES_iG+c^2EG^2
+\end{gathered}
 \tag{5.2}
 ```
 
@@ -368,14 +408,18 @@ I_Q=h\sum_{j=0}^{t_1/h-1}V_j^h.
 The contribution of $`B`$ over the first interval is shared by every observation date. Hence
 
 ```math
+\begin{gathered}
 U\mid\mathcal G\sim N(0,(1-\rho^2)I_\nu),\qquad S_{t_i}=e^Ua_i.
+\end{gathered}
 \tag{5.3}
 ```
 
 For the continuous model, $`v_0>0`$ and continuity of the variance paths imply $`I_P>0`$ almost surely. For the discrete model, there is the exact lower bound
 
 ```math
+\begin{gathered}
 I_Q\ge hv_0>0.
+\end{gathered}
 \tag{5.4}
 ```
 
@@ -386,18 +430,22 @@ The transform and tail bounds in the appendices verify $`W_\nu<\infty`$ and supp
 Let $`X_*`$ be the continuous/discrete model pair at (4.3). For the continuous model,
 
 ```math
+\begin{gathered}
 \operatorname{Var}(V_t)=\xi^2\int_0^t e^{-2\kappa(t-s)}EV_s\,ds>0
 \quad(t>0),
+\end{gathered}
 \tag{5.5}
 ```
 
 so its variance is not a deterministic function. The first step of the discrete model also satisfies
 
 ```math
+\begin{gathered}
 Q_h(V_1^h=0)=
 \Phi\!\left(
 -\frac{(1-\kappa h)v_0+\kappa\bar v h}{\xi\sqrt{hv_0}}
 \right)\in(0,1).
+\end{gathered}
 \tag{5.6}
 ```
 
@@ -408,23 +456,29 @@ At the same time, (5.4) still holds. Thus $`X_*`$ satisfies $`\mathsf C`$ but no
 For background on weak error expansions and distributional error analysis, see [[7](#ref-7), [8](#ref-8), [9](#ref-9)]. This section works directly with the differentiability of Gaussian densities. We set $`\xi=0`$, retain the original update (2.2), and assume
 
 ```math
+\begin{gathered}
 \kappa>0,\quad \bar v,v_0>0,\quad
 t_j=j/12,\quad h=1/(12m)\le h_0<1/\kappa,\quad m\in\mathbb N.
+\end{gathered}
 \tag{6.1}
 ```
 
 Let $`D=v_0-\bar v`$. The continuous and discrete cumulative variances are
 
 ```math
+\begin{gathered}
 I(t)=\bar vt+\frac D\kappa(1-e^{-\kappa t}),\qquad
 I_h(t)=\bar vt+\frac D\kappa[1-(1-\kappa h)^{t/h}].
+\end{gathered}
 \tag{6.2}
 ```
 
 The twelve independent components of the log-increment vector $`Y`$ have distributions
 
 ```math
+\begin{gathered}
 N(r/12-s_j/2,s_j),\qquad s_j=I(t_j)-I(t_{j-1}),
+\end{gathered}
 \tag{6.3}
 ```
 
@@ -433,6 +487,7 @@ and the discrete law replaces $`s_j`$ by $`s_{h,j}`$. Both satisfy the lower bou
 Define
 
 ```math
+\begin{gathered}
 a(t)=\frac{D\kappa t e^{-\kappa t}}2,
 \quad
 B_I(t)=|D|e^{-\kappa t}
@@ -440,20 +495,25 @@ B_I(t)=|D|e^{-\kappa t}
 \frac{\kappa^2t}{3(1-\kappa h_0)}
 +\frac{\kappa^3t^2}{8(1-\kappa h_0)^2}
 \right].
+\end{gathered}
 \tag{6.4}
 ```
 
 Set $`d_j=a(t_j)-a(t_{j-1})`$ and $`b_j=B_I(t_j)+B_I(t_{j-1})`$. Appendix D proves that
 
 ```math
+\begin{gathered}
 |s_{h,j}-s_j-hd_j|\le h^2b_j.
+\end{gathered}
 \tag{6.5}
 ```
 
 **Theorem 6.1 (A common first-order expansion for bounded payoffs).** Under (6.1), let $`g(Y)`$ be any bounded Borel payoff with range contained in $`[l,l+L]`$, payable at time $`\tau`$. Then
 
 ```math
+\begin{gathered}
 p_h(g)-p_c(g)=h\beta_g+R_h(g),
+\end{gathered}
 \tag{6.6}
 ```
 
@@ -475,9 +535,11 @@ H_2(s)=\frac2{s^2}+\frac1{2s},
 ```
 
 ```math
+\begin{gathered}
 C_2=
 \sqrt{\sum_jb_j^2J(u_*)}
 +\frac12\sum_j(|d_j|+h_0b_j)^2H_2(u_*).
+\end{gathered}
 \tag{6.8}
 ```
 
@@ -495,10 +557,12 @@ Substituting (6.5) into the $`L^1`$ Taylor formula for the density gives $`\|p_{
 The theorem applies the same leading density perturbation to all ten payoffs. For a put,
 
 ```math
+\begin{gathered}
 \beta_{K,\tau}
 =a(\tau)\frac{S_0\varphi(d_1)}{2\sqrt{I(\tau)}},
 \quad
 d_1=\frac{\log(S_0/K)+r\tau+I(\tau)/2}{\sqrt{I(\tau)}}.
+\end{gathered}
 \tag{6.9}
 ```
 
@@ -507,14 +571,18 @@ When $`v_0\ne\bar v`$, all nine put components are nonzero and have the same sig
 On the family
 
 ```math
+\begin{gathered}
 \kappa=3,\quad\bar v=.045,\quad v_0\in[.03,.06],\quad h_0=1/768,
+\end{gathered}
 \tag{6.10}
 ```
 
 the second-order remainder for the original Asian payoff has the uniform upper bound $`.000165217`$. A separate finite-step density comparison also gives
 
 ```math
+\begin{gathered}
 |p_h(\psi)-p_c(\psi)|\le .004990924.
+\end{gathered}
 \tag{6.11}
 ```
 
@@ -527,8 +595,10 @@ The leading Asian coefficient has the exact integral representation (6.7) and an
 Suppose that the deterministic reference variance and its Euler values lie in $`[m,M]`$, where $`0<m\le M<\infty`$ and $`\kappa\ge\kappa_->0`$, and assume
 
 ```math
+\begin{gathered}
 \kappa h\le1,\qquad
 0\le\xi\le\sqrt{\kappa_-M/2}.
+\end{gathered}
 \tag{7.1}
 ```
 
@@ -541,16 +611,20 @@ C_P=\sqrt{M/(2\kappa_-)},\qquad C_Q=\sqrt{2M/\kappa_-}.
 The Itô isometry for the continuous model and the 1-Lipschitz property of the discrete positive-part projection give, respectively,
 
 ```math
+\begin{gathered}
 E(V_t^\xi-v(t))^2\le\xi^2C_P^2,\qquad
 E(V_j^{\xi,h}-v_j)^2\le\xi^2C_Q^2.
+\end{gathered}
 \tag{7.2}
 ```
 
 Combining the deterministic reference lower bound $`m`$ with Doob's inequality yields
 
 ```math
+\begin{gathered}
 E\max|Z_\nu^\xi-Z_\nu^0|
 \le\xi C_\nu\left(\frac T2+2\sqrt{T/m}\right),\quad \nu=P,Q.
+\end{gathered}
 \tag{7.3}
 ```
 
@@ -574,9 +648,11 @@ finite verification gives an absolute bias bound of $`.020948`$ for the original
 The effect of forward numerical error on the likelihood and its normalizing constant is a basic issue in Bayesian approximation [[10](#ref-10)]. In this section, set $`\kappa=3,\bar v=.045`$, and let
 
 ```math
+\begin{gathered}
 u=v_0\sim U[.03,.06],\quad
 \xi\sim U[10^{-7},10^{-6}],\quad
 \rho\sim U[-.8,-.3]
+\end{gathered}
 \tag{7.5}
 ```
 
@@ -589,8 +665,10 @@ w_m(u,\zeta)=
 ```
 
 ```math
+\begin{gathered}
 Z_m=\frac1{.03}\int_{.03}^{.06}\bar w_m(u)\,du,\qquad
 \mu_m(du,d\zeta)=\frac{w_m(u,\zeta)}{.03Z_m}\,du\,\nu(d\zeta).
+\end{gathered}
 \tag{7.6}
 ```
 
@@ -609,10 +687,12 @@ Each model uses its own calibration prices, normalizing constant, and target pri
 and that the true targets satisfy $`|J_m(u,\zeta)-J_m^0(u)|\le e_{m,J}`$. Then the left generalized quantiles of the true targets under their respective full joint posteriors satisfy
 
 ```math
+\begin{gathered}
 \boxed{\quad
 |q_Q(p)-q_P(p)|
 \le \varepsilon_0+e_{P,J}+e_{Q,J}+L_0\delta_u
 \quad(0<p<1).\quad}
+\end{gathered}
 \tag{7.7}
 ```
 
@@ -680,7 +760,9 @@ These are deterministic calculations, with outward arithmetic supplied by Arb [[
 Suppose that a valuation system provides a price enclosure $`[q_L,q_U]`$ for the same discrete model. Theorem 4.1 gives $`e_h\in[\ell,u]`$, hence the continuous-model price satisfies
 
 ```math
+\begin{gathered}
 p_c\in[q_L-u,\ q_U-\ell].
+\end{gathered}
 \tag{8.1}
 ```
 
@@ -740,15 +822,19 @@ I^{-1/2}=\frac2{\sqrt\pi}\int_0^\infty e^{-x^2I}\,dx.
 Applying Tonelli's theorem to the nonnegative square gives
 
 ```math
+\begin{gathered}
 W_\nu=\frac2{\sqrt\pi}\int_0^\infty F_\nu(x)\,dx,\qquad
 F_\nu(x)=E_\nu[(A-cG)^2e^{-x^2I}].
+\end{gathered}
 \tag{A.1}
 ```
 
 We have $`F_\nu\ge0`$, and the function is nonincreasing. In the expansion (5.2), the 144 ordered terms in $`A^2`$ combine into 78 terms; there are also 12 terms of the form $`S_iG`$ and one $`G^2`$ term. Each normalized exponential profile has total real stock loading 2, and the remaining loading in the backward monthly recursion satisfies $`p\in[0,2]`$. The sum of the absolute coefficients of the 91 terms is
 
 ```math
+\begin{gathered}
 S_0^2(1+c)^2=10000(1+c)^2.
+\end{gathered}
 \tag{A.2}
 ```
 
@@ -759,9 +845,11 @@ A killing rate $`x^2`$ is imposed in the first month and is zero in all other mo
 On an interval with stock loading $`q`$ and killing rate $`\lambda`$, write the normalized transform as $`\exp(\mathcal A+\mathcal Bv)`$. The continuous coefficients satisfy
 
 ```math
+\begin{gathered}
 \mathcal B'=\alpha\mathcal B^2-(\kappa-\rho\xi q)\mathcal B+
 (q^2-q)/2-\lambda,\qquad
 \mathcal A'=rq+d\mathcal B.
+\end{gathered}
 \tag{A.3}
 ```
 
@@ -786,9 +874,11 @@ For real loadings $`p\in[0,2]`$ and $`\lambda\ge0`$, the continuous vector field
 Take $`\Delta x=1/2`$. For the continuous model, use nodes $`x_j=j/2,\ 0\le j\le256`$; for the discrete model, use $`0\le j\le128`$. If the true nodal value lies in $`[f_j^-,f_j^+]`$, then
 
 ```math
+\begin{gathered}
 \Delta x\sum_{j=1}^{M}\max(0,f_j^-)
 \le\int_0^{M\Delta x}F_\nu(x)\,dx
 \le\Delta x\sum_{j=0}^{M-1}\max(0,f_j^+).
+\end{gathered}
 \tag{A.5}
 ```
 
@@ -805,8 +895,10 @@ F_Q(x)\le F_Q(X)e^{-i_0(x^2-X^2)}.
 Using $`x^2-X^2\ge2X(x-X)`$ gives
 
 ```math
+\begin{gathered}
 \int_X^\infty F_Q(x)\,dx\le\frac{\overline F_Q(X)}{2Xi_0},
 \qquad X=64.
+\end{gathered}
 \tag{A.6}
 ```
 
@@ -831,10 +923,12 @@ g=\frac{1-r_1}{1-r_2}\in(-1,0).
 The cross-ratio solution of the Riccati equation yields
 
 ```math
+\begin{gathered}
 \mathcal B(t_1)\le r_1+\frac{\Delta}{\alpha}e^{-\Delta t_1},
 \qquad
 \int_0^{t_1}\mathcal B(t)\,dt
 \le r_1t_1+\frac{\log2}{\alpha}.
+\end{gathered}
 \tag{A.7}
 ```
 
@@ -854,8 +948,10 @@ d\left(t_1C_0+\frac{\log2}{\alpha}\right)+v_0C_1\right\},
 Each normalized real transform is therefore at most $`Ce^{-\zeta x}`$. Since $`(A-cG)^2\le2A^2+2c^2G^2`$,
 
 ```math
+\begin{gathered}
 \int_X^\infty F_P(x)\,dx
 \le \frac{20000(1+c^2)C}{\zeta}e^{-\zeta X}.
+\end{gathered}
 \tag{A.8}
 ```
 
@@ -887,17 +983,21 @@ Y\sim N(\eta_pv+dh,\;\xi^2hv),\qquad
 with the external factor $`\exp(rph+\gamma_p hv)`$, where $`\gamma_p=(p^2-p)/2`$. For a future complex variance coefficient $`b`$, if the candidate is $`Y=-z<0`$, then
 
 ```math
+\begin{gathered}
 |e^{bY^+}-e^{bY}|
 \le |b|z e^{|b|z}
 \le \frac{|b|h}{\lambda e}
 \exp[(\lambda/h+|b|)z].
+\end{gathered}
 \tag{B.1}
 ```
 
 Set $`s_b=\lambda+h|b|`$. The Gaussian moment formula reduces the exponent in the state-dependent error bound to
 
 ```math
+\begin{gathered}
 -\frac v h\left(s_b\eta_p-\alpha s_b^2-\gamma_ph^2\right)-s_bd.
+\end{gathered}
 \tag{B.2}
 ```
 
@@ -908,17 +1008,21 @@ Take $`\lambda=12`$. Suppose $`p`$ lies in the specified loading range, $`\eta_p
 Define
 
 ```math
+\begin{gathered}
 u_0=8,\qquad u_{j+1}=\eta_*u_j-\alpha u_j^2-\gamma_*h^2.
+\end{gathered}
 \tag{B.3}
 ```
 
 Nonnegativity $`u_j\ge0`$ is checked at all 768 levels. For $`u\ge0`$, $`e^{-uY^+/h}\le e^{-uY/h}`$. Hence the actual stock-weighted prefix Laplace expectations can be bounded above by repeated application of Gaussian moment bounds. This yields the projection error bound for each complete profile:
 
 ```math
+\begin{gathered}
 \delta_Q=
 \frac{b_*}{12e}\exp(C_f+C_{\rm pre}-12d)\,
 h\sum_{j=0}^{767}
 \exp\!\left[-d\sum_{k<j}u_k-\frac{v_0u_j}{h}\right].
+\end{gathered}
 \tag{B.4}
 ```
 
@@ -936,7 +1040,9 @@ The finite catalog checks both $`\operatorname{Re}b\le1`$ and the modulus bound 
 For real stock loading $`p`$, take $`e^{4V}`$ as the variance component of the test function. The coefficient of $`V`$ in the continuous generator calculation is
 
 ```math
+\begin{gathered}
 16\alpha-4\kappa+4\rho\xi p+\gamma_p.
+\end{gathered}
 \tag{B.5}
 ```
 
@@ -956,15 +1062,19 @@ Over the same enlarged range, the state coefficient in the tilted exponent remai
 The total constant growth satisfies
 
 ```math
+\begin{gathered}
 4d+\frac52r+\frac{4e^{-12d}}{12e}
 <.589267620943<.6.
+\end{gathered}
 \tag{B.6}
 ```
 
 Thus the required exponential moments of the true continuous and discrete models admit uniform finite upper bounds. In particular, the normalized moments for the original loading range $`p\in[-1,2]`$ are bounded by
 
 ```math
+\begin{gathered}
 M_2=e^{4v_0+.6}=e^{.78}
+\end{gathered}
 \tag{B.7}
 ```
 
@@ -986,8 +1096,10 @@ U=N\Delta u=128,\qquad L=2\pi/\Delta u=10\pi.
 When the negative moment is finite, $`e^{-\delta y}F_\mu(y)`$ is integrable and has Fourier transform $`\widehat\mu(-\delta-iu)/(\delta+iu)`$. Consequently,
 
 ```math
+\begin{gathered}
 F_\mu(y)=\frac1{2\pi}\int_{\mathbb R}
 \frac{e^{(\delta+iu)y}}{\delta+iu}\widehat\mu(-\delta-iu)\,du.
+\end{gathered}
 \tag{C.1}
 ```
 
@@ -999,8 +1111,10 @@ a_{0,n}=\frac{e^{-r}\Delta u\,w_n}{\pi z_n}
 ```
 
 ```math
+\begin{gathered}
 a_{i,n}=\frac{e^{-r}\Delta u\,w_n}{\pi z_n}\frac{100}{12}
 \left(e^{z_ny_{110}}-e^{z_ny_{95}}\right),\qquad 1\le i\le12.
+\end{gathered}
 \tag{C.2}
 ```
 
@@ -1017,19 +1131,23 @@ Poisson periodization gives
 For $`k>0`$, use the total mass $`M_{\mu,0}`$. For $`k=-j<0`$, use $`F_\mu(y-jL)\le e^{y-jL}M_{\mu,-1}`$. The sum of the nonzero-index terms is then at most
 
 ```math
+\begin{gathered}
 \frac{M_{\mu,0}}{e^{\delta L}-1}
 +\frac{M_{\mu,-1}e^y}{e^{(1-\delta)L}-1}.
+\end{gathered}
 \tag{C.3}
 ```
 
 Here $`M_{0,0}=1`$, $`M_{A,0}\le100e^{.01}`$, $`M_{0,-1}\le e^{.78}`$, and $`M_{A,-1}\le100e^{.78}`$. Taking absolute values term by term in the price combination gives the periodization error allowance for a single law:
 
 ```math
+\begin{gathered}
 E_{\rm alias}=
 e^{-.01}\frac{
 205+200e^{.01}
 +e^{.78}(195e^{y_{95}}+210e^{y_{110}})
 }{e^{5\pi}-1}.
+\end{gathered}
 \tag{C.4}
 ```
 
@@ -1040,11 +1158,13 @@ The difference between the two models is charged $`2E_{\rm alias}`$. The frequen
 Under the conditioning in (5.3), the total imaginary loading of each profile on the first-month factor $`U`$ is $`-u`$. Set $`K=E[e^{\text{real loading}}\mid\mathcal G]`$. Conditional Gaussian integration, followed by Cauchy–Schwarz and conditional Jensen, gives
 
 ```math
+\begin{gathered}
 |\Phi_\nu(u)|
 \le E[K e^{-u^2sI/2}]
 \le\sqrt{E e^{2\,\text{real loading}}}
 \sqrt{E e^{-su^2I}}
 \le\sqrt{M_2L_\nu(u)}.
+\end{gathered}
 \tag{C.5}
 ```
 
@@ -1064,16 +1184,20 @@ L_Q(u)\le L_Q(U)e^{-si_0(u^2-U^2)}\quad(u\ge U).
 A validated upper bound for the true $`L_Q(U)`$ requires only 64 backward steps. Starting from $`b=A=0`$, use
 
 ```math
+\begin{gathered}
 A\leftarrow A+dhb,\qquad
 b\leftarrow b+h(\alpha b^2-\kappa b-sU^2).
+\end{gathered}
 \tag{C.6}
 ```
 
 At each level, verify $`b\le0`$. The inequality $`e^{bY^+}\le e^{bY}`$ then ensures that this Gaussian recursion is an upper bound for the actual positive-part kernel. At the end, $`\overline L_Q(U)=e^{A+bv_0}`$. Bounding the discrete sum of a positive decreasing envelope by its integral gives
 
 ```math
+\begin{gathered}
 E_{{\rm tail},Q}\le
 \frac{C_*\sqrt{M_2\overline L_Q(U)}}{\pi s i_0U^2}.
+\end{gathered}
 \tag{C.7}
 ```
 
@@ -1100,8 +1224,10 @@ d(t_1C_0+\log2/\alpha)+v_0C_1\right\},\qquad
 The same CIR cross-ratio bound as in (A.7), now with terminal value $`b=0`$, gives $`L_P(u)\le C_Pe^{-2\gamma u}`$ for every $`u\ge U`$. Hence
 
 ```math
+\begin{gathered}
 E_{{\rm tail},P}\le
 \frac{C_*\sqrt{M_2C_P}}{\pi\gamma U}e^{-\gamma U}.
+\end{gathered}
 \tag{C.8}
 ```
 
@@ -1117,17 +1243,21 @@ Write $`\kappa_q=\kappa-\rho\xi q`$, $`\gamma_q=(q^2-q)/2`$, and $`D_q=\sqrt{\ka
 The integral of the flow is
 
 ```math
+\begin{gathered}
 \int_0^{\Delta t}b(t)\,dt
 =\frac{\kappa_q\Delta t/2-\log\mathcal D_{\Delta t}}{\alpha}.
+\end{gathered}
 \tag{C.9}
 ```
 
 On every subinterval, verify
 
 ```math
+\begin{gathered}
 \cosh(|D_q|\Delta t/2)-1+
 \frac{|\kappa_q-2\alpha b|\Delta t}{2}
 \cosh(|D_q|\Delta t/2)<1.
+\end{gathered}
 \tag{C.10}
 ```
 
@@ -1146,10 +1276,12 @@ is nonpositive and the remaining real drift is strictly negative. Thus the conti
 Let $`\widehat e_L`$ be the finite proxy difference. The true linear difference is enclosed by
 
 ```math
+\begin{gathered}
 \widehat e_L+
 [-E_L,E_L],\qquad
 E_L=2E_{\rm alias}+E_{{\rm tail},P}
 +E_{{\rm tail},Q}+\delta_Q\sum_{n,i}|a_{i,n}|.
+\end{gathered}
 \tag{C.11}
 ```
 
@@ -1217,11 +1349,13 @@ Independence of the coordinates makes the cross-score expectations vanish, yield
 For two variance vectors $`s,\tilde s`$, suppose that their endpoints and the segment joining them satisfy $`s_j,\tilde s_j\ge u_j>0`$. Integrating the first-order score along the segment gives
 
 ```math
+\begin{gathered}
 \operatorname{TV}(p_s,p_{\tilde s})
 \le\left\{
 \sum_j(\tilde s_j-s_j)^2
 \left(\frac1{8u_j^2}+\frac1{16u_j}\right)
 \right\}^{1/2}.
+\end{gathered}
 \tag{D.1}
 ```
 
@@ -1246,7 +1380,9 @@ S_d(G)=\sum_jd_j\left[\frac{G_j^2-1}{2s_j}-\frac{G_j}{2\sqrt{s_j}}\right],
 After centering the payoff, omitting the region $`\max_j|G_j|>R`$ incurs error at most
 
 ```math
+\begin{gathered}
 e^{-r\tau}\frac L2\sqrt{24F}\,e^{-R^2/4}.
+\end{gathered}
 \tag{D.2}
 ```
 
@@ -1272,18 +1408,22 @@ The sum of box-midpoint values weighted by exact Gaussian box probabilities, for
 In the continuous model, $`D_t=V_t^\xi-v(t)`$ admits a linear variation-of-constants representation. Since $`EV_t^\xi=v(t)\le M`$, the Itô isometry gives
 
 ```math
+\begin{gathered}
 ED_t^2=\xi^2\int_0^te^{-2\kappa(t-s)}EV_s^\xi\,ds
 \le\frac{\xi^2M}{2\kappa_-}.
+\end{gathered}
 \tag{E.1}
 ```
 
 The discrete deterministic reference remains nonnegative. The positive-part map is 1-Lipschitz, and the Gaussian innovation has conditional mean zero. Thus, writing $`D_j^{(2)}=E(V_j^\xi-v_j)^2`$, we obtain
 
 ```math
+\begin{gathered}
 D_{j+1}^{(2)}
 \le(1-\kappa h)^2D_j^{(2)}+\xi^2hEV_j^\xi
 \le(1-\kappa h)^2D_j^{(2)}
 +\xi^2h(M+\sqrt{D_j^{(2)}}).
+\end{gathered}
 \tag{E.2}
 ```
 
@@ -1306,16 +1446,20 @@ e_{\nu,i}=K_i e^{-rT_i}\xi_{\max}C_\nu
 ```
 
 ```math
+\begin{gathered}
 e_{\nu,J}=110e^{-r}\xi_{\max}C_\nu
 \left(1/2+2/\sqrt m\right).
+\end{gathered}
 \tag{E.3}
 ```
 
 In (7.5), $`m=.03,M=.06,\kappa=3`$, so $`C_P=.1,C_Q=.2`$, giving
 
 ```math
+\begin{gathered}
 e_{P,J}\le.000131198492451391,\qquad
 e_{Q,J}\le.000262396984902781.
+\end{gathered}
 \tag{E.4}
 ```
 
@@ -1336,6 +1480,7 @@ to obtain the full-box price bound stated in the main text. The remaining parame
 The quotes are ordered by $`T=1/4,1/2,1`$, with $`K=90,100,110`$ within each maturity. The following rational numbers are taken as the given synthetic inputs:
 
 ```math
+\begin{gathered}
 y=\begin{pmatrix}
 526706580970763/562949953421312\\
 285901443526503/70368744177664\\
@@ -1347,6 +1492,7 @@ y=\begin{pmatrix}
 137257851354697/17592186044416\\
 1918003280297167/140737488355328
 \end{pmatrix}.
+\end{gathered}
 \tag{F.1}
 ```
 
@@ -1415,9 +1561,11 @@ For $`d=1`$ or 9,
 Writing the residual vector as $`r`$, its potential is a sum of nonnegative terms:
 
 ```math
+\begin{gathered}
 \frac12r^T\Sigma_d^{-1}r=
 \frac{32}{27(d+3)}
 \left(3\sum_i r_i^2+\sum_{i<j}(r_i-r_j)^2\right).
+\end{gathered}
 \tag{F.4}
 ```
 
@@ -1434,9 +1582,11 @@ throughout the entire cell and nuisance-parameter domain. Integration against th
 Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_<,U_<`$, and those to its right by $`L_>,U_>`$. The marginal CDF $`G_\nu`$ satisfies
 
 ```math
+\begin{gathered}
 \underline G_\nu(x_k)=\frac{L_<}{L_<+U_>},
 \qquad
 \overline G_\nu(x_k)=\frac{U_<}{U_<+L_>}.
+\end{gathered}
 \tag{F.5}
 ```
 
@@ -1445,15 +1595,19 @@ The function $`A/(A+B)`$ increases in $`A`$ and decreases in $`B`$, so these enc
 Let $`U`$ be a common uniform random variable and set $`U_\nu=G_\nu^{-1}(U)`$. If $`U_\nu\in[x_i,x_{i+1}]`$, then
 
 ```math
+\begin{gathered}
 U\in[\underline G_\nu(x_i),\overline G_\nu(x_{i+1})].
+\end{gathered}
 \tag{F.6}
 ```
 
 For each P-cell, enumerate the leftmost and rightmost indices $`j_-,j_+`$ of all Q-cell intervals whose corresponding ranges in (F.6) can intersect its range. Set
 
 ```math
+\begin{gathered}
 \delta_u=\Delta x\max_i\max\{|i-(j_++1)|,\ |i+1-j_-|\},
 \quad \Delta x=.03/4096.
+\end{gathered}
 \tag{F.7}
 ```
 

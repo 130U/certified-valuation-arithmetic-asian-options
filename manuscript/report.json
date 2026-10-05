@@ -520,7 +520,7 @@
       "tags": [
         "2.3"
       ],
-      "markdown": "```math\nA=\\frac1n\\sum_{i=1}^nS_{t_i},\\qquad\nG=\\left(\\prod_{i=1}^nS_{t_i}\\right)^{1/n},\\qquad\n\\psi(x)=(x-K_1)^+-(x-K_2)^+,\n\\tag{2.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nA=\\frac1n\\sum_{i=1}^nS_{t_i},\\qquad\nG=\\left(\\prod_{i=1}^nS_{t_i}\\right)^{1/n},\\qquad\n\\psi(x)=(x-K_1)^+-(x-K_2)^+,\n\\end{gathered}\n\\tag{2.3}\n```"
     },
     {
       "type": "paragraph",
@@ -547,7 +547,7 @@
       "tags": [
         "2.4"
       ],
-      "markdown": "```math\np_c=e^{-rT}E_P\\psi(A),\\qquad\np_h=e^{-rT}E_{Q_h}\\psi(A),\\qquad e_h=p_h-p_c.\n\\tag{2.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\np_c=e^{-rT}E_P\\psi(A),\\qquad\np_h=e^{-rT}E_{Q_h}\\psi(A),\\qquad e_h=p_h-p_c.\n\\end{gathered}\n\\tag{2.4}\n```"
     },
     {
       "type": "paragraph",
@@ -574,7 +574,7 @@
       "tags": [
         "2.5"
       ],
-      "markdown": "```math\nS_0=100,\\quad r=.01,\\quad K_1=95,\\quad K_2=110,\\quad h=1/768.\n\\tag{2.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\nS_0=100,\\quad r=.01,\\quad K_1=95,\\quad K_2=110,\\quad h=1/768.\n\\end{gathered}\n\\tag{2.5}\n```"
     },
     {
       "type": "paragraph",
@@ -693,7 +693,7 @@
       "tags": [
         "2.6"
       ],
-      "markdown": "```math\nU\\mid\\mathcal G\\sim N(0,\\sigma^2),\\qquad S_{t_i}=e^Ua_i.\n\\tag{2.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nU\\mid\\mathcal G\\sim N(0,\\sigma^2),\\qquad S_{t_i}=e^Ua_i.\n\\end{gathered}\n\\tag{2.6}\n```"
     },
     {
       "type": "paragraph",
@@ -728,7 +728,7 @@
       "tags": [
         "2.7"
       ],
-      "markdown": "```math\nE_\\nu(A+G)<\\infty,\\qquad\nD_\\nu(c):=E_\\nu\\!\\left[\\frac{(A-cG)^2}{\\sigma}\\right]<\\infty.\n\\tag{2.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_\\nu(A+G)<\\infty,\\qquad\nD_\\nu(c):=E_\\nu\\!\\left[\\frac{(A-cG)^2}{\\sigma}\\right]<\\infty.\n\\end{gathered}\n\\tag{2.7}\n```"
     },
     {
       "type": "paragraph",
@@ -895,7 +895,7 @@
       "tags": [
         "2.8"
       ],
-      "markdown": "```math\ne_h\\in[\\underline e,\\overline e].\n\\tag{2.8}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne_h\\in[\\underline e,\\overline e].\n\\end{gathered}\n\\tag{2.8}\n```"
     },
     {
       "type": "paragraph",
@@ -977,7 +977,7 @@
       "tags": [
         "3.1"
       ],
-      "markdown": "```math\nR_{K,\\nu}=E_\\nu\\!\\left[(A-K)^+-(cG-K)^+\n-(A-cG)\\mathbf1_{\\{cG>K\\}}\\right].\n\\tag{3.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\nR_{K,\\nu}=E_\\nu\\!\\left[(A-K)^+-(cG-K)^+\n-(A-cG)\\mathbf1_{\\{cG>K\\}}\\right].\n\\end{gathered}\n\\tag{3.1}\n```"
     },
     {
       "type": "paragraph",
@@ -996,7 +996,7 @@
       "tags": [
         "3.2"
       ],
-      "markdown": "```math\n0\\le R_{K,\\nu}\\le \\frac{D_\\nu(c)}{2K\\sqrt{2\\pi}}.\n\\tag{3.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\n0\\le R_{K,\\nu}\\le \\frac{D_\\nu(c)}{2K\\sqrt{2\\pi}}.\n\\end{gathered}\n\\tag{3.2}\n```"
     },
     {
       "type": "paragraph",
@@ -1057,7 +1057,7 @@
       "tags": [
         "3.3"
       ],
-      "markdown": "```math\nF_K''(x)=\\frac{K}{\\sigma x^2}\n\\varphi\\!\\left(\\frac{\\log(x/K)}{\\sigma}\\right)\n\\le\\frac{e^{2\\sigma^2}}{K\\sigma\\sqrt{2\\pi}},\n\\tag{3.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nF_K''(x)=\\frac{K}{\\sigma x^2}\n\\varphi\\!\\left(\\frac{\\log(x/K)}{\\sigma}\\right)\n\\le\\frac{e^{2\\sigma^2}}{K\\sigma\\sqrt{2\\pi}},\n\\end{gathered}\n\\tag{3.3}\n```"
     },
     {
       "type": "paragraph",
@@ -1235,7 +1235,7 @@
       "tags": [
         "3.4"
       ],
-      "markdown": "```math\n\\mathcal L=\\psi(cG)+(A-cG)\\mathbf1_{\\{K_1<cG\\le K_2\\}}.\n\\tag{3.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathcal L=\\psi(cG)+(A-cG)\\mathbf1_{\\{K_1<cG\\le K_2\\}}.\n\\end{gathered}\n\\tag{3.4}\n```"
     },
     {
       "type": "paragraph",
@@ -1262,7 +1262,7 @@
       "tags": [
         "3.5"
       ],
-      "markdown": "```math\nE_\\nu\\psi(A)=E_\\nu\\mathcal L+R_{K_1,\\nu}-R_{K_2,\\nu}.\n\\tag{3.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_\\nu\\psi(A)=E_\\nu\\mathcal L+R_{K_1,\\nu}-R_{K_2,\\nu}.\n\\end{gathered}\n\\tag{3.5}\n```"
     },
     {
       "type": "paragraph",
@@ -1324,7 +1324,7 @@
       "tags": [
         "3.6"
       ],
-      "markdown": "```math\nE_\\nu\\mathcal L=(K_2-K_1)\n+K_1F_{0,\\nu}(y_{K_1})-K_2F_{0,\\nu}(y_{K_2})\n-F_{A,\\nu}(y_{K_1})+F_{A,\\nu}(y_{K_2}).\n\\tag{3.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_\\nu\\mathcal L=(K_2-K_1)\n+K_1F_{0,\\nu}(y_{K_1})-K_2F_{0,\\nu}(y_{K_2})\n-F_{A,\\nu}(y_{K_1})+F_{A,\\nu}(y_{K_2}).\n\\end{gathered}\n\\tag{3.6}\n```"
     },
     {
       "type": "paragraph",
@@ -1343,7 +1343,7 @@
       "tags": [
         "3.7"
       ],
-      "markdown": "```math\n\\widehat\\mu_0(z)=E_\\nu e^{zY},\\qquad\n\\widehat\\mu_A(z)=\\frac{S_0}{n}\\sum_{i=1}^n\nE_\\nu e^{Z_{t_i}+zY}.\n\\tag{3.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\widehat\\mu_0(z)=E_\\nu e^{zY},\\qquad\n\\widehat\\mu_A(z)=\\frac{S_0}{n}\\sum_{i=1}^n\nE_\\nu e^{Z_{t_i}+zY}.\n\\end{gathered}\n\\tag{3.7}\n```"
     },
     {
       "type": "paragraph",
@@ -1435,7 +1435,7 @@
       "tags": [
         "4.1"
       ],
-      "markdown": "```math\ne^{-rT}(E_Q\\mathcal L-E_P\\mathcal L)\\in[\\ell,u],\n\\tag{4.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne^{-rT}(E_Q\\mathcal L-E_P\\mathcal L)\\in[\\ell,u],\n\\end{gathered}\n\\tag{4.1}\n```"
     },
     {
       "type": "paragraph",
@@ -1462,7 +1462,7 @@
       "tags": [
         "4.2"
       ],
-      "markdown": "```math\n\\boxed{\ne_h\\in\n\\left[\n\\ell-\\gamma\\!\\left(\\frac{d_Q}{K_2}+\\frac{d_P}{K_1}\\right),\n\\quad\nu+\\gamma\\!\\left(\\frac{d_Q}{K_1}+\\frac{d_P}{K_2}\\right)\n\\right].}\n\\tag{4.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\boxed{\ne_h\\in\n\\left[\n\\ell-\\gamma\\!\\left(\\frac{d_Q}{K_2}+\\frac{d_P}{K_1}\\right),\n\\quad\nu+\\gamma\\!\\left(\\frac{d_Q}{K_1}+\\frac{d_P}{K_2}\\right)\n\\right].}\n\\end{gathered}\n\\tag{4.2}\n```"
     },
     {
       "type": "paragraph",
@@ -1551,7 +1551,7 @@
       "tags": [
         "4.3"
       ],
-      "markdown": "```math\n\\theta_*=(3,\\;9/200,\\;23/100,\\;-11/20,\\;9/200),\\qquad\nc=\\frac{1254433}{1250000}.\n\\tag{4.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\theta_*=(3,\\;9/200,\\;23/100,\\;-11/20,\\;9/200),\\qquad\nc=\\frac{1254433}{1250000}.\n\\end{gathered}\n\\tag{4.3}\n```"
     },
     {
       "type": "paragraph",
@@ -1570,7 +1570,7 @@
       "tags": [
         "4.4"
       ],
-      "markdown": "```math\ne_h\\in[-.011024692273,\\;.010642371599],\\qquad |e_h|<.011025<.025.\n\\tag{4.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne_h\\in[-.011024692273,\\;.010642371599],\\qquad |e_h|<.011025<.025.\n\\end{gathered}\n\\tag{4.4}\n```"
     },
     {
       "type": "paragraph",
@@ -1617,7 +1617,7 @@
       "tags": [
         "4.6"
       ],
-      "markdown": "```math\nW_P:=E_P[(A-cG)^2I^{-1/2}]\\le2.172471592802,\\qquad\nW_Q\\le2.242189951600.\n\\tag{4.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nW_P:=E_P[(A-cG)^2I^{-1/2}]\\le2.172471592802,\\qquad\nW_Q\\le2.242189951600.\n\\end{gathered}\n\\tag{4.6}\n```"
     },
     {
       "type": "paragraph",
@@ -1726,7 +1726,7 @@
       "tags": [
         "5.1"
       ],
-      "markdown": "```math\n0<I_1=\\int_0^{t_1}v(t)\\,dt,\\qquad \\int_0^T v(t)\\,dt<\\infty.\n\\tag{5.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n0<I_1=\\int_0^{t_1}v(t)\\,dt,\\qquad \\int_0^T v(t)\\,dt<\\infty.\n\\end{gathered}\n\\tag{5.1}\n```"
     },
     {
       "type": "paragraph",
@@ -1796,7 +1796,7 @@
       "tags": [
         "5.2"
       ],
-      "markdown": "```math\nE(A-cG)^2=\\frac1{n^2}\\sum_{i,j}ES_iS_j\n-\\frac{2c}{n}\\sum_iES_iG+c^2EG^2\n\\tag{5.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE(A-cG)^2=\\frac1{n^2}\\sum_{i,j}ES_iS_j\n-\\frac{2c}{n}\\sum_iES_iG+c^2EG^2\n\\end{gathered}\n\\tag{5.2}\n```"
     },
     {
       "type": "paragraph",
@@ -1952,7 +1952,7 @@
       "tags": [
         "5.3"
       ],
-      "markdown": "```math\nU\\mid\\mathcal G\\sim N(0,(1-\\rho^2)I_\\nu),\\qquad S_{t_i}=e^Ua_i.\n\\tag{5.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nU\\mid\\mathcal G\\sim N(0,(1-\\rho^2)I_\\nu),\\qquad S_{t_i}=e^Ua_i.\n\\end{gathered}\n\\tag{5.3}\n```"
     },
     {
       "type": "paragraph",
@@ -1987,7 +1987,7 @@
       "tags": [
         "5.4"
       ],
-      "markdown": "```math\nI_Q\\ge hv_0>0.\n\\tag{5.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\nI_Q\\ge hv_0>0.\n\\end{gathered}\n\\tag{5.4}\n```"
     },
     {
       "type": "paragraph",
@@ -2054,7 +2054,7 @@
       "tags": [
         "5.5"
       ],
-      "markdown": "```math\n\\operatorname{Var}(V_t)=\\xi^2\\int_0^t e^{-2\\kappa(t-s)}EV_s\\,ds>0\n\\quad(t>0),\n\\tag{5.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\operatorname{Var}(V_t)=\\xi^2\\int_0^t e^{-2\\kappa(t-s)}EV_s\\,ds>0\n\\quad(t>0),\n\\end{gathered}\n\\tag{5.5}\n```"
     },
     {
       "type": "paragraph",
@@ -2073,7 +2073,7 @@
       "tags": [
         "5.6"
       ],
-      "markdown": "```math\nQ_h(V_1^h=0)=\n\\Phi\\!\\left(\n-\\frac{(1-\\kappa h)v_0+\\kappa\\bar v h}{\\xi\\sqrt{hv_0}}\n\\right)\\in(0,1).\n\\tag{5.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nQ_h(V_1^h=0)=\n\\Phi\\!\\left(\n-\\frac{(1-\\kappa h)v_0+\\kappa\\bar v h}{\\xi\\sqrt{hv_0}}\n\\right)\\in(0,1).\n\\end{gathered}\n\\tag{5.6}\n```"
     },
     {
       "type": "paragraph",
@@ -2160,7 +2160,7 @@
       "tags": [
         "6.1"
       ],
-      "markdown": "```math\n\\kappa>0,\\quad \\bar v,v_0>0,\\quad\nt_j=j/12,\\quad h=1/(12m)\\le h_0<1/\\kappa,\\quad m\\in\\mathbb N.\n\\tag{6.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\kappa>0,\\quad \\bar v,v_0>0,\\quad\nt_j=j/12,\\quad h=1/(12m)\\le h_0<1/\\kappa,\\quad m\\in\\mathbb N.\n\\end{gathered}\n\\tag{6.1}\n```"
     },
     {
       "type": "paragraph",
@@ -2187,7 +2187,7 @@
       "tags": [
         "6.2"
       ],
-      "markdown": "```math\nI(t)=\\bar vt+\\frac D\\kappa(1-e^{-\\kappa t}),\\qquad\nI_h(t)=\\bar vt+\\frac D\\kappa[1-(1-\\kappa h)^{t/h}].\n\\tag{6.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\nI(t)=\\bar vt+\\frac D\\kappa(1-e^{-\\kappa t}),\\qquad\nI_h(t)=\\bar vt+\\frac D\\kappa[1-(1-\\kappa h)^{t/h}].\n\\end{gathered}\n\\tag{6.2}\n```"
     },
     {
       "type": "paragraph",
@@ -2214,7 +2214,7 @@
       "tags": [
         "6.3"
       ],
-      "markdown": "```math\nN(r/12-s_j/2,s_j),\\qquad s_j=I(t_j)-I(t_{j-1}),\n\\tag{6.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nN(r/12-s_j/2,s_j),\\qquad s_j=I(t_j)-I(t_{j-1}),\n\\end{gathered}\n\\tag{6.3}\n```"
     },
     {
       "type": "paragraph",
@@ -2267,7 +2267,7 @@
       "tags": [
         "6.4"
       ],
-      "markdown": "```math\na(t)=\\frac{D\\kappa t e^{-\\kappa t}}2,\n\\quad\nB_I(t)=|D|e^{-\\kappa t}\n\\left[\n\\frac{\\kappa^2t}{3(1-\\kappa h_0)}\n+\\frac{\\kappa^3t^2}{8(1-\\kappa h_0)^2}\n\\right].\n\\tag{6.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\na(t)=\\frac{D\\kappa t e^{-\\kappa t}}2,\n\\quad\nB_I(t)=|D|e^{-\\kappa t}\n\\left[\n\\frac{\\kappa^2t}{3(1-\\kappa h_0)}\n+\\frac{\\kappa^3t^2}{8(1-\\kappa h_0)^2}\n\\right].\n\\end{gathered}\n\\tag{6.4}\n```"
     },
     {
       "type": "paragraph",
@@ -2302,7 +2302,7 @@
       "tags": [
         "6.5"
       ],
-      "markdown": "```math\n|s_{h,j}-s_j-hd_j|\\le h^2b_j.\n\\tag{6.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n|s_{h,j}-s_j-hd_j|\\le h^2b_j.\n\\end{gathered}\n\\tag{6.5}\n```"
     },
     {
       "type": "paragraph",
@@ -2354,7 +2354,7 @@
       "tags": [
         "6.6"
       ],
-      "markdown": "```math\np_h(g)-p_c(g)=h\\beta_g+R_h(g),\n\\tag{6.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\np_h(g)-p_c(g)=h\\beta_g+R_h(g),\n\\end{gathered}\n\\tag{6.6}\n```"
     },
     {
       "type": "display_math",
@@ -2389,7 +2389,7 @@
       "tags": [
         "6.8"
       ],
-      "markdown": "```math\nC_2=\n\\sqrt{\\sum_jb_j^2J(u_*)}\n+\\frac12\\sum_j(|d_j|+h_0b_j)^2H_2(u_*).\n\\tag{6.8}\n```"
+      "markdown": "```math\n\\begin{gathered}\nC_2=\n\\sqrt{\\sum_jb_j^2J(u_*)}\n+\\frac12\\sum_j(|d_j|+h_0b_j)^2H_2(u_*).\n\\end{gathered}\n\\tag{6.8}\n```"
     },
     {
       "type": "paragraph",
@@ -2502,7 +2502,7 @@
       "tags": [
         "6.9"
       ],
-      "markdown": "```math\n\\beta_{K,\\tau}\n=a(\\tau)\\frac{S_0\\varphi(d_1)}{2\\sqrt{I(\\tau)}},\n\\quad\nd_1=\\frac{\\log(S_0/K)+r\\tau+I(\\tau)/2}{\\sqrt{I(\\tau)}}.\n\\tag{6.9}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\beta_{K,\\tau}\n=a(\\tau)\\frac{S_0\\varphi(d_1)}{2\\sqrt{I(\\tau)}},\n\\quad\nd_1=\\frac{\\log(S_0/K)+r\\tau+I(\\tau)/2}{\\sqrt{I(\\tau)}}.\n\\end{gathered}\n\\tag{6.9}\n```"
     },
     {
       "type": "paragraph",
@@ -2547,7 +2547,7 @@
       "tags": [
         "6.10"
       ],
-      "markdown": "```math\n\\kappa=3,\\quad\\bar v=.045,\\quad v_0\\in[.03,.06],\\quad h_0=1/768,\n\\tag{6.10}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\kappa=3,\\quad\\bar v=.045,\\quad v_0\\in[.03,.06],\\quad h_0=1/768,\n\\end{gathered}\n\\tag{6.10}\n```"
     },
     {
       "type": "paragraph",
@@ -2574,7 +2574,7 @@
       "tags": [
         "6.11"
       ],
-      "markdown": "```math\n|p_h(\\psi)-p_c(\\psi)|\\le .004990924.\n\\tag{6.11}\n```"
+      "markdown": "```math\n\\begin{gathered}\n|p_h(\\psi)-p_c(\\psi)|\\le .004990924.\n\\end{gathered}\n\\tag{6.11}\n```"
     },
     {
       "type": "paragraph",
@@ -2655,7 +2655,7 @@
       "tags": [
         "7.1"
       ],
-      "markdown": "```math\n\\kappa h\\le1,\\qquad\n0\\le\\xi\\le\\sqrt{\\kappa_-M/2}.\n\\tag{7.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\kappa h\\le1,\\qquad\n0\\le\\xi\\le\\sqrt{\\kappa_-M/2}.\n\\end{gathered}\n\\tag{7.1}\n```"
     },
     {
       "type": "paragraph",
@@ -2695,7 +2695,7 @@
       "tags": [
         "7.2"
       ],
-      "markdown": "```math\nE(V_t^\\xi-v(t))^2\\le\\xi^2C_P^2,\\qquad\nE(V_j^{\\xi,h}-v_j)^2\\le\\xi^2C_Q^2.\n\\tag{7.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE(V_t^\\xi-v(t))^2\\le\\xi^2C_P^2,\\qquad\nE(V_j^{\\xi,h}-v_j)^2\\le\\xi^2C_Q^2.\n\\end{gathered}\n\\tag{7.2}\n```"
     },
     {
       "type": "paragraph",
@@ -2722,7 +2722,7 @@
       "tags": [
         "7.3"
       ],
-      "markdown": "```math\nE\\max|Z_\\nu^\\xi-Z_\\nu^0|\n\\le\\xi C_\\nu\\left(\\frac T2+2\\sqrt{T/m}\\right),\\quad \\nu=P,Q.\n\\tag{7.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE\\max|Z_\\nu^\\xi-Z_\\nu^0|\n\\le\\xi C_\\nu\\left(\\frac T2+2\\sqrt{T/m}\\right),\\quad \\nu=P,Q.\n\\end{gathered}\n\\tag{7.3}\n```"
     },
     {
       "type": "paragraph",
@@ -2844,7 +2844,7 @@
       "tags": [
         "7.5"
       ],
-      "markdown": "```math\nu=v_0\\sim U[.03,.06],\\quad\n\\xi\\sim U[10^{-7},10^{-6}],\\quad\n\\rho\\sim U[-.8,-.3]\n\\tag{7.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\nu=v_0\\sim U[.03,.06],\\quad\n\\xi\\sim U[10^{-7},10^{-6}],\\quad\n\\rho\\sim U[-.8,-.3]\n\\end{gathered}\n\\tag{7.5}\n```"
     },
     {
       "type": "paragraph",
@@ -2926,7 +2926,7 @@
       "tags": [
         "7.6"
       ],
-      "markdown": "```math\nZ_m=\\frac1{.03}\\int_{.03}^{.06}\\bar w_m(u)\\,du,\\qquad\n\\mu_m(du,d\\zeta)=\\frac{w_m(u,\\zeta)}{.03Z_m}\\,du\\,\\nu(d\\zeta).\n\\tag{7.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nZ_m=\\frac1{.03}\\int_{.03}^{.06}\\bar w_m(u)\\,du,\\qquad\n\\mu_m(du,d\\zeta)=\\frac{w_m(u,\\zeta)}{.03Z_m}\\,du\\,\\nu(d\\zeta).\n\\end{gathered}\n\\tag{7.6}\n```"
     },
     {
       "type": "paragraph",
@@ -3027,7 +3027,7 @@
       "tags": [
         "7.7"
       ],
-      "markdown": "```math\n\\boxed{\\quad\n|q_Q(p)-q_P(p)|\n\\le \\varepsilon_0+e_{P,J}+e_{Q,J}+L_0\\delta_u\n\\quad(0<p<1).\\quad}\n\\tag{7.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\boxed{\\quad\n|q_Q(p)-q_P(p)|\n\\le \\varepsilon_0+e_{P,J}+e_{Q,J}+L_0\\delta_u\n\\quad(0<p<1).\\quad}\n\\end{gathered}\n\\tag{7.7}\n```"
     },
     {
       "type": "paragraph",
@@ -3543,7 +3543,7 @@
       "tags": [
         "8.1"
       ],
-      "markdown": "```math\np_c\\in[q_L-u,\\ q_U-\\ell].\n\\tag{8.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\np_c\\in[q_L-u,\\ q_U-\\ell].\n\\end{gathered}\n\\tag{8.1}\n```"
     },
     {
       "type": "paragraph",
@@ -3940,7 +3940,7 @@
       "tags": [
         "A.1"
       ],
-      "markdown": "```math\nW_\\nu=\\frac2{\\sqrt\\pi}\\int_0^\\infty F_\\nu(x)\\,dx,\\qquad\nF_\\nu(x)=E_\\nu[(A-cG)^2e^{-x^2I}].\n\\tag{A.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\nW_\\nu=\\frac2{\\sqrt\\pi}\\int_0^\\infty F_\\nu(x)\\,dx,\\qquad\nF_\\nu(x)=E_\\nu[(A-cG)^2e^{-x^2I}].\n\\end{gathered}\n\\tag{A.1}\n```"
     },
     {
       "type": "paragraph",
@@ -3999,7 +3999,7 @@
       "tags": [
         "A.2"
       ],
-      "markdown": "```math\nS_0^2(1+c)^2=10000(1+c)^2.\n\\tag{A.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\nS_0^2(1+c)^2=10000(1+c)^2.\n\\end{gathered}\n\\tag{A.2}\n```"
     },
     {
       "type": "paragraph",
@@ -4074,7 +4074,7 @@
       "tags": [
         "A.3"
       ],
-      "markdown": "```math\n\\mathcal B'=\\alpha\\mathcal B^2-(\\kappa-\\rho\\xi q)\\mathcal B+\n(q^2-q)/2-\\lambda,\\qquad\n\\mathcal A'=rq+d\\mathcal B.\n\\tag{A.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathcal B'=\\alpha\\mathcal B^2-(\\kappa-\\rho\\xi q)\\mathcal B+\n(q^2-q)/2-\\lambda,\\qquad\n\\mathcal A'=rq+d\\mathcal B.\n\\end{gathered}\n\\tag{A.3}\n```"
     },
     {
       "type": "paragraph",
@@ -4226,7 +4226,7 @@
       "tags": [
         "A.5"
       ],
-      "markdown": "```math\n\\Delta x\\sum_{j=1}^{M}\\max(0,f_j^-)\n\\le\\int_0^{M\\Delta x}F_\\nu(x)\\,dx\n\\le\\Delta x\\sum_{j=0}^{M-1}\\max(0,f_j^+).\n\\tag{A.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\Delta x\\sum_{j=1}^{M}\\max(0,f_j^-)\n\\le\\int_0^{M\\Delta x}F_\\nu(x)\\,dx\n\\le\\Delta x\\sum_{j=0}^{M-1}\\max(0,f_j^+).\n\\end{gathered}\n\\tag{A.5}\n```"
     },
     {
       "type": "paragraph",
@@ -4318,7 +4318,7 @@
       "tags": [
         "A.6"
       ],
-      "markdown": "```math\n\\int_X^\\infty F_Q(x)\\,dx\\le\\frac{\\overline F_Q(X)}{2Xi_0},\n\\qquad X=64.\n\\tag{A.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\int_X^\\infty F_Q(x)\\,dx\\le\\frac{\\overline F_Q(X)}{2Xi_0},\n\\qquad X=64.\n\\end{gathered}\n\\tag{A.6}\n```"
     },
     {
       "type": "paragraph",
@@ -4427,7 +4427,7 @@
       "tags": [
         "A.7"
       ],
-      "markdown": "```math\n\\mathcal B(t_1)\\le r_1+\\frac{\\Delta}{\\alpha}e^{-\\Delta t_1},\n\\qquad\n\\int_0^{t_1}\\mathcal B(t)\\,dt\n\\le r_1t_1+\\frac{\\log2}{\\alpha}.\n\\tag{A.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\mathcal B(t_1)\\le r_1+\\frac{\\Delta}{\\alpha}e^{-\\Delta t_1},\n\\qquad\n\\int_0^{t_1}\\mathcal B(t)\\,dt\n\\le r_1t_1+\\frac{\\log2}{\\alpha}.\n\\end{gathered}\n\\tag{A.7}\n```"
     },
     {
       "type": "paragraph",
@@ -4510,7 +4510,7 @@
       "tags": [
         "A.8"
       ],
-      "markdown": "```math\n\\int_X^\\infty F_P(x)\\,dx\n\\le \\frac{20000(1+c^2)C}{\\zeta}e^{-\\zeta X}.\n\\tag{A.8}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\int_X^\\infty F_P(x)\\,dx\n\\le \\frac{20000(1+c^2)C}{\\zeta}e^{-\\zeta X}.\n\\end{gathered}\n\\tag{A.8}\n```"
     },
     {
       "type": "paragraph",
@@ -4669,7 +4669,7 @@
       "tags": [
         "B.1"
       ],
-      "markdown": "```math\n|e^{bY^+}-e^{bY}|\n\\le |b|z e^{|b|z}\n\\le \\frac{|b|h}{\\lambda e}\n\\exp[(\\lambda/h+|b|)z].\n\\tag{B.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n|e^{bY^+}-e^{bY}|\n\\le |b|z e^{|b|z}\n\\le \\frac{|b|h}{\\lambda e}\n\\exp[(\\lambda/h+|b|)z].\n\\end{gathered}\n\\tag{B.1}\n```"
     },
     {
       "type": "paragraph",
@@ -4696,7 +4696,7 @@
       "tags": [
         "B.2"
       ],
-      "markdown": "```math\n-\\frac v h\\left(s_b\\eta_p-\\alpha s_b^2-\\gamma_ph^2\\right)-s_bd.\n\\tag{B.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\n-\\frac v h\\left(s_b\\eta_p-\\alpha s_b^2-\\gamma_ph^2\\right)-s_bd.\n\\end{gathered}\n\\tag{B.2}\n```"
     },
     {
       "type": "paragraph",
@@ -4795,7 +4795,7 @@
       "tags": [
         "B.3"
       ],
-      "markdown": "```math\nu_0=8,\\qquad u_{j+1}=\\eta_*u_j-\\alpha u_j^2-\\gamma_*h^2.\n\\tag{B.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nu_0=8,\\qquad u_{j+1}=\\eta_*u_j-\\alpha u_j^2-\\gamma_*h^2.\n\\end{gathered}\n\\tag{B.3}\n```"
     },
     {
       "type": "paragraph",
@@ -4838,7 +4838,7 @@
       "tags": [
         "B.4"
       ],
-      "markdown": "```math\n\\delta_Q=\n\\frac{b_*}{12e}\\exp(C_f+C_{\\rm pre}-12d)\\,\nh\\sum_{j=0}^{767}\n\\exp\\!\\left[-d\\sum_{k<j}u_k-\\frac{v_0u_j}{h}\\right].\n\\tag{B.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\delta_Q=\n\\frac{b_*}{12e}\\exp(C_f+C_{\\rm pre}-12d)\\,\nh\\sum_{j=0}^{767}\n\\exp\\!\\left[-d\\sum_{k<j}u_k-\\frac{v_0u_j}{h}\\right].\n\\end{gathered}\n\\tag{B.4}\n```"
     },
     {
       "type": "paragraph",
@@ -5116,7 +5116,7 @@
       "tags": [
         "B.5"
       ],
-      "markdown": "```math\n16\\alpha-4\\kappa+4\\rho\\xi p+\\gamma_p.\n\\tag{B.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n16\\alpha-4\\kappa+4\\rho\\xi p+\\gamma_p.\n\\end{gathered}\n\\tag{B.5}\n```"
     },
     {
       "type": "paragraph",
@@ -5225,7 +5225,7 @@
       "tags": [
         "B.6"
       ],
-      "markdown": "```math\n4d+\\frac52r+\\frac{4e^{-12d}}{12e}\n<.589267620943<.6.\n\\tag{B.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\n4d+\\frac52r+\\frac{4e^{-12d}}{12e}\n<.589267620943<.6.\n\\end{gathered}\n\\tag{B.6}\n```"
     },
     {
       "type": "paragraph",
@@ -5252,7 +5252,7 @@
       "tags": [
         "B.7"
       ],
-      "markdown": "```math\nM_2=e^{4v_0+.6}=e^{.78}\n\\tag{B.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\nM_2=e^{4v_0+.6}=e^{.78}\n\\end{gathered}\n\\tag{B.7}\n```"
     },
     {
       "type": "paragraph",
@@ -5382,7 +5382,7 @@
       "tags": [
         "C.1"
       ],
-      "markdown": "```math\nF_\\mu(y)=\\frac1{2\\pi}\\int_{\\mathbb R}\n\\frac{e^{(\\delta+iu)y}}{\\delta+iu}\\widehat\\mu(-\\delta-iu)\\,du.\n\\tag{C.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\nF_\\mu(y)=\\frac1{2\\pi}\\int_{\\mathbb R}\n\\frac{e^{(\\delta+iu)y}}{\\delta+iu}\\widehat\\mu(-\\delta-iu)\\,du.\n\\end{gathered}\n\\tag{C.1}\n```"
     },
     {
       "type": "paragraph",
@@ -5440,7 +5440,7 @@
       "tags": [
         "C.2"
       ],
-      "markdown": "```math\na_{i,n}=\\frac{e^{-r}\\Delta u\\,w_n}{\\pi z_n}\\frac{100}{12}\n\\left(e^{z_ny_{110}}-e^{z_ny_{95}}\\right),\\qquad 1\\le i\\le12.\n\\tag{C.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\na_{i,n}=\\frac{e^{-r}\\Delta u\\,w_n}{\\pi z_n}\\frac{100}{12}\n\\left(e^{z_ny_{110}}-e^{z_ny_{95}}\\right),\\qquad 1\\le i\\le12.\n\\end{gathered}\n\\tag{C.2}\n```"
     },
     {
       "type": "paragraph",
@@ -5564,7 +5564,7 @@
       "tags": [
         "C.3"
       ],
-      "markdown": "```math\n\\frac{M_{\\mu,0}}{e^{\\delta L}-1}\n+\\frac{M_{\\mu,-1}e^y}{e^{(1-\\delta)L}-1}.\n\\tag{C.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\frac{M_{\\mu,0}}{e^{\\delta L}-1}\n+\\frac{M_{\\mu,-1}e^y}{e^{(1-\\delta)L}-1}.\n\\end{gathered}\n\\tag{C.3}\n```"
     },
     {
       "type": "paragraph",
@@ -5615,7 +5615,7 @@
       "tags": [
         "C.4"
       ],
-      "markdown": "```math\nE_{\\rm alias}=\ne^{-.01}\\frac{\n205+200e^{.01}\n+e^{.78}(195e^{y_{95}}+210e^{y_{110}})\n}{e^{5\\pi}-1}.\n\\tag{C.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_{\\rm alias}=\ne^{-.01}\\frac{\n205+200e^{.01}\n+e^{.78}(195e^{y_{95}}+210e^{y_{110}})\n}{e^{5\\pi}-1}.\n\\end{gathered}\n\\tag{C.4}\n```"
     },
     {
       "type": "paragraph",
@@ -5690,7 +5690,7 @@
       "tags": [
         "C.5"
       ],
-      "markdown": "```math\n|\\Phi_\\nu(u)|\n\\le E[K e^{-u^2sI/2}]\n\\le\\sqrt{E e^{2\\,\\text{real loading}}}\n\\sqrt{E e^{-su^2I}}\n\\le\\sqrt{M_2L_\\nu(u)}.\n\\tag{C.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n|\\Phi_\\nu(u)|\n\\le E[K e^{-u^2sI/2}]\n\\le\\sqrt{E e^{2\\,\\text{real loading}}}\n\\sqrt{E e^{-su^2I}}\n\\le\\sqrt{M_2L_\\nu(u)}.\n\\end{gathered}\n\\tag{C.5}\n```"
     },
     {
       "type": "paragraph",
@@ -5791,7 +5791,7 @@
       "tags": [
         "C.6"
       ],
-      "markdown": "```math\nA\\leftarrow A+dhb,\\qquad\nb\\leftarrow b+h(\\alpha b^2-\\kappa b-sU^2).\n\\tag{C.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nA\\leftarrow A+dhb,\\qquad\nb\\leftarrow b+h(\\alpha b^2-\\kappa b-sU^2).\n\\end{gathered}\n\\tag{C.6}\n```"
     },
     {
       "type": "paragraph",
@@ -5834,7 +5834,7 @@
       "tags": [
         "C.7"
       ],
-      "markdown": "```math\nE_{{\\rm tail},Q}\\le\n\\frac{C_*\\sqrt{M_2\\overline L_Q(U)}}{\\pi s i_0U^2}.\n\\tag{C.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_{{\\rm tail},Q}\\le\n\\frac{C_*\\sqrt{M_2\\overline L_Q(U)}}{\\pi s i_0U^2}.\n\\end{gathered}\n\\tag{C.7}\n```"
     },
     {
       "type": "paragraph",
@@ -5926,7 +5926,7 @@
       "tags": [
         "C.8"
       ],
-      "markdown": "```math\nE_{{\\rm tail},P}\\le\n\\frac{C_*\\sqrt{M_2C_P}}{\\pi\\gamma U}e^{-\\gamma U}.\n\\tag{C.8}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE_{{\\rm tail},P}\\le\n\\frac{C_*\\sqrt{M_2C_P}}{\\pi\\gamma U}e^{-\\gamma U}.\n\\end{gathered}\n\\tag{C.8}\n```"
     },
     {
       "type": "heading",
@@ -6012,7 +6012,7 @@
       "tags": [
         "C.9"
       ],
-      "markdown": "```math\n\\int_0^{\\Delta t}b(t)\\,dt\n=\\frac{\\kappa_q\\Delta t/2-\\log\\mathcal D_{\\Delta t}}{\\alpha}.\n\\tag{C.9}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\int_0^{\\Delta t}b(t)\\,dt\n=\\frac{\\kappa_q\\Delta t/2-\\log\\mathcal D_{\\Delta t}}{\\alpha}.\n\\end{gathered}\n\\tag{C.9}\n```"
     },
     {
       "type": "paragraph",
@@ -6031,7 +6031,7 @@
       "tags": [
         "C.10"
       ],
-      "markdown": "```math\n\\cosh(|D_q|\\Delta t/2)-1+\n\\frac{|\\kappa_q-2\\alpha b|\\Delta t}{2}\n\\cosh(|D_q|\\Delta t/2)<1.\n\\tag{C.10}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\cosh(|D_q|\\Delta t/2)-1+\n\\frac{|\\kappa_q-2\\alpha b|\\Delta t}{2}\n\\cosh(|D_q|\\Delta t/2)<1.\n\\end{gathered}\n\\tag{C.10}\n```"
     },
     {
       "type": "paragraph",
@@ -6123,7 +6123,7 @@
       "tags": [
         "C.11"
       ],
-      "markdown": "```math\n\\widehat e_L+\n[-E_L,E_L],\\qquad\nE_L=2E_{\\rm alias}+E_{{\\rm tail},P}\n+E_{{\\rm tail},Q}+\\delta_Q\\sum_{n,i}|a_{i,n}|.\n\\tag{C.11}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\widehat e_L+\n[-E_L,E_L],\\qquad\nE_L=2E_{\\rm alias}+E_{{\\rm tail},P}\n+E_{{\\rm tail},Q}+\\delta_Q\\sum_{n,i}|a_{i,n}|.\n\\end{gathered}\n\\tag{C.11}\n```"
     },
     {
       "type": "paragraph",
@@ -6427,7 +6427,7 @@
       "tags": [
         "D.1"
       ],
-      "markdown": "```math\n\\operatorname{TV}(p_s,p_{\\tilde s})\n\\le\\left\\{\n\\sum_j(\\tilde s_j-s_j)^2\n\\left(\\frac1{8u_j^2}+\\frac1{16u_j}\\right)\n\\right\\}^{1/2}.\n\\tag{D.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\operatorname{TV}(p_s,p_{\\tilde s})\n\\le\\left\\{\n\\sum_j(\\tilde s_j-s_j)^2\n\\left(\\frac1{8u_j^2}+\\frac1{16u_j}\\right)\n\\right\\}^{1/2}.\n\\end{gathered}\n\\tag{D.1}\n```"
     },
     {
       "type": "paragraph",
@@ -6552,7 +6552,7 @@
       "tags": [
         "D.2"
       ],
-      "markdown": "```math\ne^{-r\\tau}\\frac L2\\sqrt{24F}\\,e^{-R^2/4}.\n\\tag{D.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne^{-r\\tau}\\frac L2\\sqrt{24F}\\,e^{-R^2/4}.\n\\end{gathered}\n\\tag{D.2}\n```"
     },
     {
       "type": "paragraph",
@@ -6697,7 +6697,7 @@
       "tags": [
         "E.1"
       ],
-      "markdown": "```math\nED_t^2=\\xi^2\\int_0^te^{-2\\kappa(t-s)}EV_s^\\xi\\,ds\n\\le\\frac{\\xi^2M}{2\\kappa_-}.\n\\tag{E.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\nED_t^2=\\xi^2\\int_0^te^{-2\\kappa(t-s)}EV_s^\\xi\\,ds\n\\le\\frac{\\xi^2M}{2\\kappa_-}.\n\\end{gathered}\n\\tag{E.1}\n```"
     },
     {
       "type": "paragraph",
@@ -6724,7 +6724,7 @@
       "tags": [
         "E.2"
       ],
-      "markdown": "```math\nD_{j+1}^{(2)}\n\\le(1-\\kappa h)^2D_j^{(2)}+\\xi^2hEV_j^\\xi\n\\le(1-\\kappa h)^2D_j^{(2)}\n+\\xi^2h(M+\\sqrt{D_j^{(2)}}).\n\\tag{E.2}\n```"
+      "markdown": "```math\n\\begin{gathered}\nD_{j+1}^{(2)}\n\\le(1-\\kappa h)^2D_j^{(2)}+\\xi^2hEV_j^\\xi\n\\le(1-\\kappa h)^2D_j^{(2)}\n+\\xi^2h(M+\\sqrt{D_j^{(2)}}).\n\\end{gathered}\n\\tag{E.2}\n```"
     },
     {
       "type": "paragraph",
@@ -6903,7 +6903,7 @@
       "tags": [
         "E.3"
       ],
-      "markdown": "```math\ne_{\\nu,J}=110e^{-r}\\xi_{\\max}C_\\nu\n\\left(1/2+2/\\sqrt m\\right).\n\\tag{E.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne_{\\nu,J}=110e^{-r}\\xi_{\\max}C_\\nu\n\\left(1/2+2/\\sqrt m\\right).\n\\end{gathered}\n\\tag{E.3}\n```"
     },
     {
       "type": "paragraph",
@@ -6938,7 +6938,7 @@
       "tags": [
         "E.4"
       ],
-      "markdown": "```math\ne_{P,J}\\le.000131198492451391,\\qquad\ne_{Q,J}\\le.000262396984902781.\n\\tag{E.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne_{P,J}\\le.000131198492451391,\\qquad\ne_{Q,J}\\le.000262396984902781.\n\\end{gathered}\n\\tag{E.4}\n```"
     },
     {
       "type": "paragraph",
@@ -7044,7 +7044,7 @@
       "tags": [
         "F.1"
       ],
-      "markdown": "```math\ny=\\begin{pmatrix}\n526706580970763/562949953421312\\\\\n285901443526503/70368744177664\\\\\n754049251176359/70368744177664\\\\\n580752698287259/281474976710656\\\\\n794307614955649/140737488355328\\\\\n830842010134081/70368744177664\\\\\n269207942741719/70368744177664\\\\\n137257851354697/17592186044416\\\\\n1918003280297167/140737488355328\n\\end{pmatrix}.\n\\tag{F.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\ny=\\begin{pmatrix}\n526706580970763/562949953421312\\\\\n285901443526503/70368744177664\\\\\n754049251176359/70368744177664\\\\\n580752698287259/281474976710656\\\\\n794307614955649/140737488355328\\\\\n830842010134081/70368744177664\\\\\n269207942741719/70368744177664\\\\\n137257851354697/17592186044416\\\\\n1918003280297167/140737488355328\n\\end{pmatrix}.\n\\end{gathered}\n\\tag{F.1}\n```"
     },
     {
       "type": "paragraph",
@@ -7254,7 +7254,7 @@
       "tags": [
         "F.4"
       ],
-      "markdown": "```math\n\\frac12r^T\\Sigma_d^{-1}r=\n\\frac{32}{27(d+3)}\n\\left(3\\sum_i r_i^2+\\sum_{i<j}(r_i-r_j)^2\\right).\n\\tag{F.4}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\frac12r^T\\Sigma_d^{-1}r=\n\\frac{32}{27(d+3)}\n\\left(3\\sum_i r_i^2+\\sum_{i<j}(r_i-r_j)^2\\right).\n\\end{gathered}\n\\tag{F.4}\n```"
     },
     {
       "type": "paragraph",
@@ -7370,7 +7370,7 @@
       "tags": [
         "F.5"
       ],
-      "markdown": "```math\n\\underline G_\\nu(x_k)=\\frac{L_<}{L_<+U_>},\n\\qquad\n\\overline G_\\nu(x_k)=\\frac{U_<}{U_<+L_>}.\n\\tag{F.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\underline G_\\nu(x_k)=\\frac{L_<}{L_<+U_>},\n\\qquad\n\\overline G_\\nu(x_k)=\\frac{U_<}{U_<+L_>}.\n\\end{gathered}\n\\tag{F.5}\n```"
     },
     {
       "type": "paragraph",
@@ -7447,7 +7447,7 @@
       "tags": [
         "F.6"
       ],
-      "markdown": "```math\nU\\in[\\underline G_\\nu(x_i),\\overline G_\\nu(x_{i+1})].\n\\tag{F.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nU\\in[\\underline G_\\nu(x_i),\\overline G_\\nu(x_{i+1})].\n\\end{gathered}\n\\tag{F.6}\n```"
     },
     {
       "type": "paragraph",
@@ -7474,7 +7474,7 @@
       "tags": [
         "F.7"
       ],
-      "markdown": "```math\n\\delta_u=\\Delta x\\max_i\\max\\{|i-(j_++1)|,\\ |i+1-j_-|\\},\n\\quad \\Delta x=.03/4096.\n\\tag{F.7}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\delta_u=\\Delta x\\max_i\\max\\{|i-(j_++1)|,\\ |i+1-j_-|\\},\n\\quad \\Delta x=.03/4096.\n\\end{gathered}\n\\tag{F.7}\n```"
     },
     {
       "type": "paragraph",

@@ -4,7 +4,7 @@ from collections import Counter
 import hashlib
 import json
 import re
-from build_report import github_tex
+from build_report import github_tex, github_display_tex
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / 'manuscript'
@@ -29,7 +29,7 @@ def main():
     expected = []
     for block in report['blocks']:
         if block['type'] == 'display_math':
-            expected.append(('display', compact(github_tex(block['tex']))))
+            expected.append(('display', compact(github_display_tex(block['tex']))))
         expected.extend(inline_math(block.get('inlines', [])))
         for item in block.get('items', []):
             expected.extend(inline_math(item['inlines']))
