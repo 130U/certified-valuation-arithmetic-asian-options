@@ -1,0 +1,64 @@
+{
+  "status": "ANALYTICAL_SOURCE_AND_COMPLETED_RESULT_READBACK_PASS",
+  "scope": [
+    "3",
+    "9/200",
+    "23/100",
+    "-11/20",
+    "1/25"
+  ],
+  "review_script_sha256": "0ed8f75ec614fcfb7c161186a925b81b9ab4e4430fa6a66e9c8fe6347bd34561",
+  "preflight_sha256": "616459525ecb9c1d280262f21062daacd9437ea24e1640ec6d81a971a851ea56",
+  "source_files": [
+    {
+      "file": "asian-remainder-certificate.py",
+      "baseline_sha256": "7c9a8d15a8576250e601f97950a2e6b8142852308e762a7711c2c1a1bf7f901f",
+      "executed_sha256": "c6d05697db9d44ad2db441c96cc3ae39ad71930121694bdfc5fd1ed02856c3ac",
+      "source_equals_exact_reviewed_transform": true
+    },
+    {
+      "file": "asian-linear-certificate.py",
+      "baseline_sha256": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+      "executed_sha256": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+      "source_equals_exact_reviewed_transform": true
+    },
+    {
+      "file": "check-asian-remainder.py",
+      "baseline_sha256": "30702cc306d9c5456fd1ff505e8fb15f4773ef38955a22a6b0db67f9440a4347",
+      "executed_sha256": "0b880e52aff38fd6b56f52f62cdb647593dadbc7f246c18f4eea2d5d269f71d5",
+      "source_equals_exact_reviewed_transform": true
+    },
+    {
+      "file": "check-asian-linear.py",
+      "baseline_sha256": "28fddd6f239e8a923e67b0e6f4b89775652ca7f22baccb3de7c23873da15abce",
+      "executed_sha256": "dbd8243af5d55c908245e99d3003f239432d31dca3ead393ba433559129077cf",
+      "source_equals_exact_reviewed_transform": true
+    }
+  ],
+  "exact_independently_recomputed_constants": {
+    "beta_weighted": "3000866063/368640000",
+    "beta_linear": "8004253583/983040000",
+    "beta_UI": "8001336523/983040000",
+    "continuous_generator_endpoint_values": [
+      "-190761/20000",
+      "-27417/2500"
+    ],
+    "rational_growth_upper_by_Taylor": "17900447209947653/30354773822916200",
+    "new_moment_exponent": "19/25",
+    "retained_conservative_moment_exponent": "39/50",
+    "first_month_discrete_I_floor": "1/19200"
+  },
+  "current_execution_receipt_status": "COMPLETE",
+  "full_price_execution_completed": true,
+  "explanation": "Every analytical guard is retained. The source changes are the actual v0 parameter, input/scope metadata, old numerical targets as flags, source pin and declared wall-time allowances.",
+  "completed_receipt_sha256": "b9d3c3cde98affa537602f858a7edeeb362a9b15fc43a9b349f78d7622475bce",
+  "independent_weighted_nodes": {
+    "P": 257,
+    "Q": 129
+  },
+  "independent_linear_counts": {
+    "Q_layers": 6399744,
+    "P_path_guards": 799968,
+    "frequency_real_interval_overlaps": 1923
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "status": "COMPLETE",
+  "input": {
+    "status": "PASS_FIXED_PARAMETER_ANALYTICAL_PREFLIGHT",
+    "theta_order": [
+      "kappa",
+      "vbar",
+      "xi",
+      "rho",
+      "v0"
+    ],
+    "theta": [
+      "3",
+      "9/200",
+      "23/100",
+      "-11/20",
+      "1/25"
+    ],
+    "S0": "100",
+    "r": "1/100",
+    "h": "1/768",
+    "fixings": "m/12, m=1,...,12",
+    "payoff": "(A-95)+-(A-110)+",
+    "c": "1254433/1250000",
+    "weighted_projection_beta_exact": "3000866063/368640000",
+    "linear_projection_beta_exact": "8004253583/983040000",
+    "UI_beta_exact": "8001336523/983040000",
+    "UI_loading_range": [
+      "-5/4",
+      "5/2"
+    ],
+    "continuous_generator_endpoint_coefficients_exact": [
+      "-190761/20000",
+      "-27417/2500"
+    ],
+    "UI_growth_upper": {
+      "exact_interval": [
+        "17058132237208121958658168881049684860268962158271031863900800710210587163473/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+        "17058132237208121958658168881049684860268962158271031863900800710210587163475/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+      ],
+      "outward24": [
+        "0.589267620942478531035610",
+        "0.589267620942478531035611"
+      ]
+    },
+    "new_point_moment_exponent_bound_exact": "19/25",
+    "retained_conservative_M2_exponent_exact": "39/50",
+    "moment_reason": "B.5-B.6 growth is independent of v0; .6+4*.04=.76<.78, so exp(.78) still bounds all required price-profile moments.",
+    "first_Euler_integrated_variance_floor_exact": "1/19200",
+    "Feller_index_exact": "2700/529",
+    "must_recompute_at_new_v0": [
+      "All affine e^(A+Bv0) evaluations",
+      "Every exp(-v0*u/h) projection prefix",
+      "Weighted-tail C and zeta",
+      "Q weighted-tail denominator 128*h*v0",
+      "First-month Q Laplace LQ",
+      "Continuous price-tail CP and gamma",
+      "Discrete price-tail i0=h*v0 denominator",
+      "Both signed remainders, complete bias and separate P/Q prices"
+    ],
+    "must_pass_during_execution": [
+      "All 91-profile real coefficient and denominator guards",
+      "Positive projection u recurrence",
+      "All 641-frequency 13-ray Euler coefficient guards",
+      "All continuous complex-log branch guards",
+      "All first-month Laplace coefficient sign guards",
+      "All independent node/frequency/fee checks"
+    ],
+    "scope": "This is a preflight for one changed-v0 point, not a uniform parameter-region certificate."
+  },
+  "baseline_package_integrity": {
+    "status": "PASS_PACKAGE_INTEGRITY",
+    "files": 41,
+    "manifest_sha256": "33eaee125bc49f5755ec74ab24fa9bf655afaab5f884decf1576687eacdbf0c2"
+  },
+  "environment": {
+    "python_version": "3.12.14",
+    "platform": "Windows",
+    "machine": "AMD64",
+    "python_flint": "0.8.0",
+    "available_physical_bytes": 2892259328,
+    "available_commit_bytes": 2731573248,
+    "network_calls": 0
+  },
+  "generator_sha256": "118278239eaa2ba9221e3d30cb4ef4503d425422660fc120961b14ef5055ddd5",
+  "preflight_sha256": "616459525ecb9c1d280262f21062daacd9437ea24e1640ec6d81a971a851ea56",
+  "scope_sha256": "215e9b1cbea20cad7bfedafd054ffea6f9a6e9eac3aa7406dcd1050aa57300c9",
+  "resource_helper_sha256": "300d8960faa25be959bbf73cf58ec91100abe10214634d08124b91ad6893255b",
+  "source_patches": [
+    {
+      "file": "asian-remainder-certificate.py",
+      "original_sha256": "7c9a8d15a8576250e601f97950a2e6b8142852308e762a7711c2c1a1bf7f901f",
+      "executed_sha256": "c6d05697db9d44ad2db441c96cc3ae39ad71930121694bdfc5fd1ed02856c3ac",
+      "patches": [
+        {
+          "old": "v0=ar(F(9,200))",
+          "new": "v0=ar(F(1,25))",
+          "kind": "actual_numerical_parameter"
+        },
+        {
+          "old": "'theta':['3','9/200','23/100','-11/20','9/200']",
+          "new": "'theta':['3','9/200','23/100','-11/20','1/25']",
+          "kind": "input_metadata"
+        },
+        {
+          "kind": "result_acceptance_only",
+          "note": "Record old .011 target as a boolean; no analytical enclosure premise relaxed."
+        },
+        {
+          "kind": "finite_resource_contract",
+          "weighted_seconds": 120,
+          "linear_seconds": 360,
+          "threads": 1,
+          "worker_MiB": 256,
+          "note": "Only wall-time allowances change; mathematical premises and finite workloads retained."
+        }
+      ]
+    },
+    {
+      "file": "asian-linear-certificate.py",
+      "original_sha256": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+      "executed_sha256": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+      "patches": [
+        {
+          "old": "v0=ar(F(9,200))",
+          "new": "v0=ar(F(1,25))",
+          "kind": "actual_numerical_parameter"
+        },
+        {
+          "kind": "finite_resource_contract",
+          "weighted_seconds": 120,
+          "linear_seconds": 360,
+          "threads": 1,
+          "worker_MiB": 256,
+          "note": "Only wall-time allowances change; mathematical premises and finite workloads retained."
+        }
+      ]
+    },
+    {
+      "file": "check-asian-remainder.py",
+      "original_sha256": "30702cc306d9c5456fd1ff505e8fb15f4773ef38955a22a6b0db67f9440a4347",
+      "executed_sha256": "0b880e52aff38fd6b56f52f62cdb647593dadbc7f246c18f4eea2d5d269f71d5",
+      "patches": [
+        {
+          "old": "v=ar(F(9,200))",
+          "new": "v=ar(F(1,25))",
+          "kind": "actual_numerical_parameter"
+        },
+        {
+          "kind": "result_acceptance_only",
+          "note": "Independently record old .011 radius target rather than using it as an enclosure premise."
+        },
+        {
+          "kind": "finite_resource_contract",
+          "weighted_seconds": 120,
+          "linear_seconds": 360,
+          "threads": 1,
+          "worker_MiB": 256,
+          "note": "Only wall-time allowances change; mathematical premises and finite workloads retained."
+        }
+      ]
+    },
+    {
+      "file": "check-asian-linear.py",
+      "original_sha256": "28fddd6f239e8a923e67b0e6f4b89775652ca7f22baccb3de7c23873da15abce",
+      "executed_sha256": "dbd8243af5d55c908245e99d3003f239432d31dca3ead393ba433559129077cf",
+      "patches": [
+        {
+          "old": "v0=ar(F(9,200))",
+          "new": "v0=ar(F(1,25))",
+          "kind": "actual_numerical_parameter"
+        },
+        {
+          "old": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+          "new": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+          "kind": "bind_actual_executed_author_source"
+        },
+        {
+          "kind": "result_acceptance_only",
+          "note": "Report old .025 absolute-price target truthfully at the new point."
+        },
+        {
+          "kind": "finite_resource_contract",
+          "weighted_seconds": 120,
+          "linear_seconds": 360,
+          "threads": 1,
+          "worker_MiB": 256,
+          "note": "Only wall-time allowances change; mathematical premises and finite workloads retained."
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "asian-W",
+      "file": "asian-remainder-certificate.py",
+      "source_sha256": "c6d05697db9d44ad2db441c96cc3ae39ad71930121694bdfc5fd1ed02856c3ac",
+      "external_timeout_seconds": 135,
+      "seconds": 11.45758869999554,
+      "returncode": 0,
+      "log": "asian-W.log",
+      "status": "COMPLETE",
+      "result": "asian-remainder-result.json",
+      "result_sha256": "23097f25816157975ddca8ee211d57bf75663ad2858a3b9833871e601dd90caa",
+      "numerical_status": "CERTIFIED_ORIGINAL_ASIAN_WEIGHTED_REMAINDER_ONLY"
+    },
+    {
+      "id": "asian-pilot",
+      "file": "asian-linear-certificate.py",
+      "source_sha256": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+      "external_timeout_seconds": 45,
+      "seconds": 0.6508125000400469,
+      "returncode": 0,
+      "log": "asian-pilot.log",
+      "status": "COMPLETE",
+      "result": "asian-linear-pilot-result.json",
+      "result_sha256": "9b41a96d4296435fd6819df089343b78e5f945aca19ae9b102908d1b4f57849c",
+      "numerical_status": "PILOT_ONLY_NO_PRICE_CLAIM"
+    },
+    {
+      "id": "asian-linear",
+      "file": "asian-linear-certificate.py",
+      "source_sha256": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+      "external_timeout_seconds": 375,
+      "seconds": 34.0073882000288,
+      "returncode": 0,
+      "log": "asian-linear.log",
+      "status": "COMPLETE",
+      "result": "asian-linear-result.json",
+      "result_sha256": "7d1adea5db08ae7ff56e0029f45b9485d9cb695d3217371f6f01d7bbce95a44b",
+      "numerical_status": "COMPLETE_ORIGINAL_ASIAN_PQ_CERTIFICATE"
+    },
+    {
+      "id": "asian-W-check",
+      "file": "check-asian-remainder.py",
+      "source_sha256": "0b880e52aff38fd6b56f52f62cdb647593dadbc7f246c18f4eea2d5d269f71d5",
+      "external_timeout_seconds": 135,
+      "seconds": 16.498226099996828,
+      "returncode": 0,
+      "log": "asian-W-check.log",
+      "status": "COMPLETE",
+      "result": "check-asian-remainder-result.json",
+      "result_sha256": "af67dabe704794467919872d14c1b6671ee899838163adcf2a6b5bf5a4bece6e",
+      "numerical_status": "NONAUTHOR_FULL_WEIGHTED_REMAINDER_RECOMPUTATION_PASS"
+    },
+    {
+      "id": "asian-linear-check",
+      "file": "check-asian-linear.py",
+      "source_sha256": "dbd8243af5d55c908245e99d3003f239432d31dca3ead393ba433559129077cf",
+      "external_timeout_seconds": 375,
+      "seconds": 34.860384100000374,
+      "returncode": 0,
+      "log": "asian-linear-check.log",
+      "status": "COMPLETE",
+      "result": "check-asian-linear-result.json",
+      "result_sha256": "e313996bfa1d3a27d18bda3b5fe5ea4f3f206e53d19e701bc8663ff9b5e76e98",
+      "numerical_status": "INDEPENDENT_FULL_ORIGINAL_ASIAN_CERTIFICATE_PASS"
+    }
+  ],
+  "references_modified": false,
+  "execution_environment": {
+    "python_version": "3.12.14",
+    "platform": "Windows",
+    "machine": "AMD64",
+    "python_flint": "0.8.0",
+    "available_physical_bytes": 2592591872,
+    "available_commit_bytes": 2237980672,
+    "network_calls": 0
+  },
+  "all_five_jobs_completed": true,
+  "independent_all_nodes_frequencies_and_fees_pass": true
+}
