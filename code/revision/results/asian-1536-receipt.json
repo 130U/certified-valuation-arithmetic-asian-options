@@ -1,0 +1,96 @@
+{
+  "status": "COMPLETE",
+  "h": "1/1536",
+  "script_sha256": "152fc0c4d93b14569645eea4dacf58e6de309f5db27b65c42fc14d3c7301d70f",
+  "source_patches": [
+    {
+      "source": "asian-remainder-certificate.py",
+      "original_sha256": "7c9a8d15a8576250e601f97950a2e6b8142852308e762a7711c2c1a1bf7f901f",
+      "executed_sha256": "1c3603107db7971c704b67d172aa686143a92aa2b0b2115ca19857779539567d",
+      "changes": "Finite step parameter N=1536; month loop/index/counter values; source-identity pin rebound to the executed author copy. Original radius < .011 and price absolute error < .025 acceptance thresholds are recorded as booleans, allowing a wider valid enclosure. Mathematical fees, analytical preconditions, branch guards, precision, one thread and 256 MiB memory limit retained. Wall budgets are multiplied by ceil(N/768) to retain a bounded resource contract at twice the grid workload."
+    },
+    {
+      "source": "asian-linear-certificate.py",
+      "original_sha256": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+      "executed_sha256": "bbd3447f88b9d0ab5a399fe1325cef1010e24d9322683575bb22be72d1e982be",
+      "changes": "Finite step parameter N=1536; month loop/index/counter values; source-identity pin rebound to the executed author copy. Original radius < .011 and price absolute error < .025 acceptance thresholds are recorded as booleans, allowing a wider valid enclosure. Mathematical fees, analytical preconditions, branch guards, precision, one thread and 256 MiB memory limit retained. Wall budgets are multiplied by ceil(N/768) to retain a bounded resource contract at twice the grid workload."
+    },
+    {
+      "source": "check-asian-remainder.py",
+      "original_sha256": "30702cc306d9c5456fd1ff505e8fb15f4773ef38955a22a6b0db67f9440a4347",
+      "executed_sha256": "d2a93c6ee0783467009ae364cc0aaf12cf07d783e06eda42682746884027d9f8",
+      "changes": "Finite step parameter N=1536; month loop/index/counter values; source-identity pin rebound to the executed author copy. Original radius < .011 and price absolute error < .025 acceptance thresholds are recorded as booleans, allowing a wider valid enclosure. Mathematical fees, analytical preconditions, branch guards, precision, one thread and 256 MiB memory limit retained. Wall budgets are multiplied by ceil(N/768) to retain a bounded resource contract at twice the grid workload."
+    },
+    {
+      "source": "check-asian-linear.py",
+      "original_sha256": "28fddd6f239e8a923e67b0e6f4b89775652ca7f22baccb3de7c23873da15abce",
+      "executed_sha256": "4210338f4ca5a96c45edd2e05cc6982d5b21331f13f48d34f824cced67741e04",
+      "changes": "Finite step parameter N=1536; month loop/index/counter values; source-identity pin rebound to the executed author copy. Original radius < .011 and price absolute error < .025 acceptance thresholds are recorded as booleans, allowing a wider valid enclosure. Mathematical fees, analytical preconditions, branch guards, precision, one thread and 256 MiB memory limit retained. Wall budgets are multiplied by ceil(N/768) to retain a bounded resource contract at twice the grid workload."
+    }
+  ],
+  "jobs": [
+    {
+      "id": "asian-W",
+      "source": "asian-remainder-certificate.py",
+      "source_sha256": "1c3603107db7971c704b67d172aa686143a92aa2b0b2115ca19857779539567d",
+      "returncode": 0,
+      "seconds": 56.10716490005143,
+      "log": "asian-W.log",
+      "status": "COMPLETE",
+      "result": "asian-remainder-result.json",
+      "result_sha256": "0f0ca093633e1f2121642263b9cd98064ebeb112a2994f24fc6204c4d42d1632",
+      "numerical_status": "CERTIFIED_ORIGINAL_ASIAN_WEIGHTED_REMAINDER_ONLY"
+    },
+    {
+      "id": "asian-pilot",
+      "source": "asian-linear-certificate.py",
+      "source_sha256": "bbd3447f88b9d0ab5a399fe1325cef1010e24d9322683575bb22be72d1e982be",
+      "returncode": 0,
+      "seconds": 1.1631907999981195,
+      "log": "asian-pilot.log",
+      "status": "COMPLETE",
+      "result": "asian-linear-pilot-result.json",
+      "result_sha256": "e0eb5f27fd615f53f230283fda8eb80ff196fc691c855bf699e5e33a48e03bb1",
+      "numerical_status": "PILOT_ONLY_NO_PRICE_CLAIM"
+    },
+    {
+      "id": "asian-linear",
+      "source": "asian-linear-certificate.py",
+      "source_sha256": "bbd3447f88b9d0ab5a399fe1325cef1010e24d9322683575bb22be72d1e982be",
+      "returncode": 0,
+      "seconds": 134.8763978999341,
+      "log": "asian-linear.log",
+      "status": "COMPLETE",
+      "result": "asian-linear-result.json",
+      "result_sha256": "56e3700e19bb7c6d0f8e5039679bbff66ca5539aa40cd3453d159cd5910ea8cc",
+      "numerical_status": "COMPLETE_ORIGINAL_ASIAN_PQ_CERTIFICATE"
+    },
+    {
+      "id": "asian-W-check",
+      "source": "check-asian-remainder.py",
+      "source_sha256": "d2a93c6ee0783467009ae364cc0aaf12cf07d783e06eda42682746884027d9f8",
+      "returncode": 0,
+      "seconds": 67.76349750009831,
+      "log": "asian-W-check.log",
+      "status": "COMPLETE",
+      "result": "check-asian-remainder-result.json",
+      "result_sha256": "e20c86019a79e4f8153acce085873df6f1d6cb23b573a908a3426af95aaab6c2",
+      "numerical_status": "NONAUTHOR_FULL_WEIGHTED_REMAINDER_RECOMPUTATION_PASS"
+    },
+    {
+      "id": "asian-linear-check",
+      "source": "check-asian-linear.py",
+      "source_sha256": "4210338f4ca5a96c45edd2e05cc6982d5b21331f13f48d34f824cced67741e04",
+      "returncode": 0,
+      "seconds": 171.71477249998134,
+      "log": "asian-linear-check.log",
+      "status": "COMPLETE",
+      "result": "check-asian-linear-result.json",
+      "result_sha256": "18372e425da27e7dae54cde24c4dd36152893ed9d658b40b58843b105cb741e8",
+      "numerical_status": "INDEPENDENT_FULL_ORIGINAL_ASIAN_CERTIFICATE_PASS"
+    }
+  ],
+  "analytical_projection_beta_expected": "12040940687/1474560000",
+  "no_claim": "A stopped job gives no complete price enclosure at this grid.",
+  "independent_all_nodes_and_frequency_fees_pass": true
+}

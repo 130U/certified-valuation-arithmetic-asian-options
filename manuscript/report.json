@@ -21,12 +21,12 @@
   },
   "counts": {
     "main_sections": 10,
-    "appendices": 7,
-    "display_math": 147,
-    "inline_math": 373,
-    "equation_tags": 88,
-    "unique_tags": 88,
-    "tables": 4,
+    "appendices": 8,
+    "display_math": 169,
+    "inline_math": 480,
+    "equation_tags": 95,
+    "unique_tags": 95,
+    "tables": 13,
     "references": 12
   },
   "blocks": [
@@ -49,7 +49,23 @@
       "inlines": [
         {
           "type": "text",
-          "text": "We study the continuous-model valuation of arithmetic Asian payoffs at fixed observation dates, their valuation under a projected Euler scheme, and the numerical difference between the two. We establish a sufficient condition based on a common Gaussian factor and a weighted second moment: we first integrate conditionally over the Gaussian factor shared by all observed prices, and then control the difference between the arithmetic average and a geometric reference through a second-order payoff remainder. This structure reduces the error for a payoff with kinks to finitely many transforms and a nonnegative Laplace integral. For the Heston model and its positive-part variance Euler scheme, all integration tails, discrete projection corrections, complex-logarithm branches, and finite-precision rounding can be included in an explicit error budget. At a specified parameter point, with twelve monthly observation dates and step size "
+          "text": "We certify the implementation error for the bounded arithmetic Asian call spread "
+        },
+        {
+          "type": "math",
+          "tex": "\\psi(A)=(A-95)^+-(A-110)^+"
+        },
+        {
+          "type": "text",
+          "text": ", with twelve monthly fixings, in a specified Heston model and its original positive-part variance Euler scheme. A common Gaussian factor gives a nonnegative payoff remainder controlled by a weighted second moment. Validated transform arithmetic includes projection corrections, integration tails, inversion error, complex-logarithm branches, and rounding. At "
+        },
+        {
+          "type": "math",
+          "tex": "\\theta_*=(3,.045,.23,-.55,.045)"
+        },
+        {
+          "type": "text",
+          "text": " and "
         },
         {
           "type": "math",
@@ -57,10 +73,10 @@
         },
         {
           "type": "text",
-          "text": ", we obtain the rigorous enclosure"
+          "text": ", the signed Euler-minus-continuous price difference lies in"
         }
       ],
-      "markdown": "We study the continuous-model valuation of arithmetic Asian payoffs at fixed observation dates, their valuation under a projected Euler scheme, and the numerical difference between the two. We establish a sufficient condition based on a common Gaussian factor and a weighted second moment: we first integrate conditionally over the Gaussian factor shared by all observed prices, and then control the difference between the arithmetic average and a geometric reference through a second-order payoff remainder. This structure reduces the error for a payoff with kinks to finitely many transforms and a nonnegative Laplace integral. For the Heston model and its positive-part variance Euler scheme, all integration tails, discrete projection corrections, complex-logarithm branches, and finite-precision rounding can be included in an explicit error budget. At a specified parameter point, with twelve monthly observation dates and step size $`h=1/768`$, we obtain the rigorous enclosure"
+      "markdown": "We certify the implementation error for the bounded arithmetic Asian call spread $`\\psi(A)=(A-95)^+-(A-110)^+`$, with twelve monthly fixings, in a specified Heston model and its original positive-part variance Euler scheme. A common Gaussian factor gives a nonnegative payoff remainder controlled by a weighted second moment. Validated transform arithmetic includes projection corrections, integration tails, inversion error, complex-logarithm branches, and rounding. At $`\\theta_*=(3,.045,.23,-.55,.045)`$ and $`h=1/768`$, the signed Euler-minus-continuous price difference lies in"
     },
     {
       "type": "display_math",
@@ -74,10 +90,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "for the true Euler-minus-continuous price difference, together with the continuous arithmetic Asian price interval"
+          "text": "and the continuous-model call-spread price lies in"
         }
       ],
-      "markdown": "for the true Euler-minus-continuous price difference, together with the continuous arithmetic Asian price interval"
+      "markdown": "and the continuous-model call-spread price lies in"
     },
     {
       "type": "display_math",
@@ -91,10 +107,34 @@
       "inlines": [
         {
           "type": "text",
-          "text": "We further use a single Gaussian density perturbation to establish a joint first-order weak expansion, with an explicit second-order remainder, for nine put payoffs and the arithmetic Asian payoff on a nonconstant deterministic-variance family. Under a three-dimensional continuous prior with strictly positive volatility of volatility, a coupling of parameter posteriors that retains their normalizing constants yields a bound, in price units, on the displacement of every quantile of the posterior distribution of the true Asian price. The contribution is to combine conditional smoothing, error bounds for the original discrete kernel, and finite arithmetic verification into a complete executable certificate, with a specific domain of validity for each conclusion."
+          "text": "These are fixed-point, fixed-grid enclosures. Separately, a common Gaussian density perturbation gives a joint first-order expansion for nine puts and the Asian spread on a deterministic-variance family with "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi=0"
+        },
+        {
+          "type": "text",
+          "text": ". The Asian coefficient has a score representation and an absolute bound; its scalar certified integration is a distinct numerical task. A posterior coupling bounds all target-quantile displacements for an explicitly restricted continuous prior with "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi\\in[10^{-7},10^{-6}]"
+        },
+        {
+          "type": "text",
+          "text": ", a perturbation regime near deterministic variance. It does not establish stability at "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi=.23"
+        },
+        {
+          "type": "text",
+          "text": ". The main contribution is the weighted payoff structure and auditable finite error accounting for the specified original discrete kernel. We expose the dominant nonlinear width, derive its optimal common reference scale, and distinguish completed certificates from diagnostic calculations and outstanding validation tasks. Frozen sources, exact inputs, rational endpoints, and commands accompany the revised version."
         }
       ],
-      "markdown": "We further use a single Gaussian density perturbation to establish a joint first-order weak expansion, with an explicit second-order remainder, for nine put payoffs and the arithmetic Asian payoff on a nonconstant deterministic-variance family. Under a three-dimensional continuous prior with strictly positive volatility of volatility, a coupling of parameter posteriors that retains their normalizing constants yields a bound, in price units, on the displacement of every quantile of the posterior distribution of the true Asian price. The contribution is to combine conditional smoothing, error bounds for the original discrete kernel, and finite arithmetic verification into a complete executable certificate, with a specific domain of validity for each conclusion."
+      "markdown": "These are fixed-point, fixed-grid enclosures. Separately, a common Gaussian density perturbation gives a joint first-order expansion for nine puts and the Asian spread on a deterministic-variance family with $`\\xi=0`$. The Asian coefficient has a score representation and an absolute bound; its scalar certified integration is a distinct numerical task. A posterior coupling bounds all target-quantile displacements for an explicitly restricted continuous prior with $`\\xi\\in[10^{-7},10^{-6}]`$, a perturbation regime near deterministic variance. It does not establish stability at $`\\xi=.23`$. The main contribution is the weighted payoff structure and auditable finite error accounting for the specified original discrete kernel. We expose the dominant nonlinear width, derive its optimal common reference scale, and distinguish completed certificates from diagnostic calculations and outstanding validation tasks. Frozen sources, exact inputs, rational endpoints, and commands accompany the revised version."
     },
     {
       "type": "heading",
@@ -314,6 +354,406 @@
         }
       ],
       "markdown": "Here $`\\Phi`$ denotes conditional Gaussian smoothing and rigorous transform error accounting; $`\\mathsf M`$ consists of the payoff decomposition with explicit constants and transform error bounds; and $`\\mathsf B`$ is a rigorous enclosure of the actual price difference. Section 2 defines these objects precisely, and Sections 3–5 prove the main chain of implications. Sections 6 and 7 develop the weak expansion and posterior transfer, respectively. Section 8 presents the numerical certificates and their financial use, and Section 9 specifies the domain of validity."
+    },
+    {
+      "type": "heading",
+      "id": "section-1-1",
+      "level": 3,
+      "number": "1.1",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Comparison with conditional Asian bounds"
+        }
+      ],
+      "markdown": "### 1.1 Comparison with conditional Asian bounds"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Fusai and Kyriakou "
+        },
+        {
+          "type": "citation",
+          "numbers": [
+            4
+          ]
+        },
+        {
+          "type": "text",
+          "text": " already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. This comparison concerns that reviewed paper; it does not establish global priority. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
+        }
+      ],
+      "markdown": "Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. This comparison concerns that reviewed paper; it does not establish global priority. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Object"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Fusai–Kyriakou (reviewed source)"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Present result"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Payoff approximation"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Optimized conditional lower bound and conditional-variance error (Theorem 4, p. 15)."
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Exact linear-reference decomposition with nonnegative remainder controlled by a weighted second moment (Lemma 3.1)."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Discrete numerical law"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "QE simulation benchmark (Appendix B, p. 22); no certificate for kernel (2.2) is reported."
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Projection correction between an algebraic transform recursion and the specified original positive-part variance Euler law, using current variance in the stock update (Appendix B)."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Transform computation"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Fourier conditional moments (equations (55)–(56), pp. 15–16) and FFT implementation (Section 5, pp. 16–17)."
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Finite real and complex loading catalogs, certified quadrature and infinite-tail bounds, and complex-logarithm branch checks (Appendices A–C)."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Finite arithmetic"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "An outward-rounded error budget is not reported in the reviewed source."
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Rational endpoint combination and ball-arithmetic enclosures include rounding with the other finite errors (Appendices A–C and G)."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Certified output"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Lower-bound approximation error (Theorem 4); no executable signed Euler-minus-continuous enclosure is reported."
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Signed "
+              },
+              {
+                "type": "math",
+                "tex": "p_h-p_c"
+              },
+              {
+                "type": "text",
+                "text": " interval at the specified parameters and grid (Theorem 4.1 and Corollary 4.2), traceable to the accompanying executable package."
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Object | Fusai–Kyriakou (reviewed source) | Present result |\n| --- | --- | --- |\n| Payoff approximation | Optimized conditional lower bound and conditional-variance error (Theorem 4, p. 15). | Exact linear-reference decomposition with nonnegative remainder controlled by a weighted second moment (Lemma 3.1). |\n| Discrete numerical law | QE simulation benchmark (Appendix B, p. 22); no certificate for kernel (2.2) is reported. | Projection correction between an algebraic transform recursion and the specified original positive-part variance Euler law, using current variance in the stock update (Appendix B). |\n| Transform computation | Fourier conditional moments (equations (55)–(56), pp. 15–16) and FFT implementation (Section 5, pp. 16–17). | Finite real and complex loading catalogs, certified quadrature and infinite-tail bounds, and complex-logarithm branch checks (Appendices A–C). |\n| Finite arithmetic | An outward-rounded error budget is not reported in the reviewed source. | Rational endpoint combination and ball-arithmetic enclosures include rounding with the other finite errors (Appendices A–C and G). |\n| Certified output | Lower-bound approximation error (Theorem 4); no executable signed Euler-minus-continuous enclosure is reported. | Signed $`p_h-p_c`$ interval at the specified parameters and grid (Theorem 4.1 and Corollary 4.2), traceable to the accompanying executable package. |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The geometric reference and conditioning strategy therefore supply established foundations. The weighted remainder, correction for the specified original projected kernel, and complete finite error accounting are the objects for which this manuscript provides model-specific proofs and executable evidence. The current separate-law remainder bounds need not vanish when the two laws coincide; the certificate is a fixed-step enclosure, and the present bound alone does not establish convergence of its width as "
+        },
+        {
+          "type": "math",
+          "tex": "h\\to0"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "markdown": "The geometric reference and conditioning strategy therefore supply established foundations. The weighted remainder, correction for the specified original projected kernel, and complete finite error accounting are the objects for which this manuscript provides model-specific proofs and executable evidence. The current separate-law remainder bounds need not vanish when the two laws coincide; the certificate is a fixed-step enclosure, and the present bound alone does not establish convergence of its width as $`h\\to0`$."
+    },
+    {
+      "type": "heading",
+      "id": "section-1-2",
+      "level": 3,
+      "number": "1.2",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Three distinct domains of validity"
+        }
+      ],
+      "markdown": "### 1.2 Three distinct domains of validity"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. The following results have different domains; the small-volatility posterior example is a near-deterministic perturbation certificate rather than a calibration-stability result at the main Heston point."
+        }
+      ],
+      "markdown": "The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. The following results have different domains; the small-volatility posterior example is a near-deterministic perturbation certificate rather than a calibration-stability result at the main Heston point."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Result"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Domain and interpretation"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Main price certificate"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "The single point (4.3), "
+              },
+              {
+                "type": "math",
+                "tex": "\\xi=.23"
+              },
+              {
+                "type": "text",
+                "text": ", twelve monthly fixings, original projected Euler, "
+              },
+              {
+                "type": "math",
+                "tex": "h=1/768"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Ten-payoff weak expansion"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Theorem 6.1 under (6.1); numerical family (6.10): "
+              },
+              {
+                "type": "math",
+                "tex": "\\xi=0"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "math",
+                "tex": "\\kappa=3"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "math",
+                "tex": "\\bar v=.045"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "math",
+                "tex": "v_0\\in[.03,.06]"
+              },
+              {
+                "type": "text",
+                "text": ", twelve monthly fixings, aligned "
+              },
+              {
+                "type": "math",
+                "tex": "h\\le1/768"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Posterior quantile transfer"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Independent uniform prior (7.5), "
+              },
+              {
+                "type": "math",
+                "tex": "\\xi\\in[10^{-7},10^{-6}]"
+              },
+              {
+                "type": "text",
+                "text": ", exact synthetic quotes in Appendix F."
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Result | Domain and interpretation |\n| --- | --- |\n| Main price certificate | The single point (4.3), $`\\xi=.23`$, twelve monthly fixings, original projected Euler, $`h=1/768`$. |\n| Ten-payoff weak expansion | Theorem 6.1 under (6.1); numerical family (6.10): $`\\xi=0`$, $`\\kappa=3`$, $`\\bar v=.045`$, $`v_0\\in[.03,.06]`$, twelve monthly fixings, aligned $`h\\le1/768`$. |\n| Posterior quantile transfer | Independent uniform prior (7.5), $`\\xi\\in[10^{-7},10^{-6}]`$, exact synthetic quotes in Appendix F. |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The volatility-of-volatility range in the last row is five to six orders of magnitude below the main point. No inference between these domains is implied."
+        }
+      ],
+      "markdown": "The volatility-of-volatility range in the last row is five to six orders of magnitude below the main point. No inference between these domains is implied."
     },
     {
       "type": "heading",
@@ -1663,6 +2103,601 @@
     },
     {
       "type": "heading",
+      "id": "section-4-1",
+      "level": 3,
+      "number": "4.1",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Optimizing the weighted remainder and its width limitation"
+        }
+      ],
+      "markdown": "### 4.1 Optimizing the weighted remainder and its width limitation"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The common scale "
+        },
+        {
+          "type": "math",
+          "tex": "c"
+        },
+        {
+          "type": "text",
+          "text": " affects the nonlinear conversion bound. Assume, in addition to the structural condition, that"
+        }
+      ],
+      "markdown": "The common scale $`c`$ affects the nonlinear conversion bound. Assume, in addition to the structural condition, that"
+    },
+    {
+      "type": "display_math",
+      "id": "display-64e5ec9ce3b7",
+      "tex": "\nm_{AA,\\nu}=E_\\nu[A^2/\\sigma_\\nu],\\qquad\nm_{AG,\\nu}=E_\\nu[AG/\\sigma_\\nu],\\qquad\nm_{GG,\\nu}=E_\\nu[G^2/\\sigma_\\nu]\n",
+      "tags": [],
+      "markdown": "```math\nm_{AA,\\nu}=E_\\nu[A^2/\\sigma_\\nu],\\qquad\nm_{AG,\\nu}=E_\\nu[AG/\\sigma_\\nu],\\qquad\nm_{GG,\\nu}=E_\\nu[G^2/\\sigma_\\nu]\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "are finite for "
+        },
+        {
+          "type": "math",
+          "tex": "\\nu=P,Q"
+        },
+        {
+          "type": "text",
+          "text": ". Put"
+        }
+      ],
+      "markdown": "are finite for $`\\nu=P,Q`$. Put"
+    },
+    {
+      "type": "display_math",
+      "id": "display-85b5d6f7d994",
+      "tex": "\n\\begin{aligned}\na&=m_{AA,P}+m_{AA,Q},\\qquad b=m_{AG,P}+m_{AG,Q},\\\\\nd&=m_{GG,P}+m_{GG,Q}>0.\n\\end{aligned}\n",
+      "tags": [],
+      "markdown": "```math\n\\begin{aligned}\na&=m_{AA,P}+m_{AA,Q},\\qquad b=m_{AG,P}+m_{AG,Q},\\\\\nd&=m_{GG,P}+m_{GG,Q}\\gt 0.\n\\end{aligned}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The nonlinear contribution to the width in (4.2), using exact moment inputs, is"
+        }
+      ],
+      "markdown": "The nonlinear contribution to the width in (4.2), using exact moment inputs, is"
+    },
+    {
+      "type": "display_math",
+      "id": "display-dff6b4b0c6dc",
+      "tex": "\n\\gamma\\left(K_1^{-1}+K_2^{-1}\\right)J(c),\\qquad\nJ(c)=a-2bc+dc^2.\n",
+      "tags": [],
+      "markdown": "```math\n\\gamma\\left(K_1^{-1}+K_2^{-1}\\right)J(c),\\qquad\nJ(c)=a-2bc+dc^2.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Consequently its unique minimizer on "
+        },
+        {
+          "type": "math",
+          "tex": "c>0"
+        },
+        {
+          "type": "text",
+          "text": " is"
+        }
+      ],
+      "markdown": "Consequently its unique minimizer on $`c\\gt 0`$ is"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-4-7",
+      "tex": "\nc_* = \\frac{b}{d},\\qquad\nJ(c)=J(c_*)+d(c-c_*)^2.                         \\tag{4.7}\n",
+      "tags": [
+        "4.7"
+      ],
+      "markdown": "```math\n\\begin{gathered}\nc_* = \\frac{b}{d},\\qquad\nJ(c)=J(c_*)+d(c-c_*)^2.\n\\end{gathered}\n\\tag{4.7}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform fees can depend on "
+        },
+        {
+          "type": "math",
+          "tex": "c"
+        },
+        {
+          "type": "text",
+          "text": ", so it does not assert that "
+        },
+        {
+          "type": "math",
+          "tex": "c_*"
+        },
+        {
+          "type": "text",
+          "text": " minimizes the final computed enclosure."
+        }
+      ],
+      "markdown": "The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform fees can depend on $`c`$, so it does not assert that $`c_*`$ minimizes the final computed enclosure."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "In the Heston construction, "
+        },
+        {
+          "type": "math",
+          "tex": "\\sigma_\\nu=\\sqrt{1-\\rho^2}\\sqrt{I_\\nu}"
+        },
+        {
+          "type": "text",
+          "text": ". The common factor "
+        },
+        {
+          "type": "math",
+          "tex": "(1-\\rho^2)^{-1/2}"
+        },
+        {
+          "type": "text",
+          "text": " cancels from (4.7). A numerically preferable representation uses the arithmetic–geometric mean inequality:"
+        }
+      ],
+      "markdown": "In the Heston construction, $`\\sigma_\\nu=\\sqrt{1-\\rho^2}\\sqrt{I_\\nu}`$. The common factor $`(1-\\rho^2)^{-1/2}`$ cancels from (4.7). A numerically preferable representation uses the arithmetic–geometric mean inequality:"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-4-8",
+      "tex": "\nH_\\nu=E_\\nu[G^2I_\\nu^{-1/2}],\\qquad\nE_\\nu^+=E_\\nu[(A-G)GI_\\nu^{-1/2}]\\ge0,\n\\qquad\nc_* =1+\\frac{E_P^++E_Q^+}{H_P+H_Q}.             \\tag{4.8}\n",
+      "tags": [
+        "4.8"
+      ],
+      "markdown": "```math\n\\begin{gathered}\nH_\\nu=E_\\nu[G^2I_\\nu^{-1/2}],\\qquad\nE_\\nu^+=E_\\nu[(A-G)GI_\\nu^{-1/2}]\\ge0,\n\\qquad\nc_* =1+\\frac{E_P^++E_Q^+}{H_P+H_Q}.\n\\end{gathered}\n\\tag{4.8}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Both moments use profiles already present in the 91-profile catalog. For example, the Laplace integrand "
+        },
+        {
+          "type": "math",
+          "tex": "E_\\nu[(A-G)G\\exp(-x^2I_\\nu)]"
+        },
+        {
+          "type": "text",
+          "text": " is nonnegative and nonincreasing. It can therefore be enclosed by the same Darboux construction as (A.5), evaluating the difference of the "
+        },
+        {
+          "type": "math",
+          "tex": "AG"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "math",
+          "tex": "G^2"
+        },
+        {
+          "type": "text",
+          "text": " profiles at each node before integration. Its continuous tail is bounded by the positive "
+        },
+        {
+          "type": "math",
+          "tex": "AG"
+        },
+        {
+          "type": "text",
+          "text": " tail. At "
+        },
+        {
+          "type": "math",
+          "tex": "S_0=100"
+        },
+        {
+          "type": "text",
+          "text": ", each positive raw-moment catalog has coefficient sum "
+        },
+        {
+          "type": "math",
+          "tex": "10000"
+        },
+        {
+          "type": "text",
+          "text": "; the nodal projection allowance for "
+        },
+        {
+          "type": "math",
+          "tex": "(A-G)G"
+        },
+        {
+          "type": "text",
+          "text": " is "
+        },
+        {
+          "type": "math",
+          "tex": "20000\\delta_Q"
+        },
+        {
+          "type": "text",
+          "text": ". These observations preserve cancellation at the nodal level and avoid subtracting two wide integrated moment enclosures."
+        }
+      ],
+      "markdown": "Both moments use profiles already present in the 91-profile catalog. For example, the Laplace integrand $`E_\\nu[(A-G)G\\exp(-x^2I_\\nu)]`$ is nonnegative and nonincreasing. It can therefore be enclosed by the same Darboux construction as (A.5), evaluating the difference of the $`AG`$ and $`G^2`$ profiles at each node before integration. Its continuous tail is bounded by the positive $`AG`$ tail. At $`S_0=100`$, each positive raw-moment catalog has coefficient sum $`10000`$; the nodal projection allowance for $`(A-G)G`$ is $`20000\\delta_Q`$. These observations preserve cancellation at the nodal level and avoid subtracting two wide integrated moment enclosures."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "If validated positive endpoints give "
+        },
+        {
+          "type": "math",
+          "tex": "E_P^++E_Q^+\\in[e_-,e_+]"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "math",
+          "tex": "H_P+H_Q\\in[d_-,d_+]"
+        },
+        {
+          "type": "text",
+          "text": ", with "
+        },
+        {
+          "type": "math",
+          "tex": "d_->0"
+        },
+        {
+          "type": "text",
+          "text": ", then"
+        }
+      ],
+      "markdown": "If validated positive endpoints give $`E_P^++E_Q^+\\in[e_-,e_+]`$ and $`H_P+H_Q\\in[d_-,d_+]`$, with $`d_-\\gt 0`$, then"
+    },
+    {
+      "type": "display_math",
+      "id": "display-ce75e5e86311",
+      "tex": "\nc_*\\in\\left[1+\\frac{e_-}{d_+},\\;1+\\frac{e_+}{d_-}\\right]=[c_-,c_+].\n",
+      "tags": [],
+      "markdown": "```math\nc_*\\in\\left[1+\\frac{e_-}{d_+},\\;1+\\frac{e_+}{d_-}\\right]=[c_-,c_+].\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Choosing the rational midpoint "
+        },
+        {
+          "type": "math",
+          "tex": "\\widehat c=(c_-+c_+)/2"
+        },
+        {
+          "type": "text",
+          "text": " gives"
+        }
+      ],
+      "markdown": "Choosing the rational midpoint $`\\widehat c=(c_-+c_+)/2`$ gives"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-4-9",
+      "tex": "\n0\\le J(\\widehat c)-J(c_*)\n\\le \\frac{d_+(c_+-c_-)^2}{4\\sqrt{1-\\rho^2}},    \\tag{4.9}\n",
+      "tags": [
+        "4.9"
+      ],
+      "markdown": "```math\n\\begin{gathered}\n0\\le J(\\widehat c)-J(c_*)\n\\le \\frac{d_+(c_+-c_-)^2}{4\\sqrt{1-\\rho^2}},\n\\end{gathered}\n\\tag{4.9}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "where "
+        },
+        {
+          "type": "math",
+          "tex": "d_+"
+        },
+        {
+          "type": "text",
+          "text": " encloses the sum of the two "
+        },
+        {
+          "type": "math",
+          "tex": "I^{-1/2}"
+        },
+        {
+          "type": "text",
+          "text": "-weighted "
+        },
+        {
+          "type": "math",
+          "tex": "G^2"
+        },
+        {
+          "type": "text",
+          "text": " moments, as in (4.8). The selected rational scale must still be substituted into the original square and linear calculations; a ratio enclosure alone is not a new price certificate."
+        }
+      ],
+      "markdown": "where $`d_+`$ encloses the sum of the two $`I^{-1/2}`$-weighted $`G^2`$ moments, as in (4.8). The selected rational scale must still be substituted into the original square and linear calculations; a ratio enclosure alone is not a new price certificate."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Optimizing "
+        },
+        {
+          "type": "math",
+          "tex": "c"
+        },
+        {
+          "type": "text",
+          "text": " does not recover cancellation between the two models. Even with "
+        },
+        {
+          "type": "math",
+          "tex": "Q=P"
+        },
+        {
+          "type": "text",
+          "text": ", an exact linear difference of zero, and exact "
+        },
+        {
+          "type": "math",
+          "tex": "d_P=d_Q=D_P(c)"
+        },
+        {
+          "type": "text",
+          "text": ", formula (4.2) has width"
+        }
+      ],
+      "markdown": "Optimizing $`c`$ does not recover cancellation between the two models. Even with $`Q=P`$, an exact linear difference of zero, and exact $`d_P=d_Q=D_P(c)`$, formula (4.2) has width"
+    },
+    {
+      "type": "display_math",
+      "id": "display-35aed4dfd6fd",
+      "tex": "\n2\\gamma\\left(K_1^{-1}+K_2^{-1}\\right)D_P(c).\n",
+      "tags": [],
+      "markdown": "```math\n2\\gamma\\left(K_1^{-1}+K_2^{-1}\\right)D_P(c).\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "This is positive unless "
+        },
+        {
+          "type": "math",
+          "tex": "A=cG"
+        },
+        {
+          "type": "text",
+          "text": " almost surely. Thus (4.2) is a fixed-step enclosure and, by itself, does not prove that its width tends to zero as "
+        },
+        {
+          "type": "math",
+          "tex": "h"
+        },
+        {
+          "type": "text",
+          "text": " decreases."
+        }
+      ],
+      "markdown": "This is positive unless $`A=cG`$ almost surely. Thus (4.2) is a fixed-step enclosure and, by itself, does not prove that its width tends to zero as $`h`$ decreases."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "For computed inputs the actual width in (4.2) is"
+        }
+      ],
+      "markdown": "For computed inputs the actual width in (4.2) is"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-4-10",
+      "tex": "\n(u-\\ell)+\\gamma(d_P+d_Q)(K_1^{-1}+K_2^{-1}).\n\\tag{4.10}\n",
+      "tags": [
+        "4.10"
+      ],
+      "markdown": "```math\n\\begin{gathered}\n(u-\\ell)+\\gamma(d_P+d_Q)(K_1^{-1}+K_2^{-1}).\n\\end{gathered}\n\\tag{4.10}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection fee has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
+        }
+      ],
+      "markdown": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection fee has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The revised positive-moment calculation at "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/768"
+        },
+        {
+          "type": "text",
+          "text": " gives"
+        }
+      ],
+      "markdown": "The revised positive-moment calculation at $`h=1/768`$ gives"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-4-11",
+      "tex": "\nc_*\\in[1.003427394603466100946724,\\;1.003669831096000915452372].\n\\tag{4.11}\n",
+      "tags": [
+        "4.11"
+      ],
+      "markdown": "```math\n\\begin{gathered}\nc_*\\in[1.003427394603466100946724,\\;1.003669831096000915452372].\n\\end{gathered}\n\\tag{4.11}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The 256-bit root-flow and 384-bit matrix-flow implementations enclose the same grouped moments. A midpoint rounded to the "
+        },
+        {
+          "type": "math",
+          "tex": "10^{-7}"
+        },
+        {
+          "type": "text",
+          "text": " grid selects the rational "
+        },
+        {
+          "type": "math",
+          "tex": "5017743/5000000=1.0035486"
+        },
+        {
+          "type": "text",
+          "text": ". This is not the exact midpoint of the rational endpoints in (4.11). Formula (4.9) applies to an exact midpoint; for the rounded choice, the distance allowance additionally includes "
+        },
+        {
+          "type": "math",
+          "tex": "5\\cdot10^{-8}"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "markdown": "The 256-bit root-flow and 384-bit matrix-flow implementations enclose the same grouped moments. A midpoint rounded to the $`10^{-7}`$ grid selects the rational $`5017743/5000000=1.0035486`$. This is not the exact midpoint of the rational endpoints in (4.11). Formula (4.9) applies to an exact midpoint; for the rounded choice, the distance allowance additionally includes $`5\\cdot10^{-8}`$."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Common scale"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Nonlinear width upper bound at "
+              },
+              {
+                "type": "math",
+                "tex": "h=1/768"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": ".040551110717"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "1.0035464 (original)"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": ".020478587752"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "1.0035486 (rounded midpoint)"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": ".020478592980"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Common scale | Nonlinear width upper bound at $`h=1/768`$ |\n| --- | --- |\n| 1 | .040551110717 |\n| 1.0035464 (original) | .020478587752 |\n| 1.0035486 (rounded midpoint) | .020478592980 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail fees. It does not claim that the exact objective or the complete price certificate has been globally optimized."
+        }
+      ],
+      "markdown": "The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail fees. It does not claim that the exact objective or the complete price certificate has been globally optimized."
+    },
+    {
+      "type": "heading",
       "id": "section-5",
       "level": 2,
       "number": "5",
@@ -1907,18 +2942,34 @@
         },
         {
           "type": "text",
-          "text": " and on the independent stock driver "
+          "text": " and on the later independent stock-driver increments "
         },
         {
           "type": "math",
-          "tex": "B"
+          "tex": "B_t-B_{t_1}"
         },
         {
           "type": "text",
-          "text": " outside the first interval. Let"
+          "text": ", "
+        },
+        {
+          "type": "math",
+          "tex": "t\\ge t_1"
+        },
+        {
+          "type": "text",
+          "text": ". The conditioning sigma-field does not include the future Brownian levels "
+        },
+        {
+          "type": "math",
+          "tex": "B_t"
+        },
+        {
+          "type": "text",
+          "text": ", which contain the first-interval value. Let"
         }
       ],
-      "markdown": "Condition on the entire variance driver $`W`$ and on the independent stock driver $`B`$ outside the first interval. Let"
+      "markdown": "Condition on the entire variance driver $`W`$ and on the later independent stock-driver increments $`B_t-B_{t_1}`$, $`t\\ge t_1`$. The conditioning sigma-field does not include the future Brownian levels $`B_t`$, which contain the first-interval value. Let"
     },
     {
       "type": "display_math",
@@ -2585,6 +3636,477 @@
         }
       ],
       "markdown": "The leading Asian coefficient has the exact integral representation (6.7) and an effective absolute bound. This common expansion treats several nonsmooth payoffs through one integrable density perturbation, with every remainder constant retained explicitly."
+    },
+    {
+      "type": "heading",
+      "id": "section-6-1",
+      "level": 3,
+      "number": "6.1",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Four Asian coefficient enclosures and residual diagnostics"
+        }
+      ],
+      "markdown": "### 6.1 Four Asian coefficient enclosures and residual diagnostics"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The score bound from (6.7) and the first derivative norm gives"
+        }
+      ],
+      "markdown": "The score bound from (6.7) and the first derivative norm gives"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-6-12",
+      "tex": "\n|\\beta_{\\rm Asian}|\n\\le {15e^{-rT}\\over2}\\sqrt{\\sum_{j=1}^{12}d_j^2J(s_j)}.\n\\tag{6.12}\n",
+      "tags": [
+        "6.12"
+      ],
+      "markdown": "```math\n\\begin{gathered}\n|\\beta_{\\rm Asian}|\n\\le {15e^{-rT}\\over2}\\sqrt{\\sum_{j=1}^{12}d_j^2J(s_j)}.\n\\end{gathered}\n\\tag{6.12}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Outward arithmetic at 384 and 512 bits gives the following pointwise enclosures. The residual bound uses (6.5)–(6.8) with the pointwise lower increment variance, rather than a lower bound over the whole parameter family."
+        }
+      ],
+      "markdown": "Outward arithmetic at 384 and 512 bits gives the following pointwise enclosures. The residual bound uses (6.5)–(6.8) with the pointwise lower increment variance, rather than a lower bound over the whole parameter family."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Initial variance"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Certified coefficient enclosure"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Upper bound on "
+              },
+              {
+                "type": "math",
+                "tex": "|e_h-h\\beta|"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "math",
+                "tex": "h=1/768"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.03"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-3.441491358,3.441491358]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000121667773"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.04"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-0.928189505,0.928189505]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000036646884"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.05"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-0.785853082,0.785853082]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000034532369"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.06"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-2.057270822,2.057270822]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000099684585"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Initial variance | Certified coefficient enclosure | Upper bound on $`\\|e_h-h\\beta\\|`$, $`h=1/768`$ |\n| --- | --- | --- |\n| 0.03 | $`[-3.441491358,3.441491358]`$ | 0.000121667773 |\n| 0.04 | $`[-0.928189505,0.928189505]`$ | 0.000036646884 |\n| 0.05 | $`[-0.785853082,0.785853082]`$ | 0.000034532369 |\n| 0.06 | $`[-2.057270822,2.057270822]`$ | 0.000099684585 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Every certified coefficient enclosure contains zero. These are analytic score enclosures, not a completed integration of the signed twelve-dimensional coefficient. They do not certify nonvanishing of the Asian component."
+        }
+      ],
+      "markdown": "Every certified coefficient enclosure contains zero. These are analytic score enclosures, not a completed integration of the signed twelve-dimensional coefficient. They do not certify nonvanishing of the Asian component."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "A separate binary64 Monte Carlo program samples 2,097,152 independent Gaussian increment vectors per point. It evaluates the coefficient integrand and the density-ratio residual under the exact deterministic-variance Gaussian law, using the same vectors at four step sizes. Subtracting the known zero-mean score and using "
+        },
+        {
+          "type": "code",
+          "text": "expm1"
+        },
+        {
+          "type": "text",
+          "text": " reduces cancellation in the scaled residual. Its sampled coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), 0.019917 (SE 0.001274) in increasing order of initial variance. These are estimates and estimated standard errors; their normal-approximation sampling intervals are distinct from the certified intervals above."
+        }
+      ],
+      "markdown": "A separate binary64 Monte Carlo program samples 2,097,152 independent Gaussian increment vectors per point. It evaluates the coefficient integrand and the density-ratio residual under the exact deterministic-variance Gaussian law, using the same vectors at four step sizes. Subtracting the known zero-mean score and using `expm1` reduces cancellation in the scaled residual. Its sampled coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), 0.019917 (SE 0.001274) in increasing order of initial variance. These are estimates and estimated standard errors; their normal-approximation sampling intervals are distinct from the certified intervals above."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Initial variance"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "h=1/192"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/384"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/768"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/1536"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.03"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.063243"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.062944"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.062796"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.062722"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.04"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.017226"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.017145"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.017105"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.017085"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.05"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.011698"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.011646"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.011620"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.011607"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.06"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.027912"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.027785"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.027722"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.027690"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Initial variance | $`h=1/192`$ | $`1/384`$ | $`1/768`$ | $`1/1536`$ |\n| --- | --- | --- | --- | --- |\n| 0.03 | -0.063243 | -0.062944 | -0.062796 | -0.062722 |\n| 0.04 | -0.017226 | -0.017145 | -0.017105 | -0.017085 |\n| 0.05 | 0.011698 | 0.011646 | 0.011620 | 0.011607 |\n| 0.06 | 0.027912 | 0.027785 | 0.027722 | 0.027690 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Entries estimate "
+        },
+        {
+          "type": "math",
+          "tex": "(e_h-h\\beta_{\\rm Asian})/h^2"
+        },
+        {
+          "type": "text",
+          "text": "; all sampling errors, binary64 formulas, paths, and seeds are stored in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/asian-beta-diagnostic.json"
+        },
+        {
+          "type": "text",
+          "text": ". The estimated standard errors at "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/768"
+        },
+        {
+          "type": "text",
+          "text": " are .003733, .001000, .000863, and .002319 respectively. The four step estimates at a point share the same samples and are correlated. The stable scales are consistent with the proved second-order remainder, but this diagnostic does not establish a deterministic enclosure of the signed integral. A tight scalar certified evaluation and a nonzero conclusion remain required to complete the requested leading-coefficient application."
+        }
+      ],
+      "markdown": "Entries estimate $`(e_h-h\\beta_{\\rm Asian})/h^2`$; all sampling errors, binary64 formulas, paths, and seeds are stored in `code/revision/results/asian-beta-diagnostic.json`. The estimated standard errors at $`h=1/768`$ are .003733, .001000, .000863, and .002319 respectively. The four step estimates at a point share the same samples and are correlated. The stable scales are consistent with the proved second-order remainder, but this diagnostic does not establish a deterministic enclosure of the signed integral. A tight scalar certified evaluation and a nonzero conclusion remain required to complete the requested leading-coefficient application."
     },
     {
       "type": "heading",
@@ -3471,10 +4993,44 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks. The author's implementation uses 256-bit Arb; each of the two modules was recomputed in full using a second implementation at 384-bit precision. The TT and posterior modules were also checked by finite recomputations using different implementation paths."
+          "text": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks."
         }
       ],
-      "markdown": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks. The author's implementation uses 256-bit Arb; each of the two modules was recomputed in full using a second implementation at 384-bit precision. The TT and posterior modules were also checked by finite recomputations using different implementation paths."
+      "markdown": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The principal Asian programs use 256-bit Arb; the checks use 384-bit Arb and different numerical constructions. For the weighted remainder, "
+        },
+        {
+          "type": "code",
+          "text": "check-asian-remainder.py"
+        },
+        {
+          "type": "text",
+          "text": " replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It also accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, "
+        },
+        {
+          "type": "code",
+          "text": "check-asian-linear.py"
+        },
+        {
+          "type": "text",
+          "text": " replaces the principal real/imaginary discrete recursion by a complex "
+        },
+        {
+          "type": "code",
+          "text": "acb"
+        },
+        {
+          "type": "text",
+          "text": " recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error fees without calling the principal numerical functions. Both checks share Arb, the analytic identities, and the theoretical error bounds. They test implementation consistency and arithmetic stability; they do not supply independent derivations of the mathematical bounds."
+        }
+      ],
+      "markdown": "The principal Asian programs use 256-bit Arb; the checks use 384-bit Arb and different numerical constructions. For the weighted remainder, `check-asian-remainder.py` replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It also accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, `check-asian-linear.py` replaces the principal real/imaginary discrete recursion by a complex `acb` recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error fees without calling the principal numerical functions. Both checks share Arb, the analytic identities, and the theoretical error bounds. They test implementation consistency and arithmetic stability; they do not supply independent derivations of the mathematical bounds."
     },
     {
       "type": "paragraph",
@@ -3505,10 +5061,743 @@
       "inlines": [
         {
           "type": "text",
+          "text": "Complete step-grid certificates and the observed width platform"
+        }
+      ],
+      "markdown": "### 8.2 Complete step-grid certificates and the observed width platform"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The four-grid study retains the same main Heston parameter point, payoff, fixing dates, real and complex catalogs, and analytic error accounting. All successful rows complete both principal and independent weighted and linear calculations. The signed intervals and their widths are rounded outward below."
+        }
+      ],
+      "markdown": "The four-grid study retains the same main Heston parameter point, payoff, fixing dates, real and complex catalogs, and analytic error accounting. All successful rows complete both principal and independent weighted and linear calculations. The signed intervals and their widths are rounded outward below."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Step"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Euler minus continuous enclosure"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Width upper bound"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/192"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "No certificate: projection guard fails"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Not available"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/384"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-0.014169989568,0.013839530031]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.028009519599"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/768"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-0.011024692273,0.010642371599]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.021667063872"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/1536"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-0.010967952032,0.010766337995]"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.021734290027"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Step | Euler minus continuous enclosure | Width upper bound |\n| --- | --- | --- |\n| $`1/192`$ | No certificate: projection guard fails | Not available |\n| $`1/384`$ | $`[-0.014169989568,0.013839530031]`$ | 0.028009519599 |\n| $`1/768`$ | $`[-0.011024692273,0.010642371599]`$ | 0.021667063872 |\n| $`1/1536`$ | $`[-0.010967952032,0.010766337995]`$ | 0.021734290027 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "At "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/192"
+        },
+        {
+          "type": "text",
+          "text": ", the fixed projection proof gives "
+        },
+        {
+          "type": "math",
+          "tex": "\\beta=184040303/23040000<8"
+        },
+        {
+          "type": "text",
+          "text": ", while its recurrence requires "
+        },
+        {
+          "type": "math",
+          "tex": "\\beta>8"
+        },
+        {
+          "type": "text",
+          "text": ". The recorded analytical stop is a failure of this certificate design at that mesh; it says nothing about the true price error. At "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/384"
+        },
+        {
+          "type": "text",
+          "text": ", an initial attempt stops only at the old remainder-radius acceptance target .011. The new experiment records that target as false and retains the wider valid enclosure. The original absolute price-error target .025 remains satisfied."
+        }
+      ],
+      "markdown": "At $`h=1/192`$, the fixed projection proof gives $`\\beta=184040303/23040000\\lt 8`$, while its recurrence requires $`\\beta\\gt 8`$. The recorded analytical stop is a failure of this certificate design at that mesh; it says nothing about the true price error. At $`h=1/384`$, an initial attempt stops only at the old remainder-radius acceptance target .011. The new experiment records that target as false and retains the wider valid enclosure. The original absolute price-error target .025 remains satisfied."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The first finest-grid attempt exceeded its original weighted-worker wall-time allowance. A separate bounded resource contract scales the wall allowances by "
+        },
+        {
+          "type": "math",
+          "tex": "\\lceil N/768\\rceil"
+        },
+        {
+          "type": "text",
+          "text": ", with one thread, the same 256 MiB worker memory limit, and all mathematical guards retained. The completed attempt passes the independent verification. All failed attempts remain in the evidence archive."
+        }
+      ],
+      "markdown": "The first finest-grid attempt exceeded its original weighted-worker wall-time allowance. A separate bounded resource contract scales the wall allowances by $`\\lceil N/768\\rceil`$, with one thread, the same 256 MiB worker memory limit, and all mathematical guards retained. The completed attempt passes the independent verification. All failed attempts remain in the evidence archive."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The price-unit width contributions reconcile exactly using rational arithmetic:"
+        }
+      ],
+      "markdown": "The price-unit width contributions reconcile exactly using rational arithmetic:"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Width contribution"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/384"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/768"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "1/1536"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Payoff remainder"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.026754977094"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.020478587752"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.020171631177"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Linear projection"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000265787793"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000008620825"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "2.65628E-7"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "P frequency tail"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000028191423"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000028191423"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000028191423"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Q frequency tail"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000177646019"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000368746602"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000751284529"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Periodization"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000782917272"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000782917272"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.000782917272"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Rounding and endpoints"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "1E-12"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "1E-12"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "1E-12"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Width contribution | $`1/384`$ | $`1/768`$ | $`1/1536`$ |\n| --- | --- | --- | --- |\n| Payoff remainder | 0.026754977094 | 0.020478587752 | 0.020171631177 |\n| Linear projection | 0.000265787793 | 0.000008620825 | 2.65628E-7 |\n| P frequency tail | 0.000028191423 | 0.000028191423 | 0.000028191423 |\n| Q frequency tail | 0.000177646019 | 0.000368746602 | 0.000751284529 |\n| Periodization | 0.000782917272 | 0.000782917272 | 0.000782917272 |\n| Rounding and endpoints | 1E-12 | 1E-12 | 1E-12 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "These columns are width contributions, not one-sided error radii. The final rounding/endpoints row includes the finite interval width and exact reconciliation; it does not infer a missing error from a sampled price. Exact unrounded values, formula locators, source fields, and input hashes are in the revision budget. The nonlinear shares are approximately 95.5 percent, 94.5 percent, 92.8 percent in increasing grid resolution. The finest enclosure is slightly wider than the original one because its Q frequency-tail bound is looser. The bound uses first-step integrated variance and contains step-dependent slack; refining the Euler grid alone does not optimize this fixed inversion and tail design. This observation concerns certified enclosures, not the monotonicity of true discretization errors."
+        }
+      ],
+      "markdown": "These columns are width contributions, not one-sided error radii. The final rounding/endpoints row includes the finite interval width and exact reconciliation; it does not infer a missing error from a sampled price. Exact unrounded values, formula locators, source fields, and input hashes are in the revision budget. The nonlinear shares are approximately 95.5 percent, 94.5 percent, 92.8 percent in increasing grid resolution. The finest enclosure is slightly wider than the original one because its Q frequency-tail bound is looser. The bound uses first-step integrated variance and contains step-dependent slack; refining the Euler grid alone does not optimize this fixed inversion and tail design. This observation concerns certified enclosures, not the monotonicity of true discretization errors."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Recorded outer wall times for the five Asian tasks are approximately 122.3 seconds, 184.0 seconds, 431.6 seconds for 384, 768, and 1536 steps. They include controllers and checks and are machine-specific observations under the recorded execution load, not portable performance guarantees. The operation counts, resource contracts, and each job time are retained in the receipts."
+        }
+      ],
+      "markdown": "Recorded outer wall times for the five Asian tasks are approximately 122.3 seconds, 184.0 seconds, 431.6 seconds for 384, 768, and 1536 steps. They include controllers and checks and are machine-specific observations under the recorded execution load, not portable performance guarantees. The operation counts, resource contracts, and each job time are retained in the receipts."
+    },
+    {
+      "type": "heading",
+      "id": "section-8-3",
+      "level": 3,
+      "number": "8.3",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Coverage, stopping conditions, and diagnostic evidence"
+        }
+      ],
+      "markdown": "### 8.3 Coverage, stopping conditions, and diagnostic evidence"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The Feller index at (4.3) is "
+        },
+        {
+          "type": "math",
+          "tex": "2\\kappa\\bar v/\\xi^2=2700/529"
+        },
+        {
+          "type": "text",
+          "text": ", approximately 5.104. This point does not test the difficult near-boundary or attainable-boundary regimes. The revised experiment record separates certified arithmetic, saved-result reaggregation, statistical diagnostics, and attempts that stop at a failed guard. A missing moment or tail estimate is reported as an uncertified case, rather than as evidence of a price error larger than the bound."
+        }
+      ],
+      "markdown": "The Feller index at (4.3) is $`2\\kappa\\bar v/\\xi^2=2700/529`$, approximately 5.104. This point does not test the difficult near-boundary or attainable-boundary regimes. The revised experiment record separates certified arithmetic, saved-result reaggregation, statistical diagnostics, and attempts that stop at a failed guard. A missing moment or tail estimate is reported as an uncertified case, rather than as evidence of a price error larger than the bound."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The prescribed step-size comparison is "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/192,1/384,1/768,1/1536"
+        },
+        {
+          "type": "text",
+          "text": ". Sensitivity axes are the Feller index above, near, and below one; correlation; strike locations; initial variance; and 12, 52, or 252 fixings. The final axis changes the first observation time, which enters the smoothing bound through "
+        },
+        {
+          "type": "math",
+          "tex": "I_1^{-1/2}"
+        },
+        {
+          "type": "text",
+          "text": ". Each fixing grid must be aligned with the Euler grid; changing the number of fixings while keeping "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/768"
+        },
+        {
+          "type": "text",
+          "text": " is not an admissible comparison for 52 or 252 fixings. These extra cases require their own catalog, projection, moment-growth, and tail verification. The original certificate must not be reused by changing its parameter labels."
+        }
+      ],
+      "markdown": "The prescribed step-size comparison is $`h=1/192,1/384,1/768,1/1536`$. Sensitivity axes are the Feller index above, near, and below one; correlation; strike locations; initial variance; and 12, 52, or 252 fixings. The final axis changes the first observation time, which enters the smoothing bound through $`I_1^{-1/2}`$. Each fixing grid must be aligned with the Euler grid; changing the number of fixings while keeping $`h=1/768`$ is not an admissible comparison for 52 or 252 fixings. These extra cases require their own catalog, projection, moment-growth, and tail verification. The original certificate must not be reused by changing its parameter labels."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Statistical intervals from sampled paths, or prices from a refined discretization, are diagnostic references. They are distinct from a deterministic enclosure of the continuous-model price. Numerical failure, lack of a proved bound, and a large certified interval have different meanings and are recorded separately."
+        }
+      ],
+      "markdown": "Statistical intervals from sampled paths, or prices from a refined discretization, are diagnostic references. They are distinct from a deterministic enclosure of the continuous-model price. Numerical failure, lack of a proved bound, and a large certified interval have different meanings and are recorded separately."
+    },
+    {
+      "type": "heading",
+      "id": "section-8-4",
+      "level": 3,
+      "number": "8.4",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Independent path diagnostics for boundary and fixing sensitivity"
+        }
+      ],
+      "markdown": "### 8.4 Independent path diagnostics for boundary and fixing sensitivity"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "A separate NumPy implementation generates 32,768 paths for each of fourteen specified cases and couples a projected Euler grid to a grid with twice as many steps. Seeds, exact binary64 inputs, sampled prices, standard errors, and counts of negative proposals are in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/path-diagnostics.json"
+        },
+        {
+          "type": "text",
+          "text": ". The estimates below are diagnostic: the finer law retains discretization bias, and the normal-approximation sampling interval is not a strict continuous-price enclosure. The full matrix also changes correlation, strikes, initial variance, and step size. No fee decomposition is available for the uncertified cases."
+        }
+      ],
+      "markdown": "A separate NumPy implementation generates 32,768 paths for each of fourteen specified cases and couples a projected Euler grid to a grid with twice as many steps. Seeds, exact binary64 inputs, sampled prices, standard errors, and counts of negative proposals are in `code/revision/results/path-diagnostics.json`. The estimates below are diagnostic: the finer law retains discretization bias, and the normal-approximation sampling interval is not a strict continuous-price enclosure. The full matrix also changes correlation, strikes, initial variance, and step size. No fee decomposition is available for the uncertified cases."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Case"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Coarse minus fine, estimate and standard error"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Projection fraction, coarse"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Feller 5.104"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "-0.0000269; SE 0.0004717"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.0000000"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Feller 0.999"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.0001129; SE 0.0012453"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.0011268"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Feller 0.639"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.0009133; SE 0.0018375"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.0066991"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Case | Coarse minus fine, estimate and standard error | Projection fraction, coarse |\n| --- | --- | --- |\n| Feller 5.104 | -0.0000269; SE 0.0004717 | 0.0000000 |\n| Feller 0.999 | 0.0001129; SE 0.0012453 | 0.0011268 |\n| Feller 0.639 | 0.0009133; SE 0.0018375 | 0.0066991 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The negative-proposal frequency increases markedly in the difficult boundary regimes. This observed frequency is not substituted for the analytic projection upper bound. For 12, 52, and 252 fixings, the sampled mean of "
+        },
+        {
+          "type": "math",
+          "tex": "I_1^{-1/2}"
+        },
+        {
+          "type": "text",
+          "text": " is respectively 16.489, 34.078, 74.871. These runs use aligned coarse grids of 768, 832, and 1008 steps respectively, and twice as many fine steps. Thus the fixing comparison supports the smoothing-sensitivity diagnosis but also changes the time grid; it is not a controlled proof of monotonic certificate widening. More paths or finer grids cannot turn these statistical results into a validated moment or tail inequality."
+        }
+      ],
+      "markdown": "The negative-proposal frequency increases markedly in the difficult boundary regimes. This observed frequency is not substituted for the analytic projection upper bound. For 12, 52, and 252 fixings, the sampled mean of $`I_1^{-1/2}`$ is respectively 16.489, 34.078, 74.871. These runs use aligned coarse grids of 768, 832, and 1008 steps respectively, and twice as many fine steps. Thus the fixing comparison supports the smoothing-sensitivity diagnosis but also changes the time grid; it is not a controlled proof of monotonic certificate widening. More paths or finer grids cannot turn these statistical results into a validated moment or tail inequality."
+    },
+    {
+      "type": "heading",
+      "id": "section-8-5",
+      "level": 3,
+      "number": "8.5",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
           "text": "Continuous-model valuation and numerical risk budgets"
         }
       ],
-      "markdown": "### 8.2 Continuous-model valuation and numerical risk budgets"
+      "markdown": "### 8.5 Continuous-model valuation and numerical risk budgets"
     },
     {
       "type": "paragraph",
@@ -3575,9 +5864,9 @@
     },
     {
       "type": "heading",
-      "id": "section-8-3",
+      "id": "section-8-6",
       "level": 3,
-      "number": "8.3",
+      "number": "8.6",
       "appendix": false,
       "inlines": [
         {
@@ -3585,7 +5874,7 @@
           "text": "Stability of the price distribution after calibration"
         }
       ],
-      "markdown": "### 8.3 Stability of the price distribution after calibration"
+      "markdown": "### 8.6 Stability of the price distribution after calibration"
     },
     {
       "type": "paragraph",
@@ -3646,6 +5935,211 @@
         }
       ],
       "markdown": "For the prior (7.5) and the specified quotes, the displacement of any Asian posterior quantile is at most approximately $`.00802`$ in the single-quote case and $`.01272`$ in the nine-quote case. If an application sets a numerical tolerance of $`.10`$ for endpoint displacement, these certificates support acceptance at the implementation level. The use case is a stability check for numerical valuation and risk reporting after calibration, with both the quantity being checked and its admissible error specified explicitly."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The transport-cell contribution "
+        },
+        {
+          "type": "math",
+          "tex": "L_0\\delta_u"
+        },
+        {
+          "type": "text",
+          "text": " accounts for approximately 39 percent of the single-quote displacement bound and 62 percent of the nine-quote bound on the original 4096-cell grid. Refining the grid requires rebuilding the full-cell likelihood bounds and the coupling verification; dividing the old final bound by two is invalid because the other terms do not scale with the cell width. Adaptive cells or local target Lipschitz bounds require new cellwise proof obligations. The larger nine-quote enclosure reflects its conservative transport budget; it does not show that its actual numerical bias is larger."
+        }
+      ],
+      "markdown": "The transport-cell contribution $`L_0\\delta_u`$ accounts for approximately 39 percent of the single-quote displacement bound and 62 percent of the nine-quote bound on the original 4096-cell grid. Refining the grid requires rebuilding the full-cell likelihood bounds and the coupling verification; dividing the old final bound by two is invalid because the other terms do not scale with the cell width. Adaptive cells or local target Lipschitz bounds require new cellwise proof obligations. The larger nine-quote enclosure reflects its conservative transport budget; it does not show that its actual numerical bias is larger."
+    },
+    {
+      "type": "heading",
+      "id": "section-8-7",
+      "level": 3,
+      "number": "8.7",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Posterior grid refinement"
+        }
+      ],
+      "markdown": "### 8.7 Posterior grid refinement"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The three-mesh comparison keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. All likelihood bounds on 8192 and 16384 full parameter cells and their coupling inequalities pass the 384-bit independent construction. The resulting all-quantile Asian-price shift bounds, rounded outward, are:"
+        }
+      ],
+      "markdown": "The three-mesh comparison keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. All likelihood bounds on 8192 and 16384 full parameter cells and their coupling inequalities pass the 384-bit independent construction. The resulting all-quantile Asian-price shift bounds, rounded outward, are:"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Cells"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Single quote"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Nine quotes"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Coupling steps, single/nine"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "4096"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.008018821658"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.012716404217"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "2 / 5"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "8192"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.006452960804"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.010367612938"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "2 / 7"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "16384"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.006061495591"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.009584682511"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "3 / 12"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Cells | Single quote | Nine quotes | Coupling steps, single/nine |\n| --- | --- | --- | --- |\n| 4096 | 0.008018821658 | 0.012716404217 | 2 / 5 |\n| 8192 | 0.006452960804 | 0.010367612938 | 2 / 7 |\n| 16384 | 0.006061495591 | 0.009584682511 | 3 / 12 |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The common nonmesh fees remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision."
+        }
+      ],
+      "markdown": "The common nonmesh fees remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The saved CDF envelopes and absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These outward summaries describe parameter uncertainty. They do not give the absolute quantiles of the Asian-price target or establish its uncertainty scale. That separate target-valuation computation remains open. The full rational brackets and CDF envelopes are in the grid-summary result."
+        }
+      ],
+      "markdown": "The saved CDF envelopes and absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These outward summaries describe parameter uncertainty. They do not give the absolute quantiles of the Asian-price target or establish its uncertainty scale. That separate target-valuation computation remains open. The full rational brackets and CDF envelopes are in the grid-summary result."
     },
     {
       "type": "heading",
@@ -3834,6 +6328,30 @@
         }
       ],
       "markdown": "The common density expansion and the full posterior coupling further illustrate this approach: state the structural assumptions explicitly and convert each transfer step into computable constants, so that the conclusions can be executed, checked, and used within a stated scope. The three results address fixed-step valuation, weak expansions for nonsmooth payoffs, and posterior quantile stability after calibration, respectively. Together, they form a collection of numerical-finance certificates with explicit mathematical interfaces."
+    },
+    {
+      "type": "heading",
+      "id": "author-note",
+      "level": 2,
+      "number": null,
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Acknowledgments and author's note"
+        }
+      ],
+      "markdown": "## Acknowledgments and author's note"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The original research and manuscript date is 2024. The numerical materials were consolidated and checked in 2026. This major-revision version is dated 7 October 2026; that version date does not change the original research date. The public repository and the frozen baseline revision are specified in Appendix G. The author is responsible for the mathematical scope, attribution, and claims."
+        }
+      ],
+      "markdown": "The original research and manuscript date is 2024. The numerical materials were consolidated and checked in 2026. This major-revision version is dated 7 October 2026; that version date does not change the original research date. The public repository and the frozen baseline revision are specified in Appendix G. The author is responsible for the mathematical scope, attribution, and claims."
     },
     {
       "type": "heading",
@@ -7618,64 +10136,40 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The public "
+          "text": "The public repository is "
         },
         {
           "type": "link",
-          "url": "../code/README.md",
+          "url": "https://github.com/130U/certified-valuation-arithmetic-asian-options",
           "inlines": [
             {
               "type": "text",
-              "text": "implementation guide"
+              "text": "https://github.com/130U/certified-valuation-arithmetic-asian-options"
             }
           ]
         },
         {
           "type": "text",
-          "text": " describes the numerical entry point "
+          "text": ". The baseline numerical source used by Corollary 4.2 is frozen at commit "
         },
         {
           "type": "code",
-          "text": "code/run.py"
+          "text": "5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a"
         },
         {
           "type": "text",
-          "text": ". The configuration in "
+          "text": ". This revision retains those core formulas and the established exact reference payloads. The file "
         },
         {
           "type": "code",
-          "text": "code/configuration.json"
+          "text": "REVISION-MANIFEST.json"
         },
         {
           "type": "text",
-          "text": " specifies the parameter domain and module dependencies for each theorem. Core programs are stored in "
-        },
-        {
-          "type": "code",
-          "text": "code/core/"
-        },
-        {
-          "type": "text",
-          "text": ", reference results in "
-        },
-        {
-          "type": "code",
-          "text": "code/reference/"
-        },
-        {
-          "type": "text",
-          "text": ", and the exact synthetic calibration inputs in "
-        },
-        {
-          "type": "code",
-          "text": "code/data/synthetic_quotes.json"
-        },
-        {
-          "type": "text",
-          "text": ". Each execution creates an isolated output directory and preserves the reference results."
+          "text": " additionally freezes new readers, experiment inputs, and receipts. A content hash identifies bytes; it does not certify a proof."
         }
       ],
-      "markdown": "The public [implementation guide](../code/README.md) describes the numerical entry point `code/run.py`. The configuration in `code/configuration.json` specifies the parameter domain and module dependencies for each theorem. Core programs are stored in `code/core/`, reference results in `code/reference/`, and the exact synthetic calibration inputs in `code/data/synthetic_quotes.json`. Each execution creates an isolated output directory and preserves the reference results."
+      "markdown": "The public repository is [https://github.com/130U/certified-valuation-arithmetic-asian-options](https://github.com/130U/certified-valuation-arithmetic-asian-options). The baseline numerical source used by Corollary 4.2 is frozen at commit `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`. This revision retains those core formulas and the established exact reference payloads. The file `REVISION-MANIFEST.json` additionally freezes new readers, experiment inputs, and receipts. A content hash identifies bytes; it does not certify a proof."
     },
     {
       "type": "table",
@@ -7711,7 +10205,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "The complete certificate at the original point in Theorem 4.1 and Corollary 4.2"
+                "text": "The original point, Theorem 4.1 and Corollary 4.2."
               }
             ]
           }
@@ -7729,7 +10223,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "Theorem 6.1 and the effective constants on (6.10)"
+                "text": "Theorem 6.1 and effective constants on the deterministic face (6.10)."
               }
             ]
           }
@@ -7747,7 +10241,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "The five-dimensional parameter box (7.4)"
+                "text": "The five-dimensional small-volatility box (7.4)."
               }
             ]
           }
@@ -7765,7 +10259,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "Posterior and target constants for the Gaussian reference"
+                "text": "Gaussian-reference posterior and target constants."
               }
             ]
           }
@@ -7783,21 +10277,29 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "Theorem 7.1 and the full three-dimensional prior (7.5)"
+                "text": "The restricted prior (7.5) and Theorem 7.1."
               }
             ]
           }
         ]
       ],
       "header_rows": 1,
-      "markdown": "| Module | Corresponding result |\n| --- | --- |\n| `asian` | The complete certificate at the original point in Theorem 4.1 and Corollary 4.2 |\n| `tt` | Theorem 6.1 and the effective constants on (6.10) |\n| `small-xi` | The five-dimensional parameter box (7.4) |\n| `posterior-zero` | Posterior and target constants for the Gaussian reference |\n| `posterior` | Theorem 7.1 and the full three-dimensional prior (7.5) |"
+      "markdown": "| Module | Corresponding result |\n| --- | --- |\n| `asian` | The original point, Theorem 4.1 and Corollary 4.2. |\n| `tt` | Theorem 6.1 and effective constants on the deterministic face (6.10). |\n| `small-xi` | The five-dimensional small-volatility box (7.4). |\n| `posterior-zero` | Gaussian-reference posterior and target constants. |\n| `posterior` | The restricted prior (7.5) and Theorem 7.1. |"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "From the repository root, install the specified dependency with "
+          "text": "From the repository root, create a CPython 3.12 virtual environment and install "
+        },
+        {
+          "type": "code",
+          "text": "python-flint==0.8.0"
+        },
+        {
+          "type": "text",
+          "text": " through "
         },
         {
           "type": "code",
@@ -7805,66 +10307,601 @@
         },
         {
           "type": "text",
-          "text": ". Run all author modules and independent recomputations with "
+          "text": ". The reference runtime is Windows x86-64. This repository contains no dependency wheel; offline installation requires a separately obtained authentic compatible wheel. After installation the numerical calculations perform no network calls. The exact interpreter-bound commands are "
         },
         {
           "type": "code",
-          "text": "python code/run.py run --module all --independent"
+          "text": "py -3.12 -m venv .venv"
         },
         {
           "type": "text",
-          "text": ". The "
+          "text": ", "
         },
         {
           "type": "code",
-          "text": "--module"
+          "text": "./.venv/Scripts/python.exe -m pip install -r code/requirements.txt"
         },
         {
           "type": "text",
-          "text": " option also accepts any single module in the table. The "
+          "text": ", "
         },
         {
           "type": "code",
-          "text": "verify"
+          "text": "./.venv/Scripts/python.exe code/run.py verify"
         },
         {
           "type": "text",
-          "text": " command checks the per-file SHA manifest; the "
+          "text": ", and "
         },
         {
           "type": "code",
-          "text": "check --run"
+          "text": "./.venv/Scripts/python.exe code/run.py run --module asian --independent"
         },
         {
           "type": "text",
-          "text": " command compares the mathematical fields of an execution directory with their reference values. Runtime and output-location metadata are separate from these mathematical comparisons."
+          "text": ". Use "
+        },
+        {
+          "type": "code",
+          "text": "--module all"
+        },
+        {
+          "type": "text",
+          "text": " for all modules. Do not use optimized Python: assertions enforce mathematical and resource conditions."
         }
       ],
-      "markdown": "From the repository root, install the specified dependency with `python -m pip install -r code/requirements.txt`. Run all author modules and independent recomputations with `python code/run.py run --module all --independent`. The `--module` option also accepts any single module in the table. The `verify` command checks the per-file SHA manifest; the `check --run` command compares the mathematical fields of an execution directory with their reference values. Runtime and output-location metadata are separate from these mathematical comparisons."
+      "markdown": "From the repository root, create a CPython 3.12 virtual environment and install `python-flint==0.8.0` through `python -m pip install -r code/requirements.txt`. The reference runtime is Windows x86-64. This repository contains no dependency wheel; offline installation requires a separately obtained authentic compatible wheel. After installation the numerical calculations perform no network calls. The exact interpreter-bound commands are `py -3.12 -m venv .venv`, `./.venv/Scripts/python.exe -m pip install -r code/requirements.txt`, `./.venv/Scripts/python.exe code/run.py verify`, and `./.venv/Scripts/python.exe code/run.py run --module asian --independent`. Use `--module all` for all modules. Do not use optimized Python: assertions enforce mathematical and resource conditions."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The reference environment is Windows x86-64, CPython 3.12, and python-flint 0.8.0. Each numerical worker uses one thread and a hard memory limit of 256 MiB; an outer controller enforces timeouts and checks the results. The implementation's domains and theorem associations are documented in "
+          "text": "The run prints a unique directory under "
         },
         {
-          "type": "link",
-          "url": "../code/SCOPE.md",
+          "type": "code",
+          "text": "code/runs/"
+        },
+        {
+          "type": "text",
+          "text": ". Its "
+        },
+        {
+          "type": "code",
+          "text": "run-receipt.json"
+        },
+        {
+          "type": "text",
+          "text": ", "
+        },
+        {
+          "type": "code",
+          "text": "mathematical-check.json"
+        },
+        {
+          "type": "text",
+          "text": ", per-job logs, and "
+        },
+        {
+          "type": "code",
+          "text": "work/core/*-result.json"
+        },
+        {
+          "type": "text",
+          "text": " preserve the exact inputs, source identities, guard outcomes, rational endpoints, and all fees. Run "
+        },
+        {
+          "type": "code",
+          "text": "python code/run.py check --run code/runs/run-ID"
+        },
+        {
+          "type": "text",
+          "text": " using the actual ID to recheck a completed calculation. The configuration records timeouts and module dependencies. Workers use one thread and a 256 MiB hard memory limit. A stopped job is not a completed certificate."
+        }
+      ],
+      "markdown": "The run prints a unique directory under `code/runs/`. Its `run-receipt.json`, `mathematical-check.json`, per-job logs, and `work/core/*-result.json` preserve the exact inputs, source identities, guard outcomes, rational endpoints, and all fees. Run `python code/run.py check --run code/runs/run-ID` using the actual ID to recheck a completed calculation. The configuration records timeouts and module dependencies. Workers use one thread and a 256 MiB hard memory limit. A stopped job is not a completed certificate."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The weighted moments in (4.6) correspond to "
+        },
+        {
+          "type": "code",
+          "text": "code/reference/asian-remainder-result.json"
+        },
+        {
+          "type": "text",
+          "text": "; the linear center, inversion, projection, and final intervals correspond to "
+        },
+        {
+          "type": "code",
+          "text": "code/reference/asian-linear-result.json"
+        },
+        {
+          "type": "text",
+          "text": ". The nonlinear catalog implements Appendix A, the projected recurrence Appendix B, and linear inversion Appendix C. Exact synthetic calibration observations are in "
+        },
+        {
+          "type": "code",
+          "text": "code/data/synthetic_quotes.json"
+        },
+        {
+          "type": "text",
+          "text": ". The revision's budget reader exposes the displayed rows and their rational source fields in one machine-readable file."
+        }
+      ],
+      "markdown": "The weighted moments in (4.6) correspond to `code/reference/asian-remainder-result.json`; the linear center, inversion, projection, and final intervals correspond to `code/reference/asian-linear-result.json`. The nonlinear catalog implements Appendix A, the projected recurrence Appendix B, and linear inversion Appendix C. Exact synthetic calibration observations are in `code/data/synthetic_quotes.json`. The revision's budget reader exposes the displayed rows and their rational source fields in one machine-readable file."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The comparison retains every numerical JSON field, including arrays, fee terms, and rational endpoints. It excludes hash metadata and six explicitly named elapsed time fields. The implementations share Arb and the mathematical derivation; agreement is evidence of reproducibility within those assumptions, not independent validation of the underlying derivation. The main source, exact dependencies, commands, result mapping, and verification scope are all available to a referee."
+        }
+      ],
+      "markdown": "The comparison retains every numerical JSON field, including arrays, fee terms, and rational endpoints. It excludes hash metadata and six explicitly named elapsed time fields. The implementations share Arb and the mathematical derivation; agreement is evidence of reproducibility within those assumptions, not independent validation of the underlying derivation. The main source, exact dependencies, commands, result mapping, and verification scope are all available to a referee."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Revision commands, source-patch contracts, and all attempted-run records are indexed in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/README.md"
+        },
+        {
+          "type": "text",
+          "text": ". The machine-readable budget table is "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/revision-summary.json"
+        },
+        {
+          "type": "text",
+          "text": "; it maps each numerical row to its result path, exact source field, and receipt. The original completed rerun receipt is preserved with the revision evidence. The scientific manifest lists final sources, inputs, enclosures, and receipts by byte count and SHA-256. The declared resource extension at the finest step changes only the bounded wall-time allowance; the original failed attempt is retained separately."
+        }
+      ],
+      "markdown": "Revision commands, source-patch contracts, and all attempted-run records are indexed in `code/revision/README.md`. The machine-readable budget table is `code/revision/results/revision-summary.json`; it maps each numerical row to its result path, exact source field, and receipt. The original completed rerun receipt is preserved with the revision evidence. The scientific manifest lists final sources, inputs, enclosures, and receipts by byte count and SHA-256. The declared resource extension at the finest step changes only the bounded wall-time allowance; the original failed attempt is retained separately."
+    },
+    {
+      "type": "heading",
+      "id": "section-h",
+      "level": 2,
+      "number": "H",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "A direct coupled-remainder inequality"
+        }
+      ],
+      "markdown": "## Appendix H. A direct coupled-remainder inequality"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The following sufficient bound controls the difference of remainders directly. It requires additional information about a coupling of the conditional variables; it is not a numerical assertion at the Heston parameter point."
+        }
+      ],
+      "markdown": "The following sufficient bound controls the difference of remainders directly. It requires additional information about a coupling of the conditional variables; it is not a numerical assertion at the Heston parameter point."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
           "inlines": [
             {
               "type": "text",
-              "text": "the numerical scope guide"
+              "text": "Proposition H.1 (A remainder bound under a coupling)."
             }
           ]
         },
         {
           "type": "text",
-          "text": ". The price conclusions rely on mathematical proofs and validated arithmetic enclosures; the implementation makes the finite numerical inputs and error bounds reproducible."
+          "text": " Fix "
+        },
+        {
+          "type": "math",
+          "tex": "K>0"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "math",
+          "tex": "c>0"
+        },
+        {
+          "type": "text",
+          "text": ", assume that both marginal laws satisfy "
+        },
+        {
+          "type": "math",
+          "tex": "\\mathsf H_s(c)"
+        },
+        {
+          "type": "text",
+          "text": ", so that the remainders are finite, and couple conditional triples "
+        },
+        {
+          "type": "math",
+          "tex": "(a_P,b_P,\\sigma_P)"
+        },
+        {
+          "type": "text",
+          "text": ", "
+        },
+        {
+          "type": "math",
+          "tex": "(a_Q,b_Q,\\sigma_Q)"
+        },
+        {
+          "type": "text",
+          "text": ", where "
+        },
+        {
+          "type": "math",
+          "tex": "b_\\nu=cg_\\nu"
+        },
+        {
+          "type": "text",
+          "text": ", all entries are positive, and each marginal is the conditional triple in (2.6). Set"
         }
       ],
-      "markdown": "The reference environment is Windows x86-64, CPython 3.12, and python-flint 0.8.0. Each numerical worker uses one thread and a hard memory limit of 256 MiB; an outer controller enforces timeouts and checks the results. The implementation's domains and theorem associations are documented in [the numerical scope guide](../code/SCOPE.md). The price conclusions rely on mathematical proofs and validated arithmetic enclosures; the implementation makes the finite numerical inputs and error bounds reproducible."
+      "markdown": "**Proposition H.1 (A remainder bound under a coupling).** Fix $`K\\gt 0`$ and $`c\\gt 0`$, assume that both marginal laws satisfy $`\\mathsf H_s(c)`$, so that the remainders are finite, and couple conditional triples $`(a_P,b_P,\\sigma_P)`$, $`(a_Q,b_Q,\\sigma_Q)`$, where $`b_\\nu=cg_\\nu`$, all entries are positive, and each marginal is the conditional triple in (2.6). Set"
+    },
+    {
+      "type": "display_math",
+      "id": "display-e788457ef56b",
+      "tex": "\ns_- =\\min(\\sigma_P,\\sigma_Q),\\qquad\ns_+ =\\max(\\sigma_P,\\sigma_Q),\\qquad\nz=\\max(|a_P-b_P|,|a_Q-b_Q|),\n",
+      "tags": [],
+      "markdown": "```math\ns_- =\\min(\\sigma_P,\\sigma_Q),\\qquad\ns_+ =\\max(\\sigma_P,\\sigma_Q),\\qquad\nz=\\max(|a_P-b_P|,|a_Q-b_Q|),\n```"
+    },
+    {
+      "type": "display_math",
+      "id": "display-ae5d81e080f9",
+      "tex": "\nM_K=\\frac{e^{2s_+^2}}{K s_-\\sqrt{2\\pi}},\\qquad\nN_K=\\frac{e^{2s_+^2}(1+4/e+8s_+^2)}{K s_-^2\\sqrt{2\\pi}},\n",
+      "tags": [],
+      "markdown": "```math\nM_K=\\frac{e^{2s_+^2}}{K s_-\\sqrt{2\\pi}},\\qquad\nN_K=\\frac{e^{2s_+^2}(1+4/e+8s_+^2)}{K s_-^2\\sqrt{2\\pi}},\n```"
+    },
+    {
+      "type": "display_math",
+      "id": "display-44aca38a2cad",
+      "tex": "\n\\Xi_K=M_Kz\\left(|a_Q-a_P|+|b_Q-b_P|\\right)\n       +\\frac12N_Kz^2|\\sigma_Q-\\sigma_P|.\n",
+      "tags": [],
+      "markdown": "```math\n\\Xi_K=M_Kz\\left(|a_Q-a_P|+|b_Q-b_P|\\right)\n       +\\frac12N_Kz^2|\\sigma_Q-\\sigma_P|.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "If "
+        },
+        {
+          "type": "math",
+          "tex": "E\\Xi_K\\le B_K<\\infty"
+        },
+        {
+          "type": "text",
+          "text": ", then"
+        }
+      ],
+      "markdown": "If $`E\\Xi_K\\le B_K\\lt \\infty`$, then"
+    },
+    {
+      "type": "display_math",
+      "id": "eq-h-1",
+      "tex": "\n|R_{K,Q}-R_{K,P}|\\le B_K.                       \\tag{H.1}\n",
+      "tags": [
+        "H.1"
+      ],
+      "markdown": "```math\n\\begin{gathered}\n|R_{K,Q}-R_{K,P}|\\le B_K.\n\\end{gathered}\n\\tag{H.1}\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "In particular, writing "
+        },
+        {
+          "type": "math",
+          "tex": "B=e^{-rT}(B_{K_1}+B_{K_2})"
+        },
+        {
+          "type": "text",
+          "text": ", the exact nonlinear contribution to the call-spread price difference belongs to "
+        },
+        {
+          "type": "math",
+          "tex": "[-B,B]"
+        },
+        {
+          "type": "text",
+          "text": ". This interval may be intersected with the nonlinear interval in (4.2) before adding the linear-transform interval. Under the diagonal coupling for identical conditional laws, "
+        },
+        {
+          "type": "math",
+          "tex": "\\Xi_K=0"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "markdown": "In particular, writing $`B=e^{-rT}(B_{K_1}+B_{K_2})`$, the exact nonlinear contribution to the call-spread price difference belongs to $`[-B,B]`$. This interval may be intersected with the nonlinear interval in (4.2) before adding the linear-transform interval. Under the diagonal coupling for identical conditional laws, $`\\Xi_K=0`$."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "emphasis",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Proof."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": " Let "
+        },
+        {
+          "type": "math",
+          "tex": "Z"
+        },
+        {
+          "type": "text",
+          "text": " be standard normal and define"
+        }
+      ],
+      "markdown": "*Proof.* Let $`Z`$ be standard normal and define"
+    },
+    {
+      "type": "display_math",
+      "id": "display-3dd042de9f22",
+      "tex": "\nF_K(x;s)=E[(xe^{sZ}-K)^+],\\qquad\nr_K(a,b,s)=F_K(a;s)-F_K(b;s)-(a-b)\\partial_xF_K(b;s).\n",
+      "tags": [],
+      "markdown": "```math\nF_K(x;s)=E[(xe^{sZ}-K)^+],\\qquad\nr_K(a,b,s)=F_K(a;s)-F_K(b;s)-(a-b)\\partial_xF_K(b;s).\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Conditional integration gives "
+        },
+        {
+          "type": "math",
+          "tex": "R_{K,\\nu}=E r_K(a_\\nu,b_\\nu,\\sigma_\\nu)"
+        },
+        {
+          "type": "text",
+          "text": ". For "
+        },
+        {
+          "type": "math",
+          "tex": "x,s>0"
+        },
+        {
+          "type": "text",
+          "text": ", with "
+        },
+        {
+          "type": "math",
+          "tex": "y=\\log(x/K)"
+        },
+        {
+          "type": "text",
+          "text": ","
+        }
+      ],
+      "markdown": "Conditional integration gives $`R_{K,\\nu}=E r_K(a_\\nu,b_\\nu,\\sigma_\\nu)`$. For $`x,s\\gt 0`$, with $`y=\\log(x/K)`$,"
+    },
+    {
+      "type": "display_math",
+      "id": "display-bc7703ab262f",
+      "tex": "\nH_K(x,s):=\\partial_x^2F_K(x;s)\n=\\frac{K}{s x^2\\sqrt{2\\pi}}e^{-y^2/(2s^2)},\\qquad\n\\partial_sH_K=\\frac{H_K}{s}\\left(\\frac{y^2}{s^2}-1\\right).\n",
+      "tags": [],
+      "markdown": "```math\nH_K(x,s):=\\partial_x^2F_K(x;s)\n=\\frac{K}{s x^2\\sqrt{2\\pi}}e^{-y^2/(2s^2)},\\qquad\n\\partial_sH_K=\\frac{H_K}{s}\\left(\\frac{y^2}{s^2}-1\\right).\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Completing the square gives"
+        }
+      ],
+      "markdown": "Completing the square gives"
+    },
+    {
+      "type": "display_math",
+      "id": "display-f09ea45fe118",
+      "tex": "\nH_K(x,s)=\\frac{e^{2s^2}}{K s\\sqrt{2\\pi}}\n\\exp\\left[-\\frac12\\left(\\frac ys+2s\\right)^2\\right].\n",
+      "tags": [],
+      "markdown": "```math\nH_K(x,s)=\\frac{e^{2s^2}}{K s\\sqrt{2\\pi}}\n\\exp\\left[-\\frac12\\left(\\frac ys+2s\\right)^2\\right].\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "For "
+        },
+        {
+          "type": "math",
+          "tex": "w=y/s+2s"
+        },
+        {
+          "type": "text",
+          "text": ","
+        }
+      ],
+      "markdown": "For $`w=y/s+2s`$,"
+    },
+    {
+      "type": "display_math",
+      "id": "display-52402ce713de",
+      "tex": "\n\\left|(w-2s)^2-1\\right|e^{-w^2/2}\n\\le(2w^2+8s^2+1)e^{-w^2/2}\n\\le 4/e+8s^2+1.\n",
+      "tags": [],
+      "markdown": "```math\n\\left|(w-2s)^2-1\\right|e^{-w^2/2}\n\\le(2w^2+8s^2+1)e^{-w^2/2}\n\\le 4/e+8s^2+1.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Therefore, whenever "
+        },
+        {
+          "type": "math",
+          "tex": "s\\in[s_-,s_+]"
+        },
+        {
+          "type": "text",
+          "text": ", "
+        },
+        {
+          "type": "math",
+          "tex": "0\\le H_K\\le M_K"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "math",
+          "tex": "|\\partial_sH_K|\\le N_K"
+        },
+        {
+          "type": "text",
+          "text": ", uniformly in "
+        },
+        {
+          "type": "math",
+          "tex": "x>0"
+        },
+        {
+          "type": "text",
+          "text": ". Differentiation of the remainder and Taylor's integral formula give"
+        }
+      ],
+      "markdown": "Therefore, whenever $`s\\in[s_-,s_+]`$, $`0\\le H_K\\le M_K`$ and $`|\\partial_sH_K|\\le N_K`$, uniformly in $`x\\gt 0`$. Differentiation of the remainder and Taylor's integral formula give"
+    },
+    {
+      "type": "display_math",
+      "id": "display-1b27f6e91a07",
+      "tex": "\n\\partial_a r_K=\\partial_xF_K(a;s)-\\partial_xF_K(b;s),\\qquad\n\\partial_b r_K=-(a-b)H_K(b,s),\n",
+      "tags": [],
+      "markdown": "```math\n\\partial_a r_K=\\partial_xF_K(a;s)-\\partial_xF_K(b;s),\\qquad\n\\partial_b r_K=-(a-b)H_K(b,s),\n```"
+    },
+    {
+      "type": "display_math",
+      "id": "display-153e4932fe51",
+      "tex": "\n\\partial_s r_K=(a-b)^2\\int_0^1(1-t)\n       \\partial_sH_K(b+t(a-b),s)\\,dt.\n",
+      "tags": [],
+      "markdown": "```math\n\\partial_s r_K=(a-b)^2\\int_0^1(1-t)\n       \\partial_sH_K(b+t(a-b),s)\\,dt.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Interpolate the three entries linearly between the coupled endpoints. All interpolated "
+        },
+        {
+          "type": "math",
+          "tex": "a,b,s"
+        },
+        {
+          "type": "text",
+          "text": " stay positive, "
+        },
+        {
+          "type": "math",
+          "tex": "|a-b|\\le z"
+        },
+        {
+          "type": "text",
+          "text": ", and "
+        },
+        {
+          "type": "math",
+          "tex": "s\\in[s_-,s_+]"
+        },
+        {
+          "type": "text",
+          "text": ". The fundamental theorem of calculus and the displayed derivative bounds yield, for each coupled pair,"
+        }
+      ],
+      "markdown": "Interpolate the three entries linearly between the coupled endpoints. All interpolated $`a,b,s`$ stay positive, $`|a-b|\\le z`$, and $`s\\in[s_-,s_+]`$. The fundamental theorem of calculus and the displayed derivative bounds yield, for each coupled pair,"
+    },
+    {
+      "type": "display_math",
+      "id": "display-c0e1d8c6eb1a",
+      "tex": "\n|r_K(a_Q,b_Q,\\sigma_Q)-r_K(a_P,b_P,\\sigma_P)|\\le\\Xi_K.\n",
+      "tags": [],
+      "markdown": "```math\n|r_K(a_Q,b_Q,\\sigma_Q)-r_K(a_P,b_P,\\sigma_P)|\\le\\Xi_K.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Taking expectations proves (H.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement. "
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "math",
+          "tex": "\\square"
+        }
+      ],
+      "markdown": "Taking expectations proves (H.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement.  $`\\square`$"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The constants in Proposition H.1 are explicit, but the additional coupled expectations are not provided by the current marginal affine catalog. In particular, the "
+        },
+        {
+          "type": "math",
+          "tex": "s_-^{-2}"
+        },
+        {
+          "type": "text",
+          "text": " factor requires stronger control than the single inverse-square-root integrated-variance moment in (2.7). If a family of verified couplings satisfies "
+        },
+        {
+          "type": "math",
+          "tex": "E\\Xi_K\\to0"
+        },
+        {
+          "type": "text",
+          "text": ", then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
+        }
+      ],
+      "markdown": "The constants in Proposition H.1 are explicit, but the additional coupled expectations are not provided by the current marginal affine catalog. In particular, the $`s_-^{-2}`$ factor requires stronger control than the single inverse-square-root integrated-variance moment in (2.7). If a family of verified couplings satisfies $`E\\Xi_K\\to0`$, then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
     },
     {
       "type": "heading",

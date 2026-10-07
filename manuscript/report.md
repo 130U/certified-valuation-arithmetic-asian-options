@@ -6,23 +6,25 @@ Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterio
 
 [10@alumni.duke.edu](mailto:10@alumni.duke.edu) · [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com)
 
+**Version:** Major revision, 7 October 2026; original manuscript 2024.
+
 **Keywords:** Arithmetic Asian options; Heston model; projected Euler; conditional Gaussian smoothing; computable error bounds; weak error expansions; posterior quantiles.
 
 ## Abstract
 
-We study the continuous-model valuation of arithmetic Asian payoffs at fixed observation dates, their valuation under a projected Euler scheme, and the numerical difference between the two. We establish a sufficient condition based on a common Gaussian factor and a weighted second moment: we first integrate conditionally over the Gaussian factor shared by all observed prices, and then control the difference between the arithmetic average and a geometric reference through a second-order payoff remainder. This structure reduces the error for a payoff with kinks to finitely many transforms and a nonnegative Laplace integral. For the Heston model and its positive-part variance Euler scheme, all integration tails, discrete projection corrections, complex-logarithm branches, and finite-precision rounding can be included in an explicit error budget. At a specified parameter point, with twelve monthly observation dates and step size $`h=1/768`$, we obtain the rigorous enclosure
+We certify the implementation error for the bounded arithmetic Asian call spread $`\psi(A)=(A-95)^+-(A-110)^+`$, with twelve monthly fixings, in a specified Heston model and its original positive-part variance Euler scheme. A common Gaussian factor gives a nonnegative payoff remainder controlled by a weighted second moment. Validated transform arithmetic includes projection corrections, integration tails, inversion error, complex-logarithm branches, and rounding. At $`\theta_*=(3,.045,.23,-.55,.045)`$ and $`h=1/768`$, the signed Euler-minus-continuous price difference lies in
 
 ```math
 [-0.011024692273,\;0.010642371599],
 ```
 
-for the true Euler-minus-continuous price difference, together with the continuous arithmetic Asian price interval
+and the continuous-model call-spread price lies in
 
 ```math
 [6.508371733,\;6.518868974].
 ```
 
-We further use a single Gaussian density perturbation to establish a joint first-order weak expansion, with an explicit second-order remainder, for nine put payoffs and the arithmetic Asian payoff on a nonconstant deterministic-variance family. Under a three-dimensional continuous prior with strictly positive volatility of volatility, a coupling of parameter posteriors that retains their normalizing constants yields a bound, in price units, on the displacement of every quantile of the posterior distribution of the true Asian price. The contribution is to combine conditional smoothing, error bounds for the original discrete kernel, and finite arithmetic verification into a complete executable certificate, with a specific domain of validity for each conclusion.
+These are fixed-point, fixed-grid enclosures. Separately, a common Gaussian density perturbation gives a joint first-order expansion for nine puts and the Asian spread on a deterministic-variance family with $`\xi=0`$. The Asian coefficient has a score representation and an absolute bound; its scalar certified integration is a distinct numerical task. A posterior coupling bounds all target-quantile displacements for an explicitly restricted continuous prior with $`\xi\in[10^{-7},10^{-6}]`$, a perturbation regime near deterministic variance. It does not establish stability at $`\xi=.23`$. The main contribution is the weighted payoff structure and auditable finite error accounting for the specified original discrete kernel. We expose the dominant nonlinear width, derive its optimal common reference scale, and distinguish completed certificates from diagnostic calculations and outstanding validation tasks. Frozen sources, exact inputs, rational endpoints, and commands accompany the revised version.
 
 ## 1. Introduction
 
@@ -60,6 +62,32 @@ The logical structure of the paper is
 ```
 
 Here $`\Phi`$ denotes conditional Gaussian smoothing and rigorous transform error accounting; $`\mathsf M`$ consists of the payoff decomposition with explicit constants and transform error bounds; and $`\mathsf B`$ is a rigorous enclosure of the actual price difference. Section 2 defines these objects precisely, and Sections 3–5 prove the main chain of implications. Sections 6 and 7 develop the weak expansion and posterior transfer, respectively. Section 8 presents the numerical certificates and their financial use, and Section 9 specifies the domain of validity.
+
+### 1.1 Comparison with conditional Asian bounds
+
+Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. This comparison concerns that reviewed paper; it does not establish global priority. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution.
+
+| Object | Fusai–Kyriakou (reviewed source) | Present result |
+| --- | --- | --- |
+| Payoff approximation | Optimized conditional lower bound and conditional-variance error (Theorem 4, p. 15). | Exact linear-reference decomposition with nonnegative remainder controlled by a weighted second moment (Lemma 3.1). |
+| Discrete numerical law | QE simulation benchmark (Appendix B, p. 22); no certificate for kernel (2.2) is reported. | Projection correction between an algebraic transform recursion and the specified original positive-part variance Euler law, using current variance in the stock update (Appendix B). |
+| Transform computation | Fourier conditional moments (equations (55)–(56), pp. 15–16) and FFT implementation (Section 5, pp. 16–17). | Finite real and complex loading catalogs, certified quadrature and infinite-tail bounds, and complex-logarithm branch checks (Appendices A–C). |
+| Finite arithmetic | An outward-rounded error budget is not reported in the reviewed source. | Rational endpoint combination and ball-arithmetic enclosures include rounding with the other finite errors (Appendices A–C and G). |
+| Certified output | Lower-bound approximation error (Theorem 4); no executable signed Euler-minus-continuous enclosure is reported. | Signed $`p_h-p_c`$ interval at the specified parameters and grid (Theorem 4.1 and Corollary 4.2), traceable to the accompanying executable package. |
+
+The geometric reference and conditioning strategy therefore supply established foundations. The weighted remainder, correction for the specified original projected kernel, and complete finite error accounting are the objects for which this manuscript provides model-specific proofs and executable evidence. The current separate-law remainder bounds need not vanish when the two laws coincide; the certificate is a fixed-step enclosure, and the present bound alone does not establish convergence of its width as $`h\to0`$.
+
+### 1.2 Three distinct domains of validity
+
+The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. The following results have different domains; the small-volatility posterior example is a near-deterministic perturbation certificate rather than a calibration-stability result at the main Heston point.
+
+| Result | Domain and interpretation |
+| --- | --- |
+| Main price certificate | The single point (4.3), $`\xi=.23`$, twelve monthly fixings, original projected Euler, $`h=1/768`$. |
+| Ten-payoff weak expansion | Theorem 6.1 under (6.1); numerical family (6.10): $`\xi=0`$, $`\kappa=3`$, $`\bar v=.045`$, $`v_0\in[.03,.06]`$, twelve monthly fixings, aligned $`h\le1/768`$. |
+| Posterior quantile transfer | Independent uniform prior (7.5), $`\xi\in[10^{-7},10^{-6}]`$, exact synthetic quotes in Appendix F. |
+
+The volatility-of-volatility range in the last row is five to six orders of magnitude below the main point. No inference between these domains is implied.
 
 ## 2. Models and structural conditions
 
@@ -359,6 +387,114 @@ W_Q\le2.242189951600.
 
 Here $`d_\nu=W_\nu/\sqrt{1-\rho^2}`$. The center of the finite linear difference is approximately $`-.000202992309237006`$, and its complete error radius is at most $`.000594238060`$. Combining the exact rational endpoints outward with (4.2) gives (4.4). Applying the corresponding error contributions to (3.5) separately for each law gives (4.5). The source code, exact endpoints, and the recomputation of the entire catalog by a second implementation together constitute the executable evidence specified in the appendices.  $`\square`$
 
+### 4.1 Optimizing the weighted remainder and its width limitation
+
+The common scale $`c`$ affects the nonlinear conversion bound. Assume, in addition to the structural condition, that
+
+```math
+m_{AA,\nu}=E_\nu[A^2/\sigma_\nu],\qquad
+m_{AG,\nu}=E_\nu[AG/\sigma_\nu],\qquad
+m_{GG,\nu}=E_\nu[G^2/\sigma_\nu]
+```
+
+are finite for $`\nu=P,Q`$. Put
+
+```math
+\begin{aligned}
+a&=m_{AA,P}+m_{AA,Q},\qquad b=m_{AG,P}+m_{AG,Q},\\
+d&=m_{GG,P}+m_{GG,Q}\gt 0.
+\end{aligned}
+```
+
+The nonlinear contribution to the width in (4.2), using exact moment inputs, is
+
+```math
+\gamma\left(K_1^{-1}+K_2^{-1}\right)J(c),\qquad
+J(c)=a-2bc+dc^2.
+```
+
+Consequently its unique minimizer on $`c\gt 0`$ is
+
+```math
+\begin{gathered}
+c_* = \frac{b}{d},\qquad
+J(c)=J(c_*)+d(c-c_*)^2.
+\end{gathered}
+\tag{4.7}
+```
+
+The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform fees can depend on $`c`$, so it does not assert that $`c_*`$ minimizes the final computed enclosure.
+
+In the Heston construction, $`\sigma_\nu=\sqrt{1-\rho^2}\sqrt{I_\nu}`$. The common factor $`(1-\rho^2)^{-1/2}`$ cancels from (4.7). A numerically preferable representation uses the arithmetic–geometric mean inequality:
+
+```math
+\begin{gathered}
+H_\nu=E_\nu[G^2I_\nu^{-1/2}],\qquad
+E_\nu^+=E_\nu[(A-G)GI_\nu^{-1/2}]\ge0,
+\qquad
+c_* =1+\frac{E_P^++E_Q^+}{H_P+H_Q}.
+\end{gathered}
+\tag{4.8}
+```
+
+Both moments use profiles already present in the 91-profile catalog. For example, the Laplace integrand $`E_\nu[(A-G)G\exp(-x^2I_\nu)]`$ is nonnegative and nonincreasing. It can therefore be enclosed by the same Darboux construction as (A.5), evaluating the difference of the $`AG`$ and $`G^2`$ profiles at each node before integration. Its continuous tail is bounded by the positive $`AG`$ tail. At $`S_0=100`$, each positive raw-moment catalog has coefficient sum $`10000`$; the nodal projection allowance for $`(A-G)G`$ is $`20000\delta_Q`$. These observations preserve cancellation at the nodal level and avoid subtracting two wide integrated moment enclosures.
+
+If validated positive endpoints give $`E_P^++E_Q^+\in[e_-,e_+]`$ and $`H_P+H_Q\in[d_-,d_+]`$, with $`d_-\gt 0`$, then
+
+```math
+c_*\in\left[1+\frac{e_-}{d_+},\;1+\frac{e_+}{d_-}\right]=[c_-,c_+].
+```
+
+Choosing the rational midpoint $`\widehat c=(c_-+c_+)/2`$ gives
+
+```math
+\begin{gathered}
+0\le J(\widehat c)-J(c_*)
+\le \frac{d_+(c_+-c_-)^2}{4\sqrt{1-\rho^2}},
+\end{gathered}
+\tag{4.9}
+```
+
+where $`d_+`$ encloses the sum of the two $`I^{-1/2}`$-weighted $`G^2`$ moments, as in (4.8). The selected rational scale must still be substituted into the original square and linear calculations; a ratio enclosure alone is not a new price certificate.
+
+Optimizing $`c`$ does not recover cancellation between the two models. Even with $`Q=P`$, an exact linear difference of zero, and exact $`d_P=d_Q=D_P(c)`$, formula (4.2) has width
+
+```math
+2\gamma\left(K_1^{-1}+K_2^{-1}\right)D_P(c).
+```
+
+This is positive unless $`A=cG`$ almost surely. Thus (4.2) is a fixed-step enclosure and, by itself, does not prove that its width tends to zero as $`h`$ decreases.
+
+For computed inputs the actual width in (4.2) is
+
+```math
+\begin{gathered}
+(u-\ell)+\gamma(d_P+d_Q)(K_1^{-1}+K_2^{-1}).
+\end{gathered}
+\tag{4.10}
+```
+
+The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection fee has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate.
+
+The revised positive-moment calculation at $`h=1/768`$ gives
+
+```math
+\begin{gathered}
+c_*\in[1.003427394603466100946724,\;1.003669831096000915452372].
+\end{gathered}
+\tag{4.11}
+```
+
+The 256-bit root-flow and 384-bit matrix-flow implementations enclose the same grouped moments. A midpoint rounded to the $`10^{-7}`$ grid selects the rational $`5017743/5000000=1.0035486`$. This is not the exact midpoint of the rational endpoints in (4.11). Formula (4.9) applies to an exact midpoint; for the rounded choice, the distance allowance additionally includes $`5\cdot10^{-8}`$.
+
+| Common scale | Nonlinear width upper bound at $`h=1/768`$ |
+| --- | --- |
+| 1 | .040551110717 |
+| 1.0035464 (original) | .020478587752 |
+| 1.0035486 (rounded midpoint) | .020478592980 |
+
+The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail fees. It does not claim that the exact objective or the complete price certificate has been globally optimized.
+
 ## 5. Recovery of classical conditions and additional models covered
 
 ### 5.1 Deterministic positive integrated variance: $`\mathsf A\Rightarrow\mathsf H`$
@@ -398,7 +534,7 @@ This shows that classical lognormal conditioning models fit within the framework
 
 Condition $`\mathsf C`$ requires $`\kappa,\bar v,\xi,v_0\gt 0`$, $`|\rho|\lt 1`$, the model (2.1) or (2.2), observation dates aligned with the discrete grid, and the finite-transform, moment-growth, projection, and infinite-tail inequalities listed in Appendices A–C. The actual verification in this section uses $`S_0,r,T,h`$ from (2.5) and the parameters in (4.3); the common Gaussian construction below is valid under the structural parameter assumptions just stated.
 
-Condition on the entire variance driver $`W`$ and on the independent stock driver $`B`$ outside the first interval. Let
+Condition on the entire variance driver $`W`$ and on the later independent stock-driver increments $`B_t-B_{t_1}`$, $`t\ge t_1`$. The conditioning sigma-field does not include the future Brownian levels $`B_t`$, which contain the first-interval value. Let
 
 ```math
 I_P=\int_0^{t_1}V_t\,dt,\qquad
@@ -588,6 +724,40 @@ the second-order remainder for the original Asian payoff has the uniform upper b
 
 The leading Asian coefficient has the exact integral representation (6.7) and an effective absolute bound. This common expansion treats several nonsmooth payoffs through one integrable density perturbation, with every remainder constant retained explicitly.
 
+### 6.1 Four Asian coefficient enclosures and residual diagnostics
+
+The score bound from (6.7) and the first derivative norm gives
+
+```math
+\begin{gathered}
+|\beta_{\rm Asian}|
+\le {15e^{-rT}\over2}\sqrt{\sum_{j=1}^{12}d_j^2J(s_j)}.
+\end{gathered}
+\tag{6.12}
+```
+
+Outward arithmetic at 384 and 512 bits gives the following pointwise enclosures. The residual bound uses (6.5)–(6.8) with the pointwise lower increment variance, rather than a lower bound over the whole parameter family.
+
+| Initial variance | Certified coefficient enclosure | Upper bound on $`\|e_h-h\beta\|`$, $`h=1/768`$ |
+| --- | --- | --- |
+| 0.03 | $`[-3.441491358,3.441491358]`$ | 0.000121667773 |
+| 0.04 | $`[-0.928189505,0.928189505]`$ | 0.000036646884 |
+| 0.05 | $`[-0.785853082,0.785853082]`$ | 0.000034532369 |
+| 0.06 | $`[-2.057270822,2.057270822]`$ | 0.000099684585 |
+
+Every certified coefficient enclosure contains zero. These are analytic score enclosures, not a completed integration of the signed twelve-dimensional coefficient. They do not certify nonvanishing of the Asian component.
+
+A separate binary64 Monte Carlo program samples 2,097,152 independent Gaussian increment vectors per point. It evaluates the coefficient integrand and the density-ratio residual under the exact deterministic-variance Gaussian law, using the same vectors at four step sizes. Subtracting the known zero-mean score and using `expm1` reduces cancellation in the scaled residual. Its sampled coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), 0.019917 (SE 0.001274) in increasing order of initial variance. These are estimates and estimated standard errors; their normal-approximation sampling intervals are distinct from the certified intervals above.
+
+| Initial variance | $`h=1/192`$ | $`1/384`$ | $`1/768`$ | $`1/1536`$ |
+| --- | --- | --- | --- | --- |
+| 0.03 | -0.063243 | -0.062944 | -0.062796 | -0.062722 |
+| 0.04 | -0.017226 | -0.017145 | -0.017105 | -0.017085 |
+| 0.05 | 0.011698 | 0.011646 | 0.011620 | 0.011607 |
+| 0.06 | 0.027912 | 0.027785 | 0.027722 | 0.027690 |
+
+Entries estimate $`(e_h-h\beta_{\rm Asian})/h^2`$; all sampling errors, binary64 formulas, paths, and seeds are stored in `code/revision/results/asian-beta-diagnostic.json`. The estimated standard errors at $`h=1/768`$ are .003733, .001000, .000863, and .002319 respectively. The four step estimates at a point share the same samples and are correlated. The stable scales are consistent with the proved second-order remainder, but this diagnostic does not establish a deterministic enclosure of the signed integral. A tight scalar certified evaluation and a nonzero conclusion remain required to complete the requested leading-coefficient application.
+
 ## 7. From a reference family to stochastic-volatility posterior quantiles
 
 ### 7.1 Price transfer for small positive volatility of volatility
@@ -751,11 +921,63 @@ The complete price difference at the original parameter point is assembled from 
 | Total error bound for the linear difference between the two models | $`.000594238060`$ |
 | **Absolute bound on the true arithmetic Asian bias** | $`\boldsymbol{.011025}`$ |
 
-The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks. The author's implementation uses 256-bit Arb; each of the two modules was recomputed in full using a second implementation at 384-bit precision. The TT and posterior modules were also checked by finite recomputations using different implementation paths.
+The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks.
+
+The principal Asian programs use 256-bit Arb; the checks use 384-bit Arb and different numerical constructions. For the weighted remainder, `check-asian-remainder.py` replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It also accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, `check-asian-linear.py` replaces the principal real/imaginary discrete recursion by a complex `acb` recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error fees without calling the principal numerical functions. Both checks share Arb, the analytic identities, and the theoretical error bounds. They test implementation consistency and arithmetic stability; they do not supply independent derivations of the mathematical bounds.
 
 These are deterministic calculations, with outward arithmetic supplied by Arb [[11](#ref-11)]. Measured worker times for the two author modules at the original point were approximately 12.02 and 33.20 seconds, respectively, using one thread and a hard memory limit of 256 MiB per process. These timings describe the scale of this specific computation; the code explicitly records operation counts, memory constraints, and stopping conditions. Appendix G describes the environment and reproduction entry point.
 
-### 8.2 Continuous-model valuation and numerical risk budgets
+### 8.2 Complete step-grid certificates and the observed width platform
+
+The four-grid study retains the same main Heston parameter point, payoff, fixing dates, real and complex catalogs, and analytic error accounting. All successful rows complete both principal and independent weighted and linear calculations. The signed intervals and their widths are rounded outward below.
+
+| Step | Euler minus continuous enclosure | Width upper bound |
+| --- | --- | --- |
+| $`1/192`$ | No certificate: projection guard fails | Not available |
+| $`1/384`$ | $`[-0.014169989568,0.013839530031]`$ | 0.028009519599 |
+| $`1/768`$ | $`[-0.011024692273,0.010642371599]`$ | 0.021667063872 |
+| $`1/1536`$ | $`[-0.010967952032,0.010766337995]`$ | 0.021734290027 |
+
+At $`h=1/192`$, the fixed projection proof gives $`\beta=184040303/23040000\lt 8`$, while its recurrence requires $`\beta\gt 8`$. The recorded analytical stop is a failure of this certificate design at that mesh; it says nothing about the true price error. At $`h=1/384`$, an initial attempt stops only at the old remainder-radius acceptance target .011. The new experiment records that target as false and retains the wider valid enclosure. The original absolute price-error target .025 remains satisfied.
+
+The first finest-grid attempt exceeded its original weighted-worker wall-time allowance. A separate bounded resource contract scales the wall allowances by $`\lceil N/768\rceil`$, with one thread, the same 256 MiB worker memory limit, and all mathematical guards retained. The completed attempt passes the independent verification. All failed attempts remain in the evidence archive.
+
+The price-unit width contributions reconcile exactly using rational arithmetic:
+
+| Width contribution | $`1/384`$ | $`1/768`$ | $`1/1536`$ |
+| --- | --- | --- | --- |
+| Payoff remainder | 0.026754977094 | 0.020478587752 | 0.020171631177 |
+| Linear projection | 0.000265787793 | 0.000008620825 | 2.65628E-7 |
+| P frequency tail | 0.000028191423 | 0.000028191423 | 0.000028191423 |
+| Q frequency tail | 0.000177646019 | 0.000368746602 | 0.000751284529 |
+| Periodization | 0.000782917272 | 0.000782917272 | 0.000782917272 |
+| Rounding and endpoints | 1E-12 | 1E-12 | 1E-12 |
+
+These columns are width contributions, not one-sided error radii. The final rounding/endpoints row includes the finite interval width and exact reconciliation; it does not infer a missing error from a sampled price. Exact unrounded values, formula locators, source fields, and input hashes are in the revision budget. The nonlinear shares are approximately 95.5 percent, 94.5 percent, 92.8 percent in increasing grid resolution. The finest enclosure is slightly wider than the original one because its Q frequency-tail bound is looser. The bound uses first-step integrated variance and contains step-dependent slack; refining the Euler grid alone does not optimize this fixed inversion and tail design. This observation concerns certified enclosures, not the monotonicity of true discretization errors.
+
+Recorded outer wall times for the five Asian tasks are approximately 122.3 seconds, 184.0 seconds, 431.6 seconds for 384, 768, and 1536 steps. They include controllers and checks and are machine-specific observations under the recorded execution load, not portable performance guarantees. The operation counts, resource contracts, and each job time are retained in the receipts.
+
+### 8.3 Coverage, stopping conditions, and diagnostic evidence
+
+The Feller index at (4.3) is $`2\kappa\bar v/\xi^2=2700/529`$, approximately 5.104. This point does not test the difficult near-boundary or attainable-boundary regimes. The revised experiment record separates certified arithmetic, saved-result reaggregation, statistical diagnostics, and attempts that stop at a failed guard. A missing moment or tail estimate is reported as an uncertified case, rather than as evidence of a price error larger than the bound.
+
+The prescribed step-size comparison is $`h=1/192,1/384,1/768,1/1536`$. Sensitivity axes are the Feller index above, near, and below one; correlation; strike locations; initial variance; and 12, 52, or 252 fixings. The final axis changes the first observation time, which enters the smoothing bound through $`I_1^{-1/2}`$. Each fixing grid must be aligned with the Euler grid; changing the number of fixings while keeping $`h=1/768`$ is not an admissible comparison for 52 or 252 fixings. These extra cases require their own catalog, projection, moment-growth, and tail verification. The original certificate must not be reused by changing its parameter labels.
+
+Statistical intervals from sampled paths, or prices from a refined discretization, are diagnostic references. They are distinct from a deterministic enclosure of the continuous-model price. Numerical failure, lack of a proved bound, and a large certified interval have different meanings and are recorded separately.
+
+### 8.4 Independent path diagnostics for boundary and fixing sensitivity
+
+A separate NumPy implementation generates 32,768 paths for each of fourteen specified cases and couples a projected Euler grid to a grid with twice as many steps. Seeds, exact binary64 inputs, sampled prices, standard errors, and counts of negative proposals are in `code/revision/results/path-diagnostics.json`. The estimates below are diagnostic: the finer law retains discretization bias, and the normal-approximation sampling interval is not a strict continuous-price enclosure. The full matrix also changes correlation, strikes, initial variance, and step size. No fee decomposition is available for the uncertified cases.
+
+| Case | Coarse minus fine, estimate and standard error | Projection fraction, coarse |
+| --- | --- | --- |
+| Feller 5.104 | -0.0000269; SE 0.0004717 | 0.0000000 |
+| Feller 0.999 | 0.0001129; SE 0.0012453 | 0.0011268 |
+| Feller 0.639 | 0.0009133; SE 0.0018375 | 0.0066991 |
+
+The negative-proposal frequency increases markedly in the difficult boundary regimes. This observed frequency is not substituted for the analytic projection upper bound. For 12, 52, and 252 fixings, the sampled mean of $`I_1^{-1/2}`$ is respectively 16.489, 34.078, 74.871. These runs use aligned coarse grids of 768, 832, and 1008 steps respectively, and twice as many fine steps. Thus the fixing comparison supports the smoothing-sensitivity diagnosis but also changes the time grid; it is not a controlled proof of monotonic certificate widening. More paths or finer grids cannot turn these statistical results into a validated moment or tail inequality.
+
+### 8.5 Continuous-model valuation and numerical risk budgets
 
 Suppose that a valuation system provides a price enclosure $`[q_L,q_U]`$ for the same discrete model. Theorem 4.1 gives $`e_h\in[\ell,u]`$, hence the continuous-model price satisfies
 
@@ -770,11 +992,27 @@ This is a directly usable transfer rule: a trading system can allocate separate 
 
 For the contract instance (4.3), we also obtain the continuous-price enclosure (4.5) directly, with width less than $`.010498`$. A valuation audit can therefore use the full price interval or attach the signed bias certificate to an existing Euler computation.
 
-### 8.3 Stability of the price distribution after calibration
+### 8.6 Stability of the price distribution after calibration
 
 A change in numerical implementation affects both the calibration likelihood and the target price. Theorem 7.1 retains both effects: $`\varepsilon_0+e_{P,J}+e_{Q,J}`$ controls the target-price difference at fixed parameters, and $`L_0\delta_u`$ controls the target change caused by movement of the parameter posterior.
 
 For the prior (7.5) and the specified quotes, the displacement of any Asian posterior quantile is at most approximately $`.00802`$ in the single-quote case and $`.01272`$ in the nine-quote case. If an application sets a numerical tolerance of $`.10`$ for endpoint displacement, these certificates support acceptance at the implementation level. The use case is a stability check for numerical valuation and risk reporting after calibration, with both the quantity being checked and its admissible error specified explicitly.
+
+The transport-cell contribution $`L_0\delta_u`$ accounts for approximately 39 percent of the single-quote displacement bound and 62 percent of the nine-quote bound on the original 4096-cell grid. Refining the grid requires rebuilding the full-cell likelihood bounds and the coupling verification; dividing the old final bound by two is invalid because the other terms do not scale with the cell width. Adaptive cells or local target Lipschitz bounds require new cellwise proof obligations. The larger nine-quote enclosure reflects its conservative transport budget; it does not show that its actual numerical bias is larger.
+
+### 8.7 Posterior grid refinement
+
+The three-mesh comparison keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. All likelihood bounds on 8192 and 16384 full parameter cells and their coupling inequalities pass the 384-bit independent construction. The resulting all-quantile Asian-price shift bounds, rounded outward, are:
+
+| Cells | Single quote | Nine quotes | Coupling steps, single/nine |
+| --- | --- | --- | --- |
+| 4096 | 0.008018821658 | 0.012716404217 | 2 / 5 |
+| 8192 | 0.006452960804 | 0.010367612938 | 2 / 7 |
+| 16384 | 0.006061495591 | 0.009584682511 | 3 / 12 |
+
+The common nonmesh fees remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision.
+
+The saved CDF envelopes and absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These outward summaries describe parameter uncertainty. They do not give the absolute quantiles of the Asian-price target or establish its uncertainty scale. That separate target-valuation computation remains open. The full rational brackets and CDF envelopes are in the grid-summary result.
 
 ## 9. Domain of validity
 
@@ -799,6 +1037,10 @@ Conditioning, geometric-average reference variables, Fourier bounds, Gaussian sc
 The common Gaussian structure connects classical lognormal conditioning with stochastic-variance models discretized by projected Euler. The central lemma converts the kink remainder of the original arithmetic payoff into a second moment weighted by the inverse square root of integrated variance. The main theorem combines this quantity with a finite transform certificate to produce a signed price-difference enclosure. The specified Heston instance gives the complete monetary bound $`.011025`$, together with a validated interval for the continuous-model price.
 
 The common density expansion and the full posterior coupling further illustrate this approach: state the structural assumptions explicitly and convert each transfer step into computable constants, so that the conclusions can be executed, checked, and used within a stated scope. The three results address fixed-step valuation, weak expansions for nonsmooth payoffs, and posterior quantile stability after calibration, respectively. Together, they form a collection of numerical-finance certificates with explicit mathematical interfaces.
+
+## Acknowledgments and author's note
+
+The original research and manuscript date is 2024. The numerical materials were consolidated and checked in 2026. This major-revision version is dated 7 October 2026; that version date does not change the original research date. The public repository and the frozen baseline revision are specified in Appendix G. The author is responsible for the mathematical scope, attribution, and claims.
 
 ## Appendix A. Finite certification of the weighted second moment
 
@@ -1624,19 +1866,110 @@ The target radii from Appendix E, together with (F.3) and (F.7), yield (7.8). Th
 
 ## Appendix G. Reproducible implementation
 
-The public [implementation guide](../code/README.md) describes the numerical entry point `code/run.py`. The configuration in `code/configuration.json` specifies the parameter domain and module dependencies for each theorem. Core programs are stored in `code/core/`, reference results in `code/reference/`, and the exact synthetic calibration inputs in `code/data/synthetic_quotes.json`. Each execution creates an isolated output directory and preserves the reference results.
+The public repository is [https://github.com/130U/certified-valuation-arithmetic-asian-options](https://github.com/130U/certified-valuation-arithmetic-asian-options). The baseline numerical source used by Corollary 4.2 is frozen at commit `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`. This revision retains those core formulas and the established exact reference payloads. The file `REVISION-MANIFEST.json` additionally freezes new readers, experiment inputs, and receipts. A content hash identifies bytes; it does not certify a proof.
 
 | Module | Corresponding result |
 | --- | --- |
-| `asian` | The complete certificate at the original point in Theorem 4.1 and Corollary 4.2 |
-| `tt` | Theorem 6.1 and the effective constants on (6.10) |
-| `small-xi` | The five-dimensional parameter box (7.4) |
-| `posterior-zero` | Posterior and target constants for the Gaussian reference |
-| `posterior` | Theorem 7.1 and the full three-dimensional prior (7.5) |
+| `asian` | The original point, Theorem 4.1 and Corollary 4.2. |
+| `tt` | Theorem 6.1 and effective constants on the deterministic face (6.10). |
+| `small-xi` | The five-dimensional small-volatility box (7.4). |
+| `posterior-zero` | Gaussian-reference posterior and target constants. |
+| `posterior` | The restricted prior (7.5) and Theorem 7.1. |
 
-From the repository root, install the specified dependency with `python -m pip install -r code/requirements.txt`. Run all author modules and independent recomputations with `python code/run.py run --module all --independent`. The `--module` option also accepts any single module in the table. The `verify` command checks the per-file SHA manifest; the `check --run` command compares the mathematical fields of an execution directory with their reference values. Runtime and output-location metadata are separate from these mathematical comparisons.
+From the repository root, create a CPython 3.12 virtual environment and install `python-flint==0.8.0` through `python -m pip install -r code/requirements.txt`. The reference runtime is Windows x86-64. This repository contains no dependency wheel; offline installation requires a separately obtained authentic compatible wheel. After installation the numerical calculations perform no network calls. The exact interpreter-bound commands are `py -3.12 -m venv .venv`, `./.venv/Scripts/python.exe -m pip install -r code/requirements.txt`, `./.venv/Scripts/python.exe code/run.py verify`, and `./.venv/Scripts/python.exe code/run.py run --module asian --independent`. Use `--module all` for all modules. Do not use optimized Python: assertions enforce mathematical and resource conditions.
 
-The reference environment is Windows x86-64, CPython 3.12, and python-flint 0.8.0. Each numerical worker uses one thread and a hard memory limit of 256 MiB; an outer controller enforces timeouts and checks the results. The implementation's domains and theorem associations are documented in [the numerical scope guide](../code/SCOPE.md). The price conclusions rely on mathematical proofs and validated arithmetic enclosures; the implementation makes the finite numerical inputs and error bounds reproducible.
+The run prints a unique directory under `code/runs/`. Its `run-receipt.json`, `mathematical-check.json`, per-job logs, and `work/core/*-result.json` preserve the exact inputs, source identities, guard outcomes, rational endpoints, and all fees. Run `python code/run.py check --run code/runs/run-ID` using the actual ID to recheck a completed calculation. The configuration records timeouts and module dependencies. Workers use one thread and a 256 MiB hard memory limit. A stopped job is not a completed certificate.
+
+The weighted moments in (4.6) correspond to `code/reference/asian-remainder-result.json`; the linear center, inversion, projection, and final intervals correspond to `code/reference/asian-linear-result.json`. The nonlinear catalog implements Appendix A, the projected recurrence Appendix B, and linear inversion Appendix C. Exact synthetic calibration observations are in `code/data/synthetic_quotes.json`. The revision's budget reader exposes the displayed rows and their rational source fields in one machine-readable file.
+
+The comparison retains every numerical JSON field, including arrays, fee terms, and rational endpoints. It excludes hash metadata and six explicitly named elapsed time fields. The implementations share Arb and the mathematical derivation; agreement is evidence of reproducibility within those assumptions, not independent validation of the underlying derivation. The main source, exact dependencies, commands, result mapping, and verification scope are all available to a referee.
+
+Revision commands, source-patch contracts, and all attempted-run records are indexed in `code/revision/README.md`. The machine-readable budget table is `code/revision/results/revision-summary.json`; it maps each numerical row to its result path, exact source field, and receipt. The original completed rerun receipt is preserved with the revision evidence. The scientific manifest lists final sources, inputs, enclosures, and receipts by byte count and SHA-256. The declared resource extension at the finest step changes only the bounded wall-time allowance; the original failed attempt is retained separately.
+
+## Appendix H. A direct coupled-remainder inequality
+
+The following sufficient bound controls the difference of remainders directly. It requires additional information about a coupling of the conditional variables; it is not a numerical assertion at the Heston parameter point.
+
+**Proposition H.1 (A remainder bound under a coupling).** Fix $`K\gt 0`$ and $`c\gt 0`$, assume that both marginal laws satisfy $`\mathsf H_s(c)`$, so that the remainders are finite, and couple conditional triples $`(a_P,b_P,\sigma_P)`$, $`(a_Q,b_Q,\sigma_Q)`$, where $`b_\nu=cg_\nu`$, all entries are positive, and each marginal is the conditional triple in (2.6). Set
+
+```math
+s_- =\min(\sigma_P,\sigma_Q),\qquad
+s_+ =\max(\sigma_P,\sigma_Q),\qquad
+z=\max(|a_P-b_P|,|a_Q-b_Q|),
+```
+
+```math
+M_K=\frac{e^{2s_+^2}}{K s_-\sqrt{2\pi}},\qquad
+N_K=\frac{e^{2s_+^2}(1+4/e+8s_+^2)}{K s_-^2\sqrt{2\pi}},
+```
+
+```math
+\Xi_K=M_Kz\left(|a_Q-a_P|+|b_Q-b_P|\right)
+       +\frac12N_Kz^2|\sigma_Q-\sigma_P|.
+```
+
+If $`E\Xi_K\le B_K\lt \infty`$, then
+
+```math
+\begin{gathered}
+|R_{K,Q}-R_{K,P}|\le B_K.
+\end{gathered}
+\tag{H.1}
+```
+
+In particular, writing $`B=e^{-rT}(B_{K_1}+B_{K_2})`$, the exact nonlinear contribution to the call-spread price difference belongs to $`[-B,B]`$. This interval may be intersected with the nonlinear interval in (4.2) before adding the linear-transform interval. Under the diagonal coupling for identical conditional laws, $`\Xi_K=0`$.
+
+*Proof.* Let $`Z`$ be standard normal and define
+
+```math
+F_K(x;s)=E[(xe^{sZ}-K)^+],\qquad
+r_K(a,b,s)=F_K(a;s)-F_K(b;s)-(a-b)\partial_xF_K(b;s).
+```
+
+Conditional integration gives $`R_{K,\nu}=E r_K(a_\nu,b_\nu,\sigma_\nu)`$. For $`x,s\gt 0`$, with $`y=\log(x/K)`$,
+
+```math
+H_K(x,s):=\partial_x^2F_K(x;s)
+=\frac{K}{s x^2\sqrt{2\pi}}e^{-y^2/(2s^2)},\qquad
+\partial_sH_K=\frac{H_K}{s}\left(\frac{y^2}{s^2}-1\right).
+```
+
+Completing the square gives
+
+```math
+H_K(x,s)=\frac{e^{2s^2}}{K s\sqrt{2\pi}}
+\exp\left[-\frac12\left(\frac ys+2s\right)^2\right].
+```
+
+For $`w=y/s+2s`$,
+
+```math
+\left|(w-2s)^2-1\right|e^{-w^2/2}
+\le(2w^2+8s^2+1)e^{-w^2/2}
+\le 4/e+8s^2+1.
+```
+
+Therefore, whenever $`s\in[s_-,s_+]`$, $`0\le H_K\le M_K`$ and $`|\partial_sH_K|\le N_K`$, uniformly in $`x\gt 0`$. Differentiation of the remainder and Taylor's integral formula give
+
+```math
+\partial_a r_K=\partial_xF_K(a;s)-\partial_xF_K(b;s),\qquad
+\partial_b r_K=-(a-b)H_K(b,s),
+```
+
+```math
+\partial_s r_K=(a-b)^2\int_0^1(1-t)
+       \partial_sH_K(b+t(a-b),s)\,dt.
+```
+
+Interpolate the three entries linearly between the coupled endpoints. All interpolated $`a,b,s`$ stay positive, $`|a-b|\le z`$, and $`s\in[s_-,s_+]`$. The fundamental theorem of calculus and the displayed derivative bounds yield, for each coupled pair,
+
+```math
+|r_K(a_Q,b_Q,\sigma_Q)-r_K(a_P,b_P,\sigma_P)|\le\Xi_K.
+```
+
+Taking expectations proves (H.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement.  $`\square`$
+
+The constants in Proposition H.1 are explicit, but the additional coupled expectations are not provided by the current marginal affine catalog. In particular, the $`s_-^{-2}`$ factor requires stronger control than the single inverse-square-root integrated-variance moment in (2.7). If a family of verified couplings satisfies $`E\Xi_K\to0`$, then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here.
 
 ## References
 

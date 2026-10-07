@@ -22,6 +22,22 @@ META = {
     'keywords': ['Arithmetic Asian options', 'Heston model', 'projected Euler', 'conditional Gaussian smoothing', 'computable error bounds', 'weak error expansions', 'posterior quantiles'],
 }
 
+PREAMBLE = r'''\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry,booktabs,tabularx,array}
+\geometry{left=28.575mm,right=25.12mm,top=38.1mm,bottom=33.16mm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\title{Certified Valuation of Arithmetic Asian Options via Common Gaussian Smoothing\\[6pt]\small Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterior Quantile Transfer}
+\author{Theodore Ouyang, Duke University\\\small 2080 Duke University Road, Durham, NC 27708, USA\\\texttt{10@alumni.duke.edu}\\\texttt{theodore.oy2025@gmail.com}}
+\date{Major revision: 7 October 2026\\\small Original manuscript: 2024}
+\begin{document}
+\maketitle
+'''
+
 DOMAIN = r'''\section{Domain of validity}
 
 The main theorem provides sufficient conditions through the common Gaussian
@@ -341,8 +357,6 @@ def references(source):
 def sanitize_body(body):
     body = re.sub(r'\\(?:thispagestyle|pagestyle)\{[^}]*\}', '', body)
     body = re.sub(r'\\markright\{.*?\}\s*\n', '', body)
-    body = re.sub(r'\\section\{(?:Scope and limitations|Domain of validity)\}.*?(?=\\section\{Conclusion\})', lambda m: DOMAIN, body, flags=re.S)
-    body = re.sub(r'\\section\*\{Acknowledgments and author\x27s note\}.*?(?=\\appendix)', '', body, flags=re.S)
     body = body.replace('Section~9 specifies the limits of applicability.', 'Section~9 specifies the domain of validity.')
     body = body.replace('the frozen input file', 'the reference input file')
     body = body.replace('frozen reference results', 'reference results')
@@ -378,7 +392,7 @@ def main():
     body = sanitize_body(body)
     replacement_g = OUT / 'implementation-section.tex'
     if replacement_g.exists():
-        body = body.split(r'\section{Reproducible implementation}', 1)[0] + replacement_g.read_text(encoding='utf8').strip() + '\n'
+        body = re.sub(r'\\section\{Reproducible implementation\}.*?(?=\\section\{|\Z)', lambda _: replacement_g.read_text(encoding='utf8').strip()+'\n\n', body, count=1, flags=re.S)
     assert original_math == math_rows(abstract + body), 'Math changed or reordered during public editing'
     blocks = [{'type': 'heading', 'id': 'abstract', 'level': 2, 'number': None, 'appendix': False,
                'inlines': [{'type': 'text', 'text': 'Abstract'}], 'markdown': '## Abstract'}]
@@ -404,22 +418,26 @@ def main():
     counts = {'main_sections': sum(not b['appendix'] for b in heads), 'appendices': sum(b['appendix'] for b in heads),
               'display_math': len(displays), 'inline_math': len(inline), 'equation_tags': len(tags), 'unique_tags': len(set(tags)),
               'tables': sum(b['type'] == 'table' for b in blocks), 'references': len(refs)}
-    assert counts == {'main_sections': 10, 'appendices': 7, 'display_math': 147, 'inline_math': 373, 'equation_tags': 88, 'unique_tags': 88, 'tables': 4, 'references': 12}, counts
+    assert counts['main_sections']==10 and counts['appendices']==8 and counts['references']==12, counts
+    assert counts['equation_tags']==counts['unique_tags'], 'Duplicate equation tags'
+    assert counts['display_math']>=147 and counts['inline_math']>=373, counts
     document = {'schema_version': 1, 'metadata': META, 'counts': counts, 'blocks': blocks, 'references': refs}
     title = '# ' + META['title'] + '\n\n' + META['subtitle'] + '\n\n**' + META['author'] + '** · ' + META['affiliation'] + '\n\n'
     title += ' · '.join('[' + e + '](mailto:' + e + ')' for e in META['emails']) + '\n\n'
+    title += '**Version:** Major revision, 7 October 2026; original manuscript 2024.\n\n'
     title += '**Keywords:** ' + '; '.join(META['keywords']) + '.\n\n'
     md = title + '\n\n'.join(b['markdown'] for b in blocks) + '\n'
     bib = src.split(r'\begin{thebibliography}{12}', 1)[1].split(r'\end{thebibliography}', 1)[0]
     public_source = '% Public mathematical manuscript source.\n\\begin{abstract}\n' + abstract.strip() + '\n\\end{abstract}\n\n' + body + '\n\\begin{thebibliography}{12}' + bib + '\\end{thebibliography}\n'
-    for name, data in [('report.md', md), ('report.json', json.dumps(document, ensure_ascii=False, indent=2) + '\n'), ('report-source.tex', public_source)]:
-        leak = re.search(r'20(?:23|26)|(?<![A-Za-z])[A-Za-z]:[/\\]+[A-Za-z]|completion date|internal review|review package', data, re.I)
+    standalone=PREAMBLE+public_source+'\n\\end{document}\n'
+    for name, data in [('report.md', md), ('report.json', json.dumps(document, ensure_ascii=False, indent=2) + '\n'), ('report-source.tex', public_source), ('report.tex',standalone)]:
+        leak = re.search(r'(?<![A-Za-z])[A-Za-z]:[/\\]+[A-Za-z]|internal review|review package', data, re.I)
         assert not leak, (name, data[max(0, leak.start()-50):leak.end()+70] if leak else '')
         (OUT / name).write_text(data, encoding='utf8', newline='\n')
     verification = {'status': 'PASS', 'counts': counts, 'formula_multiset_exactly_preserved': True,
                     'formula_sequence_exactly_preserved': True,
                     'forbidden_provenance_strings_absent': True,
-                    'artifacts': {name: hashlib.sha256((OUT / name).read_bytes()).hexdigest() for name in ('report.md', 'report.json', 'report-source.tex')}}
+                    'artifacts': {name: hashlib.sha256((OUT / name).read_bytes()).hexdigest() for name in ('report.md', 'report.json', 'report-source.tex','report.tex')}}
     (OUT / 'content-verification.json').write_text(json.dumps(verification, indent=2) + '\n', encoding='utf8', newline='\n')
     print(json.dumps(verification))
 

@@ -1,42 +1,72 @@
 \section{Reproducible implementation}
 
-The public \href{../code/README.md}{implementation guide} describes the numerical
-entry point \texttt{code/run.py}. The configuration in
-\texttt{code/configuration.json} specifies the parameter domain and module
-dependencies for each theorem. Core programs are stored in \texttt{code/core/},
-reference results in \texttt{code/reference/}, and the exact synthetic calibration
-inputs in \texttt{code/data/synthetic\_quotes.json}.
-Each execution creates an isolated output directory and preserves the reference results.
+The public repository is
+\url{https://github.com/130U/certified-valuation-arithmetic-asian-options}.
+The baseline numerical source used by Corollary 4.2 is frozen at commit
+\texttt{5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a}.
+This revision retains those core formulas and the established exact reference
+payloads. The file \texttt{REVISION-MANIFEST.json} additionally freezes new readers, experiment
+inputs, and receipts. A content hash identifies bytes; it does not certify a proof.
 
 \begin{center}
 \begin{tabularx}{\textwidth}{@{}l X@{}}
 \toprule
 Module & Corresponding result \\
 \midrule
-\texttt{asian} & The complete certificate at the original point in Theorem~4.1 and Corollary~4.2 \\
-\texttt{tt} & Theorem~6.1 and the effective constants on (6.10) \\
-\texttt{small-xi} & The five-dimensional parameter box (7.4) \\
-\texttt{posterior-zero} & Posterior and target constants for the Gaussian reference \\
-\texttt{posterior} & Theorem~7.1 and the full three-dimensional prior (7.5) \\
+\texttt{asian} & The original point, Theorem 4.1 and Corollary 4.2. \\
+\texttt{tt} & Theorem 6.1 and effective constants on the deterministic face (6.10). \\
+\texttt{small-xi} & The five-dimensional small-volatility box (7.4). \\
+\texttt{posterior-zero} & Gaussian-reference posterior and target constants. \\
+\texttt{posterior} & The restricted prior (7.5) and Theorem 7.1. \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-From the repository root, install the specified dependency with
+From the repository root, create a CPython 3.12 virtual environment and install
+\texttt{python-flint==0.8.0} through
 \texttt{python -m pip install -r code/requirements.txt}.
-Run all author modules and independent recomputations with
-\texttt{python code/run.py run --module all --independent}.
-The \texttt{--module} option also accepts any single module in the table.
-The \texttt{verify} command checks the per-file SHA manifest; the
-\texttt{check --run} command compares the mathematical fields of an execution
-directory with their reference values. Runtime and output-location metadata are
-separate from these mathematical comparisons.
+The reference runtime is Windows x86-64. This repository contains no dependency
+wheel; offline installation requires a separately obtained authentic compatible
+wheel. After installation the numerical calculations perform no network calls.
+The exact interpreter-bound commands are
+\texttt{py -3.12 -m venv .venv},
+\texttt{./.venv/Scripts/python.exe -m pip install -r code/requirements.txt},
+\texttt{./.venv/Scripts/python.exe code/run.py verify}, and
+\texttt{./.venv/Scripts/python.exe code/run.py run --module asian --independent}.
+Use \texttt{--module all} for all modules. Do not use optimized Python: assertions
+enforce mathematical and resource conditions.
 
-The reference environment is Windows x86-64, CPython~3.12, and python-flint~0.8.0.
-Each numerical worker uses one thread and a hard memory limit of 256~MiB;
-an outer controller enforces timeouts and checks the results.
-The implementation's domains and theorem associations are documented in
-\href{../code/SCOPE.md}{the numerical scope guide}.
-The price conclusions rely on mathematical proofs and validated arithmetic
-enclosures; the implementation makes the finite numerical inputs and error
-bounds reproducible.
+The run prints a unique directory under \texttt{code/runs/}. Its
+\texttt{run-receipt.json}, \texttt{mathematical-check.json}, per-job logs, and
+\texttt{work/core/*-result.json} preserve the exact inputs, source identities,
+guard outcomes, rational endpoints, and all fees. Run
+\texttt{python code/run.py check --run code/runs/run-ID} using the actual ID to
+recheck a completed calculation. The configuration records timeouts and module
+dependencies. Workers use one thread and a 256 MiB hard memory limit. A stopped
+job is not a completed certificate.
+
+The weighted moments in (4.6) correspond to
+\texttt{code/reference/asian-remainder-result.json}; the linear center, inversion,
+projection, and final intervals correspond to
+\texttt{code/reference/asian-linear-result.json}. The nonlinear catalog implements
+Appendix A, the projected recurrence Appendix B, and linear inversion Appendix C.
+Exact synthetic calibration observations are in
+\texttt{code/data/synthetic\_quotes.json}. The revision's budget reader exposes
+the displayed rows and their rational source fields in one machine-readable file.
+
+The comparison retains every numerical JSON field, including arrays, fee terms,
+and rational endpoints. It excludes hash metadata and six explicitly named elapsed
+time fields. The implementations share Arb and the mathematical derivation;
+agreement is evidence of reproducibility within those assumptions, not independent
+validation of the underlying derivation. The main source, exact dependencies,
+commands, result mapping, and verification scope are all available to a referee.
+
+
+Revision commands, source-patch contracts, and all attempted-run records are
+indexed in \texttt{code/revision/README.md}. The machine-readable budget table
+is \texttt{code/revision/results/revision-summary.json}; it maps each numerical
+row to its result path, exact source field, and receipt. The original completed
+rerun receipt is preserved with the revision evidence. The scientific manifest
+lists final sources, inputs, enclosures, and receipts by byte count and SHA-256.
+The declared resource extension at the finest step changes only the bounded
+wall-time allowance; the original failed attempt is retained separately.

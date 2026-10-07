@@ -2,20 +2,21 @@
   "status": "PASS",
   "counts": {
     "main_sections": 10,
-    "appendices": 7,
-    "display_math": 147,
-    "inline_math": 373,
-    "equation_tags": 88,
-    "unique_tags": 88,
-    "tables": 4,
+    "appendices": 8,
+    "display_math": 169,
+    "inline_math": 480,
+    "equation_tags": 95,
+    "unique_tags": 95,
+    "tables": 13,
     "references": 12
   },
   "formula_multiset_exactly_preserved": true,
   "formula_sequence_exactly_preserved": true,
   "forbidden_provenance_strings_absent": true,
   "artifacts": {
-    "report.md": "5bf968bc787e4cd4d2e96f6209fa60ae2717058e53d31069697a724185e16418",
-    "report.json": "472df7fd4ba52f87d42ae5b2a780c51c90c7cd373fc2dce999ea182d5ae0ef64",
-    "report-source.tex": "e0b526fe78a812bc57e937ad918d5c6d84452a244a3cd2aa7539a9657a927806"
+    "report.md": "42f1325bee4e1a079226d01af1ceb8af51ea36d83878f8ecc90c5a6fa169c48d",
+    "report.json": "9cded1d2d9fadb649ca96a5e89c694f178addc0a43aa3fc1939ae60607972a2c",
+    "report-source.tex": "5a7216f41c8ebc5de6a493929bff01bff581addfc2f38c4d3f6ed18b2a35f324",
+    "report.tex": "5ebcef772db3708875ab6efe731f288e028b9b060f6be74a10fb7d14bcd15343"
   }
 }

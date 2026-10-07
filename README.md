@@ -2,6 +2,12 @@
 
 **Theodore Ouyang · Mathematical finance**
 
+Major revision, **7 October 2026**; original manuscript **2024**.
+
+[Revised PDF](paper/Theodore-Ouyang-Certified-Asian-Valuation-Major-Revision-20261007.pdf) · [Editable LaTeX](manuscript/report.tex) · [逐条修稿回应](REVISION-RESPONSE-zh.md) · [New experiment commands and scope](code/revision/README.md).
+
+The revision supplies a source and result ledger, complete pointwise step studies where the analytic guards pass, a common-reference scale comparison, independently checked posterior meshes, and clearly labeled statistical diagnostics. The signed Asian leading-coefficient integral and the numerical coupled-remainder bound remain open; the response records these limits explicitly.
+
 A theory-led study of a practical pricing question: **how much can a finite-step implementation change the value of an arithmetic Asian option, and how can that change be certified?**
 
 The project connects a common Gaussian factor, a weighted payoff remainder, and validated transform arithmetic to obtain explicit error bounds for a specified Heston model and its projected Euler scheme. The analysis retains the actual arithmetic payoff and accounts for projection, transform inversion, infinite tails, and rounding in one finite calculation.

@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "source_sha256": "85e32746f2ad2b0f9a522884abf26697d45e30b247f49f6225810123c7069099",
+  "numpy_version": "2.3.5",
+  "status": "COMPLETE_STATISTICAL_DIAGNOSTICS",
+  "rows": [
+    {
+      "input": {
+        "name": "h192",
+        "steps": 192,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261007,
+      "fine_step": "1/384",
+      "coarse_step": "1/192",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.567518864208627,
+        "standard_error": 0.03412075763311929,
+        "normal_approximation_95_interval": [
+          6.500642179247714,
+          6.6343955491695406
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.567992401333354,
+        "standard_error": 0.03412067456913399,
+        "normal_approximation_95_interval": [
+          6.501115879177852,
+          6.634868923488857
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": -0.00047353712472661375,
+        "standard_error": 0.0009415694552831431,
+        "normal_approximation_95_interval": [
+          -0.002319013257081574,
+          0.0013719390076283465
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.47843901910798,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "h384",
+        "steps": 384,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261008,
+      "fine_step": "1/768",
+      "coarse_step": "1/384",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.5095100222399696,
+        "standard_error": 0.03406057766162225,
+        "normal_approximation_95_interval": [
+          6.44275129002319,
+          6.576268754456749
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.5083817738530625,
+        "standard_error": 0.034057824925732706,
+        "normal_approximation_95_interval": [
+          6.441628436998626,
+          6.575135110707499
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.0011282483869075773,
+        "standard_error": 0.0006613581576320551,
+        "normal_approximation_95_interval": [
+          -0.0001680136020512507,
+          0.0024245103758664052
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.48845369004688,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "main_h768",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261009,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.453098000429918,
+        "standard_error": 0.03409185396888644,
+        "normal_approximation_95_interval": [
+          6.3862779666509,
+          6.519918034208936
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.453124918359688,
+        "standard_error": 0.034090626331406096,
+        "normal_approximation_95_interval": [
+          6.386307290750132,
+          6.5199425459692435
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": -2.6917929768980014e-05,
+        "standard_error": 0.0004716788340072371,
+        "normal_approximation_95_interval": [
+          -0.0009514084444231647,
+          0.0008975725848852046
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.488515201354396,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "h1536",
+        "steps": 1536,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261010,
+      "fine_step": "1/3072",
+      "coarse_step": "1/1536",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.584091260623385,
+        "standard_error": 0.03415395763705439,
+        "normal_approximation_95_interval": [
+          6.517149503654759,
+          6.651033017592011
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.583996304498903,
+        "standard_error": 0.03415460933137691,
+        "normal_approximation_95_interval": [
+          6.517053270209405,
+          6.650939338788402
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 9.495612448147128e-05,
+        "standard_error": 0.0003348861695241965,
+        "normal_approximation_95_interval": [
+          -0.0005614207677859539,
+          0.0007513330167488964
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.509552900199417,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "feller_near_one",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.52,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261011,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 0.9985207100591715,
+      "coarse_price": {
+        "estimate": 6.710267680309075,
+        "standard_error": 0.03368160126392682,
+        "normal_approximation_95_interval": [
+          6.644251741831778,
+          6.776283618786372
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.710154816008681,
+        "standard_error": 0.03368355474016573,
+        "normal_approximation_95_interval": [
+          6.644135048717956,
+          6.776174583299406
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.0001128643003931155,
+        "standard_error": 0.001245298918739222,
+        "normal_approximation_95_interval": [
+          -0.0023279215803357596,
+          0.002553650181121991
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 17.249172653546033,
+      "projected_negative_transition_fraction_coarse": 0.0011268456776936848,
+      "projected_negative_transition_fraction_fine": 0.0005627671877543131,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "feller_below_one",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.65,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261012,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 0.6390532544378698,
+      "coarse_price": {
+        "estimate": 6.901417090414147,
+        "standard_error": 0.03336799106249691,
+        "normal_approximation_95_interval": [
+          6.836015827931653,
+          6.966818352896641
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.9005037553546735,
+        "standard_error": 0.03334806383870734,
+        "normal_approximation_95_interval": [
+          6.835141550230807,
+          6.96586596047854
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.0009133350594732559,
+        "standard_error": 0.0018375308906404264,
+        "normal_approximation_95_interval": [
+          -0.00268822548618198,
+          0.004514895605128491
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 17.822552015774644,
+      "projected_negative_transition_fraction_coarse": 0.006699085235595703,
+      "projected_negative_transition_fraction_fine": 0.004274884859720866,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "rho_minus_08",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.8,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261013,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.625673119818009,
+        "standard_error": 0.03411243345011786,
+        "normal_approximation_95_interval": [
+          6.558812750255778,
+          6.6925334893802395
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.625592254873756,
+        "standard_error": 0.03411074293552728,
+        "normal_approximation_95_interval": [
+          6.558735198720123,
+          6.6924493110273895
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 8.086494425188972e-05,
+        "standard_error": 0.00048092860217062314,
+        "normal_approximation_95_interval": [
+          -0.0008617551160025317,
+          0.001023485004506311
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.495669796898454,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "rho_minus_03",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.3,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261014,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.407129810276238,
+        "standard_error": 0.03407664865108499,
+        "normal_approximation_95_interval": [
+          6.340339578920112,
+          6.473920041632365
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.407200862139646,
+        "standard_error": 0.03407754361939454,
+        "normal_approximation_95_interval": [
+          6.3404088766456335,
+          6.473992847633659
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": -7.105186340790223e-05,
+        "standard_error": 0.00047115597100630906,
+        "normal_approximation_95_interval": [
+          -0.000994517566580268,
+          0.0008524138397644635
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.49772407145587,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "v0_003",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.03,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261015,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.480128571240687,
+        "standard_error": 0.03330887377063695,
+        "normal_approximation_95_interval": [
+          6.414843178650239,
+          6.545413963831136
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.4810754930091035,
+        "standard_error": 0.03330838762261812,
+        "normal_approximation_95_interval": [
+          6.415791053268772,
+          6.546359932749435
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": -0.0009469217684158164,
+        "standard_error": 0.0005006827095069531,
+        "normal_approximation_95_interval": [
+          -0.0019282598790494447,
+          3.441634221781171e-05
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 19.716309051406007,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "v0_006",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.06,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261016,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.526673445294448,
+        "standard_error": 0.03466203275553823,
+        "normal_approximation_95_interval": [
+          6.458735861093594,
+          6.594611029495303
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.526275572900009,
+        "standard_error": 0.03465703328997307,
+        "normal_approximation_95_interval": [
+          6.458347787651662,
+          6.594203358148357
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.00039787239443837634,
+        "standard_error": 0.000461595863880033,
+        "normal_approximation_95_interval": [
+          -0.0005068554987664884,
+          0.001302600287643241
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 14.459609979360028,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "strikes_90_105",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 90,
+        "K2": 105
+      },
+      "paths": 32768,
+      "seed": 20261017,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 8.6347611779434,
+        "standard_error": 0.033848159627722675,
+        "normal_approximation_95_interval": [
+          8.568418785073064,
+          8.701103570813736
+        ]
+      },
+      "fine_price": {
+        "estimate": 8.634376208685499,
+        "standard_error": 0.03385083543077945,
+        "normal_approximation_95_interval": [
+          8.568028571241172,
+          8.700723846129826
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.00038496925790127535,
+        "standard_error": 0.0004607184869470753,
+        "normal_approximation_95_interval": [
+          -0.0005180389765149923,
+          0.001287977492317543
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.48921994315758,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "strikes_105_120",
+        "steps": 768,
+        "fixings": 12,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 105,
+        "K2": 120
+      },
+      "paths": 32768,
+      "seed": 20261018,
+      "fine_step": "1/1536",
+      "coarse_step": "1/768",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 2.788526972176541,
+        "standard_error": 0.026382618673485597,
+        "normal_approximation_95_interval": [
+          2.7368170395765095,
+          2.8402369047765728
+        ]
+      },
+      "fine_price": {
+        "estimate": 2.787844091459848,
+        "standard_error": 0.026383281540765767,
+        "normal_approximation_95_interval": [
+          2.736132859639947,
+          2.839555323279749
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.0006828807166933513,
+        "standard_error": 0.000409375585181492,
+        "normal_approximation_95_interval": [
+          -0.00011949543026237299,
+          0.0014852568636490758
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 16.501293900226464,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "fixings_52",
+        "steps": 832,
+        "fixings": 52,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261019,
+      "fine_step": "1/1664",
+      "coarse_step": "1/832",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.509828593576998,
+        "standard_error": 0.03376207173379335,
+        "normal_approximation_95_interval": [
+          6.443654932978763,
+          6.576002254175233
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.509597972588984,
+        "standard_error": 0.03376223495700154,
+        "normal_approximation_95_interval": [
+          6.443423992073261,
+          6.575771953104707
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": 0.00023062098801388488,
+        "standard_error": 0.00044960853293156823,
+        "normal_approximation_95_interval": [
+          -0.0006506117365319889,
+          0.0011118537125597587
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 34.07839085877585,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    },
+    {
+      "input": {
+        "name": "fixings_252",
+        "steps": 1008,
+        "fixings": 252,
+        "kappa": 3.0,
+        "vbar": 0.045,
+        "xi": 0.23,
+        "rho": -0.55,
+        "v0": 0.045,
+        "r": 0.01,
+        "S0": 100.0,
+        "K1": 95,
+        "K2": 110
+      },
+      "paths": 32768,
+      "seed": 20261020,
+      "fine_step": "1/2016",
+      "coarse_step": "1/1008",
+      "feller_index": 5.103969754253308,
+      "coarse_price": {
+        "estimate": 6.479272226220658,
+        "standard_error": 0.03372314048895507,
+        "normal_approximation_95_interval": [
+          6.413174870862306,
+          6.54536958157901
+        ]
+      },
+      "fine_price": {
+        "estimate": 6.4796784848022995,
+        "standard_error": 0.033723848072627766,
+        "normal_approximation_95_interval": [
+          6.413579742579949,
+          6.54577722702465
+        ]
+      },
+      "coupled_coarse_minus_fine": {
+        "estimate": -0.00040625858164147603,
+        "standard_error": 0.00039795123113525873,
+        "normal_approximation_95_interval": [
+          -0.0011862429946665832,
+          0.0003737258313836311
+        ]
+      },
+      "fine_mean_first_integrated_variance_inverse_sqrt": 74.87056644436214,
+      "projected_negative_transition_fraction_coarse": 0.0,
+      "projected_negative_transition_fraction_fine": 0.0,
+      "status": "STATISTICAL_DIAGNOSTIC",
+      "certified_continuous_model_interval": null,
+      "limitations": "Sampling intervals are approximate; fine Euler retains unknown continuous-model bias. No rigorous tails or moment inequalities are inferred from these paths."
+    }
+  ],
+  "interpretation": "All rows are statistical diagnostics, independent from validated transform implementations. They do not certify continuous prices. The fixing-count experiment also changes the aligned Euler grid.",
+  "elapsed_seconds": 33.29429470002651
+}

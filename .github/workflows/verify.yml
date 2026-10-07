@@ -27,4 +27,5 @@ jobs:
           python-version: '3.12'
       - run: python scripts/build_report.py
       - run: python scripts/check_report.py
+      - run: python scripts/verify_revision.py
       - run: git diff --exit-code -- manuscript

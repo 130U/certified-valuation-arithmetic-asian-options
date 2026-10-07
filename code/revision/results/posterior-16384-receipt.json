@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETE",
+  "cells": 16384,
+  "baseline_run": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\runs\\run-dc5217430d86405c808cb700515d6d1d",
+  "baseline_run_receipt_sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51",
+  "source_patches": [
+    {
+      "file": "posterior-certificate.py",
+      "original_sha256": "4f3b06d84ed9a12e26cc9170de1f0ccf608226c7dd297232c1dd0c9aef6b9f6c",
+      "executed_sha256": "d104eb281c7d334106d2417e274ac9191ce6effcb06c74b37bf7eb8219223a13",
+      "changes": [
+        "Add finite mesh 8192 to grid selection and contract; mathematical formulas unchanged."
+      ]
+    },
+    {
+      "file": "posterior-compat-certificate.py",
+      "original_sha256": "7f604e33d2329c8167299eaae90b3e3b41dd1195da37b687049210e7f5ad8015",
+      "executed_sha256": "2df5f59a0a149375c6fdd6ff6cfb0c2122b37404618b6d3586df3b2891f690a7",
+      "changes": [
+        "Add finite mesh 8192 to grid selection and contract; mathematical formulas unchanged."
+      ]
+    },
+    {
+      "file": "check-posterior.py",
+      "original_sha256": "982cda8fac6f3d96a17ed8e8e95a63460b0a2bf1fcea7df345d8c5ed358f3d13",
+      "executed_sha256": "50cf5afe0475df0ea668c691806383d9553b8d01d6a327944c4480025d8736cd",
+      "changes": [
+        "Set declared finite mesh and author path; independent erfc, integer quadratic intervals and advancing-pointer coupling unchanged."
+      ]
+    }
+  ],
+  "original_zero_reference_sha256": "8c55f09d0c2a8404f273f7f7f2245ee5447f042064453fc701c15f43ed8f574f",
+  "script_sha256": "d9e24073efaaa1b2bd62fc971626c03fd2eeb525ad794138b099a385dc7d2ec8",
+  "jobs": [
+    {
+      "source": "posterior-certificate.py",
+      "seconds": 28.622752900002524,
+      "returncode": 0,
+      "log": "posterior-certificate.py.log",
+      "result": "posterior-16384-result.json",
+      "result_sha256": "62234e02244d7c0c89ecec694697dcb93cf08fcdf92f05e03a010b536fd5308b",
+      "status": "PASS_CONDITIONAL_ON_ARB_INCLUSIONS"
+    },
+    {
+      "source": "posterior-compat-certificate.py",
+      "seconds": 20.42005319998134,
+      "returncode": 0,
+      "log": "posterior-compat-certificate.py.log",
+      "result": "posterior-compat-16384-result.json",
+      "result_sha256": "ea52ee78feb7a6519a75e5d76d60ba36d8fb66721f94344076ffa35d048334bb",
+      "status": "PASS_CONDITIONAL_ON_ARB_INCLUSIONS"
+    },
+    {
+      "source": "check-posterior.py",
+      "seconds": 16.135782500030473,
+      "returncode": 0,
+      "log": "check-posterior.py.log",
+      "result": "check-posterior-result.json",
+      "result_sha256": "72c1a879843211a834a1c267fe9b5b1cb288475c7afcbe47ab22805434a62537",
+      "status": "INDEPENDENT_POSITIVE_XI_3D_POSTERIOR_AUDIT_PASS"
+    }
+  ],
+  "principal_compatibility_all_mathematical_fields_equal": true,
+  "independent_status": "INDEPENDENT_POSITIVE_XI_3D_POSTERIOR_AUDIT_PASS"
+}

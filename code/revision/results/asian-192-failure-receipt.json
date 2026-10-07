@@ -1,0 +1,56 @@
+{
+  "status": "STOPPED",
+  "h": "1/192",
+  "script_sha256": "b7fe4be9a49f56cbc4382aa5efb502dbe960c888318bd1fe8379655f12e55741",
+  "source_patches": [
+    {
+      "source": "asian-remainder-certificate.py",
+      "original_sha256": "7c9a8d15a8576250e601f97950a2e6b8142852308e762a7711c2c1a1bf7f901f",
+      "executed_sha256": "a0c20f46069ef9d557bf98750c150b04aad37f04bcd8bb94578dc8edb14aef1c",
+      "changes": "Finite step parameter N=192; month loop/index/counter values; source-identity pin rebound to the executed author copy. All fees, mathematical guards, precision and resource controls retained."
+    },
+    {
+      "source": "asian-linear-certificate.py",
+      "original_sha256": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+      "executed_sha256": "e974f8dc37ef5513442544e447a9aafb60af2c435e0a6d12b6d440babde360d6",
+      "changes": "Finite step parameter N=192; month loop/index/counter values; source-identity pin rebound to the executed author copy. All fees, mathematical guards, precision and resource controls retained."
+    },
+    {
+      "source": "check-asian-remainder.py",
+      "original_sha256": "30702cc306d9c5456fd1ff505e8fb15f4773ef38955a22a6b0db67f9440a4347",
+      "executed_sha256": "9d419125c17f8ba36f9b036403a50b41249db4ff3316462bef328987cd2cc5b1",
+      "changes": "Finite step parameter N=192; month loop/index/counter values; source-identity pin rebound to the executed author copy. All fees, mathematical guards, precision and resource controls retained."
+    },
+    {
+      "source": "check-asian-linear.py",
+      "original_sha256": "28fddd6f239e8a923e67b0e6f4b89775652ca7f22baccb3de7c23873da15abce",
+      "executed_sha256": "54258e1d0f64cd92cd305ab4fde186daef5ee06df22a78cdd7fdac9f2ca2323a",
+      "changes": "Finite step parameter N=192; month loop/index/counter values; source-identity pin rebound to the executed author copy. All fees, mathematical guards, precision and resource controls retained."
+    }
+  ],
+  "jobs": [
+    {
+      "id": "asian-W",
+      "source": "asian-remainder-certificate.py",
+      "source_sha256": "a0c20f46069ef9d557bf98750c150b04aad37f04bcd8bb94578dc8edb14aef1c",
+      "returncode": 0,
+      "seconds": 0.4876849999418482,
+      "log": "asian-W.log",
+      "status": "STOPPED",
+      "reason": "No mathematical result produced; see retained controller and worker logs.",
+      "controller": {
+        "available_physical": 3176038400,
+        "available_commit": 3172925440,
+        "required": 536870912,
+        "hard_wall_seconds": 60,
+        "memory_limit_MiB": 256,
+        "source_sha256": "a0c20f46069ef9d557bf98750c150b04aad37f04bcd8bb94578dc8edb14aef1c",
+        "status": "FINISHED",
+        "returncode": 1,
+        "outer_seconds": 0.3563018999993801
+      }
+    }
+  ],
+  "analytical_projection_beta_expected": "184040303/23040000",
+  "no_claim": "A stopped job gives no complete price enclosure at this grid."
+}

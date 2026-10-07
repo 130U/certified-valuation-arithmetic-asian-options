@@ -1,0 +1,10 @@
+{
+  "status": "FROZEN_COMPLETE_EXECUTION_ARCHIVE",
+  "archive_name": "evidence.zip",
+  "sha256": "d6af35332a1d3a91d0d575b815926e92c98bc8e84c740af4b80346dfe02bbb8a",
+  "bytes": 14755966,
+  "files": 202,
+  "uncompressed_bytes": 56886750,
+  "packer_sha256": "aaa66cf048f9e3e89bf4d0c502925e97e5d7ec2cfeaec65d49cd78eda2bd048e",
+  "readback": "Extract to a fresh directory; verify every EVIDENCE-INVENTORY file hash, run baseline check against execution/base-run, and run read_budget.py with execution as execution-root."
+}
