@@ -5,7 +5,7 @@ Commands for the latter are in code/revision/README.md.
 """
 from pathlib import Path
 from fractions import Fraction as F
-import argparse,hashlib,json,zipfile
+import argparse,hashlib,json,zipfile,subprocess,sys,tempfile
 
 ROOT=Path(__file__).resolve().parents[1]
 def main():
@@ -66,5 +66,51 @@ def main():
     for name in ['path-diagnostics.json','asian-beta-diagnostic.json']:
         d=json.loads((ROOT/'code/revision/results'/name).read_text(encoding='utf8'))
         assert 'DIAGNOSTIC' in d['status']
-    print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),scope='Byte identity and exact saved mathematical ledger. Fresh kernel execution and mathematical proofs are separate checks.')))
+    second=ROOT/'code/revision/round2/results'
+    point=json.loads((second/'point-v004-result.json').read_text(encoding='utf8'))
+    assert point['status']=='COMPLETE_NEW_STOCHASTIC_HESTON_POINT_CERTIFICATE'
+    assert point['input']['theta']==['3','9/200','23/100','-11/20','1/25']
+    row=point['six_component_exact_width_ledger']
+    lo,hi=map(F,point['principal_bias_Q_minus_P']['exact_interval'])
+    assert lo<=hi and hi-lo==F(row['interval_width']['exact_rational'])
+    assert len(row['components'])==6
+    assert sum(F(x['exact_rational']) for x in row['components'].values())==hi-lo
+    assert row['passes_original_0025_absolute_target']
+    # Extract, hash, and replay the completed second point, including each saved
+    # moment node, frequency, error contribution and parameter-source change.
+    replay_parent=ROOT/'code/runs'
+    replay_parent.mkdir(parents=True,exist_ok=True)
+    dest=Path(tempfile.mkdtemp(prefix='r2-',dir=replay_parent))
+    assert dest.resolve().is_relative_to(replay_parent.resolve())
+    replayed=subprocess.run([sys.executable,str(ROOT/'code/revision/round2/replay_point.py'),
+        '--archive',str(second/'evidence-point-v004.zip'),
+        '--receipt',str(second/'archive-receipt.json'),
+        '--directory',str(dest/'x'),'--output',str(dest/'replay.json')],
+        capture_output=True,text=True)
+    if replayed.returncode:
+        raise RuntimeError('Second-point saved-result replay failed: '+replayed.stderr)
+    replay=json.loads((dest/'replay.json').read_text(encoding='utf8'))
+    assert replay['status']=='FROZEN_SECOND_POINT_STDLIB_READBACK_PASS'
+    coupled=json.loads((second/'coupling-v004-result.json').read_text(encoding='utf8'))
+    assert coupled['status']=='CLOSED_LOGNORMAL_COUPLING_REMAINDER_ENCLOSURE_COMPLETE'
+    assert coupled['scope']['xi']=='0' and coupled['scope']['v0']=='1/25'
+    assert coupled['source_sha256']==hashlib.sha256((ROOT/'code/revision/round2_coupling_example.py').read_bytes()).hexdigest()
+    assert [r['precision_bits'] for r in coupled['precision_runs']]==[384,512]
+    for run in coupled['precision_runs']:
+        r=run['results']
+        dl,du=map(F,r['direct_nonlinear_width']['exact_interval'])
+        sl,su=map(F,r['separate_law_nonlinear_width']['exact_interval'])
+        assert 0<=dl<=du<sl<=su
+        assert F(r['width_ratio_direct_over_separate']['exact_interval'][1])<F('0.005731')
+        assert r['strict_improvement_proved_by_disjoint_width_bounds']
+        assert run['closed_pair_moment_identity_checks']==459
+    receipt=json.loads((ROOT/'docs/revision-round2/coupling-evidence-receipt.json').read_text(encoding='utf8'))
+    for r in receipt['files']:
+        assert hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']
+    commands=json.loads((ROOT/'paper/pdf-command-verification.json').read_text(encoding='utf8'))
+    assert commands['status']=='PASS_EXPORTED_PDF_COMMANDS_AND_REAL_ARGUMENT_PARSER'
+    pdf=ROOT/'paper/Theodore-Ouyang-Certified-Asian-Valuation-Targeted-Revision-20261007.pdf'
+    assert commands['pdf_sha256']==hashlib.sha256(pdf.read_bytes()).hexdigest()
+    assert commands['parsed_arguments']=={'modules':['asian'],'independent':True,'run_placeholder':'code/runs/run-ID'}
+    print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),complete_second_point_certificate=True,second_point_weighted_node_checks=replay['weighted_node_exact_checks'],second_point_frequency_checks=replay['frequency_exact_interval_overlap_checks'],deterministic_coupling_precisions=2,exported_pdf_command_receipt=True,scope='Byte identity and exact saved mathematical ledger. Fresh kernel execution and mathematical proofs are separate checks.')))
 if __name__=='__main__':main()

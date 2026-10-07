@@ -29,3 +29,16 @@ jobs:
       - run: python scripts/check_report.py
       - run: python scripts/verify_revision.py
       - run: git diff --exit-code -- manuscript
+  targeted_examples:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r code/requirements.txt
+      - run: python code/revision/round2/asian_parameter_point.py prepare --directory code/runs/second-point-ci
+      - run: python code/revision/round2/asian_parameter_point.py run --directory code/runs/second-point-ci
+      - run: python code/revision/round2_coupling_example.py --output code/runs/coupling-ci.json
+      - run: python scripts/verify_fresh_examples.py --point code/runs/second-point-ci/result-capsule.json --coupling code/runs/coupling-ci.json

@@ -2,11 +2,11 @@
 
 **Theodore Ouyang · Mathematical finance**
 
-Major revision, **7 October 2026**; original manuscript **2024**.
+Targeted revision, **7 October 2026**; original manuscript **2024**.
 
-[Revised PDF](paper/Theodore-Ouyang-Certified-Asian-Valuation-Major-Revision-20261007.pdf) · [Editable LaTeX](manuscript/report.tex) · [逐条修稿回应](REVISION-RESPONSE-zh.md) · [New experiment commands and scope](code/revision/README.md).
+[Revised PDF](paper/Theodore-Ouyang-Certified-Asian-Valuation-Targeted-Revision-20261007.pdf) · [Editable LaTeX](manuscript/report.tex) · [本轮修稿回应](TARGETED-REVISION-RESPONSE-zh.md) · [New experiment commands and scope](code/revision/round2/README.md).
 
-The revision supplies a source and result ledger, complete pointwise step studies where the analytic guards pass, a common-reference scale comparison, independently checked posterior meshes, and clearly labeled statistical diagnostics. The signed Asian leading-coefficient integral and the numerical coupled-remainder bound remain open; the response records these limits explicitly.
+The targeted revision repairs the PDF reproduction commands and immutable version entries, condenses the main text, completes a second stochastic Heston parameter-point certificate, and executes the coupled-remainder bound on the deterministic-variance face. The step-grid, common-scale and posterior-grid studies remain available. Tight signed Asian coefficient integration, positive-volatility coupled moments, and absolute target-price posterior quantiles remain open.
 
 A theory-led study of a practical pricing question: **how much can a finite-step implementation change the value of an arithmetic Asian option, and how can that change be certified?**
 
@@ -37,6 +37,20 @@ These are deterministic enclosures in price units at
 
 They bound implementation bias at the stated grid, rather than statistical uncertainty from sampled paths. The complete definitions and proof appear in Sections 2–5 and Appendices A–C of the paper.
 
+At the second point, changing only $`v_0`$ to $`0.04`$, all five tasks and both
+alternative-construction checks yield
+
+```math
+p_h-p_c\in[-0.011798506840,\;0.011383739259].
+```
+
+This is another pointwise certificate with the same contract, monthly fixing
+schedule, and step size. It does not certify a parameter region. On $`\xi=0`$,
+a separate closed-moment coupling example gives a nonlinear interval width at
+most **0.000088150195865**, compared with a separate-law width at least
+**0.015383637151510** under the same conditioning. These two calculations have
+different parameter scopes.
+
 ## Research contributions
 
 - **A structural route from payoff to certificate.** The paper formulates independently checkable common-factor and finite-verification conditions. A conditional smoothing lemma produces a nonnegative convexity remainder controlled by a weighted second moment and explicit constants.
@@ -54,7 +68,7 @@ The contribution is the model-specific proof and effective certificate connectin
 | Complete arithmetic Asian certificate | The Heston parameter point above; 12 monthly observations; original positive-part variance Euler and current-variance log-price update; $`h=1/768`$ | Absolute pricing bias below **0.011025** and a continuous-price interval |
 | Joint weak expansion | Volatility of volatility $`\xi=0`$; aligned grids; bounded payoffs; a deterministic-variance family with explicit bounds | A common first-order representation and computable second-order remainder; a uniform Asian remainder bound below **0.000165217** on the stated family |
 | Uniform small-volatility price control | The positive-volume five-parameter box in equation (7.4) | Asian bias at most **0.020948**; each of nine put biases at most **0.016702** |
-| Posterior target quantiles | The three-dimensional continuous prior in equation (7.5), with $`\xi\in[10^{-7},10^{-6}]`$ and the exact synthetic observations in Appendix F | Every quantile shifts by at most **0.008018821658** for the single-quote case or **0.012716404217** for nine quotes |
+| Posterior target quantiles | The three-dimensional continuous prior in equation (7.5), with $`\xi\in[10^{-7},10^{-6}]`$ and the exact synthetic observations in Appendix F | Every quantile shifts by at most **0.006061495591** for the single-quote case or **0.009584682511** for nine quotes at 16384 cells |
 
 Each row has its own parameter domain, assumptions, and proof. This makes the result directly checkable for its intended use.
 
@@ -79,7 +93,7 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe code/run.py run --module asian --independent
 ```
 
-To reproduce all modules and their independent checks, replace `asian` with `all`. Calculations use `python-flint==0.8.0` and Arb outward arithmetic. See the [execution guide](code/README.md), [mathematical scope](code/SCOPE.md), and [data description](code/DATA.md).
+To reproduce all modules and their independent checks, replace `asian` with `all`. Calculations use `python-flint==0.8.0` and Arb outward arithmetic. The immutable [first revision](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b) and [second-point data revision](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db) provide the additional experiments. See the [new-point commands and replay](code/revision/round2/README.md), [execution guide](code/README.md), [mathematical scope](code/SCOPE.md), and [data description](code/DATA.md).
 
 ## Explore the project
 

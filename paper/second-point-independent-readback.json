@@ -1,0 +1,20 @@
+{
+  "status": "FROZEN_SECOND_POINT_STDLIB_READBACK_PASS",
+  "scope": "Saved-result/source consistency; pricing kernels are not rerun.",
+  "archive_sha256": "338964eadb54b51fc1b0ff027df61da870cb2f4ae304421e7f1788bd47310db3",
+  "archive_receipt_sha256": "c0435ee0c616260465692e62224d821fb58a02a901b4d60041b4fea0b7d1b56c",
+  "inventory_sha256": "899aab3251a501a74ac2e9a117a6495d5e4f5404de6fdebdbc5a6f1f93504166",
+  "inventory_file_count": 52,
+  "independent_math_and_literal_source_replay": "PASS",
+  "capsule_exact_nonpath_payload_replay": "PASS",
+  "weighted_node_exact_checks": 386,
+  "frequency_exact_interval_overlap_checks": 1923,
+  "linear_fee_exact_interval_overlap_checks": 7,
+  "exact_six_component_width_reconciliation": "PASS",
+  "bias_outward24": [
+    "-0.011798506839755763560265",
+    "0.011383739258625372365583"
+  ],
+  "width_outward24_upper": "0.023182246098381135925847",
+  "replay_script_sha256": "62f8493320db5ec33bee2eb730ce149490ebe032c95df88a6852fcec9021f0cc"
+}

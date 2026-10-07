@@ -22,11 +22,11 @@
   "counts": {
     "main_sections": 10,
     "appendices": 8,
-    "display_math": 169,
-    "inline_math": 480,
+    "display_math": 176,
+    "inline_math": 505,
     "equation_tags": 95,
     "unique_tags": 95,
-    "tables": 13,
+    "tables": 14,
     "references": 12
   },
   "blocks": [
@@ -49,7 +49,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "We certify the implementation error for the bounded arithmetic Asian call spread "
+          "text": "We develop finite error certificates for the bounded arithmetic Asian call spread "
         },
         {
           "type": "math",
@@ -76,7 +76,7 @@
           "text": ", the signed Euler-minus-continuous price difference lies in"
         }
       ],
-      "markdown": "We certify the implementation error for the bounded arithmetic Asian call spread $`\\psi(A)=(A-95)^+-(A-110)^+`$, with twelve monthly fixings, in a specified Heston model and its original positive-part variance Euler scheme. A common Gaussian factor gives a nonnegative payoff remainder controlled by a weighted second moment. Validated transform arithmetic includes projection corrections, integration tails, inversion error, complex-logarithm branches, and rounding. At $`\\theta_*=(3,.045,.23,-.55,.045)`$ and $`h=1/768`$, the signed Euler-minus-continuous price difference lies in"
+      "markdown": "We develop finite error certificates for the bounded arithmetic Asian call spread $`\\psi(A)=(A-95)^+-(A-110)^+`$, with twelve monthly fixings, in a specified Heston model and its original positive-part variance Euler scheme. A common Gaussian factor gives a nonnegative payoff remainder controlled by a weighted second moment. Validated transform arithmetic includes projection corrections, integration tails, inversion error, complex-logarithm branches, and rounding. At $`\\theta_*=(3,.045,.23,-.55,.045)`$ and $`h=1/768`$, the signed Euler-minus-continuous price difference lies in"
     },
     {
       "type": "display_math",
@@ -107,7 +107,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "These are fixed-point, fixed-grid enclosures. Separately, a common Gaussian density perturbation gives a joint first-order expansion for nine puts and the Asian spread on a deterministic-variance family with "
+          "text": "A second initial-variance point has a complete certificate. The step-grid comparison identifies a remainder-dominated width plateau, and we derive the optimal common geometric scale for the exact nonlinear contribution. Two auxiliary results have separate domains: a common first-order expansion formula with explicit remainder bounds for nine puts and the Asian spread when "
         },
         {
           "type": "math",
@@ -115,7 +115,7 @@
         },
         {
           "type": "text",
-          "text": ". The Asian coefficient has a score representation and an absolute bound; its scalar certified integration is a distinct numerical task. A posterior coupling bounds all target-quantile displacements for an explicitly restricted continuous prior with "
+          "text": ", and posterior target quantile displacement bounds on a restricted continuous prior with "
         },
         {
           "type": "math",
@@ -123,18 +123,10 @@
         },
         {
           "type": "text",
-          "text": ", a perturbation regime near deterministic variance. It does not establish stability at "
-        },
-        {
-          "type": "math",
-          "tex": "\\xi=.23"
-        },
-        {
-          "type": "text",
-          "text": ". The main contribution is the weighted payoff structure and auditable finite error accounting for the specified original discrete kernel. We expose the dominant nonlinear width, derive its optimal common reference scale, and distinguish completed certificates from diagnostic calculations and outstanding validation tasks. Frozen sources, exact inputs, rational endpoints, and commands accompany the revised version."
+          "text": ". The contribution is the weighted payoff structure and complete finite error accounting for the specified original discrete kernel, supported by an executable numerical package."
         }
       ],
-      "markdown": "These are fixed-point, fixed-grid enclosures. Separately, a common Gaussian density perturbation gives a joint first-order expansion for nine puts and the Asian spread on a deterministic-variance family with $`\\xi=0`$. The Asian coefficient has a score representation and an absolute bound; its scalar certified integration is a distinct numerical task. A posterior coupling bounds all target-quantile displacements for an explicitly restricted continuous prior with $`\\xi\\in[10^{-7},10^{-6}]`$, a perturbation regime near deterministic variance. It does not establish stability at $`\\xi=.23`$. The main contribution is the weighted payoff structure and auditable finite error accounting for the specified original discrete kernel. We expose the dominant nonlinear width, derive its optimal common reference scale, and distinguish completed certificates from diagnostic calculations and outstanding validation tasks. Frozen sources, exact inputs, rational endpoints, and commands accompany the revised version."
+      "markdown": "A second initial-variance point has a complete certificate. The step-grid comparison identifies a remainder-dominated width plateau, and we derive the optimal common geometric scale for the exact nonlinear contribution. Two auxiliary results have separate domains: a common first-order expansion formula with explicit remainder bounds for nine puts and the Asian spread when $`\\xi=0`$, and posterior target quantile displacement bounds on a restricted continuous prior with $`\\xi\\in[10^{-7},10^{-6}]`$. The contribution is the weighted payoff structure and complete finite error accounting for the specified original discrete kernel, supported by an executable numerical package."
     },
     {
       "type": "heading",
@@ -390,6 +382,21 @@
       "markdown": "Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. This comparison concerns that reviewed paper; it does not establish global priority. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
     },
     {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 1. Comparison with the conditional Asian bounds of Fusai and Kyriakou."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 1. Comparison with the conditional Asian bounds of Fusai and Kyriakou.**"
+    },
+    {
       "type": "table",
       "rows": [
         [
@@ -565,18 +572,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The geometric reference and conditioning strategy therefore supply established foundations. The weighted remainder, correction for the specified original projected kernel, and complete finite error accounting are the objects for which this manuscript provides model-specific proofs and executable evidence. The current separate-law remainder bounds need not vanish when the two laws coincide; the certificate is a fixed-step enclosure, and the present bound alone does not establish convergence of its width as "
-        },
-        {
-          "type": "math",
-          "tex": "h\\to0"
-        },
-        {
-          "type": "text",
-          "text": "."
+          "text": "The increment studied here is the weighted remainder and its combination with error control for the original projected kernel. Section 4 analyzes the resulting certificate width."
         }
       ],
-      "markdown": "The geometric reference and conditioning strategy therefore supply established foundations. The weighted remainder, correction for the specified original projected kernel, and complete finite error accounting are the objects for which this manuscript provides model-specific proofs and executable evidence. The current separate-law remainder bounds need not vanish when the two laws coincide; the certificate is a fixed-step enclosure, and the present bound alone does not establish convergence of its width as $`h\\to0`$."
+      "markdown": "The increment studied here is the weighted remainder and its combination with error control for the original projected kernel. Section 4 analyzes the resulting certificate width."
     },
     {
       "type": "heading",
@@ -597,10 +596,25 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. The following results have different domains; the small-volatility posterior example is a near-deterministic perturbation certificate rather than a calibration-stability result at the main Heston point."
+          "text": "The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. Table 2 distinguishes the domains of the three results. The posterior example concerns a near-deterministic perturbation regime rather than calibration stability at the main Heston point."
         }
       ],
-      "markdown": "The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. The following results have different domains; the small-volatility posterior example is a near-deterministic perturbation certificate rather than a calibration-stability result at the main Heston point."
+      "markdown": "The contract in all monetary Asian conclusions is the arithmetic call spread in (2.3), whose payoff is bounded by 15. Table 2 distinguishes the domains of the three results. The posterior example concerns a near-deterministic perturbation regime rather than calibration stability at the main Heston point."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 2. Domains of the three certified results."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 2. Domains of the three certified results.**"
     },
     {
       "type": "table",
@@ -636,7 +650,15 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "The single point (4.3), "
+                "text": "The point (4.3) and the separate "
+              },
+              {
+                "type": "math",
+                "tex": "v_0=.04"
+              },
+              {
+                "type": "text",
+                "text": " point in Section 8.3, "
               },
               {
                 "type": "math",
@@ -743,17 +765,7 @@
         ]
       ],
       "header_rows": 1,
-      "markdown": "| Result | Domain and interpretation |\n| --- | --- |\n| Main price certificate | The single point (4.3), $`\\xi=.23`$, twelve monthly fixings, original projected Euler, $`h=1/768`$. |\n| Ten-payoff weak expansion | Theorem 6.1 under (6.1); numerical family (6.10): $`\\xi=0`$, $`\\kappa=3`$, $`\\bar v=.045`$, $`v_0\\in[.03,.06]`$, twelve monthly fixings, aligned $`h\\le1/768`$. |\n| Posterior quantile transfer | Independent uniform prior (7.5), $`\\xi\\in[10^{-7},10^{-6}]`$, exact synthetic quotes in Appendix F. |"
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The volatility-of-volatility range in the last row is five to six orders of magnitude below the main point. No inference between these domains is implied."
-        }
-      ],
-      "markdown": "The volatility-of-volatility range in the last row is five to six orders of magnitude below the main point. No inference between these domains is implied."
+      "markdown": "| Result | Domain and interpretation |\n| --- | --- |\n| Main price certificate | The point (4.3) and the separate $`v_0=.04`$ point in Section 8.3, $`\\xi=.23`$, twelve monthly fixings, original projected Euler, $`h=1/768`$. |\n| Ten-payoff weak expansion | Theorem 6.1 under (6.1); numerical family (6.10): $`\\xi=0`$, $`\\kappa=3`$, $`\\bar v=.045`$, $`v_0\\in[.03,.06]`$, twelve monthly fixings, aligned $`h\\le1/768`$. |\n| Posterior quantile transfer | Independent uniform prior (7.5), $`\\xi\\in[10^{-7},10^{-6}]`$, exact synthetic quotes in Appendix F. |"
     },
     {
       "type": "heading",
@@ -2214,7 +2226,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform fees can depend on "
+          "text": "The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform error allowances can depend on "
         },
         {
           "type": "math",
@@ -2233,7 +2245,7 @@
           "text": " minimizes the final computed enclosure."
         }
       ],
-      "markdown": "The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform fees can depend on $`c`$, so it does not assert that $`c_*`$ minimizes the final computed enclosure."
+      "markdown": "The discount and strike factors are positive constants and therefore do not alter this minimizer. This statement concerns the exact nonlinear width; quadrature slack and the linear-transform error allowances can depend on $`c`$, so it does not assert that $`c_*`$ minimizes the final computed enclosure."
     },
     {
       "type": "paragraph",
@@ -2537,10 +2549,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection fee has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
+          "text": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
         }
       ],
-      "markdown": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection fee has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
+      "markdown": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
     },
     {
       "type": "paragraph",
@@ -2574,7 +2586,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The 256-bit root-flow and 384-bit matrix-flow implementations enclose the same grouped moments. A midpoint rounded to the "
+          "text": "A midpoint rounded to the "
         },
         {
           "type": "math",
@@ -2601,7 +2613,22 @@
           "text": "."
         }
       ],
-      "markdown": "The 256-bit root-flow and 384-bit matrix-flow implementations enclose the same grouped moments. A midpoint rounded to the $`10^{-7}`$ grid selects the rational $`5017743/5000000=1.0035486`$. This is not the exact midpoint of the rational endpoints in (4.11). Formula (4.9) applies to an exact midpoint; for the rounded choice, the distance allowance additionally includes $`5\\cdot10^{-8}`$."
+      "markdown": "A midpoint rounded to the $`10^{-7}`$ grid selects the rational $`5017743/5000000=1.0035486`$. This is not the exact midpoint of the rational endpoints in (4.11). Formula (4.9) applies to an exact midpoint; for the rounded choice, the distance allowance additionally includes $`5\\cdot10^{-8}`$."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 3. Effect of the common geometric scale on the nonlinear width."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 3. Effect of the common geometric scale on the nonlinear width.**"
     },
     {
       "type": "table",
@@ -2691,10 +2718,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail fees. It does not claim that the exact objective or the complete price certificate has been globally optimized."
+          "text": "The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail allowances. It does not claim that the exact objective or the complete price certificate has been globally optimized."
         }
       ],
-      "markdown": "The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail fees. It does not claim that the exact objective or the complete price certificate has been globally optimized."
+      "markdown": "The original scale is already close to the optimizer. The midpoint-based candidate slightly increases the computed upper width, so the original rational scale is retained. This comparison includes the new moment quadrature, projection, and tail allowances. It does not claim that the exact objective or the complete price certificate has been globally optimized."
     },
     {
       "type": "heading",
@@ -3646,10 +3673,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Four Asian coefficient enclosures and residual diagnostics"
+          "text": "Asian coefficient bounds and numerical illustration"
         }
       ],
-      "markdown": "### 6.1 Four Asian coefficient enclosures and residual diagnostics"
+      "markdown": "### 6.1 Asian coefficient bounds and numerical illustration"
     },
     {
       "type": "paragraph",
@@ -3675,10 +3702,25 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Outward arithmetic at 384 and 512 bits gives the following pointwise enclosures. The residual bound uses (6.5)–(6.8) with the pointwise lower increment variance, rather than a lower bound over the whole parameter family."
+          "text": "Table 4 gives pointwise coefficient and remainder bounds for the numerical family (6.10). The latter use (6.5)–(6.8) with each point's lower increment variance. This supplies a common expansion formula and explicit remainder bounds; the signed twelve-dimensional Asian coefficient integral has not been evaluated, and the coefficient enclosures contain zero."
         }
       ],
-      "markdown": "Outward arithmetic at 384 and 512 bits gives the following pointwise enclosures. The residual bound uses (6.5)–(6.8) with the pointwise lower increment variance, rather than a lower bound over the whole parameter family."
+      "markdown": "Table 4 gives pointwise coefficient and remainder bounds for the numerical family (6.10). The latter use (6.5)–(6.8) with each point's lower increment variance. This supplies a common expansion formula and explicit remainder bounds; the signed twelve-dimensional Asian coefficient integral has not been evaluated, and the coefficient enclosures contain zero."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 4. Analytic Asian coefficient enclosures and remainder bounds."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 4. Analytic Asian coefficient enclosures and remainder bounds.**"
     },
     {
       "type": "table",
@@ -3834,28 +3876,25 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Every certified coefficient enclosure contains zero. These are analytic score enclosures, not a completed integration of the signed twelve-dimensional coefficient. They do not certify nonvanishing of the Asian component."
+          "text": "A Monte Carlo illustration uses 2,097,152 Gaussian increment vectors per point, with common samples across the four step sizes in Table 5. The coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), and 0.019917 (SE 0.001274), in increasing order of initial variance. These are sampling estimates, distinct from the analytic enclosures in Table 4."
         }
       ],
-      "markdown": "Every certified coefficient enclosure contains zero. These are analytic score enclosures, not a completed integration of the signed twelve-dimensional coefficient. They do not certify nonvanishing of the Asian component."
+      "markdown": "A Monte Carlo illustration uses 2,097,152 Gaussian increment vectors per point, with common samples across the four step sizes in Table 5. The coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), and 0.019917 (SE 0.001274), in increasing order of initial variance. These are sampling estimates, distinct from the analytic enclosures in Table 4."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
-          "type": "text",
-          "text": "A separate binary64 Monte Carlo program samples 2,097,152 independent Gaussian increment vectors per point. It evaluates the coefficient integrand and the density-ratio residual under the exact deterministic-variance Gaussian law, using the same vectors at four step sizes. Subtracting the known zero-mean score and using "
-        },
-        {
-          "type": "code",
-          "text": "expm1"
-        },
-        {
-          "type": "text",
-          "text": " reduces cancellation in the scaled residual. Its sampled coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), 0.019917 (SE 0.001274) in increasing order of initial variance. These are estimates and estimated standard errors; their normal-approximation sampling intervals are distinct from the certified intervals above."
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 5. Sampling estimates of the scaled Asian expansion residual."
+            }
+          ]
         }
       ],
-      "markdown": "A separate binary64 Monte Carlo program samples 2,097,152 independent Gaussian increment vectors per point. It evaluates the coefficient integrand and the density-ratio residual under the exact deterministic-variance Gaussian law, using the same vectors at four step sizes. Subtracting the known zero-mean score and using `expm1` reduces cancellation in the scaled residual. Its sampled coefficient estimates are -0.041015 (SE 0.002079), -0.011364 (SE 0.000566), 0.008329 (SE 0.000483), 0.019917 (SE 0.001274) in increasing order of initial variance. These are estimates and estimated standard errors; their normal-approximation sampling intervals are distinct from the certified intervals above."
+      "markdown": "**Table 5. Sampling estimates of the scaled Asian expansion residual.**"
     },
     {
       "type": "table",
@@ -4087,15 +4126,7 @@
         },
         {
           "type": "text",
-          "text": "; all sampling errors, binary64 formulas, paths, and seeds are stored in "
-        },
-        {
-          "type": "code",
-          "text": "code/revision/results/asian-beta-diagnostic.json"
-        },
-        {
-          "type": "text",
-          "text": ". The estimated standard errors at "
+          "text": " through a Gaussian density-ratio calculation. At "
         },
         {
           "type": "math",
@@ -4103,10 +4134,34 @@
         },
         {
           "type": "text",
-          "text": " are .003733, .001000, .000863, and .002319 respectively. The four step estimates at a point share the same samples and are correlated. The stable scales are consistent with the proved second-order remainder, but this diagnostic does not establish a deterministic enclosure of the signed integral. A tight scalar certified evaluation and a nonzero conclusion remain required to complete the requested leading-coefficient application."
+          "text": ", their estimated standard errors are .003733, .001000, .000863, and .002319, respectively; estimates across step sizes at a point are correlated. The stable scales are consistent with the second-order expansion. The "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/192"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "math",
+          "tex": "1/384"
+        },
+        {
+          "type": "text",
+          "text": " columns are diagnostics outside the fixed "
+        },
+        {
+          "type": "math",
+          "tex": "h_0=1/768"
+        },
+        {
+          "type": "text",
+          "text": " range used for the numerical constants in (6.10) and Table 4."
         }
       ],
-      "markdown": "Entries estimate $`(e_h-h\\beta_{\\rm Asian})/h^2`$; all sampling errors, binary64 formulas, paths, and seeds are stored in `code/revision/results/asian-beta-diagnostic.json`. The estimated standard errors at $`h=1/768`$ are .003733, .001000, .000863, and .002319 respectively. The four step estimates at a point share the same samples and are correlated. The stable scales are consistent with the proved second-order remainder, but this diagnostic does not establish a deterministic enclosure of the signed integral. A tight scalar certified evaluation and a nonzero conclusion remain required to complete the requested leading-coefficient application."
+      "markdown": "Entries estimate $`(e_h-h\\beta_{\\rm Asian})/h^2`$ through a Gaussian density-ratio calculation. At $`h=1/768`$, their estimated standard errors are .003733, .001000, .000863, and .002319, respectively; estimates across step sizes at a point are correlated. The stable scales are consistent with the second-order expansion. The $`h=1/192`$ and $`1/384`$ columns are diagnostics outside the fixed $`h_0=1/768`$ range used for the numerical constants in (6.10) and Table 4."
     },
     {
       "type": "heading",
@@ -4785,10 +4840,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Numerical certificates, computational scale, and financial uses"
+          "text": "Numerical certificates and sensitivity"
         }
       ],
-      "markdown": "## 8. Numerical certificates, computational scale, and financial uses"
+      "markdown": "## 8. Numerical certificates and sensitivity"
     },
     {
       "type": "heading",
@@ -4809,10 +4864,25 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The complete price difference at the original parameter point is assembled from the terms below. All displayed numbers are rounded outward; exact rational endpoints are stored in the reference results distributed with the accompanying code."
+          "text": "Table 6 assembles the price difference at the original parameter point. Displayed enclosures and upper bounds are rounded outward. Appendix G gives the exact endpoints, numerical constructions, and reproduction instructions."
         }
       ],
-      "markdown": "The complete price difference at the original parameter point is assembled from the terms below. All displayed numbers are rounded outward; exact rational endpoints are stored in the reference results distributed with the accompanying code."
+      "markdown": "Table 6 assembles the price difference at the original parameter point. Displayed enclosures and upper bounds are rounded outward. Appendix G gives the exact endpoints, numerical constructions, and reproduction instructions."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 6. Error budget for the principal Heston price certificate."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 6. Error budget for the principal Heston price certificate.**"
     },
     {
       "type": "table",
@@ -4989,70 +5059,6 @@
       "markdown": "| Quantity | Validated upper bound or enclosure |\n| --- | --- |\n| Nonlinear conversion interval | $`[-.010227461904,.010251125849]`$ |\n| Q projection error per linear profile | $`.000000012711979137`$ |\n| Q projection contribution over all linear profiles | $`.000004310413`$ |\n| Omitted frequency tail for the continuous model | $`.000014095712`$ |\n| Omitted frequency tail for the discrete model | $`.000184373301`$ |\n| Periodization error for one model | $`.000195729318`$ |\n| Total error bound for the linear difference between the two models | $`.000594238060`$ |\n| **Absolute bound on the true arithmetic Asian bias** | $`\\boldsymbol{.011025}`$ |"
     },
     {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks."
-        }
-      ],
-      "markdown": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps. The linear module evaluates 641 frequencies and thirteen profiles, for a total of 6,399,744 discrete steps and 799,968 continuous branch checks."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The principal Asian programs use 256-bit Arb; the checks use 384-bit Arb and different numerical constructions. For the weighted remainder, "
-        },
-        {
-          "type": "code",
-          "text": "check-asian-remainder.py"
-        },
-        {
-          "type": "text",
-          "text": " replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It also accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, "
-        },
-        {
-          "type": "code",
-          "text": "check-asian-linear.py"
-        },
-        {
-          "type": "text",
-          "text": " replaces the principal real/imaginary discrete recursion by a complex "
-        },
-        {
-          "type": "code",
-          "text": "acb"
-        },
-        {
-          "type": "text",
-          "text": " recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error fees without calling the principal numerical functions. Both checks share Arb, the analytic identities, and the theoretical error bounds. They test implementation consistency and arithmetic stability; they do not supply independent derivations of the mathematical bounds."
-        }
-      ],
-      "markdown": "The principal Asian programs use 256-bit Arb; the checks use 384-bit Arb and different numerical constructions. For the weighted remainder, `check-asian-remainder.py` replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It also accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, `check-asian-linear.py` replaces the principal real/imaginary discrete recursion by a complex `acb` recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error fees without calling the principal numerical functions. Both checks share Arb, the analytic identities, and the theoretical error bounds. They test implementation consistency and arithmetic stability; they do not supply independent derivations of the mathematical bounds."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "These are deterministic calculations, with outward arithmetic supplied by Arb "
-        },
-        {
-          "type": "citation",
-          "numbers": [
-            11
-          ]
-        },
-        {
-          "type": "text",
-          "text": ". Measured worker times for the two author modules at the original point were approximately 12.02 and 33.20 seconds, respectively, using one thread and a hard memory limit of 256 MiB per process. These timings describe the scale of this specific computation; the code explicitly records operation counts, memory constraints, and stopping conditions. Appendix G describes the environment and reproduction entry point."
-        }
-      ],
-      "markdown": "These are deterministic calculations, with outward arithmetic supplied by Arb [[11](#ref-11)]. Measured worker times for the two author modules at the original point were approximately 12.02 and 33.20 seconds, respectively, using one thread and a hard memory limit of 256 MiB per process. These timings describe the scale of this specific computation; the code explicitly records operation counts, memory constraints, and stopping conditions. Appendix G describes the environment and reproduction entry point."
-    },
-    {
       "type": "heading",
       "id": "section-8-2",
       "level": 3,
@@ -5061,20 +5067,35 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Complete step-grid certificates and the observed width platform"
+          "text": "Step-grid certificates and the width plateau"
         }
       ],
-      "markdown": "### 8.2 Complete step-grid certificates and the observed width platform"
+      "markdown": "### 8.2 Step-grid certificates and the width plateau"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The four-grid study retains the same main Heston parameter point, payoff, fixing dates, real and complex catalogs, and analytic error accounting. All successful rows complete both principal and independent weighted and linear calculations. The signed intervals and their widths are rounded outward below."
+          "text": "Table 7 retains the main Heston parameters, payoff, fixing dates, and transform catalogs while changing the Euler step. All successful rows include the full error accounting and alternative numerical checks described in Appendix G."
         }
       ],
-      "markdown": "The four-grid study retains the same main Heston parameter point, payoff, fixing dates, real and complex catalogs, and analytic error accounting. All successful rows complete both principal and independent weighted and linear calculations. The signed intervals and their widths are rounded outward below."
+      "markdown": "Table 7 retains the main Heston parameters, payoff, fixing dates, and transform catalogs while changing the Euler step. All successful rows include the full error accounting and alternative numerical checks described in Appendix G."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 7. Signed Heston price-difference certificates at four Euler grids."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 7. Signed Heston price-difference certificates at four Euler grids.**"
     },
     {
       "type": "table",
@@ -5242,46 +5263,25 @@
         },
         {
           "type": "text",
-          "text": ". The recorded analytical stop is a failure of this certificate design at that mesh; it says nothing about the true price error. At "
-        },
-        {
-          "type": "math",
-          "tex": "h=1/384"
-        },
-        {
-          "type": "text",
-          "text": ", an initial attempt stops only at the old remainder-radius acceptance target .011. The new experiment records that target as false and retains the wider valid enclosure. The original absolute price-error target .025 remains satisfied."
+          "text": ". This sufficient condition does not certify that mesh. All three successful rows satisfy the absolute error tolerance .025. Table 8 separates their width contributions; its exact unrounded entries sum to the interval widths."
         }
       ],
-      "markdown": "At $`h=1/192`$, the fixed projection proof gives $`\\beta=184040303/23040000\\lt 8`$, while its recurrence requires $`\\beta\\gt 8`$. The recorded analytical stop is a failure of this certificate design at that mesh; it says nothing about the true price error. At $`h=1/384`$, an initial attempt stops only at the old remainder-radius acceptance target .011. The new experiment records that target as false and retains the wider valid enclosure. The original absolute price-error target .025 remains satisfied."
+      "markdown": "At $`h=1/192`$, the fixed projection proof gives $`\\beta=184040303/23040000\\lt 8`$, while its recurrence requires $`\\beta\\gt 8`$. This sufficient condition does not certify that mesh. All three successful rows satisfy the absolute error tolerance .025. Table 8 separates their width contributions; its exact unrounded entries sum to the interval widths."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
-          "type": "text",
-          "text": "The first finest-grid attempt exceeded its original weighted-worker wall-time allowance. A separate bounded resource contract scales the wall allowances by "
-        },
-        {
-          "type": "math",
-          "tex": "\\lceil N/768\\rceil"
-        },
-        {
-          "type": "text",
-          "text": ", with one thread, the same 256 MiB worker memory limit, and all mathematical guards retained. The completed attempt passes the independent verification. All failed attempts remain in the evidence archive."
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 8. Width contributions in price units for the three successful grids."
+            }
+          ]
         }
       ],
-      "markdown": "The first finest-grid attempt exceeded its original weighted-worker wall-time allowance. A separate bounded resource contract scales the wall allowances by $`\\lceil N/768\\rceil`$, with one thread, the same 256 MiB worker memory limit, and all mathematical guards retained. The completed attempt passes the independent verification. All failed attempts remain in the evidence archive."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The price-unit width contributions reconcile exactly using rational arithmetic:"
-        }
-      ],
-      "markdown": "The price-unit width contributions reconcile exactly using rational arithmetic:"
+      "markdown": "**Table 8. Width contributions in price units for the three successful grids.**"
     },
     {
       "type": "table",
@@ -5533,20 +5533,18 @@
       "inlines": [
         {
           "type": "text",
-          "text": "These columns are width contributions, not one-sided error radii. The final rounding/endpoints row includes the finite interval width and exact reconciliation; it does not infer a missing error from a sampled price. Exact unrounded values, formula locators, source fields, and input hashes are in the revision budget. The nonlinear shares are approximately 95.5 percent, 94.5 percent, 92.8 percent in increasing grid resolution. The finest enclosure is slightly wider than the original one because its Q frequency-tail bound is looser. The bound uses first-step integrated variance and contains step-dependent slack; refining the Euler grid alone does not optimize this fixed inversion and tail design. This observation concerns certified enclosures, not the monotonicity of true discretization errors."
-        }
-      ],
-      "markdown": "These columns are width contributions, not one-sided error radii. The final rounding/endpoints row includes the finite interval width and exact reconciliation; it does not infer a missing error from a sampled price. Exact unrounded values, formula locators, source fields, and input hashes are in the revision budget. The nonlinear shares are approximately 95.5 percent, 94.5 percent, 92.8 percent in increasing grid resolution. The finest enclosure is slightly wider than the original one because its Q frequency-tail bound is looser. The bound uses first-step integrated variance and contains step-dependent slack; refining the Euler grid alone does not optimize this fixed inversion and tail design. This observation concerns certified enclosures, not the monotonicity of true discretization errors."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
+          "text": "Table 8 reports width contributions rather than one-sided error radii; rounding them separately can change their displayed sum. The nonlinear shares are approximately 95.5, 94.5, and 92.8 percent as the grid is refined. At the finest step, the increase in the discrete frequency-tail contribution exceeds the decreases in the payoff remainder and projection contribution. The frequency-tail bound in (C.7) uses the first-step lower bound "
+        },
+        {
+          "type": "math",
+          "tex": "i_0=hv_0"
+        },
         {
           "type": "text",
-          "text": "Recorded outer wall times for the five Asian tasks are approximately 122.3 seconds, 184.0 seconds, 431.6 seconds for 384, 768, and 1536 steps. They include controllers and checks and are machine-specific observations under the recorded execution load, not portable performance guarantees. The operation counts, resource contracts, and each job time are retained in the receipts."
+          "text": ", so refining the Euler grid alone does not tighten this fixed inversion design. This width plateau describes the enclosure, rather than the true price error."
         }
       ],
-      "markdown": "Recorded outer wall times for the five Asian tasks are approximately 122.3 seconds, 184.0 seconds, 431.6 seconds for 384, 768, and 1536 steps. They include controllers and checks and are machine-specific observations under the recorded execution load, not portable performance guarantees. The operation counts, resource contracts, and each job time are retained in the receipts."
+      "markdown": "Table 8 reports width contributions rather than one-sided error radii; rounding them separately can change their displayed sum. The nonlinear shares are approximately 95.5, 94.5, and 92.8 percent as the grid is refined. At the finest step, the increase in the discrete frequency-tail contribution exceeds the decreases in the payoff remainder and projection contribution. The frequency-tail bound in (C.7) uses the first-step lower bound $`i_0=hv_0`$, so refining the Euler grid alone does not tighten this fixed inversion design. This width plateau describes the enclosure, rather than the true price error."
     },
     {
       "type": "heading",
@@ -5557,51 +5555,17 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Coverage, stopping conditions, and diagnostic evidence"
+          "text": "A second stochastic-variance parameter point"
         }
       ],
-      "markdown": "### 8.3 Coverage, stopping conditions, and diagnostic evidence"
+      "markdown": "### 8.3 A second stochastic-variance parameter point"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The Feller index at (4.3) is "
-        },
-        {
-          "type": "math",
-          "tex": "2\\kappa\\bar v/\\xi^2=2700/529"
-        },
-        {
-          "type": "text",
-          "text": ", approximately 5.104. This point does not test the difficult near-boundary or attainable-boundary regimes. The revised experiment record separates certified arithmetic, saved-result reaggregation, statistical diagnostics, and attempts that stop at a failed guard. A missing moment or tail estimate is reported as an uncertified case, rather than as evidence of a price error larger than the bound."
-        }
-      ],
-      "markdown": "The Feller index at (4.3) is $`2\\kappa\\bar v/\\xi^2=2700/529`$, approximately 5.104. This point does not test the difficult near-boundary or attainable-boundary regimes. The revised experiment record separates certified arithmetic, saved-result reaggregation, statistical diagnostics, and attempts that stop at a failed guard. A missing moment or tail estimate is reported as an uncertified case, rather than as evidence of a price error larger than the bound."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The prescribed step-size comparison is "
-        },
-        {
-          "type": "math",
-          "tex": "h=1/192,1/384,1/768,1/1536"
-        },
-        {
-          "type": "text",
-          "text": ". Sensitivity axes are the Feller index above, near, and below one; correlation; strike locations; initial variance; and 12, 52, or 252 fixings. The final axis changes the first observation time, which enters the smoothing bound through "
-        },
-        {
-          "type": "math",
-          "tex": "I_1^{-1/2}"
-        },
-        {
-          "type": "text",
-          "text": ". Each fixing grid must be aligned with the Euler grid; changing the number of fixings while keeping "
+          "text": "Keep the contract, twelve monthly fixings, "
         },
         {
           "type": "math",
@@ -5609,20 +5573,164 @@
         },
         {
           "type": "text",
-          "text": " is not an admissible comparison for 52 or 252 fixings. These extra cases require their own catalog, projection, moment-growth, and tail verification. The original certificate must not be reused by changing its parameter labels."
+          "text": ", and all parameters in (4.3) except the initial variance, which is now "
+        },
+        {
+          "type": "math",
+          "tex": "v_0=.04"
+        },
+        {
+          "type": "text",
+          "text": ". The weighted moments, projection prefixes, transforms, and continuous and discrete tails are evaluated afresh at this point. The same growth estimate gives "
+        },
+        {
+          "type": "math",
+          "tex": "\\exp(.6+4v_0)=\\exp(.76)"
+        },
+        {
+          "type": "text",
+          "text": ", so the retained "
+        },
+        {
+          "type": "math",
+          "tex": "\\exp(.78)"
+        },
+        {
+          "type": "text",
+          "text": " moment allowance remains conservative. All real-loading, denominator, coefficient, and complex branch conditions pass both numerical constructions."
         }
       ],
-      "markdown": "The prescribed step-size comparison is $`h=1/192,1/384,1/768,1/1536`$. Sensitivity axes are the Feller index above, near, and below one; correlation; strike locations; initial variance; and 12, 52, or 252 fixings. The final axis changes the first observation time, which enters the smoothing bound through $`I_1^{-1/2}`$. Each fixing grid must be aligned with the Euler grid; changing the number of fixings while keeping $`h=1/768`$ is not an admissible comparison for 52 or 252 fixings. These extra cases require their own catalog, projection, moment-growth, and tail verification. The original certificate must not be reused by changing its parameter labels."
+      "markdown": "Keep the contract, twelve monthly fixings, $`h=1/768`$, and all parameters in (4.3) except the initial variance, which is now $`v_0=.04`$. The weighted moments, projection prefixes, transforms, and continuous and discrete tails are evaluated afresh at this point. The same growth estimate gives $`\\exp(.6+4v_0)=\\exp(.76)`$, so the retained $`\\exp(.78)`$ moment allowance remains conservative. All real-loading, denominator, coefficient, and complex branch conditions pass both numerical constructions."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 9. Complete Heston certificate at initial variance .04."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 9. Complete Heston certificate at initial variance .04.**"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Quantity"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Certified enclosure or upper bound"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Continuous price"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[6.499318797594,6.509948941256]"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Projected-Euler price"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[6.498150434416,6.510702536853]"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Euler minus continuous"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "math",
+                "tex": "[-0.011798506840,0.011383739259]"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "Signed-interval width"
+              }
+            ]
+          },
+          {
+            "inlines": [
+              {
+                "type": "text",
+                "text": "0.023182246099"
+              }
+            ]
+          }
+        ]
+      ],
+      "header_rows": 1,
+      "markdown": "| Quantity | Certified enclosure or upper bound |\n| --- | --- |\n| Continuous price | $`[6.499318797594,6.509948941256]`$ |\n| Projected-Euler price | $`[6.498150434416,6.510702536853]`$ |\n| Euler minus continuous | $`[-0.011798506840,0.011383739259]`$ |\n| Signed-interval width | 0.023182246099 |"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "Statistical intervals from sampled paths, or prices from a refined discretization, are diagnostic references. They are distinct from a deterministic enclosure of the continuous-model price. Numerical failure, lack of a proved bound, and a large certified interval have different meanings and are recorded separately."
+          "text": "The enclosure combines the nonlinear remainder with projection, both frequency tails, periodization, and outward arithmetic. Its six exact width contributions and the complete alternative checks are recorded in Appendix G's package. The wider interval than at "
+        },
+        {
+          "type": "math",
+          "tex": "v_0=.045"
+        },
+        {
+          "type": "text",
+          "text": " reflects the changed integrated-variance weight and error bounds. This second point demonstrates a separate complete execution; it does not certify a neighborhood or alter the Feller index."
         }
       ],
-      "markdown": "Statistical intervals from sampled paths, or prices from a refined discretization, are diagnostic references. They are distinct from a deterministic enclosure of the continuous-model price. Numerical failure, lack of a proved bound, and a large certified interval have different meanings and are recorded separately."
+      "markdown": "The enclosure combines the nonlinear remainder with projection, both frequency tails, periodization, and outward arithmetic. Its six exact width contributions and the complete alternative checks are recorded in Appendix G's package. The wider interval than at $`v_0=.045`$ reflects the changed integrated-variance weight and error bounds. This second point demonstrates a separate complete execution; it does not certify a neighborhood or alter the Feller index."
     },
     {
       "type": "heading",
@@ -5633,28 +5741,83 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Independent path diagnostics for boundary and fixing sensitivity"
+          "text": "Coverage and sensitivity design"
         }
       ],
-      "markdown": "### 8.4 Independent path diagnostics for boundary and fixing sensitivity"
+      "markdown": "### 8.4 Coverage and sensitivity design"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "A separate NumPy implementation generates 32,768 paths for each of fourteen specified cases and couples a projected Euler grid to a grid with twice as many steps. Seeds, exact binary64 inputs, sampled prices, standard errors, and counts of negative proposals are in "
+          "text": "The main point has Feller index "
         },
         {
-          "type": "code",
-          "text": "code/revision/results/path-diagnostics.json"
+          "type": "math",
+          "tex": "2\\kappa\\bar v/\\xi^2=2700/529"
         },
         {
           "type": "text",
-          "text": ". The estimates below are diagnostic: the finer law retains discretization bias, and the normal-approximation sampling interval is not a strict continuous-price enclosure. The full matrix also changes correlation, strikes, initial variance, and step size. No fee decomposition is available for the uncertified cases."
+          "text": ", approximately 5.104. Sensitivity to the variance boundary, correlation, strikes, initial variance, and fixing frequency requires new moment, projection, and tail inputs for each case. In particular, changing to 52 or 252 fixings requires an aligned Euler grid; "
+        },
+        {
+          "type": "math",
+          "tex": "h=1/768"
+        },
+        {
+          "type": "text",
+          "text": " cannot be retained. The first fixing also changes the weight "
+        },
+        {
+          "type": "math",
+          "tex": "I_1^{-1/2}"
+        },
+        {
+          "type": "text",
+          "text": " in the payoff bound. The path comparisons below explore these sensitivities without extending the certified parameter domain."
         }
       ],
-      "markdown": "A separate NumPy implementation generates 32,768 paths for each of fourteen specified cases and couples a projected Euler grid to a grid with twice as many steps. Seeds, exact binary64 inputs, sampled prices, standard errors, and counts of negative proposals are in `code/revision/results/path-diagnostics.json`. The estimates below are diagnostic: the finer law retains discretization bias, and the normal-approximation sampling interval is not a strict continuous-price enclosure. The full matrix also changes correlation, strikes, initial variance, and step size. No fee decomposition is available for the uncertified cases."
+      "markdown": "The main point has Feller index $`2\\kappa\\bar v/\\xi^2=2700/529`$, approximately 5.104. Sensitivity to the variance boundary, correlation, strikes, initial variance, and fixing frequency requires new moment, projection, and tail inputs for each case. In particular, changing to 52 or 252 fixings requires an aligned Euler grid; $`h=1/768`$ cannot be retained. The first fixing also changes the weight $`I_1^{-1/2}`$ in the payoff bound. The path comparisons below explore these sensitivities without extending the certified parameter domain."
+    },
+    {
+      "type": "heading",
+      "id": "section-8-5",
+      "level": 3,
+      "number": "8.5",
+      "appendix": false,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Independent path diagnostics for boundary and fixing sensitivity"
+        }
+      ],
+      "markdown": "### 8.5 Independent path diagnostics for boundary and fixing sensitivity"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The path study uses 32,768 paths per case and couples an Euler grid to one with twice as many steps. Table 10 reports three of the fourteen cases, selected by Feller index; the full study also varies correlation, strikes, initial variance, and step size. The coarse-minus-fine estimates have sampling error and retain the finer model's discretization bias."
+        }
+      ],
+      "markdown": "The path study uses 32,768 paths per case and couples an Euler grid to one with twice as many steps. Table 10 reports three of the fourteen cases, selected by Feller index; the full study also varies correlation, strikes, initial variance, and step size. The coarse-minus-fine estimates have sampling error and retain the finer model's discretization bias."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 10. Coupled path diagnostics at three Feller indices."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 10. Coupled path diagnostics at three Feller indices.**"
     },
     {
       "type": "table",
@@ -5772,7 +5935,17 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The negative-proposal frequency increases markedly in the difficult boundary regimes. This observed frequency is not substituted for the analytic projection upper bound. For 12, 52, and 252 fixings, the sampled mean of "
+          "text": "All three price-difference estimates have magnitude below one estimated standard error, so Table 10 resolves neither their signs nor a systematic increase in pricing bias. The proposal frequencies support only the increased incidence of negative variance proposals near and below the boundary; they are not projection-error bounds."
+        }
+      ],
+      "markdown": "All three price-difference estimates have magnitude below one estimated standard error, so Table 10 resolves neither their signs nor a systematic increase in pricing bias. The proposal frequencies support only the increased incidence of negative variance proposals near and below the boundary; they are not projection-error bounds."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "For 12, 52, and 252 fixings, the sampled means of "
         },
         {
           "type": "math",
@@ -5780,16 +5953,16 @@
         },
         {
           "type": "text",
-          "text": " is respectively 16.489, 34.078, 74.871. These runs use aligned coarse grids of 768, 832, and 1008 steps respectively, and twice as many fine steps. Thus the fixing comparison supports the smoothing-sensitivity diagnosis but also changes the time grid; it is not a controlled proof of monotonic certificate widening. More paths or finer grids cannot turn these statistical results into a validated moment or tail inequality."
+          "text": " are 16.489, 34.078, and 74.871. The aligned coarse grids have 768, 832, and 1008 steps, respectively, with twice as many fine steps. This illustrates the sensitivity of the smoothing weight, while also changing the time grid."
         }
       ],
-      "markdown": "The negative-proposal frequency increases markedly in the difficult boundary regimes. This observed frequency is not substituted for the analytic projection upper bound. For 12, 52, and 252 fixings, the sampled mean of $`I_1^{-1/2}`$ is respectively 16.489, 34.078, 74.871. These runs use aligned coarse grids of 768, 832, and 1008 steps respectively, and twice as many fine steps. Thus the fixing comparison supports the smoothing-sensitivity diagnosis but also changes the time grid; it is not a controlled proof of monotonic certificate widening. More paths or finer grids cannot turn these statistical results into a validated moment or tail inequality."
+      "markdown": "For 12, 52, and 252 fixings, the sampled means of $`I_1^{-1/2}`$ are 16.489, 34.078, and 74.871. The aligned coarse grids have 768, 832, and 1008 steps, respectively, with twice as many fine steps. This illustrates the sensitivity of the smoothing weight, while also changing the time grid."
     },
     {
       "type": "heading",
-      "id": "section-8-5",
+      "id": "section-8-6",
       "level": 3,
-      "number": "8.5",
+      "number": "8.6",
       "appendix": false,
       "inlines": [
         {
@@ -5797,7 +5970,7 @@
           "text": "Continuous-model valuation and numerical risk budgets"
         }
       ],
-      "markdown": "### 8.5 Continuous-model valuation and numerical risk budgets"
+      "markdown": "### 8.6 Continuous-model valuation and numerical risk budgets"
     },
     {
       "type": "paragraph",
@@ -5839,17 +6012,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "This is a directly usable transfer rule: a trading system can allocate separate budgets to simulation error, discretization bias, and other valuation errors, and check whether their sum meets a monetary tolerance."
-        }
-      ],
-      "markdown": "This is a directly usable transfer rule: a trading system can allocate separate budgets to simulation error, discretization bias, and other valuation errors, and check whether their sum meets a monetary tolerance."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "For the contract instance (4.3), we also obtain the continuous-price enclosure (4.5) directly, with width less than "
+          "text": "For (4.3), the direct continuous-price interval (4.5) has width below "
         },
         {
           "type": "math",
@@ -5857,16 +6020,16 @@
         },
         {
           "type": "text",
-          "text": ". A valuation audit can therefore use the full price interval or attach the signed bias certificate to an existing Euler computation."
+          "text": ". These two routes provide enclosures in price units for valuation and implementation checks."
         }
       ],
-      "markdown": "For the contract instance (4.3), we also obtain the continuous-price enclosure (4.5) directly, with width less than $`.010498`$. A valuation audit can therefore use the full price interval or attach the signed bias certificate to an existing Euler computation."
+      "markdown": "For (4.3), the direct continuous-price interval (4.5) has width below $`.010498`$. These two routes provide enclosures in price units for valuation and implementation checks."
     },
     {
       "type": "heading",
-      "id": "section-8-6",
+      "id": "section-8-7",
       "level": 3,
-      "number": "8.6",
+      "number": "8.7",
       "appendix": false,
       "inlines": [
         {
@@ -5874,7 +6037,7 @@
           "text": "Stability of the price distribution after calibration"
         }
       ],
-      "markdown": "### 8.6 Stability of the price distribution after calibration"
+      "markdown": "### 8.7 Stability of the price distribution after calibration"
     },
     {
       "type": "paragraph",
@@ -5907,58 +6070,16 @@
       "inlines": [
         {
           "type": "text",
-          "text": "For the prior (7.5) and the specified quotes, the displacement of any Asian posterior quantile is at most approximately "
-        },
-        {
-          "type": "math",
-          "tex": ".00802"
-        },
-        {
-          "type": "text",
-          "text": " in the single-quote case and "
-        },
-        {
-          "type": "math",
-          "tex": ".01272"
-        },
-        {
-          "type": "text",
-          "text": " in the nine-quote case. If an application sets a numerical tolerance of "
-        },
-        {
-          "type": "math",
-          "tex": ".10"
-        },
-        {
-          "type": "text",
-          "text": " for endpoint displacement, these certificates support acceptance at the implementation level. The use case is a stability check for numerical valuation and risk reporting after calibration, with both the quantity being checked and its admissible error specified explicitly."
+          "text": "On the original 4096-cell grid, the transport contribution accounts for about 39 percent of the single-quote bound and 62 percent of the nine-quote bound. This motivates the grid refinement in the next subsection. A wider nine-quote enclosure reflects its conservative transport contribution and does not imply a larger true numerical bias."
         }
       ],
-      "markdown": "For the prior (7.5) and the specified quotes, the displacement of any Asian posterior quantile is at most approximately $`.00802`$ in the single-quote case and $`.01272`$ in the nine-quote case. If an application sets a numerical tolerance of $`.10`$ for endpoint displacement, these certificates support acceptance at the implementation level. The use case is a stability check for numerical valuation and risk reporting after calibration, with both the quantity being checked and its admissible error specified explicitly."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The transport-cell contribution "
-        },
-        {
-          "type": "math",
-          "tex": "L_0\\delta_u"
-        },
-        {
-          "type": "text",
-          "text": " accounts for approximately 39 percent of the single-quote displacement bound and 62 percent of the nine-quote bound on the original 4096-cell grid. Refining the grid requires rebuilding the full-cell likelihood bounds and the coupling verification; dividing the old final bound by two is invalid because the other terms do not scale with the cell width. Adaptive cells or local target Lipschitz bounds require new cellwise proof obligations. The larger nine-quote enclosure reflects its conservative transport budget; it does not show that its actual numerical bias is larger."
-        }
-      ],
-      "markdown": "The transport-cell contribution $`L_0\\delta_u`$ accounts for approximately 39 percent of the single-quote displacement bound and 62 percent of the nine-quote bound on the original 4096-cell grid. Refining the grid requires rebuilding the full-cell likelihood bounds and the coupling verification; dividing the old final bound by two is invalid because the other terms do not scale with the cell width. Adaptive cells or local target Lipschitz bounds require new cellwise proof obligations. The larger nine-quote enclosure reflects its conservative transport budget; it does not show that its actual numerical bias is larger."
+      "markdown": "On the original 4096-cell grid, the transport contribution accounts for about 39 percent of the single-quote bound and 62 percent of the nine-quote bound. This motivates the grid refinement in the next subsection. A wider nine-quote enclosure reflects its conservative transport contribution and does not imply a larger true numerical bias."
     },
     {
       "type": "heading",
-      "id": "section-8-7",
+      "id": "section-8-8",
       "level": 3,
-      "number": "8.7",
+      "number": "8.8",
       "appendix": false,
       "inlines": [
         {
@@ -5966,17 +6087,32 @@
           "text": "Posterior grid refinement"
         }
       ],
-      "markdown": "### 8.7 Posterior grid refinement"
+      "markdown": "### 8.8 Posterior grid refinement"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The three-mesh comparison keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. All likelihood bounds on 8192 and 16384 full parameter cells and their coupling inequalities pass the 384-bit independent construction. The resulting all-quantile Asian-price shift bounds, rounded outward, are:"
+          "text": "Table 11 keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. Each row verifies the full-cell likelihood bounds and coupling inequalities and bounds the displacement of every Asian-price quantile."
         }
       ],
-      "markdown": "The three-mesh comparison keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. All likelihood bounds on 8192 and 16384 full parameter cells and their coupling inequalities pass the 384-bit independent construction. The resulting all-quantile Asian-price shift bounds, rounded outward, are:"
+      "markdown": "Table 11 keeps the same prior (7.5), synthetic observations, likelihood covariance, and target Lipschitz constant. Each row verifies the full-cell likelihood bounds and coupling inequalities and bounds the displacement of every Asian-price quantile."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table 11. Certified Asian-price quantile displacement under posterior grid refinement."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table 11. Certified Asian-price quantile displacement under posterior grid refinement.**"
     },
     {
       "type": "table",
@@ -6126,20 +6262,20 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The common nonmesh fees remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision."
+          "text": "The common nonmesh error contributions remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision."
         }
       ],
-      "markdown": "The common nonmesh fees remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision."
+      "markdown": "The common nonmesh error contributions remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The saved CDF envelopes and absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These outward summaries describe parameter uncertainty. They do not give the absolute quantiles of the Asian-price target or establish its uncertainty scale. That separate target-valuation computation remains open. The full rational brackets and CDF envelopes are in the grid-summary result."
+          "text": "The absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These brackets describe parameter uncertainty. Absolute Asian-price target quantiles have not been evaluated, so the displacement bounds do not yet measure the change relative to the target's posterior uncertainty scale."
         }
       ],
-      "markdown": "The saved CDF envelopes and absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These outward summaries describe parameter uncertainty. They do not give the absolute quantiles of the Asian-price target or establish its uncertainty scale. That separate target-valuation computation remains open. The full rational brackets and CDF envelopes are in the grid-summary result."
+      "markdown": "The absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These brackets describe parameter uncertainty. Absolute Asian-price target quantiles have not been evaluated, so the displacement bounds do not yet measure the change relative to the target's posterior uncertainty scale."
     },
     {
       "type": "heading",
@@ -6160,25 +6296,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The main theorem provides sufficient conditions through the common Gaussian structure and finite verification inputs. Its scope consists of model classes for which those inputs can be established. Section 5 verifies a deterministic-variance class and the specified stochastic-variance model and projected kernel. Comparisons with other Asian bounds depend on their respective hypotheses and numerical inputs."
-        }
-      ],
-      "markdown": "The main theorem provides sufficient conditions through the common Gaussian structure and finite verification inputs. Its scope consists of model classes for which those inputs can be established. Section 5 verifies a deterministic-variance class and the specified stochastic-variance model and projected kernel. Comparisons with other Asian bounds depend on their respective hypotheses and numerical inputs."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The complete small-error Heston Asian certificate applies to the specified "
-        },
-        {
-          "type": "math",
-          "tex": "\\theta_*"
-        },
-        {
-          "type": "text",
-          "text": ", step size, and fixing dates. A uniform certificate on a parameter neighborhood or an entire domain requires uniform moment, transform, projection, and tail inequalities. The five-dimensional box with small positive "
+          "text": "The structural conditions are sufficient for certification. Section 5 verifies a deterministic-variance class and the specified Heston model and projected kernel; Section 8 varies the step at the principal point and certifies a second initial variance. Extending these enclosures to a parameter neighborhood requires uniform moment, transform, projection, and tail inequalities. The small-positive-"
         },
         {
           "type": "math",
@@ -6186,25 +6304,17 @@
         },
         {
           "type": "text",
-          "text": " in Section 7 is a separately certified region of positive volume, with a volatility-of-volatility range distinct from that of "
-        },
-        {
-          "type": "math",
-          "tex": "\\theta_*"
-        },
-        {
-          "type": "text",
-          "text": "."
+          "text": " box in Section 7 is a separate certified region."
         }
       ],
-      "markdown": "The complete small-error Heston Asian certificate applies to the specified $`\\theta_*`$, step size, and fixing dates. A uniform certificate on a parameter neighborhood or an entire domain requires uniform moment, transform, projection, and tail inequalities. The five-dimensional box with small positive $`\\xi`$ in Section 7 is a separately certified region of positive volume, with a volatility-of-volatility range distinct from that of $`\\theta_*`$."
+      "markdown": "The structural conditions are sufficient for certification. Section 5 verifies a deterministic-variance class and the specified Heston model and projected kernel; Section 8 varies the step at the principal point and certifies a second initial variance. Extending these enclosures to a parameter neighborhood requires uniform moment, transform, projection, and tail inequalities. The small-positive-$`\\xi`$ box in Section 7 is a separate certified region."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The ten-payoff expansion holds on the deterministic-variance family "
+          "text": "Section 6 gives a common expansion formula and explicit remainder bounds for "
         },
         {
           "type": "math",
@@ -6212,15 +6322,7 @@
         },
         {
           "type": "text",
-          "text": ". A corresponding expansion for positive "
-        },
-        {
-          "type": "math",
-          "tex": "\\xi"
-        },
-        {
-          "type": "text",
-          "text": " would require higher-order regularity and integrable remainders for the combined effects of the projection kernel and the payoff kinks. For the Asian leading coefficient, the established conclusion consists of an exact score representation and an effective absolute bound. High-precision scalar evaluation and nonvanishing of that component are separate assertions. When "
+          "text": ". The nine put coefficients are nonzero when "
         },
         {
           "type": "math",
@@ -6228,20 +6330,28 @@
         },
         {
           "type": "text",
-          "text": ", the nine put components establish nonvanishing of the ten-dimensional leading coefficient vector. The vector result expresses the common density construction; each component retains its stated scalar error budget."
+          "text": ", whereas the Asian coefficient is given by a score integral and analytic bounds containing zero. An expansion for positive "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi"
+        },
+        {
+          "type": "text",
+          "text": " requires additional regularity and integrable remainders for the projection kernel and payoff kinks."
         }
       ],
-      "markdown": "The ten-payoff expansion holds on the deterministic-variance family $`\\xi=0`$. A corresponding expansion for positive $`\\xi`$ would require higher-order regularity and integrable remainders for the combined effects of the projection kernel and the payoff kinks. For the Asian leading coefficient, the established conclusion consists of an exact score representation and an effective absolute bound. High-precision scalar evaluation and nonvanishing of that component are separate assertions. When $`v_0\\ne\\bar v`$, the nine put components establish nonvanishing of the ten-dimensional leading coefficient vector. The vector result expresses the common density construction; each component retains its stated scalar error budget."
+      "markdown": "Section 6 gives a common expansion formula and explicit remainder bounds for $`\\xi=0`$. The nine put coefficients are nonzero when $`v_0\\ne\\bar v`$, whereas the Asian coefficient is given by a score integral and analytic bounds containing zero. An expansion for positive $`\\xi`$ requires additional regularity and integrable remainders for the projection kernel and payoff kinks."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The posterior quantile-displacement certificates use the three-dimensional prior (7.5) and the synthetic quotes in Appendix F. They compare two true target distributions at every quantile level. Determination of the absolute locations of specified quantiles is a separate valuation task. A quantile-displacement certificate on the five-dimensional parameter domain"
+          "text": "The posterior displacement bounds apply to the restricted prior (7.5) and synthetic quotes. Transfer on the five-dimensional parameter domain"
         }
       ],
-      "markdown": "The posterior quantile-displacement certificates use the three-dimensional prior (7.5) and the synthetic quotes in Appendix F. They compare two true target distributions at every quantile level. Determination of the absolute locations of specified quantiles is a separate valuation task. A quantile-displacement certificate on the five-dimensional parameter domain"
+      "markdown": "The posterior displacement bounds apply to the restricted prior (7.5) and synthetic quotes. Transfer on the five-dimensional parameter domain"
     },
     {
       "type": "display_math",
@@ -6255,37 +6365,20 @@
       "inlines": [
         {
           "type": "text",
-          "text": "requires forward-error and posterior-transport inputs valid throughout that domain. The synthetic-quote application establishes the stated mathematical transfer under its specified inputs. Use with market quotes additionally calls for empirical assessment of quote quality, model fit, transaction costs, and strategy performance."
+          "text": "requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed."
         }
       ],
-      "markdown": "requires forward-error and posterior-transport inputs valid throughout that domain. The synthetic-quote application establishes the stated mathematical transfer under its specified inputs. Use with market quotes additionally calls for empirical assessment of quote quality, model fit, transaction costs, and strategy performance."
+      "markdown": "requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "Conditioning, geometric-average reference variables, Fourier bounds, Gaussian scores, and posterior approximation have established literatures "
-        },
-        {
-          "type": "citation",
-          "numbers": [
-            1,
-            2,
-            3,
-            4,
-            12,
-            7,
-            8,
-            10
-          ]
-        },
-        {
-          "type": "text",
-          "text": ". The contribution here is their effective combination for the specified kernel, the payoff-level argument weighted by first-period integrated variance, the complete finite error budget, and the resulting model-specific quantitative certificates. Numerical validity uses the enclosure semantics of the stated interval-arithmetic library. The accompanying independent implementations provide reproducible comparisons of the finite arithmetic inputs and bounds."
+          "text": "The separate-law remainder produces the width plateau in Section 8. Proposition H.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix H, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width."
         }
       ],
-      "markdown": "Conditioning, geometric-average reference variables, Fourier bounds, Gaussian scores, and posterior approximation have established literatures [[1](#ref-1), [2](#ref-2), [3](#ref-3), [4](#ref-4), [12](#ref-12), [7](#ref-7), [8](#ref-8), [10](#ref-10)]. The contribution here is their effective combination for the specified kernel, the payoff-level argument weighted by first-period integrated variance, the complete finite error budget, and the resulting model-specific quantitative certificates. Numerical validity uses the enclosure semantics of the stated interval-arithmetic library. The accompanying independent implementations provide reproducible comparisons of the finite arithmetic inputs and bounds."
+      "markdown": "The separate-law remainder produces the width plateau in Section 8. Proposition H.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix H, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width."
     },
     {
       "type": "heading",
@@ -6324,10 +6417,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The common density expansion and the full posterior coupling further illustrate this approach: state the structural assumptions explicitly and convert each transfer step into computable constants, so that the conclusions can be executed, checked, and used within a stated scope. The three results address fixed-step valuation, weak expansions for nonsmooth payoffs, and posterior quantile stability after calibration, respectively. Together, they form a collection of numerical-finance certificates with explicit mathematical interfaces."
+          "text": "The step-grid study shows that payoff conversion dominates the interval width and that the fixed discrete-tail bound can offset gains from a finer Euler grid. A second stochastic-variance point confirms a complete parameter-specific execution, and the deterministic example in Appendix H gives a strictly narrower coupled nonlinear interval. The common Gaussian expansion and posterior coupling provide additional formula-level and price-unit bounds on their stated parameter families."
         }
       ],
-      "markdown": "The common density expansion and the full posterior coupling further illustrate this approach: state the structural assumptions explicitly and convert each transfer step into computable constants, so that the conclusions can be executed, checked, and used within a stated scope. The three results address fixed-step valuation, weak expansions for nonsmooth payoffs, and posterior quantile stability after calibration, respectively. Together, they form a collection of numerical-finance certificates with explicit mathematical interfaces."
+      "markdown": "The step-grid study shows that payoff conversion dominates the interval width and that the fixed discrete-tail bound can offset gains from a finer Euler grid. A second stochastic-variance point confirms a complete parameter-specific execution, and the deterministic example in Appendix H gives a strictly narrower coupled nonlinear interval. The common Gaussian expansion and posterior coupling provide additional formula-level and price-unit bounds on their stated parameter families."
     },
     {
       "type": "heading",
@@ -6348,10 +6441,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The original research and manuscript date is 2024. The numerical materials were consolidated and checked in 2026. This major-revision version is dated 7 October 2026; that version date does not change the original research date. The public repository and the frozen baseline revision are specified in Appendix G. The author is responsible for the mathematical scope, attribution, and claims."
+          "text": "The author is responsible for the mathematical scope, attribution, and claims. The version history and numerical materials are recorded in Appendix G."
         }
       ],
-      "markdown": "The original research and manuscript date is 2024. The numerical materials were consolidated and checked in 2026. This major-revision version is dated 7 October 2026; that version date does not change the original research date. The public repository and the frozen baseline revision are specified in Appendix G. The author is responsible for the mathematical scope, attribution, and claims."
+      "markdown": "The author is responsible for the mathematical scope, attribution, and claims. The version history and numerical materials are recorded in Appendix G."
     },
     {
       "type": "heading",
@@ -10150,7 +10243,7 @@
         },
         {
           "type": "text",
-          "text": ". The baseline numerical source used by Corollary 4.2 is frozen at commit "
+          "text": ". The immutable versions have different roles. The original numerical kernels and reference payloads are frozen at "
         },
         {
           "type": "code",
@@ -10158,7 +10251,25 @@
         },
         {
           "type": "text",
-          "text": ". This revision retains those core formulas and the established exact reference payloads. The file "
+          "text": ". The first major-revision package, including the step-grid and posterior-grid experiments, is available at "
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "commit "
+            },
+            {
+              "type": "code",
+              "text": "cf0d242f1590c7ca07ab8ca7afb57da5a583032b"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ". Checking out only the older kernel baseline does not retrieve those experiments. The root "
         },
         {
           "type": "code",
@@ -10166,10 +10277,18 @@
         },
         {
           "type": "text",
-          "text": " additionally freezes new readers, experiment inputs, and receipts. A content hash identifies bytes; it does not certify a proof."
+          "text": " records the source, input, output and receipt byte identities for each published package; "
+        },
+        {
+          "type": "code",
+          "text": "code/MANIFEST.json"
+        },
+        {
+          "type": "text",
+          "text": " retains the original numerical package identity."
         }
       ],
-      "markdown": "The public repository is [https://github.com/130U/certified-valuation-arithmetic-asian-options](https://github.com/130U/certified-valuation-arithmetic-asian-options). The baseline numerical source used by Corollary 4.2 is frozen at commit `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`. This revision retains those core formulas and the established exact reference payloads. The file `REVISION-MANIFEST.json` additionally freezes new readers, experiment inputs, and receipts. A content hash identifies bytes; it does not certify a proof."
+      "markdown": "The public repository is [https://github.com/130U/certified-valuation-arithmetic-asian-options](https://github.com/130U/certified-valuation-arithmetic-asian-options). The immutable versions have different roles. The original numerical kernels and reference payloads are frozen at `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`. The first major-revision package, including the step-grid and posterior-grid experiments, is available at [commit `cf0d242f1590c7ca07ab8ca7afb57da5a583032b`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b). Checking out only the older kernel baseline does not retrieve those experiments. The root `REVISION-MANIFEST.json` records the source, input, output and receipt byte identities for each published package; `code/MANIFEST.json` retains the original numerical package identity."
     },
     {
       "type": "table",
@@ -10205,7 +10324,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "The original point, Theorem 4.1 and Corollary 4.2."
+                "text": "Theorem 4.1 and Corollary 4.2 at the original point."
               }
             ]
           }
@@ -10223,7 +10342,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "Theorem 6.1 and effective constants on the deterministic face (6.10)."
+                "text": "Theorem 6.1 and constants on the deterministic face (6.10)."
               }
             ]
           }
@@ -10241,7 +10360,7 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "The five-dimensional small-volatility box (7.4)."
+                "text": "The five-dimensional perturbation box (7.4)."
               }
             ]
           }
@@ -10284,14 +10403,14 @@
         ]
       ],
       "header_rows": 1,
-      "markdown": "| Module | Corresponding result |\n| --- | --- |\n| `asian` | The original point, Theorem 4.1 and Corollary 4.2. |\n| `tt` | Theorem 6.1 and effective constants on the deterministic face (6.10). |\n| `small-xi` | The five-dimensional small-volatility box (7.4). |\n| `posterior-zero` | Gaussian-reference posterior and target constants. |\n| `posterior` | The restricted prior (7.5) and Theorem 7.1. |"
+      "markdown": "| Module | Corresponding result |\n| --- | --- |\n| `asian` | Theorem 4.1 and Corollary 4.2 at the original point. |\n| `tt` | Theorem 6.1 and constants on the deterministic face (6.10). |\n| `small-xi` | The five-dimensional perturbation box (7.4). |\n| `posterior-zero` | Gaussian-reference posterior and target constants. |\n| `posterior` | The restricted prior (7.5) and Theorem 7.1. |"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "From the repository root, create a CPython 3.12 virtual environment and install "
+          "text": "The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with "
         },
         {
           "type": "code",
@@ -10299,65 +10418,23 @@
         },
         {
           "type": "text",
-          "text": " through "
-        },
-        {
-          "type": "code",
-          "text": "python -m pip install -r code/requirements.txt"
-        },
-        {
-          "type": "text",
-          "text": ". The reference runtime is Windows x86-64. This repository contains no dependency wheel; offline installation requires a separately obtained authentic compatible wheel. After installation the numerical calculations perform no network calls. The exact interpreter-bound commands are "
-        },
-        {
-          "type": "code",
-          "text": "py -3.12 -m venv .venv"
-        },
-        {
-          "type": "text",
-          "text": ", "
-        },
-        {
-          "type": "code",
-          "text": "./.venv/Scripts/python.exe -m pip install -r code/requirements.txt"
-        },
-        {
-          "type": "text",
-          "text": ", "
-        },
-        {
-          "type": "code",
-          "text": "./.venv/Scripts/python.exe code/run.py verify"
-        },
-        {
-          "type": "text",
-          "text": ", and "
-        },
-        {
-          "type": "code",
-          "text": "./.venv/Scripts/python.exe code/run.py run --module asian --independent"
-        },
-        {
-          "type": "text",
-          "text": ". Use "
-        },
-        {
-          "type": "code",
-          "text": "--module all"
-        },
-        {
-          "type": "text",
-          "text": " for all modules. Do not use optimized Python: assertions enforce mathematical and resource conditions."
+          "text": ". From a checkout containing the revision, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character."
         }
       ],
-      "markdown": "From the repository root, create a CPython 3.12 virtual environment and install `python-flint==0.8.0` through `python -m pip install -r code/requirements.txt`. The reference runtime is Windows x86-64. This repository contains no dependency wheel; offline installation requires a separately obtained authentic compatible wheel. After installation the numerical calculations perform no network calls. The exact interpreter-bound commands are `py -3.12 -m venv .venv`, `./.venv/Scripts/python.exe -m pip install -r code/requirements.txt`, `./.venv/Scripts/python.exe code/run.py verify`, and `./.venv/Scripts/python.exe code/run.py run --module asian --independent`. Use `--module all` for all modules. Do not use optimized Python: assertions enforce mathematical and resource conditions."
+      "markdown": "The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with `python-flint==0.8.0`. From a checkout containing the revision, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character."
+    },
+    {
+      "type": "code_block",
+      "language": "text",
+      "text": "py -3.12 -m venv .venv\n./.venv/Scripts/python.exe -m pip install -r code/requirements.txt\n./.venv/Scripts/python.exe code/run.py verify\n./.venv/Scripts/python.exe code/run.py run --module asian --independent",
+      "markdown": "```text\npy -3.12 -m venv .venv\n./.venv/Scripts/python.exe -m pip install -r code/requirements.txt\n./.venv/Scripts/python.exe code/run.py verify\n./.venv/Scripts/python.exe code/run.py run --module asian --independent\n```"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The run prints a unique directory under "
+          "text": "The run prints its new directory under "
         },
         {
           "type": "code",
@@ -10365,93 +10442,73 @@
         },
         {
           "type": "text",
-          "text": ". Its "
+          "text": ". Replace "
         },
         {
           "type": "code",
-          "text": "run-receipt.json"
+          "text": "run-ID"
         },
         {
           "type": "text",
-          "text": ", "
+          "text": " below with that directory name. To execute every original module, replace "
         },
         {
           "type": "code",
-          "text": "mathematical-check.json"
+          "text": "asian"
         },
         {
           "type": "text",
-          "text": ", per-job logs, and "
+          "text": " in the preceding command with "
         },
         {
           "type": "code",
-          "text": "work/core/*-result.json"
+          "text": "all"
         },
         {
           "type": "text",
-          "text": " preserve the exact inputs, source identities, guard outcomes, rational endpoints, and all fees. Run "
-        },
-        {
-          "type": "code",
-          "text": "python code/run.py check --run code/runs/run-ID"
-        },
-        {
-          "type": "text",
-          "text": " using the actual ID to recheck a completed calculation. The configuration records timeouts and module dependencies. Workers use one thread and a 256 MiB hard memory limit. A stopped job is not a completed certificate."
+          "text": "."
         }
       ],
-      "markdown": "The run prints a unique directory under `code/runs/`. Its `run-receipt.json`, `mathematical-check.json`, per-job logs, and `work/core/*-result.json` preserve the exact inputs, source identities, guard outcomes, rational endpoints, and all fees. Run `python code/run.py check --run code/runs/run-ID` using the actual ID to recheck a completed calculation. The configuration records timeouts and module dependencies. Workers use one thread and a 256 MiB hard memory limit. A stopped job is not a completed certificate."
+      "markdown": "The run prints its new directory under `code/runs/`. Replace `run-ID` below with that directory name. To execute every original module, replace `asian` in the preceding command with `all`."
+    },
+    {
+      "type": "code_block",
+      "language": "text",
+      "text": "./.venv/Scripts/python.exe code/run.py check --run code/runs/run-ID",
+      "markdown": "```text\n./.venv/Scripts/python.exe code/run.py check --run code/runs/run-ID\n```"
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The weighted moments in (4.6) correspond to "
-        },
-        {
-          "type": "code",
-          "text": "code/reference/asian-remainder-result.json"
-        },
-        {
-          "type": "text",
-          "text": "; the linear center, inversion, projection, and final intervals correspond to "
-        },
-        {
-          "type": "code",
-          "text": "code/reference/asian-linear-result.json"
-        },
-        {
-          "type": "text",
-          "text": ". The nonlinear catalog implements Appendix A, the projected recurrence Appendix B, and linear inversion Appendix C. Exact synthetic calibration observations are in "
-        },
-        {
-          "type": "code",
-          "text": "code/data/synthetic_quotes.json"
-        },
-        {
-          "type": "text",
-          "text": ". The revision's budget reader exposes the displayed rows and their rational source fields in one machine-readable file."
+          "text": "Installation may require network access. The numerical calculations do not. No dependency wheel is included; offline installation requires an authentic compatible wheel obtained separately. Assertions enforce mathematical conditions and resource contracts. Each worker uses one thread and a 256 MiB hard memory limit."
         }
       ],
-      "markdown": "The weighted moments in (4.6) correspond to `code/reference/asian-remainder-result.json`; the linear center, inversion, projection, and final intervals correspond to `code/reference/asian-linear-result.json`. The nonlinear catalog implements Appendix A, the projected recurrence Appendix B, and linear inversion Appendix C. Exact synthetic calibration observations are in `code/data/synthetic_quotes.json`. The revision's budget reader exposes the displayed rows and their rational source fields in one machine-readable file."
+      "markdown": "Installation may require network access. The numerical calculations do not. No dependency wheel is included; offline installation requires an authentic compatible wheel obtained separately. Assertions enforce mathematical conditions and resource contracts. Each worker uses one thread and a 256 MiB hard memory limit."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The comparison retains every numerical JSON field, including arrays, fee terms, and rational endpoints. It excludes hash metadata and six explicitly named elapsed time fields. The implementations share Arb and the mathematical derivation; agreement is evidence of reproducibility within those assumptions, not independent validation of the underlying derivation. The main source, exact dependencies, commands, result mapping, and verification scope are all available to a referee."
-        }
-      ],
-      "markdown": "The comparison retains every numerical JSON field, including arrays, fee terms, and rational endpoints. It excludes hash metadata and six explicitly named elapsed time fields. The implementations share Arb and the mathematical derivation; agreement is evidence of reproducibility within those assumptions, not independent validation of the underlying derivation. The main source, exact dependencies, commands, result mapping, and verification scope are all available to a referee."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
+          "text": "The original completed execution and the revision experiments are preserved in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/evidence.zip"
+        },
         {
           "type": "text",
-          "text": "Revision commands, source-patch contracts, and all attempted-run records are indexed in "
+          "text": ". Its inventory binds each member's bytes and SHA-256. The index "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/INDEX.md"
+        },
+        {
+          "type": "text",
+          "text": " gives archive extraction and ledger-replay commands; "
         },
         {
           "type": "code",
@@ -10459,7 +10516,17 @@
         },
         {
           "type": "text",
-          "text": ". The machine-readable budget table is "
+          "text": " gives fresh calculation commands and experiment inputs. Saved-result verification and fresh kernel execution are distinct operations."
+        }
+      ],
+      "markdown": "The original completed execution and the revision experiments are preserved in `code/revision/results/evidence.zip`. Its inventory binds each member's bytes and SHA-256. The index `code/revision/results/INDEX.md` gives archive extraction and ledger-replay commands; `code/revision/README.md` gives fresh calculation commands and experiment inputs. Saved-result verification and fresh kernel execution are distinct operations."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The first-revision ledger "
         },
         {
           "type": "code",
@@ -10467,10 +10534,396 @@
         },
         {
           "type": "text",
-          "text": "; it maps each numerical row to its result path, exact source field, and receipt. The original completed rerun receipt is preserved with the revision evidence. The scientific manifest lists final sources, inputs, enclosures, and receipts by byte count and SHA-256. The declared resource extension at the finest step changes only the bounded wall-time allowance; the original failed attempt is retained separately."
+          "text": " maps each printed numerical row to the exact source field, result, hash and receipt. The original weighted moments are in "
+        },
+        {
+          "type": "code",
+          "text": "code/reference/asian-remainder-result.json"
+        },
+        {
+          "type": "text",
+          "text": "; the linear center, transform contributions and signed price enclosure are in "
+        },
+        {
+          "type": "code",
+          "text": "code/reference/asian-linear-result.json"
+        },
+        {
+          "type": "text",
+          "text": ". Exact synthetic observations are in "
+        },
+        {
+          "type": "code",
+          "text": "code/data/synthetic_quotes.json"
+        },
+        {
+          "type": "text",
+          "text": ". Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively."
         }
       ],
-      "markdown": "Revision commands, source-patch contracts, and all attempted-run records are indexed in `code/revision/README.md`. The machine-readable budget table is `code/revision/results/revision-summary.json`; it maps each numerical row to its result path, exact source field, and receipt. The original completed rerun receipt is preserved with the revision evidence. The scientific manifest lists final sources, inputs, enclosures, and receipts by byte count and SHA-256. The declared resource extension at the finest step changes only the bounded wall-time allowance; the original failed attempt is retained separately."
+      "markdown": "The first-revision ledger `code/revision/results/revision-summary.json` maps each printed numerical row to the exact source field, result, hash and receipt. The original weighted moments are in `code/reference/asian-remainder-result.json`; the linear center, transform contributions and signed price enclosure are in `code/reference/asian-linear-result.json`. Exact synthetic observations are in `code/data/synthetic_quotes.json`. Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The reference comparison includes every numerical JSON field, including arrays and rational endpoints. Only hash metadata and six named elapsed-time fields are excluded. The alternative constructions described below share Arb and the analytical inequalities; numerical agreement verifies the implemented finite calculations within those assumptions, without supplying an independent derivation of the common inequalities."
+        }
+      ],
+      "markdown": "The reference comparison includes every numerical JSON field, including arrays and rational endpoints. Only hash metadata and six named elapsed-time fields are excluded. The alternative constructions described below share Arb and the analytical inequalities; numerical agreement verifies the implemented finite calculations within those assumptions, without supplying an independent derivation of the common inequalities."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The experiment archive retains stopped attempts and successful completions. At 192 steps the fixed projection inequality fails its required exponent bound. The initial 384-step attempt stopped at the original numerical radius target; the successful enclosure records that target as false while preserving every analytical condition. At 1536 steps the initial worker exceeded its original wall-time allowance. The completed run multiplies that finite allowance by "
+        },
+        {
+          "type": "code",
+          "text": "ceil(N/768)"
+        },
+        {
+          "type": "text",
+          "text": ", retaining the mathematical guards, precision, thread and memory limits. Separate weighted-moment experiments use the analogous declared runtime scaling. Receipts distinguish analytical exclusion, numerical acceptance targets and resource stops. Reported task times are machine- and load-specific."
+        }
+      ],
+      "markdown": "The experiment archive retains stopped attempts and successful completions. At 192 steps the fixed projection inequality fails its required exponent bound. The initial 384-step attempt stopped at the original numerical radius target; the successful enclosure records that target as false while preserving every analytical condition. At 1536 steps the initial worker exceeded its original wall-time allowance. The completed run multiplies that finite allowance by `ceil(N/768)`, retaining the mathematical guards, precision, thread and memory limits. Separate weighted-moment experiments use the analogous declared runtime scaling. Receipts distinguish analytical exclusion, numerical acceptance targets and resource stops. Reported task times are machine- and load-specific."
+    },
+    {
+      "type": "heading",
+      "id": "section-g-1",
+      "level": 3,
+      "number": "G.1",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Numerical constructions and recorded cost"
+        }
+      ],
+      "markdown": "### G.1 Numerical constructions and recorded cost"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps at the principal point. The linear module evaluates 641 frequencies and thirteen profiles, for 6,399,744 discrete steps and 799,968 continuous branch checks. The principal programs use 256-bit Arb "
+        },
+        {
+          "type": "citation",
+          "numbers": [
+            11
+          ]
+        },
+        {
+          "type": "text",
+          "text": "; the check programs use 384-bit Arb with different numerical constructions."
+        }
+      ],
+      "markdown": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps at the principal point. The linear module evaluates 641 frequencies and thirteen profiles, for 6,399,744 discrete steps and 799,968 continuous branch checks. The principal programs use 256-bit Arb [[11](#ref-11)]; the check programs use 384-bit Arb with different numerical constructions."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "For the weighted remainder, "
+        },
+        {
+          "type": "code",
+          "text": "check-asian-remainder.py"
+        },
+        {
+          "type": "text",
+          "text": " replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, "
+        },
+        {
+          "type": "code",
+          "text": "check-asian-linear.py"
+        },
+        {
+          "type": "text",
+          "text": " replaces the principal real/imaginary discrete recursion by a complex "
+        },
+        {
+          "type": "code",
+          "text": "acb"
+        },
+        {
+          "type": "text",
+          "text": " recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error allowances without calling the principal numerical functions. The checks share Arb, the analytic identities, and the theoretical bounds. They test implementation consistency and arithmetic stability rather than supplying independent derivations of those bounds. The root-flow and matrix-flow calculations also enclose the same grouped positive moments used in (4.11)."
+        }
+      ],
+      "markdown": "For the weighted remainder, `check-asian-remainder.py` replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, `check-asian-linear.py` replaces the principal real/imaginary discrete recursion by a complex `acb` recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error allowances without calling the principal numerical functions. The checks share Arb, the analytic identities, and the theoretical bounds. They test implementation consistency and arithmetic stability rather than supplying independent derivations of those bounds. The root-flow and matrix-flow calculations also enclose the same grouped positive moments used in (4.11)."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid revision, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract."
+        }
+      ],
+      "markdown": "Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid revision, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract."
+    },
+    {
+      "type": "heading",
+      "id": "section-g-2",
+      "level": 3,
+      "number": "G.2",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Sampling illustrations and posterior marginal envelopes"
+        }
+      ],
+      "markdown": "### G.2 Sampling illustrations and posterior marginal envelopes"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The Asian coefficient illustration uses binary64 arithmetic and 2,097,152 Gaussian increment vectors per point. It evaluates the exact deterministic-variance Gaussian coefficient integrand and density-ratio residual with common vectors across the four step sizes. Subtracting the known zero-mean score and using "
+        },
+        {
+          "type": "code",
+          "text": "expm1"
+        },
+        {
+          "type": "text",
+          "text": " reduces cancellation in the scaled residual. Inputs, seeds, formulas, sampling estimates, and estimated standard errors are recorded in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/asian-beta-diagnostic.json"
+        },
+        {
+          "type": "text",
+          "text": ". Its normal-approximation sampling intervals are distinct from the analytic coefficient enclosures and deterministic remainder bounds in Section 6."
+        }
+      ],
+      "markdown": "The Asian coefficient illustration uses binary64 arithmetic and 2,097,152 Gaussian increment vectors per point. It evaluates the exact deterministic-variance Gaussian coefficient integrand and density-ratio residual with common vectors across the four step sizes. Subtracting the known zero-mean score and using `expm1` reduces cancellation in the scaled residual. Inputs, seeds, formulas, sampling estimates, and estimated standard errors are recorded in `code/revision/results/asian-beta-diagnostic.json`. Its normal-approximation sampling intervals are distinct from the analytic coefficient enclosures and deterministic remainder bounds in Section 6."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The separate NumPy path study uses 32,768 paths for each of fourteen cases, coupling the original projected Euler grid to a grid with twice as many steps. The file "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/path-diagnostics.json"
+        },
+        {
+          "type": "text",
+          "text": " records seeds, binary64 inputs, sampled prices, standard errors, and negative-proposal counts. Its fine law retains discretization bias, so these sampling results do not enclose the continuous-model price."
+        }
+      ],
+      "markdown": "The separate NumPy path study uses 32,768 paths for each of fourteen cases, coupling the original projected Euler grid to a grid with twice as many steps. The file `code/revision/results/path-diagnostics.json` records seeds, binary64 inputs, sampled prices, standard errors, and negative-proposal counts. Its fine law retains discretization bias, so these sampling results do not enclose the continuous-model price."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The posterior grid summary, "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/results/posterior-grid-summary.json"
+        },
+        {
+          "type": "text",
+          "text": ", retains full rational CDF envelopes and the 2.5, 50, and 97.5 percent quantile brackets of the initial-variance marginal. The absolute Asian-price target quantiles are not part of that computation."
+        }
+      ],
+      "markdown": "The posterior grid summary, `code/revision/results/posterior-grid-summary.json`, retains full rational CDF envelopes and the 2.5, 50, and 97.5 percent quantile brackets of the initial-variance marginal. The absolute Asian-price target quantiles are not part of that computation."
+    },
+    {
+      "type": "heading",
+      "id": "section-g-3",
+      "level": 3,
+      "number": "G.3",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Second-point and coupled-moment reproduction"
+        }
+      ],
+      "markdown": "### G.3 Second-point and coupled-moment reproduction"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix H are frozen, together with their programs, inputs, results and receipts, at "
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "commit "
+            },
+            {
+              "type": "code",
+              "text": "1959f8f078e1fedd590000d6166cb20429ff31db"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ". This immutable data revision contains the earlier revision experiments as well. From its root and the same Windows environment, use a new directory name:"
+        }
+      ],
+      "markdown": "The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix H are frozen, together with their programs, inputs, results and receipts, at [commit `1959f8f078e1fedd590000d6166cb20429ff31db`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db). This immutable data revision contains the earlier revision experiments as well. From its root and the same Windows environment, use a new directory name:"
+    },
+    {
+      "type": "code_block",
+      "language": "text",
+      "text": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point\n./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point",
+      "markdown": "```text\n./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point\n./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The run writes its result capsule in the new directory. The point configuration changes only "
+        },
+        {
+          "type": "math",
+          "tex": "v_0"
+        },
+        {
+          "type": "text",
+          "text": " to "
+        },
+        {
+          "type": "math",
+          "tex": "1/25"
+        },
+        {
+          "type": "text",
+          "text": ". The preparation checks the original numerical manifest and constructs explicit parameter copies. The weighted, linear, pilot and two alternative-construction jobs recompute all affected quantities. Declared worker budgets are 120 seconds for each weighted calculation, 360 for each linear calculation and 30 for the pilot; the one-thread and 256 MiB limits remain fixed. The recorded five-job outer time is approximately 97.5 seconds. The archive "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/round2/results/evidence-point-v004.zip"
+        },
+        {
+          "type": "text",
+          "text": " contains all 52 execution members and their inventory. Its SHA-256 and standard-library replay instructions are in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/round2/README.md"
+        },
+        {
+          "type": "text",
+          "text": ". The exact six-component width ledger is in "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/round2/results/point-v004-result.json"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "markdown": "The run writes its result capsule in the new directory. The point configuration changes only $`v_0`$ to $`1/25`$. The preparation checks the original numerical manifest and constructs explicit parameter copies. The weighted, linear, pilot and two alternative-construction jobs recompute all affected quantities. Declared worker budgets are 120 seconds for each weighted calculation, 360 for each linear calculation and 30 for the pilot; the one-thread and 256 MiB limits remain fixed. The recorded five-job outer time is approximately 97.5 seconds. The archive `code/revision/round2/results/evidence-point-v004.zip` contains all 52 execution members and their inventory. Its SHA-256 and standard-library replay instructions are in `code/revision/round2/README.md`. The exact six-component width ledger is in `code/revision/round2/results/point-v004-result.json`."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The deterministic coupling example uses finite closed Gaussian moments at 384 and 512 bits. Its fresh calculation command is"
+        }
+      ],
+      "markdown": "The deterministic coupling example uses finite closed Gaussian moments at 384 and 512 bits. Its fresh calculation command is"
+    },
+    {
+      "type": "code_block",
+      "language": "text",
+      "text": "./.venv/Scripts/python.exe code/revision/round2_coupling_example.py --output coupling.json",
+      "markdown": "```text\n./.venv/Scripts/python.exe code/revision/round2_coupling_example.py --output coupling.json\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The exact result is "
+        },
+        {
+          "type": "code",
+          "text": "code/revision/round2/results/coupling-v004-result.json"
+        },
+        {
+          "type": "text",
+          "text": ". The self-contained proof and source/result hash receipt are in "
+        },
+        {
+          "type": "code",
+          "text": "docs/revision-round2/"
+        },
+        {
+          "type": "text",
+          "text": ". A separate scalar covariance-moment evaluation also agrees with the enclosures. This comparison verifies the nonlinear component on "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi=0"
+        },
+        {
+          "type": "text",
+          "text": "; it does not replace the positive-"
+        },
+        {
+          "type": "math",
+          "tex": "\\xi"
+        },
+        {
+          "type": "text",
+          "text": " pricing calculation."
+        }
+      ],
+      "markdown": "The exact result is `code/revision/round2/results/coupling-v004-result.json`. The self-contained proof and source/result hash receipt are in `docs/revision-round2/`. A separate scalar covariance-moment evaluation also agrees with the enclosures. This comparison verifies the nonlinear component on $`\\xi=0`$; it does not replace the positive-$`\\xi`$ pricing calculation."
+    },
+    {
+      "type": "heading",
+      "id": "section-g-4",
+      "level": 3,
+      "number": "G.4",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Version history"
+        }
+      ],
+      "markdown": "### G.4 Version history"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The research and original manuscript originate in 2024. The numerical package was consolidated and verified in 2026. The first major revision and this targeted revision are dated 7 October 2026. The baseline, first-revision and second-point data commits above identify these different reproducibility scopes."
+        }
+      ],
+      "markdown": "The research and original manuscript originate in 2024. The numerical package was consolidated and verified in 2026. The first major revision and this targeted revision are dated 7 October 2026. The baseline, first-revision and second-point data commits above identify these different reproducibility scopes."
     },
     {
       "type": "heading",
@@ -10491,10 +10944,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The following sufficient bound controls the difference of remainders directly. It requires additional information about a coupling of the conditional variables; it is not a numerical assertion at the Heston parameter point."
+          "text": "The following sufficient inequality preserves cancellation between the two conditional remainders under a coupling of their conditional variables."
         }
       ],
-      "markdown": "The following sufficient bound controls the difference of remainders directly. It requires additional information about a coupling of the conditional variables; it is not a numerical assertion at the Heston parameter point."
+      "markdown": "The following sufficient inequality preserves cancellation between the two conditional remainders under a coupling of their conditional variables."
     },
     {
       "type": "paragraph",
@@ -10882,7 +11335,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The constants in Proposition H.1 are explicit, but the additional coupled expectations are not provided by the current marginal affine catalog. In particular, the "
+          "text": "The "
         },
         {
           "type": "math",
@@ -10890,7 +11343,7 @@
         },
         {
           "type": "text",
-          "text": " factor requires stronger control than the single inverse-square-root integrated-variance moment in (2.7). If a family of verified couplings satisfies "
+          "text": " factor requires coupled-moment control beyond (2.7) and the marginal affine catalog. If a family of verified couplings satisfies "
         },
         {
           "type": "math",
@@ -10901,7 +11354,312 @@
           "text": ", then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
         }
       ],
-      "markdown": "The constants in Proposition H.1 are explicit, but the additional coupled expectations are not provided by the current marginal affine catalog. In particular, the $`s_-^{-2}`$ factor requires stronger control than the single inverse-square-root integrated-variance moment in (2.7). If a family of verified couplings satisfies $`E\\Xi_K\\to0`$, then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
+      "markdown": "The $`s_-^{-2}`$ factor requires coupled-moment control beyond (2.7) and the marginal affine catalog. If a family of verified couplings satisfies $`E\\Xi_K\\to0`$, then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
+    },
+    {
+      "type": "heading",
+      "id": "section-h-1",
+      "level": 3,
+      "number": "H.1",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
+          "text": "An executed coupling example on the deterministic-variance face"
+        }
+      ],
+      "markdown": "### H.1 An executed coupling example on the deterministic-variance face"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "At "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi=0,\\kappa=3,\\bar v=9/200,v_0=1/25,S_0=100,r=1/100,T=1,h=1/768"
+        },
+        {
+          "type": "text",
+          "text": ", retain the twelve monthly fixings, the call spread with strikes 95 and 110, and "
+        },
+        {
+          "type": "math",
+          "tex": "c=1254433/1250000"
+        },
+        {
+          "type": "text",
+          "text": ". Write "
+        },
+        {
+          "type": "math",
+          "tex": "s_{\\nu,j}=I_\\nu(t_j)-I_\\nu(t_{j-1})"
+        },
+        {
+          "type": "text",
+          "text": ", using the exact continuous and Euler cumulative variances in (6.2). Couple the laws by twelve common independent standard normals. With "
+        },
+        {
+          "type": "math",
+          "tex": "\\sigma_\\nu=\\sqrt{s_{\\nu,1}}"
+        },
+        {
+          "type": "text",
+          "text": ", remove the first centered normal factor and put"
+        }
+      ],
+      "markdown": "At $`\\xi=0,\\kappa=3,\\bar v=9/200,v_0=1/25,S_0=100,r=1/100,T=1,h=1/768`$, retain the twelve monthly fixings, the call spread with strikes 95 and 110, and $`c=1254433/1250000`$. Write $`s_{\\nu,j}=I_\\nu(t_j)-I_\\nu(t_{j-1})`$, using the exact continuous and Euler cumulative variances in (6.2). Couple the laws by twelve common independent standard normals. With $`\\sigma_\\nu=\\sqrt{s_{\\nu,1}}`$, remove the first centered normal factor and put"
+    },
+    {
+      "type": "display_math",
+      "id": "display-44a5eca89748",
+      "tex": "\nm_{\\nu,i}=rt_i-I_\\nu(t_i)/2,\\qquad\n\\ell_{\\nu,i,j}=\\sqrt{s_{\\nu,j}}\\mathbf1_{\\{j\\le i\\}},\\quad 2\\le j\\le12,\n",
+      "tags": [],
+      "markdown": "```math\nm_{\\nu,i}=rt_i-I_\\nu(t_i)/2,\\qquad\n\\ell_{\\nu,i,j}=\\sqrt{s_{\\nu,j}}\\mathbf1_{\\{j\\le i\\}},\\quad 2\\le j\\le12,\n```"
+    },
+    {
+      "type": "display_math",
+      "id": "display-856b6d5bc4fa",
+      "tex": "\na_{\\nu,i}=100e^{m_{\\nu,i}+\\ell_{\\nu,i}\\cdot Z},\\qquad\na_\\nu=\\frac1{12}\\sum_i a_{\\nu,i},\\qquad\ng_\\nu=100e^{\\bar m_\\nu+\\bar\\ell_\\nu\\cdot Z},\\qquad b_\\nu=cg_\\nu.\n",
+      "tags": [],
+      "markdown": "```math\na_{\\nu,i}=100e^{m_{\\nu,i}+\\ell_{\\nu,i}\\cdot Z},\\qquad\na_\\nu=\\frac1{12}\\sum_i a_{\\nu,i},\\qquad\ng_\\nu=100e^{\\bar m_\\nu+\\bar\\ell_\\nu\\cdot Z},\\qquad b_\\nu=cg_\\nu.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Here "
+        },
+        {
+          "type": "math",
+          "tex": "Z=(Z_2,\\ldots,Z_{12})"
+        },
+        {
+          "type": "text",
+          "text": ", and bars denote averaging over fixing index "
+        },
+        {
+          "type": "math",
+          "tex": "i=1,\\ldots,12"
+        },
+        {
+          "type": "text",
+          "text": ". The drift includes the first-month term "
+        },
+        {
+          "type": "math",
+          "tex": "-s_{\\nu,1}/2"
+        },
+        {
+          "type": "text",
+          "text": "; hence the removed factor has the centered Gaussian law required by "
+        },
+        {
+          "type": "math",
+          "tex": "\\mathsf H_s(c)"
+        },
+        {
+          "type": "text",
+          "text": ". Here the stock driver "
+        },
+        {
+          "type": "math",
+          "tex": "\\rho W+\\sqrt{1-\\rho^2}B"
+        },
+        {
+          "type": "text",
+          "text": " is combined into a single Brownian motion. On "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi=0"
+        },
+        {
+          "type": "text",
+          "text": " the variance is deterministic and the price law is independent of "
+        },
+        {
+          "type": "math",
+          "tex": "\\rho"
+        },
+        {
+          "type": "text",
+          "text": "; hence "
+        },
+        {
+          "type": "math",
+          "tex": "\\sigma_\\nu^2=s_{\\nu,1}"
+        },
+        {
+          "type": "text",
+          "text": ", using the full first-month variance. The separate-law comparison below uses this same conditioning."
+        }
+      ],
+      "markdown": "Here $`Z=(Z_2,\\ldots,Z_{12})`$, and bars denote averaging over fixing index $`i=1,\\ldots,12`$. The drift includes the first-month term $`-s_{\\nu,1}/2`$; hence the removed factor has the centered Gaussian law required by $`\\mathsf H_s(c)`$. Here the stock driver $`\\rho W+\\sqrt{1-\\rho^2}B`$ is combined into a single Brownian motion. On $`\\xi=0`$ the variance is deterministic and the price law is independent of $`\\rho`$; hence $`\\sigma_\\nu^2=s_{\\nu,1}`$, using the full first-month variance. The separate-law comparison below uses this same conditioning."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "All conditional second moments, including mixed P/Q moments, follow from"
+        }
+      ],
+      "markdown": "All conditional second moments, including mixed P/Q moments, follow from"
+    },
+    {
+      "type": "display_math",
+      "id": "display-728bf2b114ee",
+      "tex": "\nE\\!\\left[100e^{m+u\\cdot Z}\\,100e^{n+v\\cdot Z}\\right]\n=10000e^{m+n+\\|u+v\\|^2/2}.\n",
+      "tags": [],
+      "markdown": "```math\nE\\!\\left[100e^{m+u\\cdot Z}\\,100e^{n+v\\cdot Z}\\right]\n=10000e^{m+n+\\|u+v\\|^2/2}.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Define"
+        }
+      ],
+      "markdown": "Define"
+    },
+    {
+      "type": "display_math",
+      "id": "display-19f1336caac6",
+      "tex": "\nq_\\nu=E(a_\\nu-b_\\nu)^2,\\quad Z_2=q_P+q_Q,\\quad\nD_a=E(a_Q-a_P)^2,\\quad D_b=E(b_Q-b_P)^2.\n",
+      "tags": [],
+      "markdown": "```math\nq_\\nu=E(a_\\nu-b_\\nu)^2,\\quad Z_2=q_P+q_Q,\\quad\nD_a=E(a_Q-a_P)^2,\\quad D_b=E(b_Q-b_P)^2.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "For the deterministic "
+        },
+        {
+          "type": "math",
+          "tex": "M_K,N_K"
+        },
+        {
+          "type": "text",
+          "text": " in the coupling proposition, the pointwise bound "
+        },
+        {
+          "type": "math",
+          "tex": "z^2\\le(a_P-b_P)^2+(a_Q-b_Q)^2"
+        },
+        {
+          "type": "text",
+          "text": " and Cauchy–Schwarz give the executable upper bound"
+        }
+      ],
+      "markdown": "For the deterministic $`M_K,N_K`$ in the coupling proposition, the pointwise bound $`z^2\\le(a_P-b_P)^2+(a_Q-b_Q)^2`$ and Cauchy–Schwarz give the executable upper bound"
+    },
+    {
+      "type": "display_math",
+      "id": "display-42795efabee3",
+      "tex": "\nE\\Xi_K\\le B_K:=\nM_K\\sqrt{Z_2}(\\sqrt{D_a}+\\sqrt{D_b})\n+\\frac12N_KZ_2|\\sigma_Q-\\sigma_P|.\n",
+      "tags": [],
+      "markdown": "```math\nE\\Xi_K\\le B_K:=\nM_K\\sqrt{Z_2}(\\sqrt{D_a}+\\sqrt{D_b})\n+\\frac12N_KZ_2|\\sigma_Q-\\sigma_P|.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The finite Gaussian-moment computation at 384 and 512 bits yields"
+        }
+      ],
+      "markdown": "The finite Gaussian-moment computation at 384 and 512 bits yields"
+    },
+    {
+      "type": "display_math",
+      "id": "display-82a26e1ae473",
+      "tex": "\nE\\Xi_{95}\\le .000023887739528734380066,\\qquad\nE\\Xi_{110}\\le .000020630320502088782784.\n",
+      "tags": [],
+      "markdown": "```math\nE\\Xi_{95}\\le .000023887739528734380066,\\qquad\nE\\Xi_{110}\\le .000020630320502088782784.\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Consequently the discounted nonlinear spread contribution belongs to the symmetric interval with radius "
+        },
+        {
+          "type": "math",
+          "tex": "e^{-r}(B_{95}+B_{110})"
+        },
+        {
+          "type": "text",
+          "text": ", whose width is at most "
+        },
+        {
+          "type": "math",
+          "tex": ".000088150195864703911227"
+        },
+        {
+          "type": "text",
+          "text": ". For the same laws, conditioning, and scale, the separate-law estimate has width in"
+        }
+      ],
+      "markdown": "Consequently the discounted nonlinear spread contribution belongs to the symmetric interval with radius $`e^{-r}(B_{95}+B_{110})`$, whose width is at most $`.000088150195864703911227`$. For the same laws, conditioning, and scale, the separate-law estimate has width in"
+    },
+    {
+      "type": "display_math",
+      "id": "display-9cd75c4452ec",
+      "tex": "\n[.015383637151510699801154,\\;.015383637151510699801155].\n",
+      "tags": [],
+      "markdown": "```math\n[.015383637151510699801154,\\;.015383637151510699801155].\n```"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The ratio of widths is below "
+        },
+        {
+          "type": "math",
+          "tex": ".005731"
+        },
+        {
+          "type": "text",
+          "text": ". Strict improvement is checked using the outward upper endpoint of the coupled width and the lower endpoint of the separate width. The comparison uses "
+        },
+        {
+          "type": "math",
+          "tex": "D_\\nu=e^{2\\sigma_\\nu^2}q_\\nu/\\sigma_\\nu"
+        },
+        {
+          "type": "text",
+          "text": ", so all weighted moments refer to the same Gaussian factor."
+        }
+      ],
+      "markdown": "The ratio of widths is below $`.005731`$. Strict improvement is checked using the outward upper endpoint of the coupled width and the lower endpoint of the separate width. The comparison uses $`D_\\nu=e^{2\\sigma_\\nu^2}q_\\nu/\\sigma_\\nu`$, so all weighted moments refer to the same Gaussian factor."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "This is a closed-moment enclosure of the coupled remainder expectations, with no Monte Carlo or unbounded-domain quadrature. It establishes narrowing of the nonlinear component at one deterministic-variance point. It does not compute a complete price interval, a signed Asian leading coefficient, or a coupled certificate for "
+        },
+        {
+          "type": "math",
+          "tex": "\\xi>0"
+        },
+        {
+          "type": "text",
+          "text": ". The two precisions and two algebraic Gaussian-moment expressions share the analytical proof and Arb; they are arithmetic consistency checks."
+        }
+      ],
+      "markdown": "This is a closed-moment enclosure of the coupled remainder expectations, with no Monte Carlo or unbounded-domain quadrature. It establishes narrowing of the nonlinear component at one deterministic-variance point. It does not compute a complete price interval, a signed Asian leading coefficient, or a coupled certificate for $`\\xi\\gt 0`$. The two precisions and two algebraic Gaussian-moment expressions share the analytical proof and Arb; they are arithmetic consistency checks."
     },
     {
       "type": "heading",

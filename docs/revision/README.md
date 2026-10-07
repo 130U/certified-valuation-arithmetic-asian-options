@@ -16,6 +16,7 @@ sources, outputs and failed attempts are in `../../code/revision/results/evidenc
 - `final-step-review.md`: exact step/fee reconciliation and stopping reasons.
 
 Reviews do not fill the outstanding computations listed in
-`../../REVISION-RESPONSE-zh.md`. In particular the new coupled moments, tightly
-signed twelve-dimensional Asian coefficient integral, and expanded Heston
-parameter certificates have not been computed.
+`../../REVISION-RESPONSE-zh.md`. The subsequent targeted revision adds one different stochastic Heston point
+and a deterministic-variance closed-moment coupling example; see
+`../revision-round2/`. Tight signed twelve-dimensional Asian coefficient
+integration and positive-volatility coupled moments remain uncomputed.

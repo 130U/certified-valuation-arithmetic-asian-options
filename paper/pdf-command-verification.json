@@ -1,0 +1,46 @@
+{
+  "status": "PASS_EXPORTED_PDF_COMMANDS_AND_REAL_ARGUMENT_PARSER",
+  "pdf_sha256": "1ceb85eae0f3d28805180d3e4c463838f1be83baa8940c880fae61aaa938d3e4",
+  "copied_commands": [
+    "./.venv/Scripts/python.exe code/run.py verify",
+    "./.venv/Scripts/python.exe code/run.py run --module asian --independent",
+    "./.venv/Scripts/python.exe code/run.py check --run code/runs/run-ID"
+  ],
+  "parsed_arguments": {
+    "modules": [
+      "asian"
+    ],
+    "independent": true,
+    "run_placeholder": "code/runs/run-ID"
+  },
+  "original_runner_sha256": "52e8e9250553885b2b43020909e6ce24d4488b7a920b3a48865522d0eaf73e6c",
+  "additional_actual_source_parser_checks": [
+    {
+      "command": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point",
+      "source_sha256": "118278239eaa2ba9221e3d30cb4ef4503d425422660fc120961b14ef5055ddd5",
+      "arguments": {
+        "mode": "prepare",
+        "directory": "new-point"
+      }
+    },
+    {
+      "command": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point",
+      "source_sha256": "118278239eaa2ba9221e3d30cb4ef4503d425422660fc120961b14ef5055ddd5",
+      "arguments": {
+        "mode": "run",
+        "directory": "new-point"
+      }
+    },
+    {
+      "command": "./.venv/Scripts/python.exe code/revision/round2_coupling_example.py --output coupling.json",
+      "source_sha256": "68b7b89ceb62cacc98dfedd3a682c251a0ca74acee8d2271fb6e879c7c18b796",
+      "arguments": {
+        "output": "coupling.json"
+      }
+    }
+  ],
+  "placeholder_rule": "Replace run-ID with the directory printed by a real completed run.",
+  "completed_run_recheck_status": "PASS_EXACT_MATHEMATICAL_PAYLOAD",
+  "completed_run_jobs": 10,
+  "scope": "Exact PDF text and real argparse acceptance; completed-result recheck is separate from fresh execution."
+}

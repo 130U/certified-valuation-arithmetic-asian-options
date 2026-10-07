@@ -33,7 +33,7 @@ PREAMBLE = r'''\documentclass[11pt,a4paper]{article}
 \setlength{\parskip}{0pt}
 \title{Certified Valuation of Arithmetic Asian Options via Common Gaussian Smoothing\\[6pt]\small Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterior Quantile Transfer}
 \author{Theodore Ouyang, Duke University\\\small 2080 Duke University Road, Durham, NC 27708, USA\\\texttt{10@alumni.duke.edu}\\\texttt{theodore.oy2025@gmail.com}}
-\date{Major revision: 7 October 2026\\\small Original manuscript: 2024}
+\date{Targeted revision: 7 October 2026\\\small Original manuscript: 2024}
 \begin{document}
 \maketitle
 '''
@@ -219,7 +219,7 @@ def inline_md(nodes):
 
 
 def tokenize(s):
-    pat = re.compile(r'\\\[|\\begin\{tabularx\}|\\begin\{enumerate\}|\\(?:section\*?|subsection)\{|\\appendix\b')
+    pat = re.compile(r'\\\[|\\begin\{(?:tabularx|enumerate|verbatim)\}|\\(?:section\*?|subsection)\{|\\appendix\b')
     pos = 0
     while True:
         m = pat.search(s, pos)
@@ -235,7 +235,7 @@ def tokenize(s):
             yield 'display', s[m.end():end]
             pos = end + 2
         elif marker.startswith(r'\begin'):
-            env = 'tabularx' if 'tabularx' in marker else 'enumerate'
+            env = next(e for e in ('tabularx','enumerate','verbatim') if e in marker)
             end = s.index(r'\end{' + env + '}', m.end()) + len(r'\end{' + env + '}')
             yield env, s[m.start():end]
             pos = end
@@ -251,6 +251,7 @@ def tokenize(s):
 def clean_prose(s):
     s = re.sub(r'^%.*$', '', s, flags=re.M)
     s = re.sub(r'\\(?:begingroup|endgroup|small)\b', '', s)
+    s = re.sub(r'\\noindent\b', '', s)
     s = re.sub(r'\\(?:begin|end)\{center\}', '', s)
     s = re.sub(r'\\setlength\{\\tabcolsep\}\{[^}]*\}|\\renewcommand\{\\arraystretch\}\{[^}]*\}', '', s)
     return s
@@ -329,6 +330,10 @@ def make_blocks(s, citations, abstract=False):
             items = [{'inlines': inlines(x.strip(), citations)} for x in inner.split(r'\item')[1:]]
             b = {'type': 'ordered_list', 'items': items,
                  'markdown': '\n'.join(str(i) + '. ' + inline_md(x['inlines']) for i, x in enumerate(items, 1))}
+        elif kind == 'verbatim':
+            code=text[len(r'\begin{verbatim}'):-len(r'\end{verbatim}')].strip('\n')
+            b={'type':'code_block','language':'text','text':code,
+               'markdown':'```text\n'+code+'\n```'}
         elif kind == 'tabularx':
             rows = table_rows(text, citations)
             mdrows = ['| ' + ' | '.join(inline_md(c['inlines']).replace('|', r'\|') for c in r) + ' |' for r in rows]
@@ -424,7 +429,7 @@ def main():
     document = {'schema_version': 1, 'metadata': META, 'counts': counts, 'blocks': blocks, 'references': refs}
     title = '# ' + META['title'] + '\n\n' + META['subtitle'] + '\n\n**' + META['author'] + '** · ' + META['affiliation'] + '\n\n'
     title += ' · '.join('[' + e + '](mailto:' + e + ')' for e in META['emails']) + '\n\n'
-    title += '**Version:** Major revision, 7 October 2026; original manuscript 2024.\n\n'
+    title += '**Version:** Targeted revision, 7 October 2026; original manuscript 2024.\n\n'
     title += '**Keywords:** ' + '; '.join(META['keywords']) + '.\n\n'
     md = title + '\n\n'.join(b['markdown'] for b in blocks) + '\n'
     bib = src.split(r'\begin{thebibliography}{12}', 1)[1].split(r'\end{thebibliography}', 1)[0]
