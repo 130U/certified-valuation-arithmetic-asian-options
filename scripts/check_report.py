@@ -51,22 +51,26 @@ def main():
                 tex = tex.replace(r'\|', '|')
             actual.append(('inline', compact(tex)))
     assert actual == expected, 'Markdown formulas differ from the structured source'
-    assert Counter(kind for kind, _ in actual) == {'display': 147, 'inline': 373}
+    assert Counter(kind for kind, _ in actual) == {'display': report['counts']['display_math'], 'inline': report['counts']['inline_math']}
     for _, tex in actual:
         assert not re.search(r'(?<!\\)[<>]', tex), 'Use TeX comparison macros in rendered formulas'
         assert r'\operatorname' not in tex, 'Use a base operator macro in rendered formulas'
         assert not re.search(r'\\nolimits[A-Za-z]', tex), 'A macro needs a token separator'
     tags = re.findall(r'\\tag\*?\{([^}]+)\}', md)
-    assert len(tags) == 88 and len(set(tags)) == 88
+    assert len(tags)==len(set(tags))==report['counts']['equation_tags']
+    baseline=json.loads((ROOT/'scripts/baseline-equation-tags.json').read_text(encoding='utf8'))
+    assert set(baseline).issubset(set(tags)), 'An original numbered equation was removed'
     assert '$$' not in md and re.sub(pattern, '', md).count('$') == 0
-    assert md.count('\n| ---') == 4
+    assert md.count('\n| ---') == report['counts']['tables']
     for filename, digest in receipt['artifacts'].items():
         assert hashlib.sha256((PAPER / filename).read_bytes()).hexdigest() == digest
     assert receipt['formula_sequence_exactly_preserved']
 
     readme = (ROOT / 'README.md').read_text(encoding='utf8')
-    assert readme.count('Independent research originating in 2024.') == 1
-    assert not re.search(r'20(?:23|26)', md + readme)
+    assert '2023–2024' in readme and '2026' in readme
+    assert 'Research timeline' in md and '2023–2024' in md
+    assert not re.search(r'(?<![A-Za-z0-9])V[1-5](?![A-Za-z0-9])|\*\*Version:', md + readme, re.I)
+    assert 'planned for release' not in md.lower()
     assert not re.search(r'HTML reading edition|research website|docs/index|GitHub Pages', md + readme, re.I)
     for text, base in ((md, PAPER), (readme, ROOT)):
         for href in re.findall(r'\]\(([^)]+)\)', text):
@@ -75,9 +79,9 @@ def main():
             assert (base / href).exists(), 'Missing repository link: ' + href
     assert not list(ROOT.glob('docs/**/*.html'))
     assert not (ROOT / '.github/workflows/pages.yml').exists()
-    print(json.dumps({'status': 'PASS', 'display_math': 147, 'inline_math': 373,
-                      'equation_tags': 88, 'mathematical_sequence_preserved': True,
-                      'source_year': 2024, 'repository_links': 'PASS'}))
+    print(json.dumps({'status': 'PASS', 'display_math': report['counts']['display_math'], 'inline_math': report['counts']['inline_math'],
+                      'equation_tags': len(tags), 'mathematical_sequence_preserved': True,
+                      'research_period': '2023–2024', 'repository_links': 'PASS'}))
 
 
 if __name__ == '__main__':

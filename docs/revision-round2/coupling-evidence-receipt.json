@@ -1,0 +1,23 @@
+{
+  "status": "PUBLIC_SOURCE_RESULT_AND_PROOF_HASH_READBACK_PASS",
+  "source_result_binding": true,
+  "files": [
+    {
+      "path": "code/revision/round2_coupling_example.py",
+      "sha256": "68b7b89ceb62cacc98dfedd3a682c251a0ca74acee8d2271fb6e879c7c18b796"
+    },
+    {
+      "path": "code/revision/round2/results/coupling-v004-result.json",
+      "sha256": "f266d6a3135e000a9d12e0429bec477f68198b41968963fe83525a559f8f51fd"
+    },
+    {
+      "path": "docs/revision-round2/coupling-v004-proof.md",
+      "sha256": "31325e841b5f7f724f082ac4dbc210a1ac17a3235fc658a3f8650df9f2172d35"
+    },
+    {
+      "path": "docs/revision-round2/coupling-v004-fragment.tex",
+      "sha256": "df2859f4a0193d28533992386f9c02dbefffb9635b817fbbcf3a3e8b5cf14071"
+    }
+  ],
+  "method": "Closed lognormal moments and outward inequalities; internal proof and scalar-moment checks."
+}

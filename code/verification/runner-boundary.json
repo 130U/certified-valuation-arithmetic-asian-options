@@ -1,0 +1,160 @@
+{
+  "status": "REAL_SUBPROCESS_RUNNER_BOUNDARY_TESTS_PASS",
+  "scope": "Ten controlled process cases and five frozen-result schema tests. No pricing implementation is simulated.",
+  "runner_sha256": "d0ef172a99633538903c726decb6929fea1767b2abddc892c39fd6c63e6a615c",
+  "test_source_sha256": "063ed26bc7d34c4b8a5ccb19ad85b85dbe4e2dee996a03570f66782340f6ab34",
+  "controlled_cases": [
+    {
+      "case": "timeout",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": true,
+      "returncode": 1,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "f29c1d37f4247a6ea7d9d29299ed131fbf1124ec663767fcf58ef457d95ea327"
+    },
+    {
+      "case": "nonzero",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": false,
+      "returncode": 7,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "3cfbf72ed503e897c7f9fcac7d261be1625185bc5f52ae44c9693923c9e02189"
+    },
+    {
+      "case": "existing",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": false,
+      "returncode": null,
+      "reaped": false,
+      "final_capsule_present": false,
+      "receipt_sha256": "c2f2de1b8e2fdbdacadb216b259646c76ba411655f3ebc177ae0b488b506658a"
+    },
+    {
+      "case": "missing",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "f28017d5b89af489ee8319c7f1a09bf86753ec1b41eed59f263e6ee3843f99c9"
+    },
+    {
+      "case": "incomplete",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "59638c90fc1ac08d1d9268048f2e30d481ad46fa3e8b94ccb0fcf0efbd27da60"
+    },
+    {
+      "case": "invalid_status",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "7ec92addcee54f5fca149be8eefa4bfcf54882c85bad7e488cfada3e5bad8ffd"
+    },
+    {
+      "case": "invalid_json",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "STOPPED",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "e7b264a4cb8443e371eb188c093ca49fe463d199dfcceb88d5b7a243c3556b10"
+    },
+    {
+      "case": "finalizer_failure",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "COMPLETE",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "872459bd177968e5855e1c1b2bc23ba44a506e52d816f0a4bc2540bc4e4dc91b"
+    },
+    {
+      "case": "finalizer_after_output",
+      "cli_returncode": 1,
+      "receipt_status": "STOPPED",
+      "job_status": "COMPLETE",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": false,
+      "receipt_sha256": "63a3e00ee506e7e7a8da6a38c4e3f71a9b7953aa3c8c2c98bc59da8c87132448"
+    },
+    {
+      "case": "success",
+      "cli_returncode": 0,
+      "receipt_status": "COMPLETE",
+      "job_status": "COMPLETE",
+      "timed_out": false,
+      "returncode": 0,
+      "reaped": true,
+      "final_capsule_present": true,
+      "receipt_sha256": "0518c3aa8aa65102fe8f902c4d7f8a43647eaea9021b467aeaf2fb41f35c12ab"
+    }
+  ],
+  "production_schema_checks": [
+    {
+      "job": "asian-W",
+      "complete_frozen_result_accepted": true,
+      "truncated_result_rejected": true,
+      "wrong_status_rejected": true,
+      "empty_interval_rejected": true,
+      "frozen_result_sha256": "23097f25816157975ddca8ee211d57bf75663ad2858a3b9833871e601dd90caa"
+    },
+    {
+      "job": "asian-pilot",
+      "complete_frozen_result_accepted": true,
+      "truncated_result_rejected": true,
+      "wrong_status_rejected": true,
+      "empty_interval_rejected": true,
+      "frozen_result_sha256": "9b41a96d4296435fd6819df089343b78e5f945aca19ae9b102908d1b4f57849c"
+    },
+    {
+      "job": "asian-linear",
+      "complete_frozen_result_accepted": true,
+      "truncated_result_rejected": true,
+      "wrong_status_rejected": true,
+      "empty_interval_rejected": true,
+      "frozen_result_sha256": "7d1adea5db08ae7ff56e0029f45b9485d9cb695d3217371f6f01d7bbce95a44b"
+    },
+    {
+      "job": "asian-W-check",
+      "complete_frozen_result_accepted": true,
+      "truncated_result_rejected": true,
+      "wrong_status_rejected": true,
+      "empty_interval_rejected": true,
+      "frozen_result_sha256": "af67dabe704794467919872d14c1b6671ee899838163adcf2a6b5bf5a4bece6e"
+    },
+    {
+      "job": "asian-linear-check",
+      "complete_frozen_result_accepted": true,
+      "truncated_result_rejected": true,
+      "wrong_status_rejected": true,
+      "empty_interval_rejected": true,
+      "frozen_result_sha256": "e313996bfa1d3a27d18bda3b5fe5ea4f3f206e53d19e701bc8663ff9b5e76e98"
+    }
+  ]
+}

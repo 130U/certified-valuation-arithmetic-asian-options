@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE_SECOND_POINT_EVIDENCE_FROZEN",
+  "archive": "evidence-point-v004.zip",
+  "archive_sha256": "338964eadb54b51fc1b0ff027df61da870cb2f4ae304421e7f1788bd47310db3",
+  "archive_bytes": 602524,
+  "inventory_sha256": "899aab3251a501a74ac2e9a117a6495d5e4f5404de6fdebdbc5a6f1f93504166",
+  "inventory_file_count": 52,
+  "capsule_sha256": "3bfdca34a5df9611f177c2e289f5be9c3a3434f73cd59644b1ef3678f8cc81ca",
+  "execution_receipt_sha256": "b9d3c3cde98affa537602f858a7edeeb362a9b15fc43a9b349f78d7622475bce",
+  "independent_audit_receipt_sha256": "f66b92e456fff309d8842e0b28236224bb89991f42bab8b776d0914d59aebc45",
+  "old_evidence_archive_untouched": true,
+  "pack_script_sha256": "9c337286ddfd984100f1760c995eac3b0b85b280545c5b98c5c60bf18719ce79"
+}

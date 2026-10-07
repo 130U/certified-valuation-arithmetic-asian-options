@@ -1,42 +1,193 @@
 \section{Reproducible implementation}
 
-The public \href{../code/README.md}{implementation guide} describes the numerical
-entry point \texttt{code/run.py}. The configuration in
-\texttt{code/configuration.json} specifies the parameter domain and module
-dependencies for each theorem. Core programs are stored in \texttt{code/core/},
-reference results in \texttt{code/reference/}, and the exact synthetic calibration
-inputs in \texttt{code/data/synthetic\_quotes.json}.
-Each execution creates an isolated output directory and preserves the reference results.
+Start with the \texttt{paper} tag at
+\url{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper}.
+It contains the manuscript, step-grid and posterior-grid experiments, the second
+Heston point, and the deterministic coupling example. The root
+\texttt{REVISION-MANIFEST.json} lists the files in this checkout and their hashes;
+\texttt{code/MANIFEST.json} retains the frozen original numerical package identity.
 
+Historical data remain available at
+\href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b}{commit \texttt{cf0d242f1590c7ca07ab8ca7afb57da5a583032b}}
+for the grid experiments, and
+\href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db}{commit \texttt{1959f8f078e1fedd590000d6166cb20429ff31db}}
+for the second-point and coupling data. The original kernel baseline is
+\texttt{5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a}.
+
+\noindent\textbf{Table~G.1. Numerical modules and their results.}
 \begin{center}
 \begin{tabularx}{\textwidth}{@{}l X@{}}
 \toprule
 Module & Corresponding result \\
 \midrule
-\texttt{asian} & The complete certificate at the original point in Theorem~4.1 and Corollary~4.2 \\
-\texttt{tt} & Theorem~6.1 and the effective constants on (6.10) \\
-\texttt{small-xi} & The five-dimensional parameter box (7.4) \\
-\texttt{posterior-zero} & Posterior and target constants for the Gaussian reference \\
-\texttt{posterior} & Theorem~7.1 and the full three-dimensional prior (7.5) \\
+\texttt{asian} & Theorem 4.1 and Corollary 4.2 at the original point. \\
+\texttt{tt} & Theorem 6.1 and constants on the deterministic face (6.10). \\
+\texttt{small-xi} & The five-dimensional perturbation box (7.4). \\
+\texttt{posterior-zero} & Gaussian-reference posterior and target constants. \\
+\texttt{posterior} & The restricted prior (7.5) and Theorem 7.1. \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-From the repository root, install the specified dependency with
-\texttt{python -m pip install -r code/requirements.txt}.
-Run all author modules and independent recomputations with
-\texttt{python code/run.py run --module all --independent}.
-The \texttt{--module} option also accepts any single module in the table.
-The \texttt{verify} command checks the per-file SHA manifest; the
-\texttt{check --run} command compares the mathematical fields of an execution
-directory with their reference values. Runtime and output-location metadata are
-separate from these mathematical comparisons.
+The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with
+\texttt{python-flint==0.8.0}. From the publication checkout, the commands
+below create the environment, verify the original package and execute the original
+Asian certificate with both implementations. Each double hyphen is a literal
+command-line character.
 
-The reference environment is Windows x86-64, CPython~3.12, and python-flint~0.8.0.
-Each numerical worker uses one thread and a hard memory limit of 256~MiB;
-an outer controller enforces timeouts and checks the results.
-The implementation's domains and theorem associations are documented in
-\href{../code/SCOPE.md}{the numerical scope guide}.
-The price conclusions rely on mathematical proofs and validated arithmetic
-enclosures; the implementation makes the finite numerical inputs and error
-bounds reproducible.
+\begin{verbatim}
+py -3.12 -m venv .venv
+./.venv/Scripts/python.exe -m pip install -r code/requirements.txt
+./.venv/Scripts/python.exe code/run.py verify
+./.venv/Scripts/python.exe code/run.py run --module asian --independent
+\end{verbatim}
+
+The run prints its new directory under \texttt{code/runs/}. Replace
+\texttt{run-ID} below with that directory name. To execute every original module,
+replace \texttt{asian} in the preceding command with \texttt{all}.
+
+\begin{verbatim}
+./.venv/Scripts/python.exe code/run.py check --run code/runs/run-ID
+\end{verbatim}
+
+Installation may require network access. The numerical calculations do not.
+No dependency wheel is included; offline installation requires an authentic
+compatible wheel obtained separately. Assertions enforce mathematical conditions
+and resource contracts. Each worker uses one thread and a 256 MiB hard memory limit.
+
+The original completed execution and the additional experiments are preserved in
+\texttt{code/revision/results/evidence.zip}. Its inventory binds each member's
+bytes and SHA-256. The index \texttt{code/revision/results/INDEX.md} gives archive
+extraction and ledger-replay commands; \texttt{code/revision/README.md} gives fresh
+calculation commands and experiment inputs. Saved-result verification and fresh
+kernel execution are distinct operations.
+
+The step-grid ledger
+\texttt{code/revision/results/revision-summary.json} maps each printed numerical
+row to the exact source field, result, hash and receipt. The original weighted
+moments are in \texttt{code/reference/asian-remainder-result.json}; the linear
+center, transform contributions and signed price enclosure are in
+\texttt{code/reference/asian-linear-result.json}. Exact synthetic observations are
+in \texttt{code/data/synthetic\_quotes.json}. Appendices A, B and C describe the
+nonlinear catalog, original projected recurrence and linear inversion, respectively.
+
+The reference comparison includes every numerical JSON field, including arrays
+and rational endpoints. Only hash metadata and six named elapsed-time fields are
+excluded. The alternative constructions described below share
+Arb and the analytical inequalities; numerical agreement verifies the implemented
+finite calculations within those assumptions, without supplying an independent
+derivation of the common inequalities.
+
+The experiment archive retains stopped attempts and successful completions.
+At 192 steps the fixed projection inequality fails its required exponent bound.
+The initial 384-step attempt stopped at the original numerical radius target;
+the successful enclosure records that target as false while preserving every
+analytical condition. At 1536 steps the initial worker exceeded its original
+wall-time allowance. The completed run multiplies that finite allowance by
+\texttt{ceil(N/768)}, retaining the mathematical guards, precision, thread and
+memory limits. Separate weighted-moment experiments use the analogous declared
+runtime scaling. Receipts distinguish analytical exclusion, numerical acceptance
+targets and resource stops. Reported task times are machine- and load-specific.
+
+
+\subsection{Numerical constructions and recorded cost}
+
+
+The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and
+815,360 discrete real-recursion steps at the principal point. The linear module
+evaluates 641 frequencies and thirteen profiles, for 6,399,744 discrete steps
+and 799,968 continuous branch checks. The principal programs use 256-bit
+Arb~\cite{Johansson2017}; the check programs use 384-bit Arb with different
+numerical constructions.
+
+For the weighted remainder, \texttt{check-asian-remainder.py} replaces the
+principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow,
+constructs the loading catalog from ordered pairs, and separately indexes the
+reverse discrete grid. It accumulates the projection prefix as a product rather
+than exponentiating a sum. For linear inversion,
+\texttt{check-asian-linear.py} replaces the principal real/imaginary discrete
+recursion by a complex \texttt{acb} recursion and expresses the continuous
+hyperbolic blocks through exponentials. It verifies every frequency contribution
+and recomputes the finite error allowances without calling the principal
+numerical functions. The checks share Arb, the analytic identities, and the
+theoretical bounds. They test implementation consistency and arithmetic
+stability rather than supplying independent derivations of those bounds.
+The root-flow and matrix-flow calculations also enclose the same grouped
+positive moments used in (4.11).
+
+Historical worker times for the original nonlinear and linear modules were
+approximately 12.02 and 33.20 seconds, respectively, with one thread and a
+256~MiB hard memory limit per process. In the step-grid study, the summed
+outer wall times for the five Asian tasks were approximately 122.3, 184.0,
+and 431.6 seconds at 384, 768, and 1536 steps. These latter observations
+include controllers and check programs under the recorded execution load;
+they are not portable performance guarantees. Each receipt retains its job
+times, operation counts, and resource contract.
+
+
+
+\subsection{Sampling illustrations and posterior marginal envelopes}
+
+
+The Asian coefficient illustration uses binary64 arithmetic and 2,097,152
+Gaussian increment vectors per point. It evaluates the exact
+deterministic-variance Gaussian coefficient integrand and density-ratio residual
+with common vectors across the four step sizes. Subtracting the known zero-mean
+score and using \texttt{expm1} reduces cancellation in the scaled residual.
+Inputs, seeds, formulas, sampling estimates, and estimated standard errors
+are recorded in \texttt{code/revision/results/asian-beta-diagnostic.json}.
+Its normal-approximation sampling intervals are distinct from the analytic
+coefficient enclosures and deterministic remainder bounds in Section~6.
+
+The separate NumPy path study uses 32,768 paths for each of fourteen cases,
+coupling the original projected Euler grid to a grid with twice as many steps.
+The file \texttt{code/revision/results/path-diagnostics.json} records seeds,
+binary64 inputs, sampled prices, standard errors, and negative-proposal counts.
+Its fine law retains discretization bias, so these sampling results do not
+enclose the continuous-model price.
+
+The posterior grid summary,
+\texttt{code/revision/results/posterior-grid-summary.json}, retains full rational
+CDF envelopes and the 2.5, 50, and 97.5 percent quantile brackets of the
+initial-variance marginal. The absolute Asian-price target quantiles are
+not part of that computation.
+
+
+\subsection{Second-point and coupled-moment reproduction}
+
+The completed second Heston point in Section~8.3 and the executed deterministic
+coupling example in Appendix I are frozen, together with their programs,
+inputs, results and receipts, at
+\href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db}{commit \texttt{1959f8f078e1fedd590000d6166cb20429ff31db}}.
+Use the publication checkout and the same Windows environment, with a new directory name:
+
+\begin{verbatim}
+./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point
+./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point
+\end{verbatim}
+
+The run writes its result capsule in the new directory. The point configuration
+changes only \(v_0\) to \(1/25\). The preparation checks
+the original numerical manifest and constructs explicit parameter copies.
+The weighted, linear, pilot and two alternative-construction jobs recompute
+all affected quantities. Declared worker budgets are 120 seconds for each
+weighted calculation, 360 for each linear calculation and 30 for the pilot;
+the one-thread and 256 MiB limits remain fixed. The recorded five-job outer time
+is approximately 97.5 seconds. The archive
+\texttt{code/revision/round2/results/evidence-point-v004.zip} contains all 52
+execution members and their inventory. Its SHA-256 and standard-library replay
+instructions are in \texttt{code/revision/round2/README.md}. The exact six-component
+width ledger is in \texttt{code/revision/round2/results/point-v004-result.json}.
+
+The deterministic coupling example uses finite closed Gaussian moments at
+384 and 512 bits. Its fresh calculation command is
+
+\begin{verbatim}
+./.venv/Scripts/python.exe code/revision/round2_coupling_example.py --output coupling.json
+\end{verbatim}
+
+The exact result is \texttt{code/revision/round2/results/coupling-v004-result.json}.
+The self-contained proof and source/result hash receipt are in
+\texttt{docs/revision-round2/}. A separate scalar covariance-moment evaluation
+also agrees with the enclosures. This comparison verifies the nonlinear
+component on \(\xi=0\); it does not replace the positive-\(\xi\) pricing calculation.

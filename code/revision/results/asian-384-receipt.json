@@ -1,0 +1,96 @@
+{
+  "status": "COMPLETE",
+  "h": "1/384",
+  "script_sha256": "5343314a094545aac1b142b4000414eda362dcf218881a283e412f163d8cb687",
+  "source_patches": [
+    {
+      "source": "asian-remainder-certificate.py",
+      "original_sha256": "7c9a8d15a8576250e601f97950a2e6b8142852308e762a7711c2c1a1bf7f901f",
+      "executed_sha256": "97da6739eb1050182af2497f1cb63ab955f0b47b4944792bd1f091a9bcbb7716",
+      "changes": "Finite step parameter N=384; month loop/index/counter values; source-identity pin rebound to the executed author copy. The original remainder radius < .011 result-acceptance assertion is recorded as a boolean, allowing a wider valid enclosure to be reported. All fees, analytical preconditions, branch guards, precision and resource controls retained."
+    },
+    {
+      "source": "asian-linear-certificate.py",
+      "original_sha256": "dbe13d37a5ad6db8dcda674cc1bddae7b6049329de2cc23e8b115af10409c5a8",
+      "executed_sha256": "0bdabe290c10d1891ed9644bb012f50b9974451293aa48dfd605e79940691398",
+      "changes": "Finite step parameter N=384; month loop/index/counter values; source-identity pin rebound to the executed author copy. The original remainder radius < .011 result-acceptance assertion is recorded as a boolean, allowing a wider valid enclosure to be reported. All fees, analytical preconditions, branch guards, precision and resource controls retained."
+    },
+    {
+      "source": "check-asian-remainder.py",
+      "original_sha256": "30702cc306d9c5456fd1ff505e8fb15f4773ef38955a22a6b0db67f9440a4347",
+      "executed_sha256": "6554b32f7662b3cfc5f6dbdd8481e821de9730c1873bbedd2ea7ee2918b5eb68",
+      "changes": "Finite step parameter N=384; month loop/index/counter values; source-identity pin rebound to the executed author copy. The original remainder radius < .011 result-acceptance assertion is recorded as a boolean, allowing a wider valid enclosure to be reported. All fees, analytical preconditions, branch guards, precision and resource controls retained."
+    },
+    {
+      "source": "check-asian-linear.py",
+      "original_sha256": "28fddd6f239e8a923e67b0e6f4b89775652ca7f22baccb3de7c23873da15abce",
+      "executed_sha256": "7e500291b0014a870b8db2c037568bfc1fd8c079260b3176bf3bc6ec2679023e",
+      "changes": "Finite step parameter N=384; month loop/index/counter values; source-identity pin rebound to the executed author copy. The original remainder radius < .011 result-acceptance assertion is recorded as a boolean, allowing a wider valid enclosure to be reported. All fees, analytical preconditions, branch guards, precision and resource controls retained."
+    }
+  ],
+  "jobs": [
+    {
+      "id": "asian-W",
+      "source": "asian-remainder-certificate.py",
+      "source_sha256": "97da6739eb1050182af2497f1cb63ab955f0b47b4944792bd1f091a9bcbb7716",
+      "returncode": 0,
+      "seconds": 10.778535199933685,
+      "log": "asian-W.log",
+      "status": "COMPLETE",
+      "result": "asian-remainder-result.json",
+      "result_sha256": "3dfe72de9b65955cff6521324253e3f3709c8c8cfa7a0126e1b2726f4105956a",
+      "numerical_status": "CERTIFIED_ORIGINAL_ASIAN_WEIGHTED_REMAINDER_ONLY"
+    },
+    {
+      "id": "asian-pilot",
+      "source": "asian-linear-certificate.py",
+      "source_sha256": "0bdabe290c10d1891ed9644bb012f50b9974451293aa48dfd605e79940691398",
+      "returncode": 0,
+      "seconds": 0.5942251000087708,
+      "log": "asian-pilot.log",
+      "status": "COMPLETE",
+      "result": "asian-linear-pilot-result.json",
+      "result_sha256": "26d8ba6b6ef6f5ed72dec4a43474ce4f4a53e2d7660431604d9790d75de220d6",
+      "numerical_status": "PILOT_ONLY_NO_PRICE_CLAIM"
+    },
+    {
+      "id": "asian-linear",
+      "source": "asian-linear-certificate.py",
+      "source_sha256": "0bdabe290c10d1891ed9644bb012f50b9974451293aa48dfd605e79940691398",
+      "returncode": 0,
+      "seconds": 44.536765299970284,
+      "log": "asian-linear.log",
+      "status": "COMPLETE",
+      "result": "asian-linear-result.json",
+      "result_sha256": "84909f085372a75419af1af7acc3d9183a438f2979b05de573aa4a688af7790e",
+      "numerical_status": "COMPLETE_ORIGINAL_ASIAN_PQ_CERTIFICATE"
+    },
+    {
+      "id": "asian-W-check",
+      "source": "check-asian-remainder.py",
+      "source_sha256": "6554b32f7662b3cfc5f6dbdd8481e821de9730c1873bbedd2ea7ee2918b5eb68",
+      "returncode": 0,
+      "seconds": 15.660870900028385,
+      "log": "asian-W-check.log",
+      "status": "COMPLETE",
+      "result": "check-asian-remainder-result.json",
+      "result_sha256": "d94f696c4bd1c82ddaa8cbec160889e6452fa4d074bf866fb8d050a49ba906b5",
+      "numerical_status": "NONAUTHOR_FULL_WEIGHTED_REMAINDER_RECOMPUTATION_PASS"
+    },
+    {
+      "id": "asian-linear-check",
+      "source": "check-asian-linear.py",
+      "source_sha256": "7e500291b0014a870b8db2c037568bfc1fd8c079260b3176bf3bc6ec2679023e",
+      "returncode": 0,
+      "seconds": 50.74287610000465,
+      "log": "asian-linear-check.log",
+      "status": "COMPLETE",
+      "result": "check-asian-linear-result.json",
+      "result_sha256": "572cc935fae6e97931c6ee4a2a2f4135351fa156fe585ef28c92583d1717c0a3",
+      "numerical_status": "INDEPENDENT_FULL_ORIGINAL_ASIAN_CERTIFICATE_PASS"
+    }
+  ],
+  "analytical_projection_beta_expected": "745531727/92160000",
+  "no_claim": "A stopped job gives no complete price enclosure at this grid.",
+  "independent_all_nodes_and_frequency_fees_pass": true
+}

@@ -1,0 +1,255 @@
+{
+  "status": "STATISTICAL_DIAGNOSTIC",
+  "paths": 2097152,
+  "seed": 2026100701,
+  "numpy_version": "2.3.5",
+  "source_sha256": "166968fec8609f08113d6191a527957500b908861064a29427d6eff73a84fa21",
+  "rows": [
+    {
+      "v0": "0.03",
+      "beta_Asian": {
+        "estimate": -0.04101545629311944,
+        "standard_error": 0.0020790543752907927,
+        "normal_approximation_95_interval": [
+          -0.04509040286868939,
+          -0.03694050971754948
+        ]
+      },
+      "continuous_Asian_price": {
+        "estimate": 6.186395555648139,
+        "standard_error": 0.004171987841431957,
+        "normal_approximation_95_interval": [
+          6.1782184594789324,
+          6.194572651817346
+        ]
+      },
+      "scaled_weak_residuals": [
+        {
+          "h": "1/192",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.06324282946736208,
+          "standard_error": 0.0037640796554272845,
+          "normal_approximation_95_interval": [
+            -0.07062042559199956,
+            -0.0558652333427246
+          ]
+        },
+        {
+          "h": "1/384",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.06294401209288401,
+          "standard_error": 0.0037434290934717884,
+          "normal_approximation_95_interval": [
+            -0.07028113311608872,
+            -0.05560689106967931
+          ]
+        },
+        {
+          "h": "1/768",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.06279578508110109,
+          "standard_error": 0.003733196788008377,
+          "normal_approximation_95_interval": [
+            -0.07011285078559751,
+            -0.055478719376604674
+          ]
+        },
+        {
+          "h": "1/1536",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.06272196373524189,
+          "standard_error": 0.00372810361977407,
+          "normal_approximation_95_interval": [
+            -0.07002904682999907,
+            -0.05541488064048471
+          ]
+        }
+      ]
+    },
+    {
+      "v0": "0.04",
+      "beta_Asian": {
+        "estimate": -0.01136422409467958,
+        "standard_error": 0.0005664029164763263,
+        "normal_approximation_95_interval": [
+          -0.012474373810973178,
+          -0.01025407437838598
+        ]
+      },
+      "continuous_Asian_price": {
+        "estimate": 6.211944003064076,
+        "standard_error": 0.004232492148938853,
+        "normal_approximation_95_interval": [
+          6.203648318452156,
+          6.220239687675996
+        ]
+      },
+      "scaled_weak_residuals": [
+        {
+          "h": "1/192",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.017225502688985442,
+          "standard_error": 0.001007795246683563,
+          "normal_approximation_95_interval": [
+            -0.019200781372485227,
+            -0.015250224005485659
+          ]
+        },
+        {
+          "h": "1/384",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.017144921387963717,
+          "standard_error": 0.0010024942666260871,
+          "normal_approximation_95_interval": [
+            -0.019109810150550847,
+            -0.015180032625376587
+          ]
+        },
+        {
+          "h": "1/768",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.017104945122723498,
+          "standard_error": 0.0009998665507846532,
+          "normal_approximation_95_interval": [
+            -0.019064683562261417,
+            -0.015145206683185577
+          ]
+        },
+        {
+          "h": "1/1536",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": -0.01708503478432363,
+          "standard_error": 0.0009985583249327366,
+          "normal_approximation_95_interval": [
+            -0.019042209101191792,
+            -0.015127860467455467
+          ]
+        }
+      ]
+    },
+    {
+      "v0": "0.05",
+      "beta_Asian": {
+        "estimate": 0.008328799950483528,
+        "standard_error": 0.00048327540104455057,
+        "normal_approximation_95_interval": [
+          0.007381580164436209,
+          0.009276019736530847
+        ]
+      },
+      "continuous_Asian_price": {
+        "estimate": 6.22619514499139,
+        "standard_error": 0.004282545939852294,
+        "normal_approximation_95_interval": [
+          6.217801354949279,
+          6.234588935033501
+        ]
+      },
+      "scaled_weak_residuals": [
+        {
+          "h": "1/192",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.011697995434052352,
+          "standard_error": 0.0008699042332308769,
+          "normal_approximation_95_interval": [
+            0.009992983136919834,
+            0.013403007731184871
+          ]
+        },
+        {
+          "h": "1/384",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.011645960042049984,
+          "standard_error": 0.0008653346520664332,
+          "normal_approximation_95_interval": [
+            0.009949904123999775,
+            0.013342015960100193
+          ]
+        },
+        {
+          "h": "1/768",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.011620140016533486,
+          "standard_error": 0.000863069433543739,
+          "normal_approximation_95_interval": [
+            0.009928523926787758,
+            0.013311756106279214
+          ]
+        },
+        {
+          "h": "1/1536",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.011607279620907913,
+          "standard_error": 0.0008619416664607548,
+          "normal_approximation_95_interval": [
+            0.009917873954644834,
+            0.013296685287170993
+          ]
+        }
+      ]
+    },
+    {
+      "v0": "0.06",
+      "beta_Asian": {
+        "estimate": 0.019916693689089368,
+        "standard_error": 0.0012735361271727925,
+        "normal_approximation_95_interval": [
+          0.017420562879830695,
+          0.02241282449834804
+        ]
+      },
+      "continuous_Asian_price": {
+        "estimate": 6.247597965082436,
+        "standard_error": 0.004325798142407247,
+        "normal_approximation_95_interval": [
+          6.239119400723318,
+          6.256076529441554
+        ]
+      },
+      "scaled_weak_residuals": [
+        {
+          "h": "1/192",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.02791179578559146,
+          "standard_error": 0.002338038862744358,
+          "normal_approximation_95_interval": [
+            0.02332923961461252,
+            0.032494351956570404
+          ]
+        },
+        {
+          "h": "1/384",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.027784818709231215,
+          "standard_error": 0.0023256191427232942,
+          "normal_approximation_95_interval": [
+            0.023226605189493557,
+            0.03234303222896887
+          ]
+        },
+        {
+          "h": "1/768",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.027721820716663074,
+          "standard_error": 0.0023194630513874025,
+          "normal_approximation_95_interval": [
+            0.023175673135943764,
+            0.032267968297382384
+          ]
+        },
+        {
+          "h": "1/1536",
+          "quantity": "(e_h-h beta)/h^2",
+          "estimate": 0.027690443639970603,
+          "standard_error": 0.0023163983021962983,
+          "normal_approximation_95_interval": [
+            0.023150302967665858,
+            0.03223058431227535
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": "Normal-approximation intervals use estimated sampling error. Neither signed coefficient nor continuous-model price is rigorously enclosed. Residuals use exact Gaussian law formulas evaluated in binary64.",
+  "elapsed_seconds": 17.20724739995785
+}

@@ -14,64 +14,31 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'manuscript'
 META = {
-    'title': 'Certified Valuation of Arithmetic Asian Options via Common Gaussian Smoothing',
-    'subtitle': 'Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterior Quantile Transfer',
+    'title': 'Certified Valuation of Arithmetic Asian Options',
+    'subtitle': 'Common Gaussian Smoothing and Projected Euler Error Bounds',
     'author': 'Theodore Ouyang',
-    'affiliation': 'Duke University',
-    'emails': ['10@alumni.duke.edu', 'theodore.oy2025@gmail.com'],
+    'emails': ['theodore.oy2025@gmail.com', '10@alumni.duke.edu'],
     'keywords': ['Arithmetic Asian options', 'Heston model', 'projected Euler', 'conditional Gaussian smoothing', 'computable error bounds', 'weak error expansions', 'posterior quantiles'],
 }
 
-DOMAIN = r'''\section{Domain of validity}
-
-The main theorem provides sufficient conditions through the common Gaussian
-structure and finite verification inputs. Its scope consists of model classes for
-which those inputs can be established. Section~5 verifies a deterministic-variance
-class and the specified stochastic-variance model and projected kernel. Comparisons
-with other Asian bounds depend on their respective hypotheses and numerical inputs.
-
-The complete small-error Heston Asian certificate applies to the specified
-\(\theta_*\), step size, and fixing dates. A uniform certificate on a parameter
-neighborhood or an entire domain requires uniform moment, transform, projection,
-and tail inequalities. The five-dimensional box with small positive \(\xi\) in
-Section~7 is a separately certified region of positive volume, with a
-volatility-of-volatility range distinct from that of \(\theta_*\).
-
-The ten-payoff expansion holds on the deterministic-variance family \(\xi=0\).
-A corresponding expansion for positive \(\xi\) would require higher-order
-regularity and integrable remainders for the combined effects of the projection
-kernel and the payoff kinks. For the Asian leading coefficient, the established
-conclusion consists of an exact score representation and an effective absolute
-bound. High-precision scalar evaluation and nonvanishing of that component are
-separate assertions. When \(v_0\ne\bar v\), the nine put components establish
-nonvanishing of the ten-dimensional leading coefficient vector. The vector result
-expresses the common density construction; each component retains its stated
-scalar error budget.
-
-The posterior quantile-displacement certificates use the three-dimensional prior
-(7.5) and the synthetic quotes in Appendix~F. They compare two true target
-distributions at every quantile level. Determination of the absolute locations of
-specified quantiles is a separate valuation task. A quantile-displacement
-certificate on the five-dimensional parameter domain
-\[
-[2,4]\times[.03,.06]\times[.18,.28]\times[-.8,-.3]\times[.03,.06]
-\]
-requires forward-error and posterior-transport inputs valid throughout that domain.
-The synthetic-quote application establishes the stated mathematical transfer under
-its specified inputs. Use with market quotes additionally calls for empirical
-assessment of quote quality, model fit, transaction costs, and strategy performance.
-
-Conditioning, geometric-average reference variables, Fourier bounds, Gaussian
-scores, and posterior approximation have established literatures
-\cite{Curran1994,RogersShi1995,Thompson2002,FusaiKyriakou2016,Lee2004,TalayTubaro1990,MickelNeuenkirch2022,CotterDashtiStuart2010}.
-The contribution here is their effective combination for the specified kernel,
-the payoff-level argument weighted by first-period integrated variance, the
-complete finite error budget, and the resulting model-specific quantitative
-certificates. Numerical validity uses the enclosure semantics of the stated
-interval-arithmetic library. The accompanying independent implementations provide
-reproducible comparisons of the finite arithmetic inputs and bounds.
-
+PREAMBLE = r'''\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry,booktabs,tabularx,array}
+\geometry{margin=25mm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\title{Certified Valuation of Arithmetic Asian Options\\[6pt]\small Common Gaussian Smoothing and Projected Euler Error Bounds}
+\author{Theodore Ouyang}
+\date{\small\texttt{theodore.oy2025@gmail.com}\\\texttt{10@alumni.duke.edu}}
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
 '''
+
 
 
 def balanced(s, i):
@@ -104,7 +71,7 @@ def compact_space(s):
 
 def github_tex(s):
     # Equivalent base macros avoid HTML parsing and optional extension filters.
-    s = s.replace(r'\xRightarrow{\ \Phi\ }', r'\overset{\ \Phi\ }{\Longrightarrow}')
+    s = s.replace(r'\xRightarrow{\ \mathcal S\ }', r'\overset{\ \mathcal S\ }{\Longrightarrow}')
     s = re.sub(r'\\operatorname\{(Var|Re|Im|TV)\}',
                lambda m: r'\mathop{\mathrm{' + m.group(1) + r'}}\nolimits ', s)
     return re.sub(r'(?<!\\)[<>]', lambda m: r'\lt ' if m.group() == '<' else r'\gt ', s)
@@ -203,7 +170,7 @@ def inline_md(nodes):
 
 
 def tokenize(s):
-    pat = re.compile(r'\\\[|\\begin\{tabularx\}|\\begin\{enumerate\}|\\(?:section\*?|subsection)\{|\\appendix\b')
+    pat = re.compile(r'\\\[|\\begin\{(?:tabularx|enumerate|verbatim)\}|\\(?:section\*?|subsection)\{|\\appendix\b')
     pos = 0
     while True:
         m = pat.search(s, pos)
@@ -219,7 +186,7 @@ def tokenize(s):
             yield 'display', s[m.end():end]
             pos = end + 2
         elif marker.startswith(r'\begin'):
-            env = 'tabularx' if 'tabularx' in marker else 'enumerate'
+            env = next(e for e in ('tabularx','enumerate','verbatim') if e in marker)
             end = s.index(r'\end{' + env + '}', m.end()) + len(r'\end{' + env + '}')
             yield env, s[m.start():end]
             pos = end
@@ -235,6 +202,7 @@ def tokenize(s):
 def clean_prose(s):
     s = re.sub(r'^%.*$', '', s, flags=re.M)
     s = re.sub(r'\\(?:begingroup|endgroup|small)\b', '', s)
+    s = re.sub(r'\\noindent\b', '', s)
     s = re.sub(r'\\(?:begin|end)\{center\}', '', s)
     s = re.sub(r'\\setlength\{\\tabcolsep\}\{[^}]*\}|\\renewcommand\{\\arraystretch\}\{[^}]*\}', '', s)
     return s
@@ -313,6 +281,10 @@ def make_blocks(s, citations, abstract=False):
             items = [{'inlines': inlines(x.strip(), citations)} for x in inner.split(r'\item')[1:]]
             b = {'type': 'ordered_list', 'items': items,
                  'markdown': '\n'.join(str(i) + '. ' + inline_md(x['inlines']) for i, x in enumerate(items, 1))}
+        elif kind == 'verbatim':
+            code=text[len(r'\begin{verbatim}'):-len(r'\end{verbatim}')].strip('\n')
+            b={'type':'code_block','language':'text','text':code,
+               'markdown':'```text\n'+code+'\n```'}
         elif kind == 'tabularx':
             rows = table_rows(text, citations)
             mdrows = ['| ' + ' | '.join(inline_md(c['inlines']).replace('|', r'\|') for c in r) + ' |' for r in rows]
@@ -325,24 +297,22 @@ def make_blocks(s, citations, abstract=False):
 
 
 def references(source):
-    source = source.split(r'\begin{thebibliography}{12}', 1)[1].split(r'\end{thebibliography}', 1)[0]
+    source = source.split(r'\begin{thebibliography}{13}', 1)[1].split(r'\end{thebibliography}', 1)[0]
     refs = []
     for i, m in enumerate(re.finditer(r'\\bibitem\{([^}]+)\}\s*(.*?)(?=\\bibitem|\Z)', source, re.S), 1):
         key, text = m.groups()
         url = re.search(r'\\url\{([^}]+)\}', text).group(1)
-        prose = re.sub(r'\\url\{[^}]+\}\.?', '', text).strip()
+        prose = text.strip()
         prose = re.sub(r'\.\.(?=\s|$)', '.', prose)
         ns = inlines(prose, {})
         refs.append({'number': i, 'key': key, 'inlines': ns, 'text': inline_md(ns), 'url': url})
-    assert len(refs) == 12
+    assert len(refs) == 13
     return refs
 
 
 def sanitize_body(body):
     body = re.sub(r'\\(?:thispagestyle|pagestyle)\{[^}]*\}', '', body)
     body = re.sub(r'\\markright\{.*?\}\s*\n', '', body)
-    body = re.sub(r'\\section\{(?:Scope and limitations|Domain of validity)\}.*?(?=\\section\{Conclusion\})', lambda m: DOMAIN, body, flags=re.S)
-    body = re.sub(r'\\section\*\{Acknowledgments and author\x27s note\}.*?(?=\\appendix)', '', body, flags=re.S)
     body = body.replace('Section~9 specifies the limits of applicability.', 'Section~9 specifies the domain of validity.')
     body = body.replace('the frozen input file', 'the reference input file')
     body = body.replace('frozen reference results', 'reference results')
@@ -378,7 +348,7 @@ def main():
     body = sanitize_body(body)
     replacement_g = OUT / 'implementation-section.tex'
     if replacement_g.exists():
-        body = body.split(r'\section{Reproducible implementation}', 1)[0] + replacement_g.read_text(encoding='utf8').strip() + '\n'
+        body = re.sub(r'\\section\{Reproducible implementation\}.*?(?=\\section\{|\Z)', lambda _: replacement_g.read_text(encoding='utf8').strip()+'\n\n', body, count=1, flags=re.S)
     assert original_math == math_rows(abstract + body), 'Math changed or reordered during public editing'
     blocks = [{'type': 'heading', 'id': 'abstract', 'level': 2, 'number': None, 'appendix': False,
                'inlines': [{'type': 'text', 'text': 'Abstract'}], 'markdown': '## Abstract'}]
@@ -388,7 +358,7 @@ def main():
                    'inlines': [{'type': 'text', 'text': 'References'}], 'markdown': '## References'})
     for r in refs:
         blocks.append({'type': 'reference', 'id': 'ref-' + str(r['number']), **r,
-                       'markdown': '<a id="ref-' + str(r['number']) + '"></a>\n\n' + str(r['number']) + '. ' + r['text'] + ' [Source](' + r['url'] + ')'})
+                       'markdown': '<a id="ref-' + str(r['number']) + '"></a>\n\n' + str(r['number']) + '. ' + r['text']})
     inline = []
     for b in blocks:
         inline.extend(walk_inline(b.get('inlines', [])))
@@ -404,22 +374,25 @@ def main():
     counts = {'main_sections': sum(not b['appendix'] for b in heads), 'appendices': sum(b['appendix'] for b in heads),
               'display_math': len(displays), 'inline_math': len(inline), 'equation_tags': len(tags), 'unique_tags': len(set(tags)),
               'tables': sum(b['type'] == 'table' for b in blocks), 'references': len(refs)}
-    assert counts == {'main_sections': 10, 'appendices': 7, 'display_math': 147, 'inline_math': 373, 'equation_tags': 88, 'unique_tags': 88, 'tables': 4, 'references': 12}, counts
+    assert counts['main_sections']==10 and counts['appendices']==9 and counts['references']==13, counts
+    assert counts['equation_tags']==counts['unique_tags'], 'Duplicate equation tags'
+    assert counts['display_math']>=147 and counts['inline_math']>=373, counts
     document = {'schema_version': 1, 'metadata': META, 'counts': counts, 'blocks': blocks, 'references': refs}
-    title = '# ' + META['title'] + '\n\n' + META['subtitle'] + '\n\n**' + META['author'] + '** · ' + META['affiliation'] + '\n\n'
+    title = '# ' + META['title'] + '\n\n' + META['subtitle'] + '\n\n**' + META['author'] + '**\n\n'
     title += ' · '.join('[' + e + '](mailto:' + e + ')' for e in META['emails']) + '\n\n'
     title += '**Keywords:** ' + '; '.join(META['keywords']) + '.\n\n'
     md = title + '\n\n'.join(b['markdown'] for b in blocks) + '\n'
-    bib = src.split(r'\begin{thebibliography}{12}', 1)[1].split(r'\end{thebibliography}', 1)[0]
-    public_source = '% Public mathematical manuscript source.\n\\begin{abstract}\n' + abstract.strip() + '\n\\end{abstract}\n\n' + body + '\n\\begin{thebibliography}{12}' + bib + '\\end{thebibliography}\n'
-    for name, data in [('report.md', md), ('report.json', json.dumps(document, ensure_ascii=False, indent=2) + '\n'), ('report-source.tex', public_source)]:
-        leak = re.search(r'20(?:23|26)|(?<![A-Za-z])[A-Za-z]:[/\\]+[A-Za-z]|completion date|internal review|review package', data, re.I)
+    bib = src.split(r'\begin{thebibliography}{13}', 1)[1].split(r'\end{thebibliography}', 1)[0]
+    public_source = '% Public mathematical manuscript source.\n\\begin{abstract}\n' + abstract.strip() + '\n\\end{abstract}\n\n' + body + '\n\\begin{thebibliography}{13}' + bib + '\\end{thebibliography}\n'
+    standalone=PREAMBLE+public_source+'\n\\end{document}\n'
+    for name, data in [('report.md', md), ('report.json', json.dumps(document, ensure_ascii=False, indent=2) + '\n'), ('report-source.tex', public_source), ('report.tex',standalone)]:
+        leak = re.search(r'(?<![A-Za-z])[A-Za-z]:[/\\]+[A-Za-z]|internal review|review package', data, re.I)
         assert not leak, (name, data[max(0, leak.start()-50):leak.end()+70] if leak else '')
         (OUT / name).write_text(data, encoding='utf8', newline='\n')
     verification = {'status': 'PASS', 'counts': counts, 'formula_multiset_exactly_preserved': True,
                     'formula_sequence_exactly_preserved': True,
                     'forbidden_provenance_strings_absent': True,
-                    'artifacts': {name: hashlib.sha256((OUT / name).read_bytes()).hexdigest() for name in ('report.md', 'report.json', 'report-source.tex')}}
+                    'artifacts': {name: hashlib.sha256((OUT / name).read_bytes()).hexdigest() for name in ('report.md', 'report.json', 'report-source.tex','report.tex')}}
     (OUT / 'content-verification.json').write_text(json.dumps(verification, indent=2) + '\n', encoding='utf8', newline='\n')
     print(json.dumps(verification))
 
