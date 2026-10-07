@@ -1,6 +1,6 @@
 {
   "status": "PASS_EXPORTED_PDF_COMMANDS_AND_REAL_ARGUMENT_PARSER",
-  "pdf_sha256": "1ceb85eae0f3d28805180d3e4c463838f1be83baa8940c880fae61aaa938d3e4",
+  "pdf_sha256": "a99f410961edd973f3ffc9000a1f9088f94ce23b8ab2b54020d2c15ff4f8a00c",
   "copied_commands": [
     "./.venv/Scripts/python.exe code/run.py verify",
     "./.venv/Scripts/python.exe code/run.py run --module asian --independent",
@@ -17,7 +17,7 @@
   "additional_actual_source_parser_checks": [
     {
       "command": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point",
-      "source_sha256": "118278239eaa2ba9221e3d30cb4ef4503d425422660fc120961b14ef5055ddd5",
+      "source_sha256": "d0ef172a99633538903c726decb6929fea1767b2abddc892c39fd6c63e6a615c",
       "arguments": {
         "mode": "prepare",
         "directory": "new-point"
@@ -25,7 +25,7 @@
     },
     {
       "command": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point",
-      "source_sha256": "118278239eaa2ba9221e3d30cb4ef4503d425422660fc120961b14ef5055ddd5",
+      "source_sha256": "d0ef172a99633538903c726decb6929fea1767b2abddc892c39fd6c63e6a615c",
       "arguments": {
         "mode": "run",
         "directory": "new-point"

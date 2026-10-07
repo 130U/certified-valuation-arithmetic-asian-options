@@ -204,7 +204,7 @@ analytical enclosures.
 
 ## Conclusion and scope of this review
 
-The checked extensions preserve the original analytical fees and correctly
+The checked extensions preserve the original analytical error allowances and correctly
 scale the changed mesh or step count. The h=1/192 exclusion, the wider
 h=1/384 acceptance result, the limited independence of shared-Arb checks,
 and the unevaluated signed Asian leading coefficient must all remain visible

@@ -53,7 +53,7 @@ The following expressions are evaluated afresh and use those actual variables:
 | Discrete weighted tail | True outward nodal F_Q(64)/(128hv0) |
 | Discrete frequency tail | L_Q(U)=exp(A+Bv0), and i0=hv0 in its denominator |
 | Continuous frequency tail | C_P with v0 C1, and γ=(dt1+v0)√((1-ρ²)/α)/2 |
-| Final residual and prices | Newly computed W_P,W_Q, linear values, and all recomputed fees |
+| Final residual and prices | Newly computed W_P,W_Q, linear values, and all recomputed error allowances |
 
 The same κ, d, α, ρ, r, c, strikes, damping, frequency spacing, and cutoff
 justify retaining their parameter-independent constants. The periodization

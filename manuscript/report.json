@@ -1,13 +1,12 @@
 {
   "schema_version": 1,
   "metadata": {
-    "title": "Certified Valuation of Arithmetic Asian Options via Common Gaussian Smoothing",
-    "subtitle": "Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterior Quantile Transfer",
+    "title": "Certified Valuation of Arithmetic Asian Options",
+    "subtitle": "Common Gaussian Smoothing and Projected Euler Error Bounds",
     "author": "Theodore Ouyang",
-    "affiliation": "Duke University",
     "emails": [
-      "10@alumni.duke.edu",
-      "theodore.oy2025@gmail.com"
+      "theodore.oy2025@gmail.com",
+      "10@alumni.duke.edu"
     ],
     "keywords": [
       "Arithmetic Asian options",
@@ -21,13 +20,13 @@
   },
   "counts": {
     "main_sections": 10,
-    "appendices": 8,
+    "appendices": 9,
     "display_math": 176,
-    "inline_math": 505,
+    "inline_math": 518,
     "equation_tags": 95,
     "unique_tags": 95,
     "tables": 14,
-    "references": 12
+    "references": 13
   },
   "blocks": [
     {
@@ -241,7 +240,7 @@
         },
         {
           "type": "text",
-          "text": ", while discrete geometric Asian options also admit specialized recursions and publicly available implementations "
+          "text": ", while discrete geometric Asian options admit recursive transform methods "
         },
         {
           "type": "citation",
@@ -251,48 +250,30 @@
         },
         {
           "type": "text",
-          "text": ". Building on these foundations, we carry out three specific tasks."
-        }
-      ],
-      "markdown": "Conditioning and geometric reference variables have a well-established role in Asian option pricing [[1](#ref-1), [2](#ref-2), [3](#ref-3), [4](#ref-4)]. In particular, the framework of Fusai and Kyriakou covers the Heston model and includes error upper bounds based on conditional variances [[4](#ref-4)]. The affine structure of Heston's model supplies the transform machinery [[5](#ref-5)], while discrete geometric Asian options also admit specialized recursions and publicly available implementations [[6](#ref-6)]. Building on these foundations, we carry out three specific tasks."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "First, we formulate a structural condition "
+          "text": " and publicly available implementations "
         },
         {
-          "type": "math",
-          "tex": "\\mathsf H"
+          "type": "citation",
+          "numbers": [
+            7
+          ]
         },
         {
           "type": "text",
-          "text": " that can be checked independently. Conditional Gaussian smoothing yields a nonnegative convexity remainder with explicit constants; combining this remainder with a certificate for finitely many transforms gives an enclosure of the true price difference. The condition applies both to lognormal models with deterministic variance and to the stochastic-variance model and actual projected Euler kernel verified here."
+          "text": "."
         }
       ],
-      "markdown": "First, we formulate a structural condition $`\\mathsf H`$ that can be checked independently. Conditional Gaussian smoothing yields a nonnegative convexity remainder with explicit constants; combining this remainder with a certificate for finitely many transforms gives an enclosure of the true price difference. The condition applies both to lognormal models with deterministic variance and to the stochastic-variance model and actual projected Euler kernel verified here."
+      "markdown": "Conditioning and geometric reference variables have a well-established role in Asian option pricing [[1](#ref-1), [2](#ref-2), [3](#ref-3), [4](#ref-4)]. In particular, the framework of Fusai and Kyriakou covers the Heston model and includes error upper bounds based on conditional variances [[4](#ref-4)]. The affine structure of Heston's model supplies the transform machinery [[5](#ref-5)], while discrete geometric Asian options admit recursive transform methods [[6](#ref-6)] and publicly available implementations [[7](#ref-7)]."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "Second, we account for every computable error contribution for the specified original scheme. The quadratic remainder of the arithmetic payoff is controlled by 91 real loadings and a nonnegative Laplace integral; the linear part is computed from thirteen complex loadings. The result is a complete one-year price certificate at the original parameter point, rather than an asymptotic order with an unknown constant."
+          "text": "The main result combines a weighted payoff remainder with complete transform error control for the original projected Euler kernel. Ninety-one real loadings control the nonlinear term, and thirteen complex loadings determine the linear term. The weak expansion and posterior transfer are auxiliary applications."
         }
       ],
-      "markdown": "Second, we account for every computable error contribution for the specified original scheme. The quadratic remainder of the arithmetic payoff is controlled by 91 real loadings and a nonnegative Laplace integral; the linear part is computed from thirteen complex loadings. The result is a complete one-year price certificate at the original parameter point, rather than an asymptotic order with an unknown constant."
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "Third, we develop two further mathematical applications: a joint weak expansion for ten payoffs on a deterministic-variance reference family, and control of the true target quantiles under a continuous prior with small positive volatility of volatility, using likelihood enclosures over the full parameter cells and a joint posterior coupling. Each application has explicit assumptions and quantitative conclusions."
-        }
-      ],
-      "markdown": "Third, we develop two further mathematical applications: a joint weak expansion for ten payoffs on a deterministic-variance reference family, and control of the true target quantiles under a continuous prior with small positive volatility of volatility, using likelihood enclosures over the full parameter cells and a joint posterior coupling. Each application has explicit assumptions and quantitative conclusions."
+      "markdown": "The main result combines a weighted payoff remainder with complete transform error control for the original projected Euler kernel. Ninety-one real loadings control the nonlinear term, and thirteen complex loadings determine the linear term. The weak expansion and posterior transfer are auxiliary applications."
     },
     {
       "type": "paragraph",
@@ -307,11 +288,11 @@
     {
       "type": "display_math",
       "id": "eq-1-1",
-      "tex": "\n\\begin{gathered}\n\\left.\n\\begin{array}{l}\n\\mathsf A:\\ \\text{deterministic positive integrated variance}\\\\\n\\mathsf C:\\ \\text{verifiable Heston/projected Euler conditions}\n\\end{array}\n\\right\\}\\Longrightarrow\\mathsf H,\\\\[4pt]\n\\mathsf H\\xRightarrow{\\ \\Phi\\ }\\mathsf M\\Longrightarrow\\mathsf B .\n\\end{gathered}\n\\tag{1.1}\n",
+      "tex": "\n\\begin{gathered}\n\\left.\n\\begin{array}{l}\n\\mathsf A:\\ \\text{deterministic positive integrated variance}\\\\\n\\mathsf C:\\ \\text{verifiable Heston/projected Euler conditions}\n\\end{array}\n\\right\\}\\Longrightarrow\\mathsf H,\\\\[4pt]\n\\mathsf H\\xRightarrow{\\ \\mathcal S\\ }\\mathsf M\\Longrightarrow\\mathsf B .\n\\end{gathered}\n\\tag{1.1}\n",
       "tags": [
         "1.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\left.\n\\begin{array}{l}\n\\mathsf A:\\ \\text{deterministic positive integrated variance}\\\\\n\\mathsf C:\\ \\text{verifiable Heston/projected Euler conditions}\n\\end{array}\n\\right\\}\\Longrightarrow\\mathsf H,\\\\[4pt]\n\\mathsf H\\overset{\\ \\Phi\\ }{\\Longrightarrow}\\mathsf M\\Longrightarrow\\mathsf B .\n\\end{gathered}\n\\tag{1.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\left.\n\\begin{array}{l}\n\\mathsf A:\\ \\text{deterministic positive integrated variance}\\\\\n\\mathsf C:\\ \\text{verifiable Heston/projected Euler conditions}\n\\end{array}\n\\right\\}\\Longrightarrow\\mathsf H,\\\\[4pt]\n\\mathsf H\\overset{\\ \\mathcal S\\ }{\\Longrightarrow}\\mathsf M\\Longrightarrow\\mathsf B .\n\\end{gathered}\n\\tag{1.1}\n```"
     },
     {
       "type": "paragraph",
@@ -322,7 +303,7 @@
         },
         {
           "type": "math",
-          "tex": "\\Phi"
+          "tex": "\\mathcal S"
         },
         {
           "type": "text",
@@ -345,7 +326,7 @@
           "text": " is a rigorous enclosure of the actual price difference. Section 2 defines these objects precisely, and Sections 3–5 prove the main chain of implications. Sections 6 and 7 develop the weak expansion and posterior transfer, respectively. Section 8 presents the numerical certificates and their financial use, and Section 9 specifies the domain of validity."
         }
       ],
-      "markdown": "Here $`\\Phi`$ denotes conditional Gaussian smoothing and rigorous transform error accounting; $`\\mathsf M`$ consists of the payoff decomposition with explicit constants and transform error bounds; and $`\\mathsf B`$ is a rigorous enclosure of the actual price difference. Section 2 defines these objects precisely, and Sections 3–5 prove the main chain of implications. Sections 6 and 7 develop the weak expansion and posterior transfer, respectively. Section 8 presents the numerical certificates and their financial use, and Section 9 specifies the domain of validity."
+      "markdown": "Here $`\\mathcal S`$ denotes conditional Gaussian smoothing and rigorous transform error accounting; $`\\mathsf M`$ consists of the payoff decomposition with explicit constants and transform error bounds; and $`\\mathsf B`$ is a rigorous enclosure of the actual price difference. Section 2 defines these objects precisely, and Sections 3–5 prove the main chain of implications. Sections 6 and 7 develop the weak expansion and posterior transfer, respectively. Section 8 presents the numerical certificates and their financial use, and Section 9 specifies the domain of validity."
     },
     {
       "type": "heading",
@@ -376,10 +357,30 @@
         },
         {
           "type": "text",
-          "text": " already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. This comparison concerns that reviewed paper; it does not establish global priority. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
+          "text": " already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
         }
       ],
-      "markdown": "Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. This comparison concerns that reviewed paper; it does not establish global priority. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
+      "markdown": "Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Page references in Table 1 use the internal numbering of the accepted manuscript linked in "
+        },
+        {
+          "type": "citation",
+          "numbers": [
+            4
+          ]
+        },
+        {
+          "type": "text",
+          "text": ", after its repository cover, rather than the journal pagination."
+        }
+      ],
+      "markdown": "Page references in Table 1 use the internal numbering of the accepted manuscript linked in [[4](#ref-4)], after its repository cover, rather than the journal pagination."
     },
     {
       "type": "paragraph",
@@ -650,7 +651,15 @@
             "inlines": [
               {
                 "type": "text",
-                "text": "The point (4.3) and the separate "
+                "text": "At (4.3), "
+              },
+              {
+                "type": "math",
+                "tex": "h=1/384,1/768,1/1536"
+              },
+              {
+                "type": "text",
+                "text": "; at the separate "
               },
               {
                 "type": "math",
@@ -658,15 +667,7 @@
               },
               {
                 "type": "text",
-                "text": " point in Section 8.3, "
-              },
-              {
-                "type": "math",
-                "tex": "\\xi=.23"
-              },
-              {
-                "type": "text",
-                "text": ", twelve monthly fixings, original projected Euler, "
+                "text": " point in Section 8.3, only "
               },
               {
                 "type": "math",
@@ -674,7 +675,15 @@
               },
               {
                 "type": "text",
-                "text": "."
+                "text": ". Both use "
+              },
+              {
+                "type": "math",
+                "tex": "\\xi=.23"
+              },
+              {
+                "type": "text",
+                "text": ", twelve monthly fixings and the original projected Euler kernel."
               }
             ]
           }
@@ -765,7 +774,7 @@
         ]
       ],
       "header_rows": 1,
-      "markdown": "| Result | Domain and interpretation |\n| --- | --- |\n| Main price certificate | The point (4.3) and the separate $`v_0=.04`$ point in Section 8.3, $`\\xi=.23`$, twelve monthly fixings, original projected Euler, $`h=1/768`$. |\n| Ten-payoff weak expansion | Theorem 6.1 under (6.1); numerical family (6.10): $`\\xi=0`$, $`\\kappa=3`$, $`\\bar v=.045`$, $`v_0\\in[.03,.06]`$, twelve monthly fixings, aligned $`h\\le1/768`$. |\n| Posterior quantile transfer | Independent uniform prior (7.5), $`\\xi\\in[10^{-7},10^{-6}]`$, exact synthetic quotes in Appendix F. |"
+      "markdown": "| Result | Domain and interpretation |\n| --- | --- |\n| Main price certificate | At (4.3), $`h=1/384,1/768,1/1536`$; at the separate $`v_0=.04`$ point in Section 8.3, only $`h=1/768`$. Both use $`\\xi=.23`$, twelve monthly fixings and the original projected Euler kernel. |\n| Ten-payoff weak expansion | Theorem 6.1 under (6.1); numerical family (6.10): $`\\xi=0`$, $`\\kappa=3`$, $`\\bar v=.045`$, $`v_0\\in[.03,.06]`$, twelve monthly fixings, aligned $`h\\le1/768`$. |\n| Posterior quantile transfer | Independent uniform prior (7.5), $`\\xi\\in[10^{-7},10^{-6}]`$, exact synthetic quotes in Appendix F. |"
     },
     {
       "type": "heading",
@@ -1006,7 +1015,15 @@
       "inlines": [
         {
           "type": "text",
-          "text": "This sign convention for the error is used throughout. The numerical example uses "
+          "text": "When one step size is understood, write "
+        },
+        {
+          "type": "math",
+          "tex": "Q=Q_h"
+        },
+        {
+          "type": "text",
+          "text": ". This sign convention for the error is used throughout. The numerical example uses "
         },
         {
           "type": "math",
@@ -1017,7 +1034,7 @@
           "text": ", and"
         }
       ],
-      "markdown": "This sign convention for the error is used throughout. The numerical example uses $`n=12,t_i=i/12,T=1`$, and"
+      "markdown": "When one step size is understood, write $`Q=Q_h`$. This sign convention for the error is used throughout. The numerical example uses $`n=12,t_i=i/12,T=1`$, and"
     },
     {
       "type": "display_math",
@@ -2549,17 +2566,17 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
+          "text": "The original nonlinear interval has width approximately .02047859; its linear width is approximately .00118848, giving total width approximately .02166706. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix I gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so Corollary 4.2 retains its separate-law remainder. In the deterministic example of Appendix I, the nonlinear width falls from approximately .01538363715 to .00008815020, about 0.573 percent of the separate-law width. Both calculations use the same conditioning and common geometric scale. This comparison concerns only that example's nonlinear component."
         }
       ],
-      "markdown": "The original nonlinear interval has width .020478587753; its linear width is approximately .001188476120, giving displayed total width .021667063872. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so it does not improve Corollary 4.2 numerically or assert a Heston convergence rate."
+      "markdown": "The original nonlinear interval has width approximately .02047859; its linear width is approximately .00118848, giving total width approximately .02166706. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix I gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so Corollary 4.2 retains its separate-law remainder. In the deterministic example of Appendix I, the nonlinear width falls from approximately .01538363715 to .00008815020, about 0.573 percent of the separate-law width. Both calculations use the same conditioning and common geometric scale. This comparison concerns only that example's nonlinear component."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The revised positive-moment calculation at "
+          "text": "The positive-moment calculation at "
         },
         {
           "type": "math",
@@ -2570,7 +2587,7 @@
           "text": " gives"
         }
       ],
-      "markdown": "The revised positive-moment calculation at $`h=1/768`$ gives"
+      "markdown": "The positive-moment calculation at $`h=1/768`$ gives"
     },
     {
       "type": "display_math",
@@ -2795,10 +2812,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Computability conclusions additionally require these integrals to be supplied as effectively computable inputs."
+          "text": "Computability conclusions additionally require the integrated variances over all fixing intervals to be supplied as effectively computable inputs."
         }
       ],
-      "markdown": "Computability conclusions additionally require these integrals to be supplied as effectively computable inputs."
+      "markdown": "Computability conclusions additionally require the integrated variances over all fixing intervals to be supplied as effectively computable inputs."
     },
     {
       "type": "paragraph",
@@ -3112,6 +3129,24 @@
       "inlines": [
         {
           "type": "text",
+          "text": "In the probability formulas below, "
+        },
+        {
+          "type": "math",
+          "tex": "\\Phi"
+        },
+        {
+          "type": "text",
+          "text": " denotes the standard normal cumulative distribution function."
+        }
+      ],
+      "markdown": "In the probability formulas below, $`\\Phi`$ denotes the standard normal cumulative distribution function."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
           "text": "Let "
         },
         {
@@ -3211,9 +3246,9 @@
         {
           "type": "citation",
           "numbers": [
-            7,
             8,
-            9
+            9,
+            10
           ]
         },
         {
@@ -3229,7 +3264,7 @@
           "text": ", retain the original update (2.2), and assume"
         }
       ],
-      "markdown": "For background on weak error expansions and distributional error analysis, see [[7](#ref-7), [8](#ref-8), [9](#ref-9)]. This section works directly with the differentiability of Gaussian densities. We set $`\\xi=0`$, retain the original update (2.2), and assume"
+      "markdown": "For background on weak error expansions and distributional error analysis, see [[8](#ref-8), [9](#ref-9), [10](#ref-10)]. This section works directly with the differentiability of Gaussian densities. We set $`\\xi=0`$, retain the original update (2.2), and assume"
     },
     {
       "type": "display_math",
@@ -4295,11 +4330,11 @@
     {
       "type": "display_math",
       "id": "eq-7-3",
-      "tex": "\nE\\max|Z_\\nu^\\xi-Z_\\nu^0|\n\\le\\xi C_\\nu\\left(\\frac T2+2\\sqrt{T/m}\\right),\\quad \\nu=P,Q.\n\\tag{7.3}\n",
+      "tex": "\nE\\max|Z_\\ell^\\xi-Z_\\ell^0|\n\\le\\xi C_\\ell\\left(\\frac T2+2\\sqrt{T/m}\\right),\\quad \\ell=P,Q.\n\\tag{7.3}\n",
       "tags": [
         "7.3"
       ],
-      "markdown": "```math\n\\begin{gathered}\nE\\max|Z_\\nu^\\xi-Z_\\nu^0|\n\\le\\xi C_\\nu\\left(\\frac T2+2\\sqrt{T/m}\\right),\\quad \\nu=P,Q.\n\\end{gathered}\n\\tag{7.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\nE\\max|Z_\\ell^\\xi-Z_\\ell^0|\n\\le\\xi C_\\ell\\left(\\frac T2+2\\sqrt{T/m}\\right),\\quad \\ell=P,Q.\n\\end{gathered}\n\\tag{7.3}\n```"
     },
     {
       "type": "paragraph",
@@ -4351,7 +4386,15 @@
       "inlines": [
         {
           "type": "text",
-          "text": "finite verification gives an absolute bias bound of "
+          "text": "The parameter coordinates are ordered as "
+        },
+        {
+          "type": "math",
+          "tex": "(\\kappa,\\bar v,\\xi,\\rho,v_0)"
+        },
+        {
+          "type": "text",
+          "text": ". Finite verification gives an absolute bias bound of "
         },
         {
           "type": "math",
@@ -4370,7 +4413,7 @@
           "text": " for each of the nine puts."
         }
       ],
-      "markdown": "finite verification gives an absolute bias bound of $`.020948`$ for the original Asian and $`.016702`$ for each of the nine puts."
+      "markdown": "The parameter coordinates are ordered as $`(\\kappa,\\bar v,\\xi,\\rho,v_0)`$. Finite verification gives an absolute bias bound of $`.020948`$ for the original Asian and $`.016702`$ for each of the nine puts."
     },
     {
       "type": "heading",
@@ -4396,7 +4439,7 @@
         {
           "type": "citation",
           "numbers": [
-            10
+            11
           ]
         },
         {
@@ -4412,7 +4455,7 @@
           "text": ", and let"
         }
       ],
-      "markdown": "The effect of forward numerical error on the likelihood and its normalizing constant is a basic issue in Bayesian approximation [[10](#ref-10)]. In this section, set $`\\kappa=3,\\bar v=.045`$, and let"
+      "markdown": "The effect of forward numerical error on the likelihood and its normalizing constant is a basic issue in Bayesian approximation [[11](#ref-11)]. In this section, set $`\\kappa=3,\\bar v=.045`$, and let"
     },
     {
       "type": "display_math",
@@ -4444,7 +4487,23 @@
         },
         {
           "type": "text",
-          "text": ". For model "
+          "text": ". Throughout this posterior calculation and Appendix F, "
+        },
+        {
+          "type": "math",
+          "tex": "m\\in\\{P,Q\\}"
+        },
+        {
+          "type": "text",
+          "text": " indexes the pricing model; "
+        },
+        {
+          "type": "math",
+          "tex": "\\nu"
+        },
+        {
+          "type": "text",
+          "text": " remains the nuisance-parameter prior. For model "
         },
         {
           "type": "math",
@@ -4487,7 +4546,7 @@
           "text": ", define"
         }
       ],
-      "markdown": "be mutually independent. Write $`\\zeta=(\\xi,\\rho)`$ and denote its prior probability measure by $`\\nu`$. For model $`m=P,Q`$, let $`c_m(u,\\zeta)`$ be the true calibration vector and $`J_m(u,\\zeta)`$ the true Asian price. Given synthetic quotes $`y`$ and a positive-definite covariance matrix $`\\Sigma_d`$, define"
+      "markdown": "be mutually independent. Write $`\\zeta=(\\xi,\\rho)`$ and denote its prior probability measure by $`\\nu`$. Throughout this posterior calculation and Appendix F, $`m\\in\\{P,Q\\}`$ indexes the pricing model; $`\\nu`$ remains the nuisance-parameter prior. For model $`m=P,Q`$, let $`c_m(u,\\zeta)`$ be the true calibration vector and $`J_m(u,\\zeta)`$ the true Asian price. Given synthetic quotes $`y`$ and a positive-definite covariance matrix $`\\Sigma_d`$, define"
     },
     {
       "type": "display_math",
@@ -5057,6 +5116,48 @@
       ],
       "header_rows": 1,
       "markdown": "| Quantity | Validated upper bound or enclosure |\n| --- | --- |\n| Nonlinear conversion interval | $`[-.010227461904,.010251125849]`$ |\n| Q projection error per linear profile | $`.000000012711979137`$ |\n| Q projection contribution over all linear profiles | $`.000004310413`$ |\n| Omitted frequency tail for the continuous model | $`.000014095712`$ |\n| Omitted frequency tail for the discrete model | $`.000184373301`$ |\n| Periodization error for one model | $`.000195729318`$ |\n| Total error bound for the linear difference between the two models | $`.000594238060`$ |\n| **Absolute bound on the true arithmetic Asian bias** | $`\\boldsymbol{.011025}`$ |"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Reported widths are computed from the exact ledger and rounded outward. Subtracting displayed endpoints can differ in the final decimal place. For "
+        },
+        {
+          "type": "math",
+          "tex": "[\\ell,u]"
+        },
+        {
+          "type": "text",
+          "text": ", width means "
+        },
+        {
+          "type": "math",
+          "tex": "u-\\ell"
+        },
+        {
+          "type": "text",
+          "text": ", midpoint radius means "
+        },
+        {
+          "type": "math",
+          "tex": "(u-\\ell)/2"
+        },
+        {
+          "type": "text",
+          "text": ", and the absolute bias bound is "
+        },
+        {
+          "type": "math",
+          "tex": "\\max(|\\ell|,|u|)"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "markdown": "Reported widths are computed from the exact ledger and rounded outward. Subtracting displayed endpoints can differ in the final decimal place. For $`[\\ell,u]`$, width means $`u-\\ell`$, midpoint radius means $`(u-\\ell)/2`$, and the absolute bias bound is $`\\max(|\\ell|,|u|)`$."
     },
     {
       "type": "heading",
@@ -5719,7 +5820,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The enclosure combines the nonlinear remainder with projection, both frequency tails, periodization, and outward arithmetic. Its six exact width contributions and the complete alternative checks are recorded in Appendix G's package. The wider interval than at "
+          "text": "The enclosure combines the nonlinear remainder with projection, both frequency tails, periodization, and outward arithmetic. Its six exact width contributions and the complete alternative checks are recorded in Appendix G's package. Relative to "
         },
         {
           "type": "math",
@@ -5727,10 +5828,34 @@
         },
         {
           "type": "text",
-          "text": " reflects the changed integrated-variance weight and error bounds. This second point demonstrates a separate complete execution; it does not certify a neighborhood or alter the Feller index."
+          "text": ", the signed-interval width increases by about 6.99 percent. The discrete frequency-tail contribution rises from approximately .0003687466014 to .0016298806683 and accounts for about 83.2 percent of that increase. In (C.7), the smaller "
+        },
+        {
+          "type": "math",
+          "tex": "v_0"
+        },
+        {
+          "type": "text",
+          "text": " lowers the first-step floor "
+        },
+        {
+          "type": "math",
+          "tex": "i_0=hv_0"
+        },
+        {
+          "type": "text",
+          "text": "; the negative first-month Laplace coefficient also increases "
+        },
+        {
+          "type": "math",
+          "tex": "\\overline L_Q(U)=\\exp(A+bv_0)"
+        },
+        {
+          "type": "text",
+          "text": ". These effects weaken the tail bound. The comparison measures enclosure tightness, not an increase in the true bias. This is a second pointwise certificate with the same Feller index."
         }
       ],
-      "markdown": "The enclosure combines the nonlinear remainder with projection, both frequency tails, periodization, and outward arithmetic. Its six exact width contributions and the complete alternative checks are recorded in Appendix G's package. The wider interval than at $`v_0=.045`$ reflects the changed integrated-variance weight and error bounds. This second point demonstrates a separate complete execution; it does not certify a neighborhood or alter the Feller index."
+      "markdown": "The enclosure combines the nonlinear remainder with projection, both frequency tails, periodization, and outward arithmetic. Its six exact width contributions and the complete alternative checks are recorded in Appendix G's package. Relative to $`v_0=.045`$, the signed-interval width increases by about 6.99 percent. The discrete frequency-tail contribution rises from approximately .0003687466014 to .0016298806683 and accounts for about 83.2 percent of that increase. In (C.7), the smaller $`v_0`$ lowers the first-step floor $`i_0=hv_0`$; the negative first-month Laplace coefficient also increases $`\\overline L_Q(U)=\\exp(A+bv_0)`$. These effects weaken the tail bound. The comparison measures enclosure tightness, not an increase in the true bias. This is a second pointwise certificate with the same Feller index."
     },
     {
       "type": "heading",
@@ -6365,20 +6490,28 @@
       "inlines": [
         {
           "type": "text",
-          "text": "requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed."
+          "text": "in coordinate order "
+        },
+        {
+          "type": "math",
+          "tex": "(\\kappa,\\bar v,\\xi,\\rho,v_0)"
+        },
+        {
+          "type": "text",
+          "text": " requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed."
         }
       ],
-      "markdown": "requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed."
+      "markdown": "in coordinate order $`(\\kappa,\\bar v,\\xi,\\rho,v_0)`$ requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The separate-law remainder produces the width plateau in Section 8. Proposition H.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix H, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width."
+          "text": "The separate-law remainder produces the width plateau in Section 8. Proposition I.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix I, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width."
         }
       ],
-      "markdown": "The separate-law remainder produces the width plateau in Section 8. Proposition H.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix H, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width."
+      "markdown": "The separate-law remainder produces the width plateau in Section 8. Proposition I.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix I, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width."
     },
     {
       "type": "heading",
@@ -6417,34 +6550,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The step-grid study shows that payoff conversion dominates the interval width and that the fixed discrete-tail bound can offset gains from a finer Euler grid. A second stochastic-variance point confirms a complete parameter-specific execution, and the deterministic example in Appendix H gives a strictly narrower coupled nonlinear interval. The common Gaussian expansion and posterior coupling provide additional formula-level and price-unit bounds on their stated parameter families."
+          "text": "The step-grid study shows that payoff conversion dominates the interval width and that the fixed discrete-tail bound can offset gains from a finer Euler grid. A second stochastic-variance point confirms a complete parameter-specific execution, and the deterministic example in Appendix I gives a strictly narrower coupled nonlinear interval. The common Gaussian expansion and posterior coupling provide additional formula-level and price-unit bounds on their stated parameter families."
         }
       ],
-      "markdown": "The step-grid study shows that payoff conversion dominates the interval width and that the fixed discrete-tail bound can offset gains from a finer Euler grid. A second stochastic-variance point confirms a complete parameter-specific execution, and the deterministic example in Appendix H gives a strictly narrower coupled nonlinear interval. The common Gaussian expansion and posterior coupling provide additional formula-level and price-unit bounds on their stated parameter families."
-    },
-    {
-      "type": "heading",
-      "id": "author-note",
-      "level": 2,
-      "number": null,
-      "appendix": false,
-      "inlines": [
-        {
-          "type": "text",
-          "text": "Acknowledgments and author's note"
-        }
-      ],
-      "markdown": "## Acknowledgments and author's note"
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The author is responsible for the mathematical scope, attribution, and claims. The version history and numerical materials are recorded in Appendix G."
-        }
-      ],
-      "markdown": "The author is responsible for the mathematical scope, attribution, and claims. The version history and numerical materials are recorded in Appendix G."
+      "markdown": "The step-grid study shows that payoff conversion dominates the interval width and that the fixed discrete-tail bound can offset gains from a finer Euler grid. A second stochastic-variance point confirms a complete parameter-specific execution, and the deterministic example in Appendix I gives a strictly narrower coupled nonlinear interval. The common Gaussian expansion and posterior coupling provide additional formula-level and price-unit bounds on their stated parameter families."
     },
     {
       "type": "heading",
@@ -7478,6 +7587,21 @@
       "markdown": "Here $`C_f`$ bounds the future constant term and $`C_{\\rm pre}`$ bounds the stock drift over the true prefix. The two parameter sets are as follows."
     },
     {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table B.1. Constants for the projection error allowance."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table B.1. Constants for the projection error allowance.**"
+    },
+    {
       "type": "table",
       "rows": [
         [
@@ -7912,6 +8036,26 @@
         }
       ],
       "markdown": "## Appendix C. Complete error control for inversion of the thirteen linear transforms"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Lee "
+        },
+        {
+          "type": "citation",
+          "numbers": [
+            13
+          ]
+        },
+        {
+          "type": "text",
+          "text": " analyzes truncation and sampling errors in Fourier pricing. The bounds below use Gaussian decay and periodization moments for the thirteen profiles in this paper."
+        }
+      ],
+      "markdown": "Lee [[13](#ref-13)] analyzes truncation and sampling errors in Fourier pricing. The bounds below use Gaussian decay and periodization moments for the thirteen profiles in this paper."
     },
     {
       "type": "heading",
@@ -9421,7 +9565,7 @@
         },
         {
           "type": "math",
-          "tex": "T\\xi C_\\nu/2"
+          "tex": "T\\xi C_\\ell/2"
         },
         {
           "type": "text",
@@ -9441,14 +9585,14 @@
         },
         {
           "type": "math",
-          "tex": "2\\xi C_\\nu\\sqrt{T/m}"
+          "tex": "2\\xi C_\\ell\\sqrt{T/m}"
         },
         {
           "type": "text",
           "text": ", proving (7.3). Correlation between the stock Brownian motion and the variance driver does not alter these inequalities for adapted stochastic integrals."
         }
       ],
-      "markdown": "The drift contribution to the log-stock difference is bounded by $`T\\xi C_\\nu/2`$. The Itô isometry and Doob's $`L^2`$ inequality bound the martingale contribution by $`2\\xi C_\\nu\\sqrt{T/m}`$, proving (7.3). Correlation between the stock Brownian motion and the variance driver does not alter these inequalities for adapted stochastic integrals."
+      "markdown": "The drift contribution to the log-stock difference is bounded by $`T\\xi C_\\ell/2`$. The Itô isometry and Doob's $`L^2`$ inequality bound the martingale contribution by $`2\\xi C_\\ell\\sqrt{T/m}`$, proving (7.3). Correlation between the stock Brownian motion and the variance driver does not alter these inequalities for adapted stochastic integrals."
     },
     {
       "type": "paragraph",
@@ -9502,19 +9646,19 @@
     },
     {
       "type": "display_math",
-      "id": "display-6e2fe11fd703",
-      "tex": "\ne_{\\nu,i}=K_i e^{-rT_i}\\xi_{\\max}C_\\nu\n\\left(T_i/2+2\\sqrt{T_i/m}\\right),\n",
+      "id": "display-0e93ec545b5a",
+      "tex": "\ne_{\\ell,i}=K_i e^{-rT_i}\\xi_{\\max}C_\\ell\n\\left(T_i/2+2\\sqrt{T_i/m}\\right),\n",
       "tags": [],
-      "markdown": "```math\ne_{\\nu,i}=K_i e^{-rT_i}\\xi_{\\max}C_\\nu\n\\left(T_i/2+2\\sqrt{T_i/m}\\right),\n```"
+      "markdown": "```math\ne_{\\ell,i}=K_i e^{-rT_i}\\xi_{\\max}C_\\ell\n\\left(T_i/2+2\\sqrt{T_i/m}\\right),\n```"
     },
     {
       "type": "display_math",
       "id": "eq-e-3",
-      "tex": "\ne_{\\nu,J}=110e^{-r}\\xi_{\\max}C_\\nu\n\\left(1/2+2/\\sqrt m\\right).\n\\tag{E.3}\n",
+      "tex": "\ne_{\\ell,J}=110e^{-r}\\xi_{\\max}C_\\ell\n\\left(1/2+2/\\sqrt m\\right).\n\\tag{E.3}\n",
       "tags": [
         "E.3"
       ],
-      "markdown": "```math\n\\begin{gathered}\ne_{\\nu,J}=110e^{-r}\\xi_{\\max}C_\\nu\n\\left(1/2+2/\\sqrt m\\right).\n\\end{gathered}\n\\tag{E.3}\n```"
+      "markdown": "```math\n\\begin{gathered}\ne_{\\ell,J}=110e^{-r}\\xi_{\\max}C_\\ell\n\\left(1/2+2/\\sqrt m\\right).\n\\end{gathered}\n\\tag{E.3}\n```"
     },
     {
       "type": "paragraph",
@@ -9700,10 +9844,10 @@
     },
     {
       "type": "display_math",
-      "id": "display-2081d80e6f42",
-      "tex": "\nI_\\nu(T;u)=.045T+(u-.045)b_\\nu(T).\n",
+      "id": "display-9977e0369d9f",
+      "tex": "\nI_m(T;u)=.045T+(u-.045)b_m(T).\n",
       "tags": [],
-      "markdown": "```math\nI_\\nu(T;u)=.045T+(u-.045)b_\\nu(T).\n```"
+      "markdown": "```math\nI_m(T;u)=.045T+(u-.045)b_m(T).\n```"
     },
     {
       "type": "paragraph",
@@ -9718,11 +9862,11 @@
     {
       "type": "display_math",
       "id": "eq-f-2",
-      "tex": "\n\\begin{aligned}\np_\\nu(K,T;u)&=Ke^{-rT}\\Phi(-d_2)-S_0\\Phi(-d_1),\\\\\nd_1&=\\frac{\\log(S_0/K)+rT+I_\\nu/2}{\\sqrt{I_\\nu}},\\qquad\nd_2=d_1-\\sqrt{I_\\nu}.\n\\end{aligned}\n\\tag{F.2}\n",
+      "tex": "\n\\begin{aligned}\np_m(K,T;u)&=Ke^{-rT}\\Phi(-d_2)-S_0\\Phi(-d_1),\\\\\nd_1&=\\frac{\\log(S_0/K)+rT+I_m/2}{\\sqrt{I_m}},\\qquad\nd_2=d_1-\\sqrt{I_m}.\n\\end{aligned}\n\\tag{F.2}\n",
       "tags": [
         "F.2"
       ],
-      "markdown": "```math\n\\begin{aligned}\np_\\nu(K,T;u)&=Ke^{-rT}\\Phi(-d_2)-S_0\\Phi(-d_1),\\\\\nd_1&=\\frac{\\log(S_0/K)+rT+I_\\nu/2}{\\sqrt{I_\\nu}},\\qquad\nd_2=d_1-\\sqrt{I_\\nu}.\n\\end{aligned}\n\\tag{F.2}\n```"
+      "markdown": "```math\n\\begin{aligned}\np_m(K,T;u)&=Ke^{-rT}\\Phi(-d_2)-S_0\\Phi(-d_1),\\\\\nd_1&=\\frac{\\log(S_0/K)+rT+I_m/2}{\\sqrt{I_m}},\\qquad\nd_2=d_1-\\sqrt{I_m}.\n\\end{aligned}\n\\tag{F.2}\n```"
     },
     {
       "type": "paragraph",
@@ -9733,7 +9877,7 @@
         },
         {
           "type": "math",
-          "tex": "b_\\nu(T)>0"
+          "tex": "b_m(T)>0"
         },
         {
           "type": "text",
@@ -9756,7 +9900,7 @@
           "text": "."
         }
       ],
-      "markdown": "Since $`b_\\nu(T)\\gt 0`$ and vega is positive, the reference price over each entire $`u`$-cell is enclosed by its endpoint values. Expanding both endpoints by (E.3) then encloses the true prices over the entire cell and all $`\\zeta`$."
+      "markdown": "Since $`b_m(T)\\gt 0`$ and vega is positive, the reference price over each entire $`u`$-cell is enclosed by its endpoint values. Expanding both endpoints by (E.3) then encloses the true prices over the entire cell and all $`\\zeta`$."
     },
     {
       "type": "paragraph",
@@ -9770,10 +9914,10 @@
     },
     {
       "type": "display_math",
-      "id": "display-c4412130f5c6",
-      "tex": "\n\\begin{aligned}\na_{\\nu,j}&=b_\\nu(t_j)-b_\\nu(t_{j-1}),\\\\\nz_{\\nu,j}(u)&=.045/12+(u-.045)a_{\\nu,j},\\qquad B_*=15e^{-.01}.\n\\end{aligned}\n",
+      "id": "display-6cfe8937eaab",
+      "tex": "\n\\begin{aligned}\na_{m,j}&=b_m(t_j)-b_m(t_{j-1}),\\\\\nz_{m,j}(u)&=.045/12+(u-.045)a_{m,j},\\qquad B_*=15e^{-.01}.\n\\end{aligned}\n",
       "tags": [],
-      "markdown": "```math\n\\begin{aligned}\na_{\\nu,j}&=b_\\nu(t_j)-b_\\nu(t_{j-1}),\\\\\nz_{\\nu,j}(u)&=.045/12+(u-.045)a_{\\nu,j},\\qquad B_*=15e^{-.01}.\n\\end{aligned}\n```"
+      "markdown": "```math\n\\begin{aligned}\na_{m,j}&=b_m(t_j)-b_m(t_{j-1}),\\\\\nz_{m,j}(u)&=.045/12+(u-.045)a_{m,j},\\qquad B_*=15e^{-.01}.\n\\end{aligned}\n```"
     },
     {
       "type": "paragraph",
@@ -9887,10 +10031,10 @@
     },
     {
       "type": "display_math",
-      "id": "display-426d15f3e0d3",
-      "tex": "\n0<l_{\\nu,i}\\le w_\\nu(u,\\zeta)\\le u_{\\nu,i}\\le1\n",
+      "id": "display-82afa5b33095",
+      "tex": "\n0<l_{m,i}\\le w_m(u,\\zeta)\\le u_{m,i}\\le1\n",
       "tags": [],
-      "markdown": "```math\n0\\lt l_{\\nu,i}\\le w_\\nu(u,\\zeta)\\le u_{\\nu,i}\\le1\n```"
+      "markdown": "```math\n0\\lt l_{m,i}\\le w_m(u,\\zeta)\\le u_{m,i}\\le1\n```"
     },
     {
       "type": "paragraph",
@@ -9909,14 +10053,14 @@
         },
         {
           "type": "math",
-          "tex": "\\bar w_\\nu(u)"
+          "tex": "\\bar w_m(u)"
         },
         {
           "type": "text",
           "text": "."
         }
       ],
-      "markdown": "throughout the entire cell and nuisance-parameter domain. Integration against the probability measure $`\\nu(d\\zeta)`$ gives the same enclosure for $`\\bar w_\\nu(u)`$."
+      "markdown": "throughout the entire cell and nuisance-parameter domain. Integration against the probability measure $`\\nu(d\\zeta)`$ gives the same enclosure for $`\\bar w_m(u)`$."
     },
     {
       "type": "heading",
@@ -9965,23 +10109,23 @@
         },
         {
           "type": "math",
-          "tex": "G_\\nu"
+          "tex": "G_m"
         },
         {
           "type": "text",
           "text": " satisfies"
         }
       ],
-      "markdown": "Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_\\lt ,U_\\lt `$, and those to its right by $`L_\\gt ,U_\\gt `$. The marginal CDF $`G_\\nu`$ satisfies"
+      "markdown": "Each cell has the same prior mass. At a node $`x_k`$, denote the sums of lower and upper mass bounds to its left by $`L_\\lt ,U_\\lt `$, and those to its right by $`L_\\gt ,U_\\gt `$. The marginal CDF $`G_m`$ satisfies"
     },
     {
       "type": "display_math",
       "id": "eq-f-5",
-      "tex": "\n\\underline G_\\nu(x_k)=\\frac{L_<}{L_<+U_>},\n\\qquad\n\\overline G_\\nu(x_k)=\\frac{U_<}{U_<+L_>}.\n\\tag{F.5}\n",
+      "tex": "\n\\underline G_m(x_k)=\\frac{L_<}{L_<+U_>},\n\\qquad\n\\overline G_m(x_k)=\\frac{U_<}{U_<+L_>}.\n\\tag{F.5}\n",
       "tags": [
         "F.5"
       ],
-      "markdown": "```math\n\\begin{gathered}\n\\underline G_\\nu(x_k)=\\frac{L_\\lt }{L_\\lt +U_\\gt },\n\\qquad\n\\overline G_\\nu(x_k)=\\frac{U_\\lt }{U_\\lt +L_\\gt }.\n\\end{gathered}\n\\tag{F.5}\n```"
+      "markdown": "```math\n\\begin{gathered}\n\\underline G_m(x_k)=\\frac{L_\\lt }{L_\\lt +U_\\gt },\n\\qquad\n\\overline G_m(x_k)=\\frac{U_\\lt }{U_\\lt +L_\\gt }.\n\\end{gathered}\n\\tag{F.5}\n```"
     },
     {
       "type": "paragraph",
@@ -10034,7 +10178,7 @@
         },
         {
           "type": "math",
-          "tex": "U_\\nu=G_\\nu^{-1}(U)"
+          "tex": "U_m=G_m^{-1}(U)"
         },
         {
           "type": "text",
@@ -10042,23 +10186,23 @@
         },
         {
           "type": "math",
-          "tex": "U_\\nu\\in[x_i,x_{i+1}]"
+          "tex": "U_m\\in[x_i,x_{i+1}]"
         },
         {
           "type": "text",
           "text": ", then"
         }
       ],
-      "markdown": "Let $`U`$ be a common uniform random variable and set $`U_\\nu=G_\\nu^{-1}(U)`$. If $`U_\\nu\\in[x_i,x_{i+1}]`$, then"
+      "markdown": "Let $`U`$ be a common uniform random variable and set $`U_m=G_m^{-1}(U)`$. If $`U_m\\in[x_i,x_{i+1}]`$, then"
     },
     {
       "type": "display_math",
       "id": "eq-f-6",
-      "tex": "\nU\\in[\\underline G_\\nu(x_i),\\overline G_\\nu(x_{i+1})].\n\\tag{F.6}\n",
+      "tex": "\nU\\in[\\underline G_m(x_i),\\overline G_m(x_{i+1})].\n\\tag{F.6}\n",
       "tags": [
         "F.6"
       ],
-      "markdown": "```math\n\\begin{gathered}\nU\\in[\\underline G_\\nu(x_i),\\overline G_\\nu(x_{i+1})].\n\\end{gathered}\n\\tag{F.6}\n```"
+      "markdown": "```math\n\\begin{gathered}\nU\\in[\\underline G_m(x_i),\\overline G_m(x_{i+1})].\n\\end{gathered}\n\\tag{F.6}\n```"
     },
     {
       "type": "paragraph",
@@ -10110,10 +10254,25 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The enclosures of the normalizing constants for the true three-dimensional prior, obtained from all cells, are"
+          "text": "The enclosures of the normalizing constants for the true three-dimensional prior, obtained from all cells, are shown in Table F.1."
         }
       ],
-      "markdown": "The enclosures of the normalizing constants for the true three-dimensional prior, obtained from all cells, are"
+      "markdown": "The enclosures of the normalizing constants for the true three-dimensional prior, obtained from all cells, are shown in Table F.1."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table F.1. Posterior normalizing-constant enclosures on 4096 cells."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table F.1. Posterior normalizing-constant enclosures on 4096 cells.**"
     },
     {
       "type": "table",
@@ -10229,29 +10388,55 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The public repository is "
+          "text": "Start with the "
+        },
+        {
+          "type": "code",
+          "text": "paper"
+        },
+        {
+          "type": "text",
+          "text": " tag at "
         },
         {
           "type": "link",
-          "url": "https://github.com/130U/certified-valuation-arithmetic-asian-options",
+          "url": "https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper",
           "inlines": [
             {
               "type": "text",
-              "text": "https://github.com/130U/certified-valuation-arithmetic-asian-options"
+              "text": "https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper"
             }
           ]
         },
         {
           "type": "text",
-          "text": ". The immutable versions have different roles. The original numerical kernels and reference payloads are frozen at "
+          "text": ". It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root "
         },
         {
           "type": "code",
-          "text": "5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a"
+          "text": "REVISION-MANIFEST.json"
         },
         {
           "type": "text",
-          "text": ". The first major-revision package, including the step-grid and posterior-grid experiments, is available at "
+          "text": " lists the files in this checkout and their hashes; "
+        },
+        {
+          "type": "code",
+          "text": "code/MANIFEST.json"
+        },
+        {
+          "type": "text",
+          "text": " retains the frozen original numerical package identity."
+        }
+      ],
+      "markdown": "Start with the `paper` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `REVISION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` retains the frozen original numerical package identity."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Historical data remain available at "
         },
         {
           "type": "link",
@@ -10269,26 +10454,51 @@
         },
         {
           "type": "text",
-          "text": ". Checking out only the older kernel baseline does not retrieve those experiments. The root "
+          "text": " for the grid experiments, and "
         },
         {
-          "type": "code",
-          "text": "REVISION-MANIFEST.json"
+          "type": "link",
+          "url": "https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "commit "
+            },
+            {
+              "type": "code",
+              "text": "1959f8f078e1fedd590000d6166cb20429ff31db"
+            }
+          ]
         },
         {
           "type": "text",
-          "text": " records the source, input, output and receipt byte identities for each published package; "
+          "text": " for the second-point and coupling data. The original kernel baseline is "
         },
         {
           "type": "code",
-          "text": "code/MANIFEST.json"
+          "text": "5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a"
         },
         {
           "type": "text",
-          "text": " retains the original numerical package identity."
+          "text": "."
         }
       ],
-      "markdown": "The public repository is [https://github.com/130U/certified-valuation-arithmetic-asian-options](https://github.com/130U/certified-valuation-arithmetic-asian-options). The immutable versions have different roles. The original numerical kernels and reference payloads are frozen at `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`. The first major-revision package, including the step-grid and posterior-grid experiments, is available at [commit `cf0d242f1590c7ca07ab8ca7afb57da5a583032b`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b). Checking out only the older kernel baseline does not retrieve those experiments. The root `REVISION-MANIFEST.json` records the source, input, output and receipt byte identities for each published package; `code/MANIFEST.json` retains the original numerical package identity."
+      "markdown": "Historical data remain available at [commit `cf0d242f1590c7ca07ab8ca7afb57da5a583032b`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b) for the grid experiments, and [commit `1959f8f078e1fedd590000d6166cb20429ff31db`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db) for the second-point and coupling data. The original kernel baseline is `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`."
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "strong",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Table G.1. Numerical modules and their results."
+            }
+          ]
+        }
+      ],
+      "markdown": "**Table G.1. Numerical modules and their results.**"
     },
     {
       "type": "table",
@@ -10418,10 +10628,10 @@
         },
         {
           "type": "text",
-          "text": ". From a checkout containing the revision, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character."
+          "text": ". From the publication checkout, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character."
         }
       ],
-      "markdown": "The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with `python-flint==0.8.0`. From a checkout containing the revision, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character."
+      "markdown": "The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with `python-flint==0.8.0`. From the publication checkout, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character."
     },
     {
       "type": "code_block",
@@ -10492,7 +10702,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The original completed execution and the revision experiments are preserved in "
+          "text": "The original completed execution and the additional experiments are preserved in "
         },
         {
           "type": "code",
@@ -10519,14 +10729,14 @@
           "text": " gives fresh calculation commands and experiment inputs. Saved-result verification and fresh kernel execution are distinct operations."
         }
       ],
-      "markdown": "The original completed execution and the revision experiments are preserved in `code/revision/results/evidence.zip`. Its inventory binds each member's bytes and SHA-256. The index `code/revision/results/INDEX.md` gives archive extraction and ledger-replay commands; `code/revision/README.md` gives fresh calculation commands and experiment inputs. Saved-result verification and fresh kernel execution are distinct operations."
+      "markdown": "The original completed execution and the additional experiments are preserved in `code/revision/results/evidence.zip`. Its inventory binds each member's bytes and SHA-256. The index `code/revision/results/INDEX.md` gives archive extraction and ledger-replay commands; `code/revision/README.md` gives fresh calculation commands and experiment inputs. Saved-result verification and fresh kernel execution are distinct operations."
     },
     {
       "type": "paragraph",
       "inlines": [
         {
           "type": "text",
-          "text": "The first-revision ledger "
+          "text": "The step-grid ledger "
         },
         {
           "type": "code",
@@ -10561,7 +10771,7 @@
           "text": ". Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively."
         }
       ],
-      "markdown": "The first-revision ledger `code/revision/results/revision-summary.json` maps each printed numerical row to the exact source field, result, hash and receipt. The original weighted moments are in `code/reference/asian-remainder-result.json`; the linear center, transform contributions and signed price enclosure are in `code/reference/asian-linear-result.json`. Exact synthetic observations are in `code/data/synthetic_quotes.json`. Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively."
+      "markdown": "The step-grid ledger `code/revision/results/revision-summary.json` maps each printed numerical row to the exact source field, result, hash and receipt. The original weighted moments are in `code/reference/asian-remainder-result.json`; the linear center, transform contributions and signed price enclosure are in `code/reference/asian-linear-result.json`. Exact synthetic observations are in `code/data/synthetic_quotes.json`. Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively."
     },
     {
       "type": "paragraph",
@@ -10615,7 +10825,7 @@
         {
           "type": "citation",
           "numbers": [
-            11
+            12
           ]
         },
         {
@@ -10623,7 +10833,7 @@
           "text": "; the check programs use 384-bit Arb with different numerical constructions."
         }
       ],
-      "markdown": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps at the principal point. The linear module evaluates 641 frequencies and thirteen profiles, for 6,399,744 discrete steps and 799,968 continuous branch checks. The principal programs use 256-bit Arb [[11](#ref-11)]; the check programs use 384-bit Arb with different numerical constructions."
+      "markdown": "The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815,360 discrete real-recursion steps at the principal point. The linear module evaluates 641 frequencies and thirteen profiles, for 6,399,744 discrete steps and 799,968 continuous branch checks. The principal programs use 256-bit Arb [[12](#ref-12)]; the check programs use 384-bit Arb with different numerical constructions."
     },
     {
       "type": "paragraph",
@@ -10664,10 +10874,10 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid revision, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract."
+          "text": "Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid study, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract."
         }
       ],
-      "markdown": "Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid revision, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract."
+      "markdown": "Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid study, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract."
     },
     {
       "type": "heading",
@@ -10764,7 +10974,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix H are frozen, together with their programs, inputs, results and receipts, at "
+          "text": "The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix I are frozen, together with their programs, inputs, results and receipts, at "
         },
         {
           "type": "link",
@@ -10782,10 +10992,10 @@
         },
         {
           "type": "text",
-          "text": ". This immutable data revision contains the earlier revision experiments as well. From its root and the same Windows environment, use a new directory name:"
+          "text": ". Use the publication checkout and the same Windows environment, with a new directory name:"
         }
       ],
-      "markdown": "The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix H are frozen, together with their programs, inputs, results and receipts, at [commit `1959f8f078e1fedd590000d6166cb20429ff31db`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db). This immutable data revision contains the earlier revision experiments as well. From its root and the same Windows environment, use a new directory name:"
+      "markdown": "The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix I are frozen, together with their programs, inputs, results and receipts, at [commit `1959f8f078e1fedd590000d6166cb20429ff31db`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db). Use the publication checkout and the same Windows environment, with a new directory name:"
     },
     {
       "type": "code_block",
@@ -10903,30 +11113,6 @@
     },
     {
       "type": "heading",
-      "id": "section-g-4",
-      "level": 3,
-      "number": "G.4",
-      "appendix": true,
-      "inlines": [
-        {
-          "type": "text",
-          "text": "Version history"
-        }
-      ],
-      "markdown": "### G.4 Version history"
-    },
-    {
-      "type": "paragraph",
-      "inlines": [
-        {
-          "type": "text",
-          "text": "The research and original manuscript originate in 2024. The numerical package was consolidated and verified in 2026. The first major revision and this targeted revision are dated 7 October 2026. The baseline, first-revision and second-point data commits above identify these different reproducibility scopes."
-        }
-      ],
-      "markdown": "The research and original manuscript originate in 2024. The numerical package was consolidated and verified in 2026. The first major revision and this targeted revision are dated 7 October 2026. The baseline, first-revision and second-point data commits above identify these different reproducibility scopes."
-    },
-    {
-      "type": "heading",
       "id": "section-h",
       "level": 2,
       "number": "H",
@@ -10934,10 +11120,34 @@
       "inlines": [
         {
           "type": "text",
+          "text": "Research timeline"
+        }
+      ],
+      "markdown": "## Appendix H. Research timeline"
+    },
+    {
+      "type": "paragraph",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "The research and initial writing took place in 2023–2024. The manuscript was prepared and checked for submission in 2026."
+        }
+      ],
+      "markdown": "The research and initial writing took place in 2023–2024. The manuscript was prepared and checked for submission in 2026."
+    },
+    {
+      "type": "heading",
+      "id": "section-i",
+      "level": 2,
+      "number": "I",
+      "appendix": true,
+      "inlines": [
+        {
+          "type": "text",
           "text": "A direct coupled-remainder inequality"
         }
       ],
-      "markdown": "## Appendix H. A direct coupled-remainder inequality"
+      "markdown": "## Appendix I. A direct coupled-remainder inequality"
     },
     {
       "type": "paragraph",
@@ -10957,7 +11167,7 @@
           "inlines": [
             {
               "type": "text",
-              "text": "Proposition H.1 (A remainder bound under a coupling)."
+              "text": "Proposition I.1 (A remainder bound under a coupling)."
             }
           ]
         },
@@ -11014,7 +11224,7 @@
           "text": ", all entries are positive, and each marginal is the conditional triple in (2.6). Set"
         }
       ],
-      "markdown": "**Proposition H.1 (A remainder bound under a coupling).** Fix $`K\\gt 0`$ and $`c\\gt 0`$, assume that both marginal laws satisfy $`\\mathsf H_s(c)`$, so that the remainders are finite, and couple conditional triples $`(a_P,b_P,\\sigma_P)`$, $`(a_Q,b_Q,\\sigma_Q)`$, where $`b_\\nu=cg_\\nu`$, all entries are positive, and each marginal is the conditional triple in (2.6). Set"
+      "markdown": "**Proposition I.1 (A remainder bound under a coupling).** Fix $`K\\gt 0`$ and $`c\\gt 0`$, assume that both marginal laws satisfy $`\\mathsf H_s(c)`$, so that the remainders are finite, and couple conditional triples $`(a_P,b_P,\\sigma_P)`$, $`(a_Q,b_Q,\\sigma_Q)`$, where $`b_\\nu=cg_\\nu`$, all entries are positive, and each marginal is the conditional triple in (2.6). Set"
     },
     {
       "type": "display_math",
@@ -11057,12 +11267,12 @@
     },
     {
       "type": "display_math",
-      "id": "eq-h-1",
-      "tex": "\n|R_{K,Q}-R_{K,P}|\\le B_K.                       \\tag{H.1}\n",
+      "id": "eq-i-1",
+      "tex": "\n|R_{K,Q}-R_{K,P}|\\le B_K.                       \\tag{I.1}\n",
       "tags": [
-        "H.1"
+        "I.1"
       ],
-      "markdown": "```math\n\\begin{gathered}\n|R_{K,Q}-R_{K,P}|\\le B_K.\n\\end{gathered}\n\\tag{H.1}\n```"
+      "markdown": "```math\n\\begin{gathered}\n|R_{K,Q}-R_{K,P}|\\le B_K.\n\\end{gathered}\n\\tag{I.1}\n```"
     },
     {
       "type": "paragraph",
@@ -11317,7 +11527,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Taking expectations proves (H.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement. "
+          "text": "Taking expectations proves (I.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement. "
         },
         {
           "type": "text",
@@ -11328,7 +11538,7 @@
           "tex": "\\square"
         }
       ],
-      "markdown": "Taking expectations proves (H.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement.  $`\\square`$"
+      "markdown": "Taking expectations proves (I.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement.  $`\\square`$"
     },
     {
       "type": "paragraph",
@@ -11351,16 +11561,16 @@
         },
         {
           "type": "text",
-          "text": ", then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
+          "text": ", then (I.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
         }
       ],
-      "markdown": "The $`s_-^{-2}`$ factor requires coupled-moment control beyond (2.7) and the marginal affine catalog. If a family of verified couplings satisfies $`E\\Xi_K\\to0`$, then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
+      "markdown": "The $`s_-^{-2}`$ factor requires coupled-moment control beyond (2.7) and the marginal affine catalog. If a family of verified couplings satisfies $`E\\Xi_K\\to0`$, then (I.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here."
     },
     {
       "type": "heading",
-      "id": "section-h-1",
+      "id": "section-i-1",
       "level": 3,
-      "number": "H.1",
+      "number": "I.1",
       "appendix": true,
       "inlines": [
         {
@@ -11368,7 +11578,7 @@
           "text": "An executed coupling example on the deterministic-variance face"
         }
       ],
-      "markdown": "### H.1 An executed coupling example on the deterministic-variance face"
+      "markdown": "### I.1 An executed coupling example on the deterministic-variance face"
     },
     {
       "type": "paragraph",
@@ -11696,12 +11906,26 @@
         },
         {
           "type": "text",
-          "text": ", 40(12):1705–1711, 1994."
+          "text": ", 40(12):1705–1711, 1994. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1287/mnsc.40.12.1705",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1287/mnsc.40.12.1705"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Curran, Michael. Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price. *Management Science*, 40(12):1705–1711, 1994.",
+      "text": "Curran, Michael. Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price. *Management Science*, 40(12):1705–1711, 1994. [https://doi.org/10.1287/mnsc.40.12.1705](https://doi.org/10.1287/mnsc.40.12.1705).",
       "url": "https://doi.org/10.1287/mnsc.40.12.1705",
-      "markdown": "<a id=\"ref-1\"></a>\n\n1. Curran, Michael. Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price. *Management Science*, 40(12):1705–1711, 1994. [Source](https://doi.org/10.1287/mnsc.40.12.1705)"
+      "markdown": "<a id=\"ref-1\"></a>\n\n1. Curran, Michael. Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price. *Management Science*, 40(12):1705–1711, 1994. [https://doi.org/10.1287/mnsc.40.12.1705](https://doi.org/10.1287/mnsc.40.12.1705)."
     },
     {
       "type": "reference",
@@ -11724,12 +11948,26 @@
         },
         {
           "type": "text",
-          "text": ", 32(4):1077–1088, 1995."
+          "text": ", 32(4):1077–1088, 1995. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.2307/3215221",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.2307/3215221"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Rogers, L. C. G., Shi, Z. The value of an Asian option. *Journal of Applied Probability*, 32(4):1077–1088, 1995.",
+      "text": "Rogers, L. C. G., Shi, Z. The value of an Asian option. *Journal of Applied Probability*, 32(4):1077–1088, 1995. [https://doi.org/10.2307/3215221](https://doi.org/10.2307/3215221).",
       "url": "https://doi.org/10.2307/3215221",
-      "markdown": "<a id=\"ref-2\"></a>\n\n2. Rogers, L. C. G., Shi, Z. The value of an Asian option. *Journal of Applied Probability*, 32(4):1077–1088, 1995. [Source](https://doi.org/10.2307/3215221)"
+      "markdown": "<a id=\"ref-2\"></a>\n\n2. Rogers, L. C. G., Shi, Z. The value of an Asian option. *Journal of Applied Probability*, 32(4):1077–1088, 1995. [https://doi.org/10.2307/3215221](https://doi.org/10.2307/3215221)."
     },
     {
       "type": "reference",
@@ -11739,12 +11977,26 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002."
+          "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002. "
+        },
+        {
+          "type": "link",
+          "url": "https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002.",
+      "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002. [https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf](https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf).",
       "url": "https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf",
-      "markdown": "<a id=\"ref-3\"></a>\n\n3. Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002. [Source](https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf)"
+      "markdown": "<a id=\"ref-3\"></a>\n\n3. Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002. [https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf](https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf)."
     },
     {
       "type": "reference",
@@ -11754,7 +12006,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Fusai, Gianluca, Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. "
+          "text": "Fusai, Gianluca, and Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. "
         },
         {
           "type": "emphasis",
@@ -11767,12 +12019,40 @@
         },
         {
           "type": "text",
-          "text": ", 41(2):531–559, 2016."
+          "text": ", 41(2):531–559, 2016. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1287/moor.2015.0739",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1287/moor.2015.0739"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ". Accepted manuscript: "
+        },
+        {
+          "type": "link",
+          "url": "https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Fusai, Gianluca, Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. *Mathematics of Operations Research*, 41(2):531–559, 2016.",
+      "text": "Fusai, Gianluca, and Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. *Mathematics of Operations Research*, 41(2):531–559, 2016. [https://doi.org/10.1287/moor.2015.0739](https://doi.org/10.1287/moor.2015.0739). Accepted manuscript: [https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf](https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf).",
       "url": "https://doi.org/10.1287/moor.2015.0739",
-      "markdown": "<a id=\"ref-4\"></a>\n\n4. Fusai, Gianluca, Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. *Mathematics of Operations Research*, 41(2):531–559, 2016. [Source](https://doi.org/10.1287/moor.2015.0739)"
+      "markdown": "<a id=\"ref-4\"></a>\n\n4. Fusai, Gianluca, and Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. *Mathematics of Operations Research*, 41(2):531–559, 2016. [https://doi.org/10.1287/moor.2015.0739](https://doi.org/10.1287/moor.2015.0739). Accepted manuscript: [https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf](https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf)."
     },
     {
       "type": "reference",
@@ -11795,32 +12075,102 @@
         },
         {
           "type": "text",
-          "text": ", 6(2):327–343, 1993."
+          "text": ", 6(2):327–343, 1993. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1093/rfs/6.2.327",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1093/rfs/6.2.327"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Heston, Steven L. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. *The Review of Financial Studies*, 6(2):327–343, 1993.",
+      "text": "Heston, Steven L. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. *The Review of Financial Studies*, 6(2):327–343, 1993. [https://doi.org/10.1093/rfs/6.2.327](https://doi.org/10.1093/rfs/6.2.327).",
       "url": "https://doi.org/10.1093/rfs/6.2.327",
-      "markdown": "<a id=\"ref-5\"></a>\n\n5. Heston, Steven L. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. *The Review of Financial Studies*, 6(2):327–343, 1993. [Source](https://doi.org/10.1093/rfs/6.2.327)"
+      "markdown": "<a id=\"ref-5\"></a>\n\n5. Heston, Steven L. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. *The Review of Financial Studies*, 6(2):327–343, 1993. [https://doi.org/10.1093/rfs/6.2.327](https://doi.org/10.1093/rfs/6.2.327)."
     },
     {
       "type": "reference",
       "id": "ref-6",
       "number": 6,
-      "key": "QuantLibDiscreteGeometricHeston",
+      "key": "KimKimKimWee2016",
       "inlines": [
         {
           "type": "text",
-          "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision."
+          "text": "Kim, Bara, Kim, Jeongsim, Kim, Jerim, and Wee, In Suk. A recursive method for discretely monitored geometric Asian option prices. "
+        },
+        {
+          "type": "emphasis",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Bulletin of the Korean Mathematical Society"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ", 53(3):733–749, 2016. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.4134/BKMS.b150283",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.4134/BKMS.b150283"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision.",
-      "url": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp",
-      "markdown": "<a id=\"ref-6\"></a>\n\n6. QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. [Source](https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp)"
+      "text": "Kim, Bara, Kim, Jeongsim, Kim, Jerim, and Wee, In Suk. A recursive method for discretely monitored geometric Asian option prices. *Bulletin of the Korean Mathematical Society*, 53(3):733–749, 2016. [https://doi.org/10.4134/BKMS.b150283](https://doi.org/10.4134/BKMS.b150283).",
+      "url": "https://doi.org/10.4134/BKMS.b150283",
+      "markdown": "<a id=\"ref-6\"></a>\n\n6. Kim, Bara, Kim, Jeongsim, Kim, Jerim, and Wee, In Suk. A recursive method for discretely monitored geometric Asian option prices. *Bulletin of the Korean Mathematical Society*, 53(3):733–749, 2016. [https://doi.org/10.4134/BKMS.b150283](https://doi.org/10.4134/BKMS.b150283)."
     },
     {
       "type": "reference",
       "id": "ref-7",
       "number": 7,
+      "key": "QuantLibDiscreteGeometricHeston",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. "
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. [https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp](https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp).",
+      "url": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp",
+      "markdown": "<a id=\"ref-7\"></a>\n\n7. QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. [https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp](https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp)."
+    },
+    {
+      "type": "reference",
+      "id": "ref-8",
+      "number": 8,
       "key": "TalayTubaro1990",
       "inlines": [
         {
@@ -11838,32 +12188,73 @@
         },
         {
           "type": "text",
-          "text": ", 8(4):483–509, 1990."
-        }
-      ],
-      "text": "Talay, Denis, Tubaro, Luciano. Expansion of the global error for numerical schemes solving stochastic differential equations. *Stochastic Analysis and Applications*, 8(4):483–509, 1990.",
-      "url": "https://doi.org/10.1080/07362999008809220",
-      "markdown": "<a id=\"ref-7\"></a>\n\n7. Talay, Denis, Tubaro, Luciano. Expansion of the global error for numerical schemes solving stochastic differential equations. *Stochastic Analysis and Applications*, 8(4):483–509, 1990. [Source](https://doi.org/10.1080/07362999008809220)"
-    },
-    {
-      "type": "reference",
-      "id": "ref-8",
-      "number": 8,
-      "key": "MickelNeuenkirch2022",
-      "inlines": [
+          "text": ", 8(4):483–509, 1990. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1080/07362999008809220",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1080/07362999008809220"
+            }
+          ]
+        },
         {
           "type": "text",
-          "text": "Mickel, Annalena, Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. arXiv:2106.10926v2, 2022."
+          "text": "."
         }
       ],
-      "text": "Mickel, Annalena, Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. arXiv:2106.10926v2, 2022.",
-      "url": "https://arxiv.org/abs/2106.10926v2",
-      "markdown": "<a id=\"ref-8\"></a>\n\n8. Mickel, Annalena, Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. arXiv:2106.10926v2, 2022. [Source](https://arxiv.org/abs/2106.10926v2)"
+      "text": "Talay, Denis, Tubaro, Luciano. Expansion of the global error for numerical schemes solving stochastic differential equations. *Stochastic Analysis and Applications*, 8(4):483–509, 1990. [https://doi.org/10.1080/07362999008809220](https://doi.org/10.1080/07362999008809220).",
+      "url": "https://doi.org/10.1080/07362999008809220",
+      "markdown": "<a id=\"ref-8\"></a>\n\n8. Talay, Denis, Tubaro, Luciano. Expansion of the global error for numerical schemes solving stochastic differential equations. *Stochastic Analysis and Applications*, 8(4):483–509, 1990. [https://doi.org/10.1080/07362999008809220](https://doi.org/10.1080/07362999008809220)."
     },
     {
       "type": "reference",
       "id": "ref-9",
       "number": 9,
+      "key": "MickelNeuenkirch2023",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Mickel, Annalena, and Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. "
+        },
+        {
+          "type": "emphasis",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "IMA Journal of Numerical Analysis"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ", 43(6):3326–3356, 2023. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1093/imanum/drac069",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1093/imanum/drac069"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "text": "Mickel, Annalena, and Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. *IMA Journal of Numerical Analysis*, 43(6):3326–3356, 2023. [https://doi.org/10.1093/imanum/drac069](https://doi.org/10.1093/imanum/drac069).",
+      "url": "https://doi.org/10.1093/imanum/drac069",
+      "markdown": "<a id=\"ref-9\"></a>\n\n9. Mickel, Annalena, and Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. *IMA Journal of Numerical Analysis*, 43(6):3326–3356, 2023. [https://doi.org/10.1093/imanum/drac069](https://doi.org/10.1093/imanum/drac069)."
+    },
+    {
+      "type": "reference",
+      "id": "ref-10",
+      "number": 10,
       "key": "BallyTalay1996",
       "inlines": [
         {
@@ -11881,17 +12272,31 @@
         },
         {
           "type": "text",
-          "text": ", 104(1):43–60, 1996."
+          "text": ", 104(1):43–60, 1996. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1007/BF01303802",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1007/BF01303802"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Bally, Vlad, Talay, Denis. The law of the Euler scheme for stochastic differential equations: I. Convergence rate of the distribution function. *Probability Theory and Related Fields*, 104(1):43–60, 1996.",
+      "text": "Bally, Vlad, Talay, Denis. The law of the Euler scheme for stochastic differential equations: I. Convergence rate of the distribution function. *Probability Theory and Related Fields*, 104(1):43–60, 1996. [https://doi.org/10.1007/BF01303802](https://doi.org/10.1007/BF01303802).",
       "url": "https://doi.org/10.1007/BF01303802",
-      "markdown": "<a id=\"ref-9\"></a>\n\n9. Bally, Vlad, Talay, Denis. The law of the Euler scheme for stochastic differential equations: I. Convergence rate of the distribution function. *Probability Theory and Related Fields*, 104(1):43–60, 1996. [Source](https://doi.org/10.1007/BF01303802)"
+      "markdown": "<a id=\"ref-10\"></a>\n\n10. Bally, Vlad, Talay, Denis. The law of the Euler scheme for stochastic differential equations: I. Convergence rate of the distribution function. *Probability Theory and Related Fields*, 104(1):43–60, 1996. [https://doi.org/10.1007/BF01303802](https://doi.org/10.1007/BF01303802)."
     },
     {
       "type": "reference",
-      "id": "ref-10",
-      "number": 10,
+      "id": "ref-11",
+      "number": 11,
       "key": "CotterDashtiStuart2010",
       "inlines": [
         {
@@ -11909,17 +12314,31 @@
         },
         {
           "type": "text",
-          "text": ", 48(1):322–345, 2010."
+          "text": ", 48(1):322–345, 2010. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1137/090770734",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1137/090770734"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Cotter, S. L., Dashti, M., Stuart, A. M. Approximation of Bayesian Inverse Problems for PDEs. *SIAM Journal on Numerical Analysis*, 48(1):322–345, 2010.",
+      "text": "Cotter, S. L., Dashti, M., Stuart, A. M. Approximation of Bayesian Inverse Problems for PDEs. *SIAM Journal on Numerical Analysis*, 48(1):322–345, 2010. [https://doi.org/10.1137/090770734](https://doi.org/10.1137/090770734).",
       "url": "https://doi.org/10.1137/090770734",
-      "markdown": "<a id=\"ref-10\"></a>\n\n10. Cotter, S. L., Dashti, M., Stuart, A. M. Approximation of Bayesian Inverse Problems for PDEs. *SIAM Journal on Numerical Analysis*, 48(1):322–345, 2010. [Source](https://doi.org/10.1137/090770734)"
+      "markdown": "<a id=\"ref-11\"></a>\n\n11. Cotter, S. L., Dashti, M., Stuart, A. M. Approximation of Bayesian Inverse Problems for PDEs. *SIAM Journal on Numerical Analysis*, 48(1):322–345, 2010. [https://doi.org/10.1137/090770734](https://doi.org/10.1137/090770734)."
     },
     {
       "type": "reference",
-      "id": "ref-11",
-      "number": 11,
+      "id": "ref-12",
+      "number": 12,
       "key": "Johansson2017",
       "inlines": [
         {
@@ -11937,17 +12356,31 @@
         },
         {
           "type": "text",
-          "text": ", 66(8):1281–1292, 2017."
+          "text": ", 66(8):1281–1292, 2017. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1109/TC.2017.2690633",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1109/TC.2017.2690633"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Johansson, Fredrik. Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic. *IEEE Transactions on Computers*, 66(8):1281–1292, 2017.",
+      "text": "Johansson, Fredrik. Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic. *IEEE Transactions on Computers*, 66(8):1281–1292, 2017. [https://doi.org/10.1109/TC.2017.2690633](https://doi.org/10.1109/TC.2017.2690633).",
       "url": "https://doi.org/10.1109/TC.2017.2690633",
-      "markdown": "<a id=\"ref-11\"></a>\n\n11. Johansson, Fredrik. Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic. *IEEE Transactions on Computers*, 66(8):1281–1292, 2017. [Source](https://doi.org/10.1109/TC.2017.2690633)"
+      "markdown": "<a id=\"ref-12\"></a>\n\n12. Johansson, Fredrik. Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic. *IEEE Transactions on Computers*, 66(8):1281–1292, 2017. [https://doi.org/10.1109/TC.2017.2690633](https://doi.org/10.1109/TC.2017.2690633)."
     },
     {
       "type": "reference",
-      "id": "ref-12",
-      "number": 12,
+      "id": "ref-13",
+      "number": 13,
       "key": "Lee2004",
       "inlines": [
         {
@@ -11965,12 +12398,26 @@
         },
         {
           "type": "text",
-          "text": ", 7(3):51–86, 2004."
+          "text": ", 7(3):51–86, 2004. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.21314/JCF.2004.121",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.21314/JCF.2004.121"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Lee, Roger W. Option Pricing by Transform Methods: Extensions, Unification, and Error Control. *The Journal of Computational Finance*, 7(3):51–86, 2004.",
+      "text": "Lee, Roger W. Option Pricing by Transform Methods: Extensions, Unification, and Error Control. *The Journal of Computational Finance*, 7(3):51–86, 2004. [https://doi.org/10.21314/JCF.2004.121](https://doi.org/10.21314/JCF.2004.121).",
       "url": "https://doi.org/10.21314/JCF.2004.121",
-      "markdown": "<a id=\"ref-12\"></a>\n\n12. Lee, Roger W. Option Pricing by Transform Methods: Extensions, Unification, and Error Control. *The Journal of Computational Finance*, 7(3):51–86, 2004. [Source](https://doi.org/10.21314/JCF.2004.121)"
+      "markdown": "<a id=\"ref-13\"></a>\n\n13. Lee, Roger W. Option Pricing by Transform Methods: Extensions, Unification, and Error Control. *The Journal of Computational Finance*, 7(3):51–86, 2004. [https://doi.org/10.21314/JCF.2004.121](https://doi.org/10.21314/JCF.2004.121)."
     }
   ],
   "references": [
@@ -11993,10 +12440,24 @@
         },
         {
           "type": "text",
-          "text": ", 40(12):1705–1711, 1994."
+          "text": ", 40(12):1705–1711, 1994. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1287/mnsc.40.12.1705",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1287/mnsc.40.12.1705"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Curran, Michael. Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price. *Management Science*, 40(12):1705–1711, 1994.",
+      "text": "Curran, Michael. Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price. *Management Science*, 40(12):1705–1711, 1994. [https://doi.org/10.1287/mnsc.40.12.1705](https://doi.org/10.1287/mnsc.40.12.1705).",
       "url": "https://doi.org/10.1287/mnsc.40.12.1705"
     },
     {
@@ -12018,10 +12479,24 @@
         },
         {
           "type": "text",
-          "text": ", 32(4):1077–1088, 1995."
+          "text": ", 32(4):1077–1088, 1995. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.2307/3215221",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.2307/3215221"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Rogers, L. C. G., Shi, Z. The value of an Asian option. *Journal of Applied Probability*, 32(4):1077–1088, 1995.",
+      "text": "Rogers, L. C. G., Shi, Z. The value of an Asian option. *Journal of Applied Probability*, 32(4):1077–1088, 1995. [https://doi.org/10.2307/3215221](https://doi.org/10.2307/3215221).",
       "url": "https://doi.org/10.2307/3215221"
     },
     {
@@ -12030,10 +12505,24 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002."
+          "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002. "
+        },
+        {
+          "type": "link",
+          "url": "https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002.",
+      "text": "Thompson, G. W. P. Fast narrow bounds on the value of Asian options. Judge Institute of Management, University of Cambridge, WP09/2002, 2002. [https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf](https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf).",
       "url": "https://www.jbs.cam.ac.uk/wp-content/uploads/2020/08/wp0209.pdf"
     },
     {
@@ -12042,7 +12531,7 @@
       "inlines": [
         {
           "type": "text",
-          "text": "Fusai, Gianluca, Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. "
+          "text": "Fusai, Gianluca, and Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. "
         },
         {
           "type": "emphasis",
@@ -12055,10 +12544,38 @@
         },
         {
           "type": "text",
-          "text": ", 41(2):531–559, 2016."
+          "text": ", 41(2):531–559, 2016. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1287/moor.2015.0739",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1287/moor.2015.0739"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ". Accepted manuscript: "
+        },
+        {
+          "type": "link",
+          "url": "https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Fusai, Gianluca, Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. *Mathematics of Operations Research*, 41(2):531–559, 2016.",
+      "text": "Fusai, Gianluca, and Kyriakou, Ioannis. General Optimized Lower and Upper Bounds for Discrete and Continuous Arithmetic Asian Options. *Mathematics of Operations Research*, 41(2):531–559, 2016. [https://doi.org/10.1287/moor.2015.0739](https://doi.org/10.1287/moor.2015.0739). Accepted manuscript: [https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf](https://openaccess.city.ac.uk/id/eprint/13241/1/AsianBound_FK.pdf).",
       "url": "https://doi.org/10.1287/moor.2015.0739"
     },
     {
@@ -12080,26 +12597,93 @@
         },
         {
           "type": "text",
-          "text": ", 6(2):327–343, 1993."
+          "text": ", 6(2):327–343, 1993. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1093/rfs/6.2.327",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1093/rfs/6.2.327"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Heston, Steven L. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. *The Review of Financial Studies*, 6(2):327–343, 1993.",
+      "text": "Heston, Steven L. A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options. *The Review of Financial Studies*, 6(2):327–343, 1993. [https://doi.org/10.1093/rfs/6.2.327](https://doi.org/10.1093/rfs/6.2.327).",
       "url": "https://doi.org/10.1093/rfs/6.2.327"
     },
     {
       "number": 6,
+      "key": "KimKimKimWee2016",
+      "inlines": [
+        {
+          "type": "text",
+          "text": "Kim, Bara, Kim, Jeongsim, Kim, Jerim, and Wee, In Suk. A recursive method for discretely monitored geometric Asian option prices. "
+        },
+        {
+          "type": "emphasis",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "Bulletin of the Korean Mathematical Society"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ", 53(3):733–749, 2016. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.4134/BKMS.b150283",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.4134/BKMS.b150283"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "text": "Kim, Bara, Kim, Jeongsim, Kim, Jerim, and Wee, In Suk. A recursive method for discretely monitored geometric Asian option prices. *Bulletin of the Korean Mathematical Society*, 53(3):733–749, 2016. [https://doi.org/10.4134/BKMS.b150283](https://doi.org/10.4134/BKMS.b150283).",
+      "url": "https://doi.org/10.4134/BKMS.b150283"
+    },
+    {
+      "number": 7,
       "key": "QuantLibDiscreteGeometricHeston",
       "inlines": [
         {
           "type": "text",
-          "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision."
+          "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. "
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision.",
+      "text": "QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. [https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp](https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp).",
       "url": "https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp"
     },
     {
-      "number": 7,
+      "number": 8,
       "key": "TalayTubaro1990",
       "inlines": [
         {
@@ -12117,26 +12701,67 @@
         },
         {
           "type": "text",
-          "text": ", 8(4):483–509, 1990."
+          "text": ", 8(4):483–509, 1990. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1080/07362999008809220",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1080/07362999008809220"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Talay, Denis, Tubaro, Luciano. Expansion of the global error for numerical schemes solving stochastic differential equations. *Stochastic Analysis and Applications*, 8(4):483–509, 1990.",
+      "text": "Talay, Denis, Tubaro, Luciano. Expansion of the global error for numerical schemes solving stochastic differential equations. *Stochastic Analysis and Applications*, 8(4):483–509, 1990. [https://doi.org/10.1080/07362999008809220](https://doi.org/10.1080/07362999008809220).",
       "url": "https://doi.org/10.1080/07362999008809220"
     },
     {
-      "number": 8,
-      "key": "MickelNeuenkirch2022",
+      "number": 9,
+      "key": "MickelNeuenkirch2023",
       "inlines": [
         {
           "type": "text",
-          "text": "Mickel, Annalena, Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. arXiv:2106.10926v2, 2022."
+          "text": "Mickel, Annalena, and Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. "
+        },
+        {
+          "type": "emphasis",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "IMA Journal of Numerical Analysis"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ", 43(6):3326–3356, 2023. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1093/imanum/drac069",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1093/imanum/drac069"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Mickel, Annalena, Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. arXiv:2106.10926v2, 2022.",
-      "url": "https://arxiv.org/abs/2106.10926v2"
+      "text": "Mickel, Annalena, and Neuenkirch, Andreas. The weak convergence order of two Euler-type discretization schemes for the log-Heston model. *IMA Journal of Numerical Analysis*, 43(6):3326–3356, 2023. [https://doi.org/10.1093/imanum/drac069](https://doi.org/10.1093/imanum/drac069).",
+      "url": "https://doi.org/10.1093/imanum/drac069"
     },
     {
-      "number": 9,
+      "number": 10,
       "key": "BallyTalay1996",
       "inlines": [
         {
@@ -12154,14 +12779,28 @@
         },
         {
           "type": "text",
-          "text": ", 104(1):43–60, 1996."
+          "text": ", 104(1):43–60, 1996. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1007/BF01303802",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1007/BF01303802"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Bally, Vlad, Talay, Denis. The law of the Euler scheme for stochastic differential equations: I. Convergence rate of the distribution function. *Probability Theory and Related Fields*, 104(1):43–60, 1996.",
+      "text": "Bally, Vlad, Talay, Denis. The law of the Euler scheme for stochastic differential equations: I. Convergence rate of the distribution function. *Probability Theory and Related Fields*, 104(1):43–60, 1996. [https://doi.org/10.1007/BF01303802](https://doi.org/10.1007/BF01303802).",
       "url": "https://doi.org/10.1007/BF01303802"
     },
     {
-      "number": 10,
+      "number": 11,
       "key": "CotterDashtiStuart2010",
       "inlines": [
         {
@@ -12179,14 +12818,28 @@
         },
         {
           "type": "text",
-          "text": ", 48(1):322–345, 2010."
+          "text": ", 48(1):322–345, 2010. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1137/090770734",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1137/090770734"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Cotter, S. L., Dashti, M., Stuart, A. M. Approximation of Bayesian Inverse Problems for PDEs. *SIAM Journal on Numerical Analysis*, 48(1):322–345, 2010.",
+      "text": "Cotter, S. L., Dashti, M., Stuart, A. M. Approximation of Bayesian Inverse Problems for PDEs. *SIAM Journal on Numerical Analysis*, 48(1):322–345, 2010. [https://doi.org/10.1137/090770734](https://doi.org/10.1137/090770734).",
       "url": "https://doi.org/10.1137/090770734"
     },
     {
-      "number": 11,
+      "number": 12,
       "key": "Johansson2017",
       "inlines": [
         {
@@ -12204,14 +12857,28 @@
         },
         {
           "type": "text",
-          "text": ", 66(8):1281–1292, 2017."
+          "text": ", 66(8):1281–1292, 2017. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.1109/TC.2017.2690633",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.1109/TC.2017.2690633"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Johansson, Fredrik. Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic. *IEEE Transactions on Computers*, 66(8):1281–1292, 2017.",
+      "text": "Johansson, Fredrik. Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic. *IEEE Transactions on Computers*, 66(8):1281–1292, 2017. [https://doi.org/10.1109/TC.2017.2690633](https://doi.org/10.1109/TC.2017.2690633).",
       "url": "https://doi.org/10.1109/TC.2017.2690633"
     },
     {
-      "number": 12,
+      "number": 13,
       "key": "Lee2004",
       "inlines": [
         {
@@ -12229,10 +12896,24 @@
         },
         {
           "type": "text",
-          "text": ", 7(3):51–86, 2004."
+          "text": ", 7(3):51–86, 2004. "
+        },
+        {
+          "type": "link",
+          "url": "https://doi.org/10.21314/JCF.2004.121",
+          "inlines": [
+            {
+              "type": "text",
+              "text": "https://doi.org/10.21314/JCF.2004.121"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
         }
       ],
-      "text": "Lee, Roger W. Option Pricing by Transform Methods: Extensions, Unification, and Error Control. *The Journal of Computational Finance*, 7(3):51–86, 2004.",
+      "text": "Lee, Roger W. Option Pricing by Transform Methods: Extensions, Unification, and Error Control. *The Journal of Computational Finance*, 7(3):51–86, 2004. [https://doi.org/10.21314/JCF.2004.121](https://doi.org/10.21314/JCF.2004.121).",
       "url": "https://doi.org/10.21314/JCF.2004.121"
     }
   ]

@@ -1,0 +1,13 @@
+{
+  "package": "mathjax-full",
+  "version": "3.2.2",
+  "metadata_url": "https://registry.npmjs.org/mathjax-full/3.2.2",
+  "tarball_url": "https://registry.npmjs.org/mathjax-full/-/mathjax-full-3.2.2.tgz",
+  "npm_integrity": "sha512-+LfG9Fik+OuI8SLwsiR02IVdjcnRCy5MufYLi0C3TdMT56L/pjB0alMVGgoWJF8pN9Rc7FESycZB9BMNWIid5w==",
+  "sha256": "d8f080d2e4bdfb75284aac34d5eff155002eca47798b1d4e4bde31453e653f87",
+  "bytes": 8530863,
+  "global_install": false,
+  "runtime_network_required": false,
+  "license": "Apache-2.0",
+  "files": 2700
+}

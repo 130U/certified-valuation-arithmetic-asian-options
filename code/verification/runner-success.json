@@ -1,0 +1,65 @@
+{
+  "status": "FRESH_FIVE_JOB_EXACT_FROZEN_MATHEMATICAL_PAYLOAD_PASS",
+  "jobs": [
+    {
+      "job": "asian-W",
+      "unchanged_executed_numerical_source_sha256": "c6d05697db9d44ad2db441c96cc3ae39ad71930121694bdfc5fd1ed02856c3ac",
+      "fresh_result_sha256": "feefc28ef05a8bcee26559a021ea12c179c5f05dad762b06129ad507f72d4a3a",
+      "frozen_result_sha256": "23097f25816157975ddca8ee211d57bf75663ad2858a3b9833871e601dd90caa",
+      "reference": "asian-remainder-result.json",
+      "mathematical_payload_sha256": "c4aa36a6553886c3d542a647d932e470f08f587bed873511d2e4606bd846adff",
+      "all_nonmetadata_fields_exactly_equal": true
+    },
+    {
+      "job": "asian-pilot",
+      "unchanged_executed_numerical_source_sha256": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+      "fresh_result_sha256": "a5bd6b66fe46808c72f753a336bb5872360f69acd86bf8662a532fecd1c340de",
+      "frozen_result_sha256": "9b41a96d4296435fd6819df089343b78e5f945aca19ae9b102908d1b4f57849c",
+      "reference": "asian-linear-pilot-result.json",
+      "mathematical_payload_sha256": "c192c44fe4bb2bd422e425cf23ca4db7bfdf3d7c0bfdf0843d81500def1cbe35",
+      "all_nonmetadata_fields_exactly_equal": true
+    },
+    {
+      "job": "asian-linear",
+      "unchanged_executed_numerical_source_sha256": "204cdd128f4b706999d14d581830cf0a35014c1e488cc715a1a821adad90a3ea",
+      "fresh_result_sha256": "7e46aec0deef0ab6f59482b3f55265030eea9d36c59b132a17702fccb03702a8",
+      "frozen_result_sha256": "7d1adea5db08ae7ff56e0029f45b9485d9cb695d3217371f6f01d7bbce95a44b",
+      "reference": "asian-linear-result.json",
+      "mathematical_payload_sha256": "86d4b3c40fbc051d3066bd82767256b36f6d6804324f131ed181a4e0f67168d8",
+      "all_nonmetadata_fields_exactly_equal": true
+    },
+    {
+      "job": "asian-W-check",
+      "unchanged_executed_numerical_source_sha256": "0b880e52aff38fd6b56f52f62cdb647593dadbc7f246c18f4eea2d5d269f71d5",
+      "fresh_result_sha256": "685d9ba512fdef1577ead3e15d4fcafb94853c553e833df8be78d0c75bfdcda4",
+      "frozen_result_sha256": "af67dabe704794467919872d14c1b6671ee899838163adcf2a6b5bf5a4bece6e",
+      "reference": "check-asian-remainder-result.json",
+      "mathematical_payload_sha256": "b0f98e822db97d7a264365aa23b2c381d7ea87893b9ded6eeffedbf34cf74eb0",
+      "all_nonmetadata_fields_exactly_equal": true
+    },
+    {
+      "job": "asian-linear-check",
+      "unchanged_executed_numerical_source_sha256": "dbd8243af5d55c908245e99d3003f239432d31dca3ead393ba433559129077cf",
+      "fresh_result_sha256": "3853b2c34a47a12b3d3d01cec2a92d79b60d67e7d7dfa8e41f03ddfd27a99571",
+      "frozen_result_sha256": "e313996bfa1d3a27d18bda3b5fe5ea4f3f206e53d19e701bc8663ff9b5e76e98",
+      "reference": "check-asian-linear-result.json",
+      "mathematical_payload_sha256": "3872d03a82cb2a167852ded79decb7ccc1665db99dedc0a5201c942d745ec4d5",
+      "all_nonmetadata_fields_exactly_equal": true
+    }
+  ],
+  "comparison": "Every result field and array exactly equals the frozen reference after removing SHA256 fields and the original explicitly named elapsed-time metadata; no numerical tolerance.",
+  "metadata_exclusions": [
+    "elapsed_seconds",
+    "envelope_worker_seconds",
+    "full_linear_time_estimate",
+    "outer_seconds",
+    "seconds",
+    "worker_seconds"
+  ],
+  "hash_exclusion": "keys ending sha256",
+  "runner_sha256": "d0ef172a99633538903c726decb6929fea1767b2abddc892c39fd6c63e6a615c",
+  "unchanged_baseline_payload_reader_sha256": "52e8e9250553885b2b43020909e6ce24d4488b7a920b3a48865522d0eaf73e6c",
+  "fresh_execution_receipt_sha256": "3460e9aeb146ba0d13dfeeea27127283a8bccb75f7f9e713733104914e8228cf",
+  "frozen_execution_receipt_sha256": "b9d3c3cde98affa537602f858a7edeeb362a9b15fc43a9b349f78d7622475bce",
+  "fresh_capsule_sha256": "5a6444dffc7b660006f66c1c6cd4ca03788bdcb98c4ab16461f449163186dd48"
+}

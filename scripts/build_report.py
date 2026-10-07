@@ -14,11 +14,10 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'manuscript'
 META = {
-    'title': 'Certified Valuation of Arithmetic Asian Options via Common Gaussian Smoothing',
-    'subtitle': 'Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterior Quantile Transfer',
+    'title': 'Certified Valuation of Arithmetic Asian Options',
+    'subtitle': 'Common Gaussian Smoothing and Projected Euler Error Bounds',
     'author': 'Theodore Ouyang',
-    'affiliation': 'Duke University',
-    'emails': ['10@alumni.duke.edu', 'theodore.oy2025@gmail.com'],
+    'emails': ['theodore.oy2025@gmail.com', '10@alumni.duke.edu'],
     'keywords': ['Arithmetic Asian options', 'Heston model', 'projected Euler', 'conditional Gaussian smoothing', 'computable error bounds', 'weak error expansions', 'posterior quantiles'],
 }
 
@@ -26,68 +25,20 @@ PREAMBLE = r'''\documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{geometry,booktabs,tabularx,array}
-\geometry{left=28.575mm,right=25.12mm,top=38.1mm,bottom=33.16mm}
+\geometry{margin=25mm}
 \usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0pt}
-\title{Certified Valuation of Arithmetic Asian Options via Common Gaussian Smoothing\\[6pt]\small Computable Error Bounds for Projected Euler, Joint Weak Expansions, and Posterior Quantile Transfer}
-\author{Theodore Ouyang, Duke University\\\small 2080 Duke University Road, Durham, NC 27708, USA\\\texttt{10@alumni.duke.edu}\\\texttt{theodore.oy2025@gmail.com}}
-\date{Targeted revision: 7 October 2026\\\small Original manuscript: 2024}
+\title{Certified Valuation of Arithmetic Asian Options\\[6pt]\small Common Gaussian Smoothing and Projected Euler Error Bounds}
+\author{Theodore Ouyang}
+\date{\small\texttt{theodore.oy2025@gmail.com}\\\texttt{10@alumni.duke.edu}}
 \begin{document}
 \maketitle
+\tableofcontents
+\clearpage
 '''
 
-DOMAIN = r'''\section{Domain of validity}
-
-The main theorem provides sufficient conditions through the common Gaussian
-structure and finite verification inputs. Its scope consists of model classes for
-which those inputs can be established. Section~5 verifies a deterministic-variance
-class and the specified stochastic-variance model and projected kernel. Comparisons
-with other Asian bounds depend on their respective hypotheses and numerical inputs.
-
-The complete small-error Heston Asian certificate applies to the specified
-\(\theta_*\), step size, and fixing dates. A uniform certificate on a parameter
-neighborhood or an entire domain requires uniform moment, transform, projection,
-and tail inequalities. The five-dimensional box with small positive \(\xi\) in
-Section~7 is a separately certified region of positive volume, with a
-volatility-of-volatility range distinct from that of \(\theta_*\).
-
-The ten-payoff expansion holds on the deterministic-variance family \(\xi=0\).
-A corresponding expansion for positive \(\xi\) would require higher-order
-regularity and integrable remainders for the combined effects of the projection
-kernel and the payoff kinks. For the Asian leading coefficient, the established
-conclusion consists of an exact score representation and an effective absolute
-bound. High-precision scalar evaluation and nonvanishing of that component are
-separate assertions. When \(v_0\ne\bar v\), the nine put components establish
-nonvanishing of the ten-dimensional leading coefficient vector. The vector result
-expresses the common density construction; each component retains its stated
-scalar error budget.
-
-The posterior quantile-displacement certificates use the three-dimensional prior
-(7.5) and the synthetic quotes in Appendix~F. They compare two true target
-distributions at every quantile level. Determination of the absolute locations of
-specified quantiles is a separate valuation task. A quantile-displacement
-certificate on the five-dimensional parameter domain
-\[
-[2,4]\times[.03,.06]\times[.18,.28]\times[-.8,-.3]\times[.03,.06]
-\]
-requires forward-error and posterior-transport inputs valid throughout that domain.
-The synthetic-quote application establishes the stated mathematical transfer under
-its specified inputs. Use with market quotes additionally calls for empirical
-assessment of quote quality, model fit, transaction costs, and strategy performance.
-
-Conditioning, geometric-average reference variables, Fourier bounds, Gaussian
-scores, and posterior approximation have established literatures
-\cite{Curran1994,RogersShi1995,Thompson2002,FusaiKyriakou2016,Lee2004,TalayTubaro1990,MickelNeuenkirch2022,CotterDashtiStuart2010}.
-The contribution here is their effective combination for the specified kernel,
-the payoff-level argument weighted by first-period integrated variance, the
-complete finite error budget, and the resulting model-specific quantitative
-certificates. Numerical validity uses the enclosure semantics of the stated
-interval-arithmetic library. The accompanying independent implementations provide
-reproducible comparisons of the finite arithmetic inputs and bounds.
-
-'''
 
 
 def balanced(s, i):
@@ -120,7 +71,7 @@ def compact_space(s):
 
 def github_tex(s):
     # Equivalent base macros avoid HTML parsing and optional extension filters.
-    s = s.replace(r'\xRightarrow{\ \Phi\ }', r'\overset{\ \Phi\ }{\Longrightarrow}')
+    s = s.replace(r'\xRightarrow{\ \mathcal S\ }', r'\overset{\ \mathcal S\ }{\Longrightarrow}')
     s = re.sub(r'\\operatorname\{(Var|Re|Im|TV)\}',
                lambda m: r'\mathop{\mathrm{' + m.group(1) + r'}}\nolimits ', s)
     return re.sub(r'(?<!\\)[<>]', lambda m: r'\lt ' if m.group() == '<' else r'\gt ', s)
@@ -346,16 +297,16 @@ def make_blocks(s, citations, abstract=False):
 
 
 def references(source):
-    source = source.split(r'\begin{thebibliography}{12}', 1)[1].split(r'\end{thebibliography}', 1)[0]
+    source = source.split(r'\begin{thebibliography}{13}', 1)[1].split(r'\end{thebibliography}', 1)[0]
     refs = []
     for i, m in enumerate(re.finditer(r'\\bibitem\{([^}]+)\}\s*(.*?)(?=\\bibitem|\Z)', source, re.S), 1):
         key, text = m.groups()
         url = re.search(r'\\url\{([^}]+)\}', text).group(1)
-        prose = re.sub(r'\\url\{[^}]+\}\.?', '', text).strip()
+        prose = text.strip()
         prose = re.sub(r'\.\.(?=\s|$)', '.', prose)
         ns = inlines(prose, {})
         refs.append({'number': i, 'key': key, 'inlines': ns, 'text': inline_md(ns), 'url': url})
-    assert len(refs) == 12
+    assert len(refs) == 13
     return refs
 
 
@@ -407,7 +358,7 @@ def main():
                    'inlines': [{'type': 'text', 'text': 'References'}], 'markdown': '## References'})
     for r in refs:
         blocks.append({'type': 'reference', 'id': 'ref-' + str(r['number']), **r,
-                       'markdown': '<a id="ref-' + str(r['number']) + '"></a>\n\n' + str(r['number']) + '. ' + r['text'] + ' [Source](' + r['url'] + ')'})
+                       'markdown': '<a id="ref-' + str(r['number']) + '"></a>\n\n' + str(r['number']) + '. ' + r['text']})
     inline = []
     for b in blocks:
         inline.extend(walk_inline(b.get('inlines', [])))
@@ -423,17 +374,16 @@ def main():
     counts = {'main_sections': sum(not b['appendix'] for b in heads), 'appendices': sum(b['appendix'] for b in heads),
               'display_math': len(displays), 'inline_math': len(inline), 'equation_tags': len(tags), 'unique_tags': len(set(tags)),
               'tables': sum(b['type'] == 'table' for b in blocks), 'references': len(refs)}
-    assert counts['main_sections']==10 and counts['appendices']==8 and counts['references']==12, counts
+    assert counts['main_sections']==10 and counts['appendices']==9 and counts['references']==13, counts
     assert counts['equation_tags']==counts['unique_tags'], 'Duplicate equation tags'
     assert counts['display_math']>=147 and counts['inline_math']>=373, counts
     document = {'schema_version': 1, 'metadata': META, 'counts': counts, 'blocks': blocks, 'references': refs}
-    title = '# ' + META['title'] + '\n\n' + META['subtitle'] + '\n\n**' + META['author'] + '** · ' + META['affiliation'] + '\n\n'
+    title = '# ' + META['title'] + '\n\n' + META['subtitle'] + '\n\n**' + META['author'] + '**\n\n'
     title += ' · '.join('[' + e + '](mailto:' + e + ')' for e in META['emails']) + '\n\n'
-    title += '**Version:** Targeted revision, 7 October 2026; original manuscript 2024.\n\n'
     title += '**Keywords:** ' + '; '.join(META['keywords']) + '.\n\n'
     md = title + '\n\n'.join(b['markdown'] for b in blocks) + '\n'
-    bib = src.split(r'\begin{thebibliography}{12}', 1)[1].split(r'\end{thebibliography}', 1)[0]
-    public_source = '% Public mathematical manuscript source.\n\\begin{abstract}\n' + abstract.strip() + '\n\\end{abstract}\n\n' + body + '\n\\begin{thebibliography}{12}' + bib + '\\end{thebibliography}\n'
+    bib = src.split(r'\begin{thebibliography}{13}', 1)[1].split(r'\end{thebibliography}', 1)[0]
+    public_source = '% Public mathematical manuscript source.\n\\begin{abstract}\n' + abstract.strip() + '\n\\end{abstract}\n\n' + body + '\n\\begin{thebibliography}{13}' + bib + '\\end{thebibliography}\n'
     standalone=PREAMBLE+public_source+'\n\\end{document}\n'
     for name, data in [('report.md', md), ('report.json', json.dumps(document, ensure_ascii=False, indent=2) + '\n'), ('report-source.tex', public_source), ('report.tex',standalone)]:
         leak = re.search(r'(?<![A-Za-z])[A-Za-z]:[/\\]+[A-Za-z]|internal review|review package', data, re.I)

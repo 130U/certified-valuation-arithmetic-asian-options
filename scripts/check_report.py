@@ -67,8 +67,9 @@ def main():
     assert receipt['formula_sequence_exactly_preserved']
 
     readme = (ROOT / 'README.md').read_text(encoding='utf8')
-    assert readme.count('Independent research originating in 2024.') == 1
-    assert '7 October 2026' in md and 'original manuscript 2024' in md
+    assert '2023–2024' in readme and '2026' in readme
+    assert 'Research timeline' in md and '2023–2024' in md
+    assert not re.search(r'(?<![A-Za-z0-9])V[1-5](?![A-Za-z0-9])|\*\*Version:', md + readme, re.I)
     assert 'planned for release' not in md.lower()
     assert not re.search(r'HTML reading edition|research website|docs/index|GitHub Pages', md + readme, re.I)
     for text, base in ((md, PAPER), (readme, ROOT)):
@@ -80,7 +81,7 @@ def main():
     assert not (ROOT / '.github/workflows/pages.yml').exists()
     print(json.dumps({'status': 'PASS', 'display_math': report['counts']['display_math'], 'inline_math': report['counts']['inline_math'],
                       'equation_tags': len(tags), 'mathematical_sequence_preserved': True,
-                      'source_year': 2024, 'repository_links': 'PASS'}))
+                      'research_period': '2023–2024', 'repository_links': 'PASS'}))
 
 
 if __name__ == '__main__':

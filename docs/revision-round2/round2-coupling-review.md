@@ -6,7 +6,7 @@ Reviewed 7 October 2026:
 - `round2-theory/coupling-v004-result.json`
 - `round2-theory/coupling-v004-proof.md`
 - `round2-theory/coupling-v004-fragment.tex`
-- Proposition H.1 in the current manuscript, together with (6.2).
+- Proposition I.1 in the current manuscript, together with (6.2).
 
 ## Verdict
 

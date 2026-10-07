@@ -1,6 +1,8 @@
 # Preserve byte identities used by the numerical integrity checks.
 * text eol=lf
 *.pdf binary
+*.ttf binary
+*.tgz binary
 *.zip binary
 *.png binary
-code/** -text
+code/** -text whitespace=cr-at-eol

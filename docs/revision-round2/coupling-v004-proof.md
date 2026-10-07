@@ -55,7 +55,7 @@ $$B_K=M_K\sqrt{Z2}(\sqrt{D_A}+\sqrt{D_b})+
                          \frac12N_K Z2\Delta\sigma.$$
 
 The claims are E ΞK≤BK and |R_K,Q-R_K,P|≤BK, with ΞK as defined in
-Appendix H / Proposition R.1. The finite closed-moment execution additionally
+Appendix I / Proposition R.1. The finite closed-moment execution additionally
 proves strict narrowing of the discounted call-spread nonlinear interval.
 
 ## Verification Target and Bottleneck
@@ -227,7 +227,7 @@ Rate leakage: no stochastic-Heston rate is claimed. h is the specified 1/768.
 Quantifier inflation: the result is one deterministic-variance point with
 one coupled construction. It is not a full parameter-region result.
 
-Citation identity: every load-bearing formula is derived here; Appendix H
+Citation identity: every load-bearing formula is derived here; Appendix I
 only provides the notation and comparison target.
 
 Negligibility closure: both coupled displacement terms are actually computed

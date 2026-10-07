@@ -121,45 +121,197 @@ stochastic-Heston first-order expansion or signed Asian leading coefficient.
         'resource_helper_sha256':sha(core/'resource_limits.py'),'source_patches':journal,'jobs':[],'references_modified':False}
     write(dest/'receipt.json',receipt);print(json.dumps({'status':receipt['status'],'directory':str(dest),'theta':pre['theta']}),flush=True)
 
-def run(dest):
-    baseline=load_module('round2_base',CODE/'run.py');env,environment=baseline.environment()
-    receipt=read(dest/'receipt.json');assert receipt['status']=='PREPARED_NOT_EXECUTED'
-    core=dest/'work'/'core'
-    for j in receipt['source_patches']:assert sha(core/j['file'])==j['executed_sha256']
-    assert receipt['preflight_sha256']==sha(dest/'preflight.json') and receipt['scope_sha256']==sha(dest/'work'/'SCOPE.md')
-    receipt.update(status='RUNNING',execution_environment=environment);write(dest/'receipt.json',receipt)
-    jobs=[('asian-W','asian-remainder-certificate.py',[],'asian-remainder-result.json',135),
-          ('asian-pilot','asian-linear-certificate.py',['--pilot'],'asian-linear-pilot-result.json',45),
-          ('asian-linear','asian-linear-certificate.py',[],'asian-linear-result.json',375),
-          ('asian-W-check','check-asian-remainder.py',[],'check-asian-remainder-result.json',135),
-          ('asian-linear-check','check-asian-linear.py',[],'check-asian-linear-result.json',375)]
-    for id,name,args,filename,seconds in jobs:
-        started=time.perf_counter();log=dest/(id+'.log')
-        with log.open('x',encoding='utf8') as f:
-            p=subprocess.Popen([sys.executable,'-B','-X','utf8',str(core/name)]+args,stdout=f,stderr=subprocess.STDOUT,env=env,creationflags=0x08000000)
+JOBS=[('asian-W','asian-remainder-certificate.py',[],'asian-remainder-result.json',135),
+      ('asian-pilot','asian-linear-certificate.py',['--pilot'],'asian-linear-pilot-result.json',45),
+      ('asian-linear','asian-linear-certificate.py',[],'asian-linear-result.json',375),
+      ('asian-W-check','check-asian-remainder.py',[],'check-asian-remainder-result.json',135),
+      ('asian-linear-check','check-asian-linear.py',[],'check-asian-linear-result.json',375)]
+EXPECTED_STATUS={'asian-W':'CERTIFIED_ORIGINAL_ASIAN_WEIGHTED_REMAINDER_ONLY',
+    'asian-pilot':'PILOT_ONLY_NO_PRICE_CLAIM','asian-linear':'COMPLETE_ORIGINAL_ASIAN_PQ_CERTIFICATE',
+    'asian-W-check':'NONAUTHOR_FULL_WEIGHTED_REMAINDER_RECOMPUTATION_PASS',
+    'asian-linear-check':'INDEPENDENT_FULL_ORIGINAL_ASIAN_CERTIFICATE_PASS'}
+
+def require(ok,message):
+    if not ok:raise RuntimeError(message)
+
+def validate_result(id,result,core,source):
+    """Reject partial/stopped output, without changing any numerical formula."""
+    require(isinstance(result,dict),'Result is not a JSON object')
+    require(result.get('status')==EXPECTED_STATUS[id],'Unexpected numerical result status')
+    require(result.get('source_sha256')==sha(source),'Result source binding failed')
+    require(result.get('scope_sha256')==sha(core.parent/'SCOPE.md'),'Result scope binding failed')
+    require(result.get('precision_bits')==(384 if id.endswith('check') else 256),'Wrong arithmetic precision')
+    def fields(keys):require(all(k in result for k in keys),'Incomplete result: missing required fields')
+    def interval_record(value,label):
+        require(isinstance(value,dict) and isinstance(value.get('exact_interval'),list) and len(value['exact_interval'])==2,
+            'Incomplete interval record: '+label)
+        require(isinstance(value.get('outward24'),list) and len(value['outward24'])==2,'Missing outward endpoints: '+label)
+        require(all(isinstance(v,str) for v in value['exact_interval']+value['outward24']),'Non-string exact endpoints: '+label)
+        lo,hi=map(F,value['exact_interval']);dl,du=map(F,value['outward24'])
+        require(dl<=lo<=hi<=du,'Invalid interval or outward endpoints: '+label)
+    def points(key,count):
+        require(isinstance(result.get(key),list) and len(result[key])==count,'Incomplete '+key)
+        for point in result[key]:interval_record(point,key)
+    def rational_intervals(x):
+        if isinstance(x,dict):
+            if 'exact_interval' in x:
+                require(isinstance(x['exact_interval'],list) and len(x['exact_interval'])==2,'Incomplete exact interval')
+                lo,hi=map(F,x['exact_interval']);require(lo<=hi,'Reversed exact interval')
+                require(isinstance(x.get('outward24'),list) and len(x['outward24'])==2,'Missing outward endpoints')
+                dl,du=map(F,x['outward24']);require(dl<=lo<=hi<=du,'Invalid outward endpoints')
+            for value in x.values():rational_intervals(value)
+        elif isinstance(x,list):
+            for value in x:rational_intervals(value)
+    if id in ('asian-W','asian-W-check'):
+        points('all_points_P',257);points('all_points_Q',129)
+        if id=='asian-W':
+            fields(('theta','c','h','P_nodes','Q_nodes','catalog_profiles','projection_beta_min','Q_per_profile_projection_bound',
+                'Q_square_expansion_point_error','P_integral_tail_upper','Q_integral_tail_upper','WP_lower_bound','WP_upper_bound',
+                'WQ_lower_bound','WQ_upper_bound','discounted_bias_remainder_lower_bound','discounted_bias_remainder_upper_bound',
+                'discounted_bias_remainder_center','discounted_bias_remainder_radius','original_remainder_radius_target_pass'))
+            require(result['counts']=={'Q_steps':815360,'P_month_blocks':24388},'Incomplete weighted finite workload')
+            require(result['theta']==['3','9/200','23/100','-11/20','1/25'] and result['h']=='1/768','Wrong point inputs')
+            require(result['P_nodes']==257 and result['Q_nodes']==129 and result['catalog_profiles']==91,'Wrong weighted grid')
+            interval_fields=('Q_per_profile_projection_bound','Q_square_expansion_point_error','P_integral_tail_upper',
+                'Q_integral_tail_upper','WP_lower_bound','WP_upper_bound','WQ_lower_bound','WQ_upper_bound',
+                'discounted_bias_remainder_lower_bound','discounted_bias_remainder_upper_bound',
+                'discounted_bias_remainder_center','discounted_bias_remainder_radius')
+        else:
+            fields(('projection_beta','projection_bound','point_projection_fee','P_tail','Q_tail','WP_lower_bound','WP_upper_bound',
+                'WQ_lower_bound','WQ_upper_bound','remainder_lower_bound','remainder_upper_bound','remainder_radius','exact_scalar_overlap_checks'))
+            require(result['counts']=={'P_blocks':24388,'Q_steps':815360},'Incomplete independent weighted workload')
+            require(result['P_all_node_interval_overlap_checks']==257 and result['Q_all_node_independent_interval_containment_checks']==129,
+                'Incomplete independent weighted checks')
+            interval_fields=('projection_bound','point_projection_fee','P_tail','Q_tail','WP_lower_bound','WP_upper_bound',
+                'WQ_lower_bound','WQ_upper_bound','remainder_lower_bound','remainder_upper_bound','remainder_radius')
+    else:
+        n=8 if id=='asian-pilot' else 641
+        require(isinstance(result.get('frequency_rows'),list) and len(result['frequency_rows'])==n,'Incomplete frequency_rows')
+        for i,row in enumerate(result['frequency_rows']):
+            require(isinstance(row,dict) and row.get('n')==i,'Incomplete frequency index sequence')
+            keys=('P_term','Q_proxy_term' if id.endswith('check') else 'proxy_term','coefficient_sum')
+            require(all(k in row for k in keys),
+                'Incomplete frequency row')
+            for key in keys:interval_record(row[key],key)
+        if id=='asian-pilot':
+            fields(('P_linear_finite','Q_proxy_linear_finite','linear_bias_finite','coefficient_abs_sum','full_linear_time_estimate'))
+            require(result['frequencies']==8 and result['counts']=={'Q_layers':79872,'P_full_path_branch_guards':9984,'profiles':104},
+                'Incomplete pilot workload')
+            interval_fields=('P_linear_finite','Q_proxy_linear_finite','linear_bias_finite','coefficient_abs_sum')
+        elif id=='asian-linear':
+            fields(('P_linear_finite','Q_proxy_linear_finite','linear_bias_finite','coefficient_abs_sum','projection_beta_min',
+                'projection_delta','projection_price_fee','Q_firstmonth_Laplace_upper','P_frequency_tail','Q_frequency_tail',
+                'one_law_alias','total_linear_bias_fee','true_linear_bias','true_original_Asian_bias','true_original_Asian_P',
+                'true_original_Asian_Q','bias_absolute_upper','original_theta_star_Asian_pass_0025'))
+            require(result['frequencies']==641 and result['counts']=={'Q_layers':6399744,'P_full_path_branch_guards':799968,'profiles':8333},
+                'Incomplete full linear workload')
+            interval_fields=('P_linear_finite','Q_proxy_linear_finite','linear_bias_finite','coefficient_abs_sum',
+                'projection_delta','projection_price_fee','Q_firstmonth_Laplace_upper','P_frequency_tail','Q_frequency_tail',
+                'one_law_alias','total_linear_bias_fee','true_linear_bias','true_original_Asian_bias','true_original_Asian_P','true_original_Asian_Q')
+        else:
+            fields(('fees','linear_bias_finite','coefficient_abs_sum','true_original_Asian_bias','true_original_Asian_P',
+                'true_original_Asian_Q','original_theta_star_Asian_pass_0025'))
+            require(result['counts']=={'Q_layers':6399744,'P_path_guards':799968,'frequency_real_interval_overlaps':1923},
+                'Incomplete independent linear workload')
+            require(set(result['fees'])=={'projection_delta','projection_price_fee','Q_firstmonth_Laplace_upper','P_frequency_tail',
+                'Q_frequency_tail','one_law_alias','total_linear_bias_fee'},'Incomplete independent fee ledger')
+            for key,value in result['fees'].items():interval_record(value,key)
+            interval_fields=('linear_bias_finite','coefficient_abs_sum','true_original_Asian_bias','true_original_Asian_P','true_original_Asian_Q')
+    for key in interval_fields:interval_record(result[key],key)
+    if id!='asian-W':
+        require(result.get('weighted_square_result_sha256',result.get('author_result_sha256') if id=='asian-W-check' else None)
+            ==sha(core/'asian-remainder-result.json'),'Weighted result binding failed')
+    if id.endswith('check'):
+        author='asian-remainder' if id=='asian-W-check' else 'asian-linear'
+        require(result.get('author_source_sha256')==sha(core/(author+'-certificate.py')) and
+            result.get('author_result_sha256')==sha(core/(author+'-result.json')),'Independent author binding failed')
+    rational_intervals(result)
+
+def execute_job(command,env,source,out,log,seconds,validator):
+    """Owned real subprocess boundary. Timeout is always failure, even after output."""
+    started=time.perf_counter();p=None
+    row={'source_sha256':sha(source),'external_timeout_seconds':seconds,'timed_out':False,'reaped':False,'returncode':None}
+    try:
+        require(not out.exists(),'Refuse pre-existing result output')
+        with log.open('x',encoding='utf8') as stream:
+            p=subprocess.Popen(command,stdout=stream,stderr=subprocess.STDOUT,env=env,creationflags=0x08000000)
+            row['pid']=p.pid
             try:p.wait(timeout=seconds)
             except subprocess.TimeoutExpired:
-                subprocess.run(['taskkill','/PID',str(p.pid),'/T','/F'],stdout=f,stderr=subprocess.STDOUT,creationflags=0x08000000,timeout=15)
-        row={'id':id,'file':name,'source_sha256':sha(core/name),'external_timeout_seconds':seconds,
-             'seconds':time.perf_counter()-started,'returncode':p.returncode,'log':log.name}
-        out=core/filename
-        if p.returncode or not out.exists():
-            row.update(status='STOPPED',reason='No numerical output. Preserve worker/controller traces; no certificate claimed.')
-            receipt['jobs'].append(row);receipt['status']='STOPPED';write(dest/'receipt.json',receipt)
-            print(json.dumps({'status':'STOPPED','job':id,'receipt':str(dest/'receipt.json')}),flush=True);return
-        result=read(out);assert result['source_sha256']==sha(core/name)
-        row.update(status='COMPLETE',result=filename,result_sha256=sha(out),numerical_status=result['status'])
-        receipt['jobs'].append(row);write(dest/'receipt.json',receipt)
+                row['timed_out']=True
+                try:
+                    killed=subprocess.run(['taskkill','/PID',str(p.pid),'/T','/F'],stdout=stream,stderr=subprocess.STDOUT,
+                        creationflags=0x08000000,timeout=15)
+                    row['taskkill_returncode']=killed.returncode
+                except Exception as exc:row['taskkill_error']=str(exc)
+                finally:
+                    try:p.wait(timeout=15)
+                    except subprocess.TimeoutExpired:p.kill();p.wait(timeout=15)
+                row.update(returncode=p.returncode,reaped=p.returncode is not None)
+                raise RuntimeError('External timeout stopped the owned process tree; output is not accepted')
+        row.update(returncode=p.returncode,reaped=p.returncode is not None)
+        require(p.returncode==0,'Nonzero subprocess return code '+str(p.returncode))
+        require(out.is_file(),'Missing numerical result output')
+        result=read(out);validator(result)
+        row.update(status='COMPLETE',result=out.name,result_sha256=sha(out),numerical_status=result['status'])
+    except Exception as exc:
+        if p is not None and p.poll() is None:
+            p.kill();p.wait(timeout=15)
+        if p is not None:row.update(returncode=p.returncode,reaped=p.returncode is not None)
+        row.update(status='STOPPED',reason=str(exc))
+    row['seconds']=time.perf_counter()-started
+    return row
+
+def run_prepared(dest,env,environment,jobs,validator,finalizer):
+    """Production orchestration, also exercised with controlled non-numerical jobs."""
+    receipt=read(dest/'receipt.json');core=dest/'work'/'core'
+    require(receipt['status']=='PREPARED_NOT_EXECUTED','Run is not fresh and prepared')
+    require(not (dest/'result-capsule.json').exists(),'Refuse pre-existing final capsule')
+    receipt.update(status='RUNNING',execution_environment=environment);write(dest/'receipt.json',receipt)
+    for id,name,args,filename,seconds in jobs:
+        source=core/name;log=dest/(id+'.log')
+        row=execute_job([sys.executable,'-B','-X','utf8',str(source)]+args,env,source,core/filename,log,seconds,
+            lambda result:validator(id,result,core,source))
+        row.update(id=id,file=name,log=log.name);receipt['jobs'].append(row)
+        if row['status']!='COMPLETE':
+            receipt['status']='STOPPED';write(dest/'receipt.json',receipt)
+            print(json.dumps({'status':'STOPPED','job':id,'receipt':str(dest/'receipt.json'),'reason':row['reason']}),flush=True)
+            return 1
+        write(dest/'receipt.json',receipt)
         print(json.dumps({'status':'COMPLETE','job':id,'seconds':row['seconds']}),flush=True)
-    receipt.update(status='COMPLETE',all_five_jobs_completed=True,independent_all_nodes_frequencies_and_fees_pass=True)
+    receipt.update(status='COMPLETE',all_five_jobs_completed=len(jobs)==5,independent_all_nodes_frequencies_and_fees_pass=len(jobs)==5)
     write(dest/'receipt.json',receipt)
-    capsule(dest,dest/'result-capsule.json')
+    try:finalizer(dest,dest/'result-capsule.json')
+    except Exception as exc:
+        final=dest/'result-capsule.json'
+        if final.exists():final.rename(dest/'failed-capsule-artifact.json')
+        receipt.update(status='STOPPED',reason='Final capsule verification failed: '+str(exc))
+        write(dest/'receipt.json',receipt);print(json.dumps({'status':'STOPPED','reason':receipt['reason']}),flush=True);return 1
+    return 0
+
+def run(dest):
+    try:
+        require(not sys.flags.optimize and not os.environ.get('PYTHONOPTIMIZE'),'Optimized Python is prohibited')
+        baseline=load_module('round2_base',CODE/'run.py');env,environment=baseline.environment()
+        receipt=read(dest/'receipt.json');core=dest/'work'/'core'
+        for j in receipt['source_patches']:require(sha(core/j['file'])==j['executed_sha256'],'Prepared source binding failed')
+        require(receipt['generator_sha256']==sha(__file__),'Prepared runner binding failed')
+        require(receipt['preflight_sha256']==sha(dest/'preflight.json') and receipt['scope_sha256']==sha(dest/'work'/'SCOPE.md'),
+            'Prepared preflight or scope binding failed')
+        require(receipt['resource_helper_sha256']==sha(core/'resource_limits.py'),'Prepared resource-helper binding failed')
+        return run_prepared(dest,env,environment,JOBS,validate_result,capsule)
+    except Exception as exc:
+        receipt=read(dest/'receipt.json');receipt.update(status='STOPPED',reason=str(exc));write(dest/'receipt.json',receipt)
+        print(json.dumps({'status':'STOPPED','receipt':str(dest/'receipt.json'),'reason':str(exc)}),flush=True);return 1
 
 def capsule(dest,out):
+    require(not out.exists(),'Refuse pre-existing final capsule')
     r=read(dest/'receipt.json');assert r['status']=='COMPLETE' and len(r['jobs'])==5
     core=dest/'work'/'core'
     for j in r['jobs']:
-        assert j['status']=='COMPLETE' and sha(core/j['file'])==j['source_sha256'] and sha(core/j['result'])==j['result_sha256']
+        assert j['status']=='COMPLETE' and j['returncode']==0 and not j.get('timed_out',False) and j.get('reaped',True)
+        assert sha(core/j['file'])==j['source_sha256'] and sha(core/j['result'])==j['result_sha256']
+        validate_result(j['id'],read(core/j['result']),core,core/j['file'])
     budget=load_module('round2_budget',CODE/'revision'/'read_budget.py')
     row=budget.certificate(core,'1/768',dest/'receipt.json')
     w=read(core/'asian-remainder-result.json');a=read(core/'asian-linear-result.json');c=read(core/'check-asian-linear-result.json');cw=read(core/'check-asian-remainder-result.json')
@@ -174,7 +326,8 @@ def capsule(dest,out):
          'preflight_sha256':sha(dest/'preflight.json'),'capsule_generator_sha256':sha(__file__),
          'independent_weighted_checks':{'P_nodes':cw['P_all_node_interval_overlap_checks'],'Q_nodes':cw['Q_all_node_independent_interval_containment_checks'],'precision_bits':cw['precision_bits']},
          'independent_linear_checks':c['counts'],'no_claim':['No parameter-box or prior-region certificate.','No stochastic-Heston weak leading coefficient is computed.']}
-    write(out,cap);print(json.dumps({'status':cap['status'],'output':str(out),'bias':cap['principal_bias_Q_minus_P']['outward24'],
+    pending=out.with_suffix('.pending');write(pending,cap);pending.replace(out)
+    print(json.dumps({'status':cap['status'],'output':str(out),'bias':cap['principal_bias_Q_minus_P']['outward24'],
               'width':row['interval_width']['outward_decimal_upper'],'seconds':cap['recorded_five_job_seconds']}),flush=True)
 
 if __name__=='__main__':
@@ -184,5 +337,5 @@ if __name__=='__main__':
         if mode=='capsule':s.add_argument('--output',type=Path,required=True)
     a=p.parse_args();dest=a.directory.resolve()
     if a.mode=='prepare':prepare(dest)
-    elif a.mode=='run':run(dest)
+    elif a.mode=='run':sys.exit(run(dest))
     else:capsule(dest,a.output.resolve())

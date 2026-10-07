@@ -1,6 +1,6 @@
-# Finite revision experiments
+# Grid and error-budget experiments
 
-These scripts add the requested mesh and error-budget experiments while keeping
+These scripts calculate mesh and error-budget comparisons while keeping
 the original files in `code/core/` unchanged. The checked-in results describe
 completed executions; a stopped execution is never represented as a certificate.
 Read `../SCOPE.md`, `../ENVIRONMENT.md`, `../configuration.json`, and `../AGENTS.md`
@@ -20,7 +20,7 @@ Save the printed completed run directory as `BASE_RUN` below. This original
 execution runs ten jobs, preserving copied source, exact rational endpoints,
 all node/frequency/cell arrays, logs, controller contracts and an exact-payload
 comparison receipt. `code/run.py check --run BASE_RUN` verifies them again.
-The `base-run-receipt.json` in `results/` records the revision's actual ten-job
+The `base-run-receipt.json` in `results/` records the recorded ten-job
 execution. `BASE_RUN` is the directory produced on the reviewer's own machine;
 the checked-in receipt is evidence, rather than a directory guaranteed to exist
 on that machine.
@@ -42,7 +42,7 @@ The script creates immutable parameter copies and a patch journal. It changes
 counters, and the author's source-identity pin used by the independent checker.
 The same 641 Fourier frequencies and 91 weighted profiles are retained. The
 continuous branch guards, Euler coefficient guards, integral tails,
-periodization, projection correction and interval arithmetic fees remain in
+periodization, projection correction and interval arithmetic error allowances remain in
 force. The original tolerances `remainder radius < .011` and `absolute bias <
 .025` are recorded as result flags in these experiment copies, so that a valid
 wider enclosure can be reported. They are numerical acceptance targets, not
@@ -64,7 +64,7 @@ independent constructions. The independent weighted calculation uses a
 hyperbolic Riccati matrix, an ordered-pair catalogue, a separately indexed
 reverse Euler grid, exact rational Darboux sums and 384-bit arithmetic. The
 independent linear calculation uses complex Euler recursion and exponential
-matrix blocks, checking every frequency, source binding and fee. Sharing Arb
+matrix blocks, checking every frequency, source binding and error allowance. Sharing Arb
 and the analytical proof does not exclude a common proof error.
 
 The retained obligations include
@@ -112,7 +112,7 @@ node before integration keeps the cancellation; subtracting two separately
 enclosed moments would be looser. The positive moment groups each have weight
 sum 10000. Their continuous tail is bounded by
 `10000 C exp(-zeta X)/zeta`, and the `e` tail is no larger than the `AG` tail.
-The Euler projection fees are `10000 delta` for `d`, `20000 delta` for `e`,
+The Euler projection error allowances are `10000 delta` for `d`, `20000 delta` for `e`,
 and `10000(1+c)^2 delta` for the square. Euler tails use each true nonnegative
 Laplace function's upper endpoint at 64, divided by `128 h v0`. Every final
 integral includes `2/sqrt(pi)`.
@@ -135,7 +135,7 @@ python -B -X utf8 code/revision/posterior_grid.py summary --result BASE_RUN/work
 
 Only finite grid selection and its independent check's mesh/index values change.
 There is no change to likelihoods, priors, whole-cell weights, target Lipschitz
-bound, perturbation fees or 256 MiB resource controls. Each mesh is independently
+bound, perturbation error allowances or 256 MiB resource controls. Each mesh is independently
 checked with erfc Black tails, exact 128-bit price-interval quadratic squares,
 and advancing-pointer transport. Principal and compatibility implementations
 must agree on every nonmetadata mathematical field. The summary reconstructs

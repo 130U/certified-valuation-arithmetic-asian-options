@@ -1,17 +1,20 @@
 \section{Reproducible implementation}
 
-The public repository is
-\url{https://github.com/130U/certified-valuation-arithmetic-asian-options}.
-The immutable versions have different roles. The original numerical kernels and
-reference payloads are frozen at
-\texttt{5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a}. The first major-revision package,
-including the step-grid and posterior-grid experiments, is available at
-\href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b}{commit \texttt{cf0d242f1590c7ca07ab8ca7afb57da5a583032b}}.
-Checking out only the older kernel baseline does not retrieve those experiments.
-The root \texttt{REVISION-MANIFEST.json} records the source, input, output and
-receipt byte identities for each published package; \texttt{code/MANIFEST.json}
-retains the original numerical package identity.
+Start with the \texttt{paper} tag at
+\url{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper}.
+It contains the manuscript, step-grid and posterior-grid experiments, the second
+Heston point, and the deterministic coupling example. The root
+\texttt{REVISION-MANIFEST.json} lists the files in this checkout and their hashes;
+\texttt{code/MANIFEST.json} retains the frozen original numerical package identity.
 
+Historical data remain available at
+\href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b}{commit \texttt{cf0d242f1590c7ca07ab8ca7afb57da5a583032b}}
+for the grid experiments, and
+\href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db}{commit \texttt{1959f8f078e1fedd590000d6166cb20429ff31db}}
+for the second-point and coupling data. The original kernel baseline is
+\texttt{5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a}.
+
+\noindent\textbf{Table~G.1. Numerical modules and their results.}
 \begin{center}
 \begin{tabularx}{\textwidth}{@{}l X@{}}
 \toprule
@@ -27,7 +30,7 @@ Module & Corresponding result \\
 \end{center}
 
 The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with
-\texttt{python-flint==0.8.0}. From a checkout containing the revision, the commands
+\texttt{python-flint==0.8.0}. From the publication checkout, the commands
 below create the environment, verify the original package and execute the original
 Asian certificate with both implementations. Each double hyphen is a literal
 command-line character.
@@ -52,14 +55,14 @@ No dependency wheel is included; offline installation requires an authentic
 compatible wheel obtained separately. Assertions enforce mathematical conditions
 and resource contracts. Each worker uses one thread and a 256 MiB hard memory limit.
 
-The original completed execution and the revision experiments are preserved in
+The original completed execution and the additional experiments are preserved in
 \texttt{code/revision/results/evidence.zip}. Its inventory binds each member's
 bytes and SHA-256. The index \texttt{code/revision/results/INDEX.md} gives archive
 extraction and ledger-replay commands; \texttt{code/revision/README.md} gives fresh
 calculation commands and experiment inputs. Saved-result verification and fresh
 kernel execution are distinct operations.
 
-The first-revision ledger
+The step-grid ledger
 \texttt{code/revision/results/revision-summary.json} maps each printed numerical
 row to the exact source field, result, hash and receipt. The original weighted
 moments are in \texttt{code/reference/asian-remainder-result.json}; the linear
@@ -114,7 +117,7 @@ positive moments used in (4.11).
 
 Historical worker times for the original nonlinear and linear modules were
 approximately 12.02 and 33.20 seconds, respectively, with one thread and a
-256~MiB hard memory limit per process. In the step-grid revision, the summed
+256~MiB hard memory limit per process. In the step-grid study, the summed
 outer wall times for the five Asian tasks were approximately 122.3, 184.0,
 and 431.6 seconds at 384, 768, and 1536 steps. These latter observations
 include controllers and check programs under the recorded execution load;
@@ -153,11 +156,10 @@ not part of that computation.
 \subsection{Second-point and coupled-moment reproduction}
 
 The completed second Heston point in Section~8.3 and the executed deterministic
-coupling example in Appendix H are frozen, together with their programs,
+coupling example in Appendix I are frozen, together with their programs,
 inputs, results and receipts, at
 \href{https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db}{commit \texttt{1959f8f078e1fedd590000d6166cb20429ff31db}}.
-This immutable data revision contains the earlier revision experiments as well.
-From its root and the same Windows environment, use a new directory name:
+Use the publication checkout and the same Windows environment, with a new directory name:
 
 \begin{verbatim}
 ./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point
@@ -189,10 +191,3 @@ The self-contained proof and source/result hash receipt are in
 \texttt{docs/revision-round2/}. A separate scalar covariance-moment evaluation
 also agrees with the enclosures. This comparison verifies the nonlinear
 component on \(\xi=0\); it does not replace the positive-\(\xi\) pricing calculation.
-
-\subsection{Version history}
-
-The research and original manuscript originate in 2024. The numerical package
-was consolidated and verified in 2026. The first major revision and this targeted
-revision are dated 7 October 2026. The baseline, first-revision and second-point
-data commits above identify these different reproducibility scopes.

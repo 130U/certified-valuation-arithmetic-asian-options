@@ -12,6 +12,47 @@ from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]
 PREFIX='./.venv/Scripts/python.exe'
 
+def actual_parser_namespace(path,tokens):
+    """Execute the source's parser prefix, stopping before numerical dispatch."""
+    tree=ast.parse(path.read_text(encoding='utf8'))
+    entries=[node for node in tree.body if isinstance(node,ast.If) and '__name__' in ast.unparse(node.test)]
+    assert len(entries)==1,'Unique CLI entry absent: '+str(path)
+    entry=entries[0];body=entry.body
+    namespace={'argparse':argparse,'Path':Path,'sys':sys,'__doc__':ast.get_docstring(tree),'__file__':str(path)}
+    # Newer runners dispatch to main(); the coupler declares argparse directly
+    # under the module entry guard. Follow the actual entry's main call only.
+    calls_main=any(isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id=='main'
+        for statement in entry.body for node in ast.walk(statement))
+    if calls_main:
+        functions=[node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name=='main']
+        assert len(functions)==1,'Unique main() declaration absent: '+str(path)
+        function=functions[0];body=function.body
+        args=function.args.posonlyargs+function.args.args
+        assert len(args)==len(function.args.defaults),'Required main() parameters are unsupported: '+str(path)
+        for argument,default in zip(args,function.args.defaults):namespace[argument.arg]=ast.literal_eval(default)
+        for argument,default in zip(function.args.kwonlyargs,function.args.kw_defaults):
+            assert default is not None,'Required main() keyword parameter is unsupported: '+str(path)
+            namespace[argument.arg]=ast.literal_eval(default)
+    declarations=[];parsed_name=None
+    for node in body:
+        declarations.append(node)
+        if isinstance(node,ast.Assign) and isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Attribute) and node.value.func.attr=='parse_args':
+            assert len(node.targets)==1 and isinstance(node.targets[0],ast.Name),'Unsupported parse_args assignment: '+str(path)
+            parsed_name=node.targets[0].id;break
+        if isinstance(node,ast.AnnAssign) and isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Attribute) and node.value.func.attr=='parse_args':
+            assert isinstance(node.target,ast.Name),'Unsupported parse_args assignment: '+str(path)
+            parsed_name=node.target.id;break
+    assert parsed_name is not None,'CLI parse_args entry absent: '+str(path)
+    module=ast.Module(body=declarations,type_ignores=[])
+    previous=sys.argv[:]
+    try:
+        sys.argv=tokens[1:]
+        exec(compile(module,str(path),'exec'),namespace)
+    finally:sys.argv=previous
+    assert isinstance(namespace[parsed_name],argparse.Namespace),'CLI did not return an argparse Namespace'
+    namespace['_parsed_args_name']=parsed_name
+    return namespace
+
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--pdf',type=Path,required=True)
@@ -41,22 +82,9 @@ def main():
         # Execute the actual source's CLI declaration through parse_args only.
         # The source, numerical imports and calculation functions are not copied
         # into a test implementation or invoked by this parser-only check.
-        tree=ast.parse(path.read_text(encoding='utf8'))
-        entry=tree.body[-1]
-        assert isinstance(entry,ast.If) and '__name__' in ast.unparse(entry.test)
-        declarations=[]
-        for node in entry.body:
-            declarations.append(node)
-            if isinstance(node,ast.Assign) and isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Attribute) and node.value.func.attr=='parse_args':break
-        else:raise AssertionError('CLI parse_args entry absent: '+str(path))
-        module=ast.Module(body=declarations,type_ignores=[])
-        namespace={'argparse':argparse,'Path':Path}
-        previous=sys.argv[:]
-        try:
-            sys.argv=tokens[1:]
-            exec(compile(module,str(path),'exec'),namespace)
-        finally:sys.argv=previous
-        additional.append({'command':copied_line,'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'arguments':vars(namespace['a'] if 'a' in namespace else namespace['args'])})
+        namespace=actual_parser_namespace(path,tokens)
+        additional.append({'command':copied_line,'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+            'arguments':vars(namespace[namespace['_parsed_args_name']])})
     # Bibliographic typography is rendered from semantic inline nodes.
     refs=appendix[appendix.rfind('References'):]
     assert not re.search(r'\*(?:Management Science|Journal|The Review|Mathematics|SIAM|IEEE)',refs)

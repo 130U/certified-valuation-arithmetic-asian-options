@@ -109,7 +109,7 @@ def main():
         assert hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']
     commands=json.loads((ROOT/'paper/pdf-command-verification.json').read_text(encoding='utf8'))
     assert commands['status']=='PASS_EXPORTED_PDF_COMMANDS_AND_REAL_ARGUMENT_PARSER'
-    pdf=ROOT/'paper/Theodore-Ouyang-Certified-Asian-Valuation-Targeted-Revision-20261007.pdf'
+    pdf=ROOT/'paper/paper.pdf'
     assert commands['pdf_sha256']==hashlib.sha256(pdf.read_bytes()).hexdigest()
     assert commands['parsed_arguments']=={'modules':['asian'],'independent':True,'run_placeholder':'code/runs/run-ID'}
     print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),complete_second_point_certificate=True,second_point_weighted_node_checks=replay['weighted_node_exact_checks'],second_point_frequency_checks=replay['frequency_exact_interval_overlap_checks'],deterministic_coupling_precisions=2,exported_pdf_command_receipt=True,scope='Byte identity and exact saved mathematical ledger. Fresh kernel execution and mathematical proofs are separate checks.')))

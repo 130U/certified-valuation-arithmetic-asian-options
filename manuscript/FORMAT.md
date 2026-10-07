@@ -1,29 +1,21 @@
-# Manuscript formats
+# Manuscript source and PDF build
 
-- `report.md` is the complete GitHub-readable paper, including the abstract, ten main sections, eight appendices, and twelve linked references.
-- `report.json` contains the same content as structured blocks for verification.
-- `report-source.tex` is the public source used by `python scripts/build_report.py`. It contains the abstract, body, and bibliography, without a document-class preamble.
-- `implementation-section.tex` supplies the public Appendix G interface description.
-- `report.tex` is the standalone editable LaTeX document with its preamble and revision date. The desktop compiler's environment error is recorded in `../paper/verification.json`; native LaTeX compilation has not been confirmed.
-- `content-verification.json` records exact formula-preservation checks and artifact hashes.
+`report-source.tex` and `report-source-zh.tex` contain the editable English and Chinese manuscripts. `report.tex` supplies a standalone English LaTeX preamble. `report.md` is the GitHub reading copy; `report.json` and `content-verification.json` bind its mathematical content to the source.
 
-The builder uses the Python standard library. This revision contains 169 display-math occurrences, 480 inline-math occurrences, and 95 distinct equation tags, retaining all 88 baseline equation tags. The checker derives counts from the source and checks them against the generated artifacts. Display formulas use GitHub's fenced `math` blocks. Tagged expressions receive a `gathered` row container when needed for native MathML layout. Inline formulas use dollar-backtick delimiters to protect TeX characters from Markdown escaping. Inline whitespace is folded onto one line for headings and tables. The labeled implication, comparison symbols, and named operators use equivalent base TeX macros for platform compatibility. The original TeX remains in the source and structured formula data.
+The publication PDFs are built with **ReportLab and MathJax**, using A4 pages, Computer Modern Latin type, embedded Noto Serif SC Chinese type, numbered equations and a linked contents list. The formulas remain vector outlines; an invisible TeX text layer supports searching and copying their inputs.
 
-Run `python scripts/build_report.py` to regenerate the paper and `python scripts/check_report.py` to check formula coverage, source correspondence, equation numbers, links, and artifact identities.
+From the repository root, with Python 3.12 and Node.js on PATH:
 
-## JSON schema
+```sh
+python -m pip install -r scripts/pdf/requirements.txt
+python scripts/build_report.py
+python scripts/pdf/build_pdf.py --language en
+python scripts/pdf/build_pdf.py --language zh
+python scripts/verify_pdf_build.py
+```
 
-The top-level object contains `schema_version: 1`, `metadata`, `counts`, `blocks`, and `references`. The ordered `blocks` array is the rendering entry point. Every block also has a `markdown` fallback.
+The MathJax archive is included with its checksum. No network connection is used during rendering. Font files and licenses are in `assets/fonts/`. Pass `--node /path/to/node` if Node.js is not on PATH. Outputs are `paper/paper.pdf` and `paper/paper-zh.pdf`; detailed render logs go to `.build/pdf/`.
 
-| Block type | Fields |
-| --- | --- |
-| `heading` | `id`, `level` (2 or 3), `number` (string or null), `appendix` (boolean), `inlines` |
-| `paragraph` | `inlines` |
-| `display_math` | `id`, `tex` (including any explicit tag), `tags` |
-| `ordered_list` | `items`, each containing `inlines` |
-| `table` | `rows`, each containing cells with `inlines`; `header_rows` |
-| `reference` | `id`, `number`, `key`, `inlines`, `text`, `url` |
+The current manuscript has ten main sections, nine appendices, fourteen tables, thirteen references and 95 numbered equations. Its two language sources preserve the same mathematical expressions and numerical inputs. The final PDF hashes, page counts, source hashes, dependencies, build commands and visual inspection are recorded in [build-record.json](../paper/build-record.json).
 
-Inline nodes use `type: text` with `text`; `math` with `tex`; `code` with `text`; `strong` or `emphasis` with nested `inlines`; `link` with `url` and nested `inlines`; or `citation` with an array of reference `numbers`. Text nodes retain the spaces around adjacent mathematical and citation nodes. Render headings with their `number` prefix when non-null; alphabetic main numbers identify appendices. Block IDs are stable anchors.
-
-Citation numbers refer to `references`, which is ordered from 1 through 12. Publication years inside the references identify the cited works. Source and output paths are repository-relative.
+Native LaTeX compilation has not been verified: the built-in compiler reports “Unable to find standard directories for platform.” The delivered PDFs use the successful build route above.

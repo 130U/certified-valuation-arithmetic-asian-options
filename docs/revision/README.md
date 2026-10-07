@@ -1,22 +1,7 @@
-# Revision review evidence
+# Supporting mathematical checks
 
-These reviews support the 7 October 2026 revision. They are source/proof and
-saved-result reviews by collaborating agents, not external peer review or
-independent third-party numerical certification. The exact executed numerical
-sources, outputs and failed attempts are in `../../code/revision/results/evidence.zip`.
+The notes in this directory record checks of the common-scale calculation, coupled inequality, numerical extensions and saved ledgers. Their standalone proposition labels refer to the corresponding note. The current paper's coupled inequality is Proposition I.1 in Appendix I.
 
-- `PROOF_PACKAGE.md`: derivation of common-scale optimization and the sufficient
-  coupled-remainder bound. Appendix H in the manuscript is the final statement.
-- `coupling-proof-review.md`: mathematical review and the resolved marginal
-  integrability issue.
-- `numerical-extension-review.md`: scope, retained guards and source review of
-  the step, moment, posterior and score-bound extensions.
-- `source-audit.md`: primary-source Fusai--Kyriakou comparison with exact locators.
-- `final-number-review.md`: beta, posterior and diagnostic result read-back.
-- `final-step-review.md`: exact step/fee reconciliation and stopping reasons.
+The deterministic coupled example is completed in [the separate proof and execution](../revision-round2/README.md). Coupled remainder moments for the positive-volatility Heston points remain uncomputed. Numerical execution records are in [the evidence archive](../../code/revision/results/INDEX.md).
 
-Reviews do not fill the outstanding computations listed in
-`../../REVISION-RESPONSE-zh.md`. The subsequent targeted revision adds one different stochastic Heston point
-and a deterministic-variance closed-moment coupling example; see
-`../revision-round2/`. Tight signed twelve-dimensional Asian coefficient
-integration and positive-volatility coupled moments remain uncomputed.
+These are internal checks. Independent proof review is a separate part of the human review process.

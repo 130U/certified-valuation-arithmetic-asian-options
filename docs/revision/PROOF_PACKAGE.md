@@ -1,14 +1,8 @@
-# Payoff remainder revision proof package
+# Weighted and coupled payoff remainder proofs
 
-## Status
-
-PROVABLE AS STATED
-
-Verification: Verified
-
-This status applies to the propositions under the explicit premises below.
-It does not certify newly computed numbers, the Heston coupled expectations,
-or a convergence rate in h.
+The proofs below establish the propositions under their stated premises. The
+completed deterministic example is in Appendix I of the paper. Positive-volatility
+Heston coupled-remainder moments and a convergence rate in h remain open.
 
 ## Claim and premises
 
@@ -106,7 +100,7 @@ interval c*∈[1+e-/d+,1+e+/d-]. A midpoint differs from c* by at most
 half the interval width. For J in units weighted by σ^(-1), the coefficient
 of c² is H/√(1-ρ²)≤d+/√(1-ρ²). Substitution in the completed square
 gives (R.3), including the correlation factor. Optimizing the exact nonlinear
-quantity does not optimize fees depending on c; a new selected c must be
+quantity does not optimize error allowances depending on c; a new selected c must be
 substituted in the full calculation before a new price interval is stated.
 
 For the direct comparison, the normal smoothing function is
