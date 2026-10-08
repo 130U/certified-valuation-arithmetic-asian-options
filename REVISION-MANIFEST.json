@@ -28,16 +28,16 @@
       "sha256": "91e2a2ce8d6cea2de656b81c2467c99a66b7bcbc2f05e9886755f7739a432060"
     },
     ".gitignore": {
-      "bytes": 212,
-      "sha256": "1e7d72308209dadc5cd49245678cbd4c4342a4158af1a9dc30b4deb3039dbd12"
+      "bytes": 258,
+      "sha256": "8288901460b662a8c5a8a1ea326286dccaefd51d01850e2de155b9cc550d5014"
     },
     "EVIDENCE.md": {
-      "bytes": 2311,
-      "sha256": "be398c0779176bb9d1c4f96efb2d1c2996b4e18bda0510d2d3f2a184ec12f777"
+      "bytes": 2388,
+      "sha256": "305cb67f9e1482f18734185793f9d9f7dd8e8301ce198c9d9e428003aaf9f38a"
     },
     "README.md": {
-      "bytes": 3220,
-      "sha256": "18931a9f5e9bc0ed1fbb86c21303775582e39bd09098154d7d8bcbbd1f0ccc91"
+      "bytes": 3249,
+      "sha256": "6a72a91d303855fa9c5bb4812e9b67abc393578fbec5d7c3be3206e6fba032c9"
     },
     "code/AGENTS.md": {
       "bytes": 1328,
@@ -456,24 +456,32 @@
       "sha256": "a766b1e69b38adf1419fa2762ade0139fc72cf91c41ef5ecddddf2c5a4690c5a"
     },
     "manuscript/FORMAT.md": {
-      "bytes": 557,
-      "sha256": "61b3f339e2d96007fbdc4d679f88ac85885e5ac4f2ac14aa38a285ae835d0fe3"
+      "bytes": 706,
+      "sha256": "f8c5bc57be711a2d7c60bce59fc74bde3004a9a08d8cf7f883715b178ef1c8bf"
     },
     "manuscript/content-verification.json": {
       "bytes": 536,
-      "sha256": "1df3da41d2b5babb0ebddaf760a0f27f869a2567fa6252dbb7db2678b04c3a6e"
+      "sha256": "0532342be87f1db827f9af0df3e6b1d5f9d29e133ea60131b105d27b9e6bb2df"
     },
     "manuscript/report.md": {
-      "bytes": 102596,
-      "sha256": "469b862fd45aed381dca465830afea10f31535a0823a0832ee04f9eba36f217a"
+      "bytes": 102633,
+      "sha256": "da5bf4c9d003067ac1dccf80e5e71eb8f7d42220bb1b2f737fe2453bbce542b4"
+    },
+    "paper/build-record-en.json": {
+      "bytes": 6371,
+      "sha256": "7f1c8db3f5e15209401e80d489f42642de7d30107deed5332461b4985bb74381"
+    },
+    "paper/paper.pdf": {
+      "bytes": 3967159,
+      "sha256": "ab04384e645b5b16af35c8fa87fbfb0f492b809927a8ee12326811a055e3ac6b"
     },
     "scripts/baseline-equation-tags.json": {
       "bytes": 799,
       "sha256": "54df0586ee0d6f007138dbca864ec83e264813354429b94da57ffc6ba18e4294"
     },
     "scripts/check_report.py": {
-      "bytes": 5189,
-      "sha256": "cb90fa659c3c8ef21bc0c1a031bbc4a9c0265722bf66587a6bf5a094d713cbd8"
+      "bytes": 5390,
+      "sha256": "bd227359a0b0fc833f287dd74bc00a5125e0528a53fb6bacbbaceade124dc680"
     },
     "scripts/update_manifest.py": {
       "bytes": 2026,
@@ -484,8 +492,8 @@
       "sha256": "6aec8c2ac3a9a476df1a63dfd3c5b9122a1d7cc64ae1f8e4e3e4e61aaeb95a11"
     },
     "scripts/verify_revision.py": {
-      "bytes": 9205,
-      "sha256": "8eba2f618def5ac5a2fa4d6fb43c3d80223e5300638a1e4e085bc79d9de1f737"
+      "bytes": 10121,
+      "sha256": "ba7c958485af2337508a069e6018c8d8f72524b72529624696780badb55b383c"
     }
   }
 }

@@ -6,7 +6,9 @@ __pycache__/
 code/runs/
 .build/
 local-preview/
-paper/
+paper/*
+!paper/paper.pdf
+!paper/build-record-en.json
 assets/fonts/
 scripts/pdf/
 manuscript/*.tex

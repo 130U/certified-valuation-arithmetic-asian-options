@@ -6,7 +6,7 @@ Common Gaussian Smoothing and Projected Euler Error Bounds
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 
-[Project overview](../README.md) · [Code and evidence](../EVIDENCE.md)
+[English PDF](../paper/paper.pdf) · [Project overview](../README.md) · [Code and evidence](../EVIDENCE.md)
 
 **Keywords:** Arithmetic Asian options; Heston model; projected Euler; conditional Gaussian smoothing; computable error bounds; weak error expansions; posterior quantiles.
 

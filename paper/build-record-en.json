@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "language": "en",
+  "builder": "ReportLab / MathJax",
+  "pdf": {
+    "path": "paper/paper.pdf",
+    "sha256": "ab04384e645b5b16af35c8fa87fbfb0f492b809927a8ee12326811a055e3ac6b",
+    "bytes": 3967159,
+    "pages": 40
+  },
+  "article": {
+    "path": "manuscript/report.md",
+    "sha256": "da5bf4c9d003067ac1dccf80e5e71eb8f7d42220bb1b2f737fe2453bbce542b4"
+  },
+  "source": {
+    "path": "manuscript/report-source.tex",
+    "sha256": "09030ccf6fa0be7b725853fdc8f35d353d04fe3447f67c2f08b776d5148b7d83",
+    "retained_locally": true
+  },
+  "builder_sha256": "ed91aeeb45e4f2cab0112928824159196897ce0cc57abeaef9370a9b460763c6",
+  "formula_sequence_sha256": "92929a5062d721356ea72399a08f48b33c3b888b9b9f4803cd872d856c8dedc7",
+  "mathematical_counts": {
+    "display_math": 176,
+    "inline_math": 518,
+    "equation_tags": 95,
+    "tables": 14,
+    "references": 13
+  },
+  "pdf_and_online_article_match": "Exact generated Markdown equality after removing the online navigation row; ordered formulas also match.",
+  "build_commands": [
+    "python scripts/build_report.py",
+    "python scripts/pdf/build_pdf.py --language en --node NODE_EXECUTABLE"
+  ],
+  "build_files": "Typesetting source, fonts and builder are retained in the author-side build directory.",
+  "design": "A4, 25 mm margins, Computer Modern, centered title/author/contact block, linked blue contents and centered page numbers; follows the author-supplied paper.pdf reference.",
+  "contact": [
+    "theodore.oy2025@gmail.com",
+    "10@alumni.duke.edu"
+  ],
+  "timeline": [
+    "Research began in the second half of 2023.",
+    "The initial manuscript was written in the first half of 2024.",
+    "The project was published on GitHub in 2026.",
+    "Additional proof work and numerical verification were completed in 2026."
+  ],
+  "visual_review": {
+    "status": "PASS",
+    "pdf_sha256": "ab04384e645b5b16af35c8fa87fbfb0f492b809927a8ee12326811a055e3ac6b",
+    "pages": 40,
+    "scope": {
+      "rendering_engine": "pypdfium2",
+      "render_scale": 1.5,
+      "contact_sheets_visually_reviewed": [
+        "contact-01-04.png",
+        "contact-05-08.png",
+        "contact-09-12.png",
+        "contact-13-16.png",
+        "contact-17-20.png",
+        "contact-21-24.png",
+        "contact-25-28.png",
+        "contact-29-32.png",
+        "contact-33-36.png",
+        "contact-37-40.png"
+      ],
+      "contact_sheet_page_coverage": "1-40",
+      "full_size_pages_visually_reviewed": [
+        1,
+        9,
+        34,
+        37
+      ]
+    },
+    "timeline_sentences_found": {
+      "Research began in the second half of 2023.": true,
+      "The initial manuscript was written in the first half of 2024.": true,
+      "The project was published on GitHub in 2026.": true,
+      "Additional proof work and numerical verification were completed in 2026.": true
+    },
+    "timeline_page": 37,
+    "author_emails_visually_correct": true,
+    "main_signed_price_difference_visually_correct": "[-0.011024692273, 0.010642371599]",
+    "main_continuous_model_price_visually_correct": "[6.508371733, 6.518868974]",
+    "new_clipping_overlap_or_overflow_found": [],
+    "observations": [
+      "The inherited serif title, author block, two email addresses, blue contents links, equation numbering and page numbering remain visually coherent.",
+      "The added Appendix H text fits on page 37 and does not overlap Appendix I or the bottom equation.",
+      "The original contents continuation on page 3 retains substantial blank space; no pagination redesign was performed.",
+      "The repository URL paragraph in Appendix G on page 34 is now left-aligned. Its opening sentence has normal word spacing and its URL remains within the text margins.",
+      "All 40 pages were re-rendered and the ten contact sheets were reviewed again after the URL-paragraph alignment change. The document remains 40 pages, with no new clipping, overlap, overflow or pagination movement."
+    ],
+    "limitations": [
+      "This is a visual and timeline consistency check; it does not independently re-prove the mathematics or rerun numerical certificates.",
+      "All pages were inspected as four-page contact sheets; only the listed four pages were additionally inspected at full render size."
+    ],
+    "internal_review_labels_absent": true
+  },
+  "command_parser_check": {
+    "status": "PASS_EXPORTED_PDF_COMMANDS_AND_REAL_ARGUMENT_PARSER",
+    "pdf_sha256": "ab04384e645b5b16af35c8fa87fbfb0f492b809927a8ee12326811a055e3ac6b",
+    "copied_commands": [
+      "./.venv/Scripts/python.exe code/run.py verify",
+      "./.venv/Scripts/python.exe code/run.py run --module asian --independent",
+      "./.venv/Scripts/python.exe code/run.py check --run code/runs/run-ID"
+    ],
+    "parsed_arguments": {
+      "modules": [
+        "asian"
+      ],
+      "independent": true,
+      "run_placeholder": "code/runs/run-ID"
+    },
+    "original_runner_sha256": "52e8e9250553885b2b43020909e6ce24d4488b7a920b3a48865522d0eaf73e6c",
+    "additional_actual_source_parser_checks": [
+      {
+        "command": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point",
+        "source_sha256": "d0ef172a99633538903c726decb6929fea1767b2abddc892c39fd6c63e6a615c",
+        "arguments": {
+          "mode": "prepare",
+          "directory": "new-point"
+        }
+      },
+      {
+        "command": "./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point",
+        "source_sha256": "d0ef172a99633538903c726decb6929fea1767b2abddc892c39fd6c63e6a615c",
+        "arguments": {
+          "mode": "run",
+          "directory": "new-point"
+        }
+      },
+      {
+        "command": "./.venv/Scripts/python.exe code/revision/round2_coupling_example.py --output coupling.json",
+        "source_sha256": "68b7b89ceb62cacc98dfedd3a682c251a0ca74acee8d2271fb6e879c7c18b796",
+        "arguments": {
+          "output": "coupling.json"
+        }
+      }
+    ],
+    "placeholder_rule": "Replace run-ID with the directory printed by a real completed run.",
+    "completed_run_recheck_status": null,
+    "completed_run_jobs": null,
+    "scope": "Exact PDF text and real argparse acceptance; completed-result recheck is separate from fresh execution."
+  },
+  "native_latex_compilation": "Not claimed; this PDF was generated by ReportLab / MathJax."
+}

@@ -84,7 +84,9 @@ def main():
             own_remote = href.startswith(('https://github.com/130U/certified-valuation-arithmetic-asian-options/',
                                           'https://raw.githubusercontent.com/130U/certified-valuation-arithmetic-asian-options/'))
             if not href.startswith(('https://', 'http://', 'mailto:', '#')) or own_remote:
-                assert not path.lower().endswith(('.pdf', '.tex')), 'An author PDF/TeX download link remains: ' + href
+                assert not path.lower().endswith('.tex'), 'An author typesetting-source link remains: ' + href
+                if path.lower().endswith('.pdf'):
+                    assert path.endswith('/paper/paper.pdf') or path == 'paper/paper.pdf', 'Unexpected author PDF: ' + href
             if href.startswith(('https://', 'http://', 'mailto:', '#')):
                 continue
             assert (base / path).exists(), 'Missing repository link: ' + href
@@ -92,7 +94,7 @@ def main():
                       'equation_tags': len(tags), 'mathematical_sequence_preserved': True,
                       'formula_sequence_sha256': digest, 'source_commit': SOURCE_COMMIT,
                       'research_timeline': list(TIMELINE), 'repository_links': 'PASS',
-                      'author_pdf_tex_download_links': 'ABSENT'}))
+                      'author_pdf_entry': 'paper/paper.pdf', 'author_tex_download_links': 'ABSENT'}))
 
 
 if __name__ == '__main__':

@@ -20,6 +20,16 @@ def main():
     for name,row in baseline['files'].items():
         p=ROOT/'code'/name
         assert p.stat().st_size==row['bytes'] and hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'],name
+    pdf_record=json.loads((ROOT/'paper/build-record-en.json').read_text(encoding='utf8'))
+    article_record=json.loads((ROOT/'manuscript/content-verification.json').read_text(encoding='utf8'))
+    pdf=ROOT/pdf_record['pdf']['path']
+    assert pdf_record['status']=='PASS' and pdf_record['language']=='en'
+    assert pdf.read_bytes().startswith(b'%PDF-')
+    assert pdf.stat().st_size==pdf_record['pdf']['bytes']
+    assert hashlib.sha256(pdf.read_bytes()).hexdigest()==pdf_record['pdf']['sha256']
+    assert pdf_record['article']['sha256']==hashlib.sha256((ROOT/'manuscript/report.md').read_bytes()).hexdigest()
+    assert pdf_record['formula_sequence_sha256']==article_record['formula_sequence_sha256']
+    assert pdf_record['mathematical_counts']=={k:article_record['counts'][k] for k in ('display_math','inline_math','equation_tags','tables','references')}
     ledger=json.loads((ROOT/'code/revision/results/revision-summary.json').read_text(encoding='utf8'))
     assert ledger['status']=='EXACT_RATIONAL_BUDGET_RECONCILIATION_PASS'
     assert [r['h'] for r in ledger['step_table']]==['1/192','1/384','1/768','1/1536']
@@ -124,5 +134,5 @@ def main():
     for entry,(path,arguments,parsed) in zip(commands['additional_actual_source_parser_checks'],expected):
         assert entry['command']==prefix+path+' '+arguments and entry['arguments']==parsed
         assert entry['source_sha256']==hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-    print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),complete_second_point_certificate=True,second_point_weighted_node_checks=replay['weighted_node_exact_checks'],second_point_frequency_checks=replay['frequency_exact_interval_overlap_checks'],deterministic_coupling_precisions=2,saved_parser_result_checked=True,scope='Byte identity, exact saved mathematical ledger and historical parser-result/source binding. No public PDF, fresh kernel execution or new proof verification is required.')))
+    print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),complete_second_point_certificate=True,second_point_weighted_node_checks=replay['weighted_node_exact_checks'],second_point_frequency_checks=replay['frequency_exact_interval_overlap_checks'],deterministic_coupling_precisions=2,saved_parser_result_checked=True,english_pdf_hash_binding_checked=True,scope='Byte identity, exact saved mathematical ledger, English PDF/article binding and historical parser-result/source binding. No fresh kernel execution or new proof verification is required.')))
 if __name__=='__main__':main()

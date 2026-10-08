@@ -2,7 +2,7 @@
 
 Mathematical finance research by **Theodore Ouyang**.
 
-**[Read the article](manuscript/report.md)**
+**[English PDF](paper/paper.pdf) · [Read online](manuscript/report.md)**
 
 I derive a weighted payoff remainder through common Gaussian smoothing, then turn it into a computable bound on the pricing error of the original projected Euler scheme. The certificate accounts for variance projection, transform inversion, infinite tails, complex-logarithm branches and outward rounding in one price-unit error budget.
 
