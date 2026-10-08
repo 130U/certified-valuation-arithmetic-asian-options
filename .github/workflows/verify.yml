@@ -27,6 +27,7 @@ jobs:
           python-version: '3.12'
       - run: python scripts/check_report.py
       - run: python scripts/verify_revision.py
+      - run: python code/verification/test_run_integrity.py
       - run: git diff --exit-code -- manuscript
   targeted_examples:
     runs-on: windows-latest

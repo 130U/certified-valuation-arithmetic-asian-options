@@ -8,7 +8,7 @@
       "projection_beta": "184040303/23040000",
       "required_projection_beta": "strictly greater than 8",
       "reason": "The fixed lambda=12 projection proof does not supply its assumed beta>8 at this mesh.",
-      "execution_receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-192-failed\\receipt.json",
+      "execution_receipt": "code/revision/results/evidence.zip#execution/asian-192-failed/receipt.json",
       "receipt_sha256": "7a5209f7104681a643adf47671db2e92b0a08dbaaae98ccc5848a89ed2f3fe60"
     },
     {
@@ -113,8 +113,8 @@
           "proof": "finite-frequency periodization ledger"
         }
       },
-      "core_path": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-384-enclosure\\work\\core",
-      "execution_receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-384-enclosure\\receipt.json"
+      "core_path": "code/revision/results/evidence.zip#execution/asian-384-enclosure/work/core/",
+      "execution_receipt": "code/revision/results/evidence.zip#execution/asian-384-enclosure/receipt.json"
     },
     {
       "h": "1/768",
@@ -218,8 +218,8 @@
           "proof": "finite-frequency periodization ledger"
         }
       },
-      "core_path": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\runs\\run-dc5217430d86405c808cb700515d6d1d\\work\\core",
-      "execution_receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\runs\\run-dc5217430d86405c808cb700515d6d1d\\run-receipt.json"
+      "core_path": "code/revision/results/evidence.zip#execution/base-run/work/core/",
+      "execution_receipt": "code/revision/results/evidence.zip#execution/base-run/run-receipt.json"
     },
     {
       "h": "1/1536",
@@ -323,8 +323,8 @@
           "proof": "finite-frequency periodization ledger"
         }
       },
-      "core_path": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-1536-enclosure\\work\\core",
-      "execution_receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-1536-enclosure\\receipt.json"
+      "core_path": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/work/core/",
+      "execution_receipt": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/receipt.json"
     }
   ],
   "weighted_moment_table": [
@@ -707,22 +707,22 @@
   "execution_receipts": [
     {
       "h": "1/192",
-      "receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-192-failed\\receipt.json",
+      "receipt": "code/revision/results/evidence.zip#execution/asian-192-failed/receipt.json",
       "sha256": "7a5209f7104681a643adf47671db2e92b0a08dbaaae98ccc5848a89ed2f3fe60"
     },
     {
       "h": "1/384",
-      "receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-384-enclosure\\receipt.json",
+      "receipt": "code/revision/results/evidence.zip#execution/asian-384-enclosure/receipt.json",
       "sha256": "07b316f519572a3f5382e89763458dc0900f4adffeac4479c89cdc8508eca7a2"
     },
     {
       "h": "1/768",
-      "receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\runs\\run-dc5217430d86405c808cb700515d6d1d\\run-receipt.json",
+      "receipt": "code/revision/results/evidence.zip#execution/base-run/run-receipt.json",
       "sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51"
     },
     {
       "h": "1/1536",
-      "receipt": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\..\\numerical\\asian-1536-enclosure\\receipt.json",
+      "receipt": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/receipt.json",
       "sha256": "7f60c717f4349ca9c978860355bb3026fb3df0e673d026592cda730d6d2f2e08"
     }
   ],

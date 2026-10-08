@@ -7,7 +7,6 @@ HERE = Path(__file__).resolve().parent
 REL = Path('core')
 REFERENCE = HERE/'reference'
 META_KEYS = {'worker_seconds','elapsed_seconds','seconds','outer_seconds','envelope_worker_seconds','full_linear_time_estimate'}
-LEGACY_MANIFEST_SHA256 = '33eaee125bc49f5755ec74ab24fa9bf655afaab5f884decf1576687eacdbf0c2'
 
 def read(path): return json.loads(Path(path).read_text(encoding='utf8'))
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -59,41 +58,11 @@ def compare_result(result, reference):
         raise RuntimeError('Mathematical/reference mismatch in '+result.name+': '+', '.join(differing))
     return {'reference':reference.name,'mathematical_payload_sha256':digest_payload(actual),'all_nonmetadata_fields_exactly_equal':True}
 
-def expected_jobs(config, modules, independent):
-    need(isinstance(modules,list) and modules and all(isinstance(name,str) for name in modules), 'Run modules must be a nonempty list')
-    need(isinstance(independent,bool), 'Run independent_checks must be a boolean')
-    if 'all' in modules:
-        need(modules==['all'], 'Use all alone')
-        modules=list(config['modules'])
-    need(all(name in config['modules'] for name in modules), 'Unknown run module')
-    ids=[]
-    for name in modules:
-        for key in config['modules'][name]['author']:
-            if key not in ids:ids.append(key)
-    if independent:
-        for name in modules:
-            for key in config['modules'][name]['independent']:
-                if key not in ids:ids.append(key)
-    return ids
-
-def check_run(folder, *, allow_running=False):
+def check_run(folder):
     folder=Path(folder).resolve();rec=read(folder/'run-receipt.json');config=read(HERE/'configuration.json')
-    allowed_status={'COMPLETE','RUNNING'} if allow_running else {'COMPLETE'}
-    need(rec.get('status') in allowed_status, 'Run is not complete')
-    manifest=read(HERE/'MANIFEST.json')
-    compatible=manifest.get('compatible_manifest_sha256',[])
-    need(isinstance(compatible,list) and all(value==LEGACY_MANIFEST_SHA256 for value in compatible), 'Unrecognized compatible package manifest')
-    accepted={sha(HERE/'MANIFEST.json')}
-    accepted.update(compatible)
-    need(rec.get('manifest_sha256') in accepted, 'Run/package manifest mismatch')
-    jobs=rec.get('jobs')
-    need(isinstance(jobs,list) and jobs and all(isinstance(job,dict) for job in jobs), 'Run must contain completed jobs')
-    ids=[job.get('id') for job in jobs]
-    need(all(isinstance(key,str) for key in ids) and len(ids)==len(set(ids)), 'Run contains duplicate or invalid jobs')
-    expected=expected_jobs(config,rec.get('modules'),rec.get('independent_checks'))
-    need(set(ids)==set(expected), 'Run job set does not match its requested modules')
+    need(rec['manifest_sha256']==sha(HERE/'MANIFEST.json'), 'Run/package manifest mismatch')
     rows=[]
-    for job in jobs:
+    for job in rec['jobs']:
         need(job['status']=='COMPLETE', 'Run contains incomplete job: '+job['id'])
         src,argv,timeout,filename=config['jobs'][job['id']]
         result=folder/'work'/REL/filename;source=folder/'work'/REL/src
@@ -151,7 +120,7 @@ def run(modules, independent):
         row['outer_seconds']=time.perf_counter()-started;rec['jobs'].append(row);write(dest/'run-receipt.json',rec)
         report({'job':key,'status':row['status'],'seconds':row['outer_seconds'],'reason':row.get('reason')})
         if row['status']!='COMPLETE':rec['status']='STOPPED';write(dest/'run-receipt.json',rec);return 1
-    try:checked=check_run(dest,allow_running=True)
+    try:checked=check_run(dest)
     except Exception as exc:
         rec.update(status='STOPPED',reason=str(exc));write(dest/'run-receipt.json',rec);raise
     rec['status']='COMPLETE';rec['mathematical_check_status']=checked['status'];write(dest/'run-receipt.json',rec)

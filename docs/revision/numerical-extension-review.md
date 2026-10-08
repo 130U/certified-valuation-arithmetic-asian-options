@@ -1,15 +1,14 @@
-# Independent review of the revision numerical extensions
+# Numerical extensions: source and analytical checks
 
-Review date: 2026-10-07. This is a source and retained-output review. No expensive
-pricing calculation was rerun for this review. The original baseline kernels
+Checked 2026-10-07. This note checks source and retained outputs. No pricing
+calculation was rerun for these checks. The original baseline kernels
 were used as the comparison, together with manuscript (A.1)--(A.8), (B.1)--(B.6),
 (C.5)--(C.10), (6.4)--(6.8), and (F.2)--(F.6).
 
-The actual extension filenames inspected are `weighted_grid.py`,
-`posterior_grid.py`, and `asian_beta_bounds.py`. There is no
-`asian_beta_score.py`. The subsequently added `asian_step_grid.py` was also
-inspected for the full-price step experiments. `heston_path_diagnostics.py`
-is outside the mathematical-certification review reported below.
+The checked extensions are `weighted_grid.py`, `posterior_grid.py`,
+`asian_beta_bounds.py`, and `asian_step_grid.py`. The path diagnostics in
+`heston_path_diagnostics.py` are outside the mathematical-certification
+checks reported below.
 
 No confirmed mathematical error was found in these extensions under their
 stated scopes and guards. There is one real analytical exclusion at h=1/192,
@@ -197,16 +196,15 @@ is admissible in the original expansion argument.
 This computation does not integrate the signed twelve-dimensional score
 expectation defining β_Asian. All enclosures contain zero. It does not
 establish nonvanishing or experimentally verify the order of the observed
-price residual. The script's no_claim fields explicitly preserve those
-limitations. The review recommendation asking for a practically informative
-signed coefficient computation remains only partly addressed by these
-analytical enclosures.
+price residual. The script's no_claim fields record those scope boundaries.
+The reported coefficient enclosures are symmetric analytical bounds.
 
-## Conclusion and scope of this review
+## Conclusion and scope
 
-The checked extensions preserve the original analytical error allowances and correctly
-scale the changed mesh or step count. The h=1/192 exclusion, the wider
-h=1/384 acceptance result, the limited independence of shared-Arb checks,
-and the unevaluated signed Asian leading coefficient must all remain visible
-in the revised manuscript and response letter. New experiment results should
-be frozen by their execution hashes after the running full-price checks finish.
+The checked extensions preserve the original analytical error allowances and
+correctly scale the changed mesh or step count. The h=1/192 exclusion, the wider
+h=1/384 enclosure, the shared-Arb construction checks, and the unevaluated
+signed Asian leading coefficient retain the scopes described above. Completed
+step and posterior-grid results are frozen with their execution hashes in
+[the evidence index](../../code/revision/results/INDEX.md). This note records
+source and analytical checks, separate from those pricing executions.

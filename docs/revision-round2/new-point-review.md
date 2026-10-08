@@ -6,7 +6,7 @@ and the arithmetic Asian call spread 95/110 are unchanged. This supplies a
 second stochastic-variance point by changing initial variance only. It does
 not test a different Feller index or certify a parameter box.
 
-The original `SCOPE.md`, `ENVIRONMENT.md`, `configuration.json`, `AGENTS.md`
+The original `SCOPE.md`, `ENVIRONMENT.md`, `configuration.json`, `WORKING_GUIDE.md`
 and four numerical cores were read. The review checks the analytical domain
 before the five executions. Preparation alone is not a price certificate.
 

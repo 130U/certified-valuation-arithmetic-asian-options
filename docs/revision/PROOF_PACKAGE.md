@@ -1,7 +1,7 @@
 # Weighted and coupled payoff remainder proofs
 
 The proofs below establish the propositions under their stated premises. The
-completed deterministic example is in Appendix I of the paper. Coupled-remainder
+completed deterministic example is in Appendix I of [the paper](../../manuscript/report.md). Coupled-remainder
 moments for stochastic-variance Heston models (xi>0) and a convergence rate in h remain open.
 
 ## Claim and premises
@@ -22,7 +22,7 @@ P and Q satisfy the full manuscript condition H_s(c). This includes
 Eν(A+G)<∞ and Dν(c)=Eν[(A-cG)²/σν]<∞ for each law, as well as the
 common conditional Gaussian structure. Assume a joint coupling of positive triples
 (aν,cgν,σν) with the correct conditional marginal laws, and a finite
-bound on E ΞK as defined in Proposition R.1 in remainder-revision.tex.
+bound on E ΞK as defined in Proposition I.1 in Appendix I of the paper.
 No cross-model independence, common σ, or Gaussian correlation assumption
 is imposed on this coupling.
 
@@ -30,26 +30,28 @@ The H_s(c) assumptions are needed separately from E ΞK<∞. A diagonal
 coupling can give ΞK=0 even for a heavy-tailed law with infinite remainder;
 without marginal integrability the expression R_K,Q-R_K,P would be undefined.
 
-The conclusions are (R.1)--(R.4) of the accompanying insertion fragment.
-No claim of originality is made: the quadratic optimization and smooth
-Lipschitz comparison use elementary tools. Their role is to make the
-manuscript's error-width floor and a sufficient cancellation condition explicit.
+The scale calculation is in §4.1 of the paper, and the coupled inequality is
+in Appendix I. Quadratic optimization and a smooth Lipschitz comparison make
+the error-width floor and a sufficient cancellation condition explicit.
 
-## Verification Target and Bottleneck
+## Numerical evaluation
 
 The targets are the quadratic identity for exact nonlinear width, the
 nonnegative Laplace integrand for the scale ratio, and an explicit global
 gradient bound for the conditionally smoothed remainder.
 
-The numerical bottleneck for scale optimization is a new outward evaluation
-of the separately grouped moment profiles. Existing JSON files store the
-combined square and cannot identify the two raw moments from that value alone.
-The mathematical proof closes without assigning numerical values.
+The separately grouped moment profiles have been evaluated with outward bounds
+at the original Heston point. The ratio enclosure and completed scale comparison
+are reported in §4.1, with [execution records](../../code/revision/results/INDEX.md).
+A combined-square output alone cannot identify the two raw moments. The proof
+specifies the required grouped inputs independently of their numerical values.
 
-The numerical bottleneck for a cancellation certificate is a finite, validated
-bound on the coupled expectation E ΞK. The marginal transform catalogs do not
-contain cross-model distances of a, cg, and σ. The proposition treats that
-quantity as an explicit additional premise and does not claim it was computed.
+A cancellation certificate requires a finite, validated bound on the coupled
+expectation E ΞK. The [deterministic example](../revision-round2/README.md) supplies
+such a bound on xi=0. Coupled moments for the stochastic-variance Heston points
+remain uncomputed: the marginal transform catalogs do not contain cross-model
+distances of a, cg, and σ. The proposition treats that quantity as an explicit
+additional premise.
 
 ## Anchors and Implicit Machinery
 
@@ -99,7 +101,7 @@ If E+∈[e-,e+] and H∈[d-,d+], with d->0, positivity gives the ratio
 interval c*∈[1+e-/d+,1+e+/d-]. A midpoint differs from c* by at most
 half the interval width. For J in units weighted by σ^(-1), the coefficient
 of c² is H/√(1-ρ²)≤d+/√(1-ρ²). Substitution in the completed square
-gives (R.3), including the correlation factor. Optimizing the exact nonlinear
+gives (4.9), including the correlation factor. Optimizing the exact nonlinear
 quantity does not optimize error allowances depending on c; a new selected c must be
 substituted in the full calculation before a new price interval is stated.
 
@@ -110,7 +112,7 @@ $$F_K(x;s)=x e^{s²/2}\Phi(\log(x/K)/s+s)-K\Phi(\log(x/K)/s).$$
 For positive x,s, differentiation yields
 H_K=K exp[-(log(x/K))²/(2s²)]/(s x² √(2π)) and
 ∂sH_K=H_K[(log(x/K)/s)²-1]/s. Completing the square in log(x/K)/s
-gives the representation in the TeX fragment. With w=log(x/K)/s+2s,
+gives the representation in Appendix I. With w=log(x/K)/s+2s,
 |(w-2s)²-1|≤2w²+8s²+1. Since max_w w² exp(-w²/2)=2/e,
 the global derivative bound is
 
@@ -197,8 +199,10 @@ comparison requires an explicit coupling and finite E ΞK.
 Citation identity and imported-result applicability: no external paper is
 load bearing; the original manuscript formulas used are reproduced here.
 
-Negligibility closure: the package claims a sufficient cancellation bound.
-It does not claim the numerical ΞK expectation has been evaluated or vanishes.
+Negligibility closure: the bound is a sufficient cancellation condition. The
+deterministic example supplies a validated bound on E ΞK for xi=0. For the
+stochastic-variance Heston points, those moments and a bound showing their
+vanishing as h decreases remain uncomputed.
 
 Boundary or singularity: the factor σ_min^(-2) is shown explicitly. The
 manuscript inverse-square-root moment alone does not control this singularity.
@@ -206,5 +210,5 @@ Full H_s(c) is imposed on each marginal before comparing expectations;
 E ΞK<∞ alone does not replace this finite-remainder requirement.
 
 Discount and units: J uses σ^(-1), while the experiment's H uses I^(-1/2).
-The factor √(1-rho²) cancels in c* and appears in (R.3). All price bounds
+The factor √(1-rho²) cancels in c* and appears in (4.9). All price bounds
 include e^(-rT).

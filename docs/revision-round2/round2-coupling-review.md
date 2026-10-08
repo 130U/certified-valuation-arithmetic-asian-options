@@ -1,22 +1,21 @@
-# Independent review of the executed deterministic coupling example
+# Deterministic coupled remainder: derivation and numerical checks
 
-Reviewed 7 October 2026:
+Checked 7 October 2026:
 
-- `repository/code/revision/round2_coupling_example.py`
-- `round2-theory/coupling-v004-result.json`
-- `round2-theory/coupling-v004-proof.md`
-- `round2-theory/coupling-v004-fragment.tex`
-- Proposition I.1 in the current manuscript, together with (6.2).
+- [Executed program](../../code/revision/round2_coupling_example.py)
+- [Result](../../code/revision/round2/results/coupling-v004-result.json)
+- [Proof](coupling-v004-proof.md)
+- Proposition I.1 in [the manuscript](../../manuscript/report.md), together with (6.2).
 
 ## Verdict
 
-**PASS for the stated deterministic-variance point and nonlinear remainder contribution.** No algebraic or integrability gap was found. This is a second-party derivation and source audit, not a formal proof or an independently implemented interval certificate for the full price.
+**PASS for the stated deterministic-variance point and nonlinear remainder contribution.** No algebraic or integrability gap was found in the checked derivation. The checks cover the derivation, executed source and saved moments; they are not formal verification or a separate implementation of a full-price interval certificate.
 
 The scope is `xi=0`, `kappa=3`, `vbar=9/200`, `v0=1/25`, `h=1/768`, twelve monthly fixings, `S0=100`, `r=1/100`, `T=1`, scale `1254433/1250000`, and strikes 95/110. It neither alters the principal positive-`xi` certificate nor evaluates the signed Asian leading coefficient.
 
 ## Checked mathematical steps
 
-| Step | Independent check |
+| Step | Derivation check |
 | --- | --- |
 | Deterministic projected law | For `eta=1-kappa*h` in `(0,1)`, variance remains a positive convex combination of `v0` and `vbar`; projection is inactive. Summing the **current** Euler variances gives the exact cumulative variance in (6.2). |
 | Centered common Gaussian factor | The code's means are `r*t_i-I_nu(t_i)/2`, including the entire first-month drift. The eleven-dimensional coefficient vectors exclude only the first normal. Thus `U_nu=sigma_nu*Z_1` is centered, and `S_nu,i=exp(U_nu)*a_nu,i` has the correct marginal price law. |
@@ -48,10 +47,10 @@ The recorded outward comparison is:
 
 The exact rational comparison `upper(coupled_width)<lower(separate_width)` passes for both precision runs. Consequently the example proves a smaller nonlinear certificate interval at this point, without claiming a smaller true bias of this magnitude.
 
-An initial shorthand sent in coordination, `<= .00008815019586`, rounded the upper bound inward and was flagged immediately. The current proof and TeX fragment use the valid 24-place outward endpoint. Short valid alternatives are `<= .000088150195865` or `<= .00008815019587`. The shorthand separate lower bound `>= .01538363715` is valid.
+The shortened value `<= .00008815019586` is not a valid outward upper bound. The proof uses the 24-place outward endpoint. Valid shorter upper bounds are `<= .000088150195865` or `<= .00008815019587`. The separate lower bound `>= .01538363715` is valid.
 
-## Small TeX definition improvements
+## Model definitions
 
-The full proof states all of the following. For the standalone TeX fragment, explicitly retain `S0=100`, `r=1/100`, `T=1`; say twelve common **independent** standard normals; and define `Z=(Z_2,...,Z_12)` and bars as averages over the fixing index. These suggestions were sent to the mathematical agent and root agent. They do not change the theorem, calculation, or result.
+The proof uses `S0=100`, `r=1/100`, `T=1`, and twelve common **independent** standard normals. It defines `Z=(Z_2,...,Z_12)` and bars as averages over the fixing index. These definitions fix the model and conditioning used in the calculation.
 
 The 384/512-bit agreement and algebraically equivalent Gaussian expressions share the proof and Arb. The present sources correctly describe them as arithmetic consistency checks, and correctly keep positive-`xi`, full-price, and signed-coefficient claims outside the result.

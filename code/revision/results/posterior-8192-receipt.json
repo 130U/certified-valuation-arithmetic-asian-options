@@ -1,7 +1,7 @@
 {
   "status": "COMPLETE",
   "cells": 8192,
-  "baseline_run": "C:\\Users\\theod\\OneDrive\\\u6587\u6863\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\runs\\run-dc5217430d86405c808cb700515d6d1d",
+  "baseline_run": "code/revision/results/evidence.zip#execution/base-run/",
   "baseline_run_receipt_sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51",
   "source_patches": [
     {

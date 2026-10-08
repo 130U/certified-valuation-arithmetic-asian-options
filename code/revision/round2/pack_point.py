@@ -27,7 +27,7 @@ def main(run):
     for name in ('read_budget.py',):files['repository/code/revision/'+name]=ROOT/'code'/'revision'/name
     for name in ('asian-remainder-certificate.py','asian-linear-certificate.py','check-asian-remainder.py','check-asian-linear.py','resource_limits.py'):
         files['repository/code/core/'+name]=ROOT/'code'/'core'/name
-    for name in ('AGENTS.md','SCOPE.md','ENVIRONMENT.md','configuration.json','MANIFEST.json'):
+    for name in ('WORKING_GUIDE.md','SCOPE.md','ENVIRONMENT.md','configuration.json','MANIFEST.json'):
         files['repository/code/'+name]=ROOT/'code'/name
     for name in ('audit-new-point.py','new-point-independent-receipt.json','new-point-review.md'):
         files['round2-theory/'+name]=theory/name

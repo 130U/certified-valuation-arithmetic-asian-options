@@ -1,0 +1,349 @@
+{
+  "status": "PASS_PORTABLE_RECORD_REFERENCES",
+  "source_commit": "fa550765514411491de614add16e6b869263aa8d",
+  "scope": "Portable display copies: only machine-local execution path strings are replaced with verified archive references. All other bytes, numerical values and JSON fields are unchanged. Original files remain in the source commit; original execution records remain in the unchanged evidence archives.",
+  "archives": [
+    {
+      "path": "code/revision/results/evidence.zip",
+      "sha256": "d6af35332a1d3a91d0d575b815926e92c98bc8e84c740af4b80346dfe02bbb8a"
+    },
+    {
+      "path": "code/revision/round2/results/evidence-point-v004.zip",
+      "sha256": "338964eadb54b51fc1b0ff027df61da870cb2f4ae304421e7f1788bd47310db3"
+    }
+  ],
+  "files": [
+    {
+      "path": "code/revision/results/posterior-8192-receipt.json",
+      "original_sha256": "30cd859ac9c9684f528099d032dffcf5e18185eda0875b23c16b2c527f2a98bb",
+      "original_bytes": 2981,
+      "portable_sha256": "e2484a3943c9e6b4443be7376ea2a312ad225bb20fbcc9b11a42099c1a2ce215",
+      "portable_bytes": 2874,
+      "replacements": [
+        {
+          "pointer": "/baseline_run",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 58
+          }
+        }
+      ],
+      "all_other_json_fields_exactly_preserved": true,
+      "nonpath_json_sha256": "fc138bc104191916000d76c7e86e74f1631b4ab4bda2b697afa5e3b4c1c9d3e2"
+    },
+    {
+      "path": "code/revision/results/posterior-16384-receipt.json",
+      "original_sha256": "60038fa6453038abdabde429249c85d51bbba4d97d1e566f197a801142bfd0f9",
+      "original_bytes": 2984,
+      "portable_sha256": "5217e29c87bcd9a51759afb7c026de19d791b8b97df7a38a5d2f7316495c0bf4",
+      "portable_bytes": 2877,
+      "replacements": [
+        {
+          "pointer": "/baseline_run",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 58
+          }
+        }
+      ],
+      "all_other_json_fields_exactly_preserved": true,
+      "nonpath_json_sha256": "55da53f6ba136e6b54721858fd8027f4cbf0fdcd826f6f71e88ac092875731f4"
+    },
+    {
+      "path": "code/revision/results/revision-summary.json",
+      "original_sha256": "da6115f8503770d72d79bd6dc97901725640264ecc4e644415baf3fffd4512cf",
+      "original_bytes": 626549,
+      "portable_sha256": "21ef2bcca56cab6b5e4dc32861cc834098cfe9dbbf24d89f3610de8797014c87",
+      "portable_bytes": 625550,
+      "replacements": [
+        {
+          "pointer": "/step_table/0/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-192-failed/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-192-failed/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 2977,
+            "sha256": "7a5209f7104681a643adf47671db2e92b0a08dbaaae98ccc5848a89ed2f3fe60"
+          }
+        },
+        {
+          "pointer": "/step_table/1/core_path",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-384-enclosure/work/core/",
+          "reference": "code/revision/results/evidence.zip#execution/asian-384-enclosure/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 22
+          }
+        },
+        {
+          "pointer": "/step_table/1/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-384-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-384-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 5479,
+            "sha256": "07b316f519572a3f5382e89763458dc0900f4adffeac4479c89cdc8508eca7a2"
+          }
+        },
+        {
+          "pointer": "/step_table/2/core_path",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/work/core/",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 44
+          }
+        },
+        {
+          "pointer": "/step_table/2/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/run-receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/run-receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 7857,
+            "sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51"
+          }
+        },
+        {
+          "pointer": "/step_table/3/core_path",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-1536-enclosure/work/core/",
+          "reference": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 22
+          }
+        },
+        {
+          "pointer": "/step_table/3/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-1536-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 6006,
+            "sha256": "7f60c717f4349ca9c978860355bb3026fb3df0e673d026592cda730d6d2f2e08"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/0/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-192-failed/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-192-failed/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 2977,
+            "sha256": "7a5209f7104681a643adf47671db2e92b0a08dbaaae98ccc5848a89ed2f3fe60"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/1/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-384-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-384-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 5479,
+            "sha256": "07b316f519572a3f5382e89763458dc0900f4adffeac4479c89cdc8508eca7a2"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/2/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/run-receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/run-receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 7857,
+            "sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/3/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-1536-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 6006,
+            "sha256": "7f60c717f4349ca9c978860355bb3026fb3df0e673d026592cda730d6d2f2e08"
+          }
+        }
+      ],
+      "all_other_json_fields_exactly_preserved": true,
+      "nonpath_json_sha256": "3ce1b69f7a6de2c13e6172f0b5d8dfa38463df4b244a2e0018bba6e74e3172f1"
+    },
+    {
+      "path": "code/revision/results/revision-budget.json",
+      "original_sha256": "da6115f8503770d72d79bd6dc97901725640264ecc4e644415baf3fffd4512cf",
+      "original_bytes": 626549,
+      "portable_sha256": "21ef2bcca56cab6b5e4dc32861cc834098cfe9dbbf24d89f3610de8797014c87",
+      "portable_bytes": 625550,
+      "replacements": [
+        {
+          "pointer": "/step_table/0/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-192-failed/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-192-failed/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 2977,
+            "sha256": "7a5209f7104681a643adf47671db2e92b0a08dbaaae98ccc5848a89ed2f3fe60"
+          }
+        },
+        {
+          "pointer": "/step_table/1/core_path",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-384-enclosure/work/core/",
+          "reference": "code/revision/results/evidence.zip#execution/asian-384-enclosure/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 22
+          }
+        },
+        {
+          "pointer": "/step_table/1/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-384-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-384-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 5479,
+            "sha256": "07b316f519572a3f5382e89763458dc0900f4adffeac4479c89cdc8508eca7a2"
+          }
+        },
+        {
+          "pointer": "/step_table/2/core_path",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/work/core/",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 44
+          }
+        },
+        {
+          "pointer": "/step_table/2/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/run-receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/run-receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 7857,
+            "sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51"
+          }
+        },
+        {
+          "pointer": "/step_table/3/core_path",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-1536-enclosure/work/core/",
+          "reference": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 22
+          }
+        },
+        {
+          "pointer": "/step_table/3/execution_receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-1536-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 6006,
+            "sha256": "7f60c717f4349ca9c978860355bb3026fb3df0e673d026592cda730d6d2f2e08"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/0/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-192-failed/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-192-failed/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 2977,
+            "sha256": "7a5209f7104681a643adf47671db2e92b0a08dbaaae98ccc5848a89ed2f3fe60"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/1/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-384-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-384-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 5479,
+            "sha256": "07b316f519572a3f5382e89763458dc0900f4adffeac4479c89cdc8508eca7a2"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/2/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/base-run/run-receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/base-run/run-receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 7857,
+            "sha256": "65e15da7f5672f6207e3d1923ef3670621601588fd44d532fd1e146eff2ecb51"
+          }
+        },
+        {
+          "pointer": "/execution_receipts/3/receipt",
+          "archive": "code/revision/results/evidence.zip",
+          "member": "execution/asian-1536-enclosure/receipt.json",
+          "reference": "code/revision/results/evidence.zip#execution/asian-1536-enclosure/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 6006,
+            "sha256": "7f60c717f4349ca9c978860355bb3026fb3df0e673d026592cda730d6d2f2e08"
+          }
+        }
+      ],
+      "all_other_json_fields_exactly_preserved": true,
+      "nonpath_json_sha256": "3ce1b69f7a6de2c13e6172f0b5d8dfa38463df4b244a2e0018bba6e74e3172f1"
+    },
+    {
+      "path": "code/revision/round2/results/point-v004-result.json",
+      "original_sha256": "3bfdca34a5df9611f177c2e289f5be9c3a3434f73cd59644b1ef3678f8cc81ca",
+      "original_bytes": 12888,
+      "portable_sha256": "a0aac1680a57aac33b71a81aa8fa3aec3c1c2ef6c286e8bca21fb379aa1c209a",
+      "portable_bytes": 12792,
+      "replacements": [
+        {
+          "pointer": "/six_component_exact_width_ledger/core_path",
+          "archive": "code/revision/round2/results/evidence-point-v004.zip",
+          "member": "repository/code/revision/round2/runs/point-v004/work/core/",
+          "reference": "code/revision/round2/results/evidence-point-v004.zip#repository/code/revision/round2/runs/point-v004/work/core/",
+          "member_validation": {
+            "kind": "directory-prefix",
+            "matching_files": 22
+          }
+        },
+        {
+          "pointer": "/six_component_exact_width_ledger/execution_receipt",
+          "archive": "code/revision/round2/results/evidence-point-v004.zip",
+          "member": "repository/code/revision/round2/runs/point-v004/receipt.json",
+          "reference": "code/revision/round2/results/evidence-point-v004.zip#repository/code/revision/round2/runs/point-v004/receipt.json",
+          "member_validation": {
+            "kind": "file",
+            "bytes": 10461,
+            "sha256": "b9d3c3cde98affa537602f858a7edeeb362a9b15fc43a9b349f78d7622475bce"
+          }
+        }
+      ],
+      "all_other_json_fields_exactly_preserved": true,
+      "nonpath_json_sha256": "2a8e9d8cb4e5904fa955a3d536dcf8a45c17ebc390bbbd1059ff3736cb5f601e"
+    }
+  ]
+}

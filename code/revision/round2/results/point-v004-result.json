@@ -171,8 +171,8 @@
         "proof": "finite-frequency periodization ledger"
       }
     },
-    "core_path": "C:\\Users\\theod\\OneDrive\\文档\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\revision\\round2\\runs\\point-v004\\work\\core",
-    "execution_receipt": "C:\\Users\\theod\\OneDrive\\文档\\ChatGPT\\Finance\\research\\asian-major-revision-20261007\\repository\\code\\revision\\round2\\runs\\point-v004\\receipt.json"
+    "core_path": "code/revision/round2/results/evidence-point-v004.zip#repository/code/revision/round2/runs/point-v004/work/core/",
+    "execution_receipt": "code/revision/round2/results/evidence-point-v004.zip#repository/code/revision/round2/runs/point-v004/receipt.json"
   },
   "principal_bias_Q_minus_P": {
     "exact_interval": [

@@ -16,7 +16,11 @@ def main():
         p=ROOT/name
         assert p.is_file() and p.stat().st_size==row['bytes'],name
         assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'],name
-    baseline=json.loads((ROOT/'code/MANIFEST.json').read_text(encoding='utf8'))
+    package=json.loads((ROOT/'code/MANIFEST.json').read_text(encoding='utf8'))
+    for name,row in package['files'].items():
+        p=ROOT/'code'/name
+        assert p.stat().st_size==row['bytes'] and hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'],name
+    baseline=json.loads((ROOT/'code/verification/numerical-baseline.json').read_text(encoding='utf8'))
     for name,row in baseline['files'].items():
         p=ROOT/'code'/name
         assert p.stat().st_size==row['bytes'] and hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'],name
@@ -126,7 +130,7 @@ def main():
     assert commands['parsed_arguments']=={'modules':['asian'],'independent':True,'run_placeholder':'code/runs/run-ID'}
     prefix='./.venv/Scripts/python.exe '
     assert commands['copied_commands']==[prefix+'code/run.py verify',prefix+'code/run.py run --module asian --independent',prefix+'code/run.py check --run code/runs/run-ID']
-    assert commands['original_runner_sha256']==hashlib.sha256((ROOT/'code/run.py').read_bytes()).hexdigest()
+    assert commands['original_runner_sha256']==hashlib.sha256((ROOT/'code/reference/original-runner.py').read_bytes()).hexdigest()
     expected=[('code/revision/round2/asian_parameter_point.py','prepare --directory new-point',{'mode':'prepare','directory':'new-point'}),
               ('code/revision/round2/asian_parameter_point.py','run --directory new-point',{'mode':'run','directory':'new-point'}),
               ('code/revision/round2_coupling_example.py','--output coupling.json',{'output':'coupling.json'})]

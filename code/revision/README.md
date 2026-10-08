@@ -3,7 +3,7 @@
 These scripts calculate mesh and error-budget comparisons while keeping
 the original files in `code/core/` unchanged. The checked-in results describe
 completed executions; a stopped execution is never represented as a certificate.
-Read `../SCOPE.md`, `../ENVIRONMENT.md`, `../configuration.json`, and `../AGENTS.md`
+Read `../SCOPE.md`, `../ENVIRONMENT.md`, `../configuration.json`, and `../WORKING_GUIDE.md`
 first. Original mathematical payloads must match every reference exactly.
 
 ## Environment and the original executable certificate

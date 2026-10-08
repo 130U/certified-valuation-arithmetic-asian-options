@@ -1,9 +1,17 @@
 # Revision numerical evidence
 
-`revision-summary.json` and `revision-budget.json` are byte-identical copies of
-the final exact-rational ledger produced by `read_budget.py`. The summary is the
-manuscript's entry point. It records all price-unit error components, formula
-and source-field traces, input/output hashes, completed checks and failed grids.
+`revision-summary.json` and `revision-budget.json` are portable display copies
+of the final exact-rational ledger produced by `read_budget.py`. They retain
+every numerical value and all other JSON fields; machine-specific paths are
+replaced by verified `archive#member` references. The summary is the manuscript's
+entry point, recording price-unit error components, formula and source-field
+traces, input/output hashes, completed checks and failed grids.
+
+The two posterior-grid receipts use the same portable references. The
+[replacement record](../../verification/portable-records.json) lists every
+changed field and its original and current file hashes. Original execution
+records remain in the unchanged evidence archives; the original display files
+are preserved at [fa550765](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/fa550765514411491de614add16e6b869263aa8d).
 
 | Artifact | Meaning |
 |---|---|
@@ -21,8 +29,7 @@ and source-field traces, input/output hashes, completed checks and failed grids.
 The full archive preserves the original run, canonical coarse/fine grids,
 posterior cells and all weighted moment nodes. Historical failed attempts are
 retained alongside successful revisions; they must not be mistaken for final
-enclosures. A replay verifies actual archived inputs, rather than trusting a
-summary that points at a private filesystem path:
+enclosures. A replay verifies the archived inputs and reconstructs the ledger:
 
 ```powershell
 Expand-Archive code/revision/results/evidence.zip -DestinationPath replay-evidence

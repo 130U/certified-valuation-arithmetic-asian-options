@@ -1,10 +1,10 @@
-# Final independent review of the beta and posterior numerical inserts
+# Asian coefficient and posterior: numerical checks
 
-Date: 7 October 2026. Reviewed files: `repository/manuscript/report-source.tex`, `repository/code/revision/asian_beta_diagnostic.py`, `repository/code/revision/asian_beta_bounds.py`, the saved `asian-beta-diagnostic.json`, `numerical/asian-beta-score-bounds.json`, `numerical/posterior-grid-summary.json`, and both refined-grid completion receipts. This review reads code, saved numerical payloads, and formulas; it does not rerun expensive numerical jobs. The full Heston step table was pending and is excluded from this review.
+Checked 7 October 2026: the coefficient and posterior formulas in [the manuscript](../../manuscript/report.md), [the Gaussian diagnostic](../../code/revision/asian_beta_diagnostic.py), [the coefficient-bound program](../../code/revision/asian_beta_bounds.py), the saved [diagnostic](../../code/revision/results/asian-beta-diagnostic.json), [coefficient bounds](../../code/revision/results/asian-beta-score-bounds.json), [posterior summary](../../code/revision/results/posterior-grid-summary.json), and both refined-grid completion receipts. This note checks source, formulas and retained numerical outputs; it does not rerun pricing. Its scope is the coefficient and posterior calculations. Completed Heston step experiments are documented separately in [the execution records](../../code/revision/results/INDEX.md).
 
 ## Verdict
 
-No substantive algebra error, numerical mismatch, or diagnostic-versus-certificate scope error was found in these inserts. The optional wording and presentation refinements below do not change the conclusions.
+No substantive algebra error, numerical mismatch, or diagnostic-versus-certificate scope error was found in the checked coefficient and posterior results.
 
 ## Analytic Asian coefficient bound
 
@@ -56,10 +56,10 @@ All four beta estimates and standard errors and all sixteen residual estimates m
 
 The record reports `STATISTICAL_DIAGNOSTIC`, binary64 evaluation, normal-approximation intervals, and the absence of a deterministic signed-coefficient or continuous-price enclosure. The manuscript retains those boundaries. Stable residual scales are correctly described as consistent with the analytical second-order result, rather than proving an order or nonzero coefficient.
 
-Optional improvements:
+Numerical interpretation:
 
-1. Replace “using `exp(x)-1` avoids cancellation” by “evaluating `exp(x)-1` with `expm1` reduces cancellation.” The code calls `np.expm1`, which matters to the claim; the subsequent score subtraction still performs cancellation.
-2. Include residual standard errors directly in the table or its caption, rather than requiring readers to open JSON. For `h=1/768` they are approximately `.003733`, `.001000`, `.000863`, and `.002319`, respectively. A short sentence also suffices.
+1. The code evaluates `exp(x)-1` with `np.expm1` to reduce cancellation. The subsequent score subtraction still performs cancellation.
+2. For `h=1/768`, the residual standard errors are approximately `.003733`, `.001000`, `.000863`, and `.002319`, respectively. The exact saved diagnostic values are in the linked JSON record.
 
 ## Posterior refinement table and uncertainty brackets
 
@@ -78,6 +78,6 @@ The reductions at 16384 cells are `24.4091482542%` and `24.6274155261%`, consist
 
 The six printed initial-variance quantile brackets for the continuous-model posterior at 4096 cells contain their exact saved endpoints. They are explicitly described as **parameter marginal** brackets. The text does not present them as absolute Asian target-price quantiles or infer the target uncertainty scale. The statements that finer cells do not simply halve the final bound, and that a larger nine-quote enclosure does not prove a larger true bias, remain correct.
 
-## Remaining scope boundaries checked
+## Scope boundaries
 
-The posterior refinement retains the restricted prior with `xi in [10^-7,10^-6]`; it is not extrapolated to the main `xi=.23` point. The four beta points remain on `xi=0`. The manuscript continues to distinguish analytic enclosures, statistical diagnostics, and uncompleted signed integration or target-price quantile tasks. Final packaging should copy the reviewed numerical JSON and the exact completion receipts to the public result paths and regenerate the revision manifest after all inserts.
+The posterior refinement retains the restricted prior with `xi in [10^-7,10^-6]`; it is not extrapolated to the main `xi=.23` point. The four beta points remain on `xi=0`. Analytic enclosures and statistical diagnostics are distinct. Neither a signed coefficient integration nor absolute target-price quantiles are supplied by these calculations. The numerical JSON and exact completion receipts are listed in [the evidence index](../../code/revision/results/INDEX.md); the root manifest records their published file hashes.
