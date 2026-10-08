@@ -5,7 +5,7 @@ Commands for the latter are in code/revision/README.md.
 """
 from pathlib import Path
 from fractions import Fraction as F
-import argparse,hashlib,json,zipfile,subprocess,sys,tempfile
+import argparse,hashlib,json,zipfile,subprocess,sys,tempfile,re
 
 ROOT=Path(__file__).resolve().parents[1]
 def main():
@@ -107,10 +107,22 @@ def main():
     receipt=json.loads((ROOT/'docs/revision-round2/coupling-evidence-receipt.json').read_text(encoding='utf8'))
     for r in receipt['files']:
         assert hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']
-    commands=json.loads((ROOT/'paper/pdf-command-verification.json').read_text(encoding='utf8'))
+    # Historical export/parser evidence remains meaningful without publishing
+    # the former PDF. Check the recorded arguments and their unchanged sources;
+    # this is not a new PDF export check or a fresh kernel calculation.
+    commands=json.loads((ROOT/'code/verification/exported-command-check.json').read_text(encoding='utf8'))
     assert commands['status']=='PASS_EXPORTED_PDF_COMMANDS_AND_REAL_ARGUMENT_PARSER'
-    pdf=ROOT/'paper/paper.pdf'
-    assert commands['pdf_sha256']==hashlib.sha256(pdf.read_bytes()).hexdigest()
+    assert re.fullmatch('[0-9a-f]{64}',commands['pdf_sha256'])
     assert commands['parsed_arguments']=={'modules':['asian'],'independent':True,'run_placeholder':'code/runs/run-ID'}
-    print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),complete_second_point_certificate=True,second_point_weighted_node_checks=replay['weighted_node_exact_checks'],second_point_frequency_checks=replay['frequency_exact_interval_overlap_checks'],deterministic_coupling_precisions=2,exported_pdf_command_receipt=True,scope='Byte identity and exact saved mathematical ledger. Fresh kernel execution and mathematical proofs are separate checks.')))
+    prefix='./.venv/Scripts/python.exe '
+    assert commands['copied_commands']==[prefix+'code/run.py verify',prefix+'code/run.py run --module asian --independent',prefix+'code/run.py check --run code/runs/run-ID']
+    assert commands['original_runner_sha256']==hashlib.sha256((ROOT/'code/run.py').read_bytes()).hexdigest()
+    expected=[('code/revision/round2/asian_parameter_point.py','prepare --directory new-point',{'mode':'prepare','directory':'new-point'}),
+              ('code/revision/round2/asian_parameter_point.py','run --directory new-point',{'mode':'run','directory':'new-point'}),
+              ('code/revision/round2_coupling_example.py','--output coupling.json',{'output':'coupling.json'})]
+    assert len(commands['additional_actual_source_parser_checks'])==len(expected)
+    for entry,(path,arguments,parsed) in zip(commands['additional_actual_source_parser_checks'],expected):
+        assert entry['command']==prefix+path+' '+arguments and entry['arguments']==parsed
+        assert entry['source_sha256']==hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+    print(json.dumps(dict(status='PASS_FROZEN_REVISION_AND_EXACT_LEDGER',frozen_files=len(m['files']),unchanged_baseline_files=len(baseline['files']),complete_step_certificates=complete,analytical_guard_failures=1,posterior_grid_rows=len(grids),complete_second_point_certificate=True,second_point_weighted_node_checks=replay['weighted_node_exact_checks'],second_point_frequency_checks=replay['frequency_exact_interval_overlap_checks'],deterministic_coupling_precisions=2,saved_parser_result_checked=True,scope='Byte identity, exact saved mathematical ledger and historical parser-result/source binding. No public PDF, fresh kernel execution or new proof verification is required.')))
 if __name__=='__main__':main()

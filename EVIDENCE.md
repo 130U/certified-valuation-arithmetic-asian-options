@@ -1,6 +1,6 @@
 # Evidence and reproduction
 
-The [`paper` tag](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper) contains the publication manuscript and all calculations listed below. `REVISION-MANIFEST.json` inventories this checkout; `code/MANIFEST.json` verifies the original numerical package.
+The [`paper` release](https://github.com/130U/certified-valuation-arithmetic-asian-options/releases/tag/paper) identifies the online article and all calculations listed below. `REVISION-MANIFEST.json` inventories the public reading and verification files; `code/MANIFEST.json` verifies the original numerical package.
 
 | Calculation | Inputs, results and execution records |
 | --- | --- |
@@ -8,7 +8,7 @@ The [`paper` tag](https://github.com/130U/certified-valuation-arithmetic-asian-o
 | Second Heston parameter point | [Commands](code/revision/round2/README.md), [result](code/revision/round2/results/point-v004-result.json), [execution archive](code/revision/round2/results/evidence-point-v004.zip) |
 | Deterministic coupled remainder | [Program](code/revision/round2_coupling_example.py), [result](code/revision/round2/results/coupling-v004-result.json), [proof and hash binding](docs/revision-round2/README.md) |
 | Runner failure and timeout handling | [Controlled tests](code/revision/round2/test_runner_boundary.py), [test receipt](code/verification/runner-boundary.json), [successful five-task read-back](code/verification/runner-success.json) |
-| Manuscript | [Editable sources and build commands](manuscript/FORMAT.md), [PDF build and inspection record](paper/build-record.json), [exported command checks](paper/pdf-command-verification.json) |
+| Online article | [Article](manuscript/report.md), [mathematical content check](manuscript/content-verification.json), [saved command-parser checks](code/verification/exported-command-check.json) |
 
 The original numerical baseline is [5bc72cf](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a). Historical experiment data are frozen at [cf0d242](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b) and [1959f8f](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db). Their commits, numerical files and archive hashes are preserved. The publication entry above supplies the current manuscript and runner.
 

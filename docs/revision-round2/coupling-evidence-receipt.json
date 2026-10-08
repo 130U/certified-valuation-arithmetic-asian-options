@@ -13,10 +13,6 @@
     {
       "path": "docs/revision-round2/coupling-v004-proof.md",
       "sha256": "31325e841b5f7f724f082ac4dbc210a1ac17a3235fc658a3f8650df9f2172d35"
-    },
-    {
-      "path": "docs/revision-round2/coupling-v004-fragment.tex",
-      "sha256": "df2859f4a0193d28533992386f9c02dbefffb9635b817fbbcf3a3e8b5cf14071"
     }
   ],
   "method": "Closed lognormal moments and outward inequalities; internal proof and scalar-moment checks."

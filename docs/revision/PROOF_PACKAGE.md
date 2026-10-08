@@ -1,8 +1,8 @@
 # Weighted and coupled payoff remainder proofs
 
 The proofs below establish the propositions under their stated premises. The
-completed deterministic example is in Appendix I of the paper. Positive-volatility
-Heston coupled-remainder moments and a convergence rate in h remain open.
+completed deterministic example is in Appendix I of the paper. Coupled-remainder
+moments for stochastic-variance Heston models (xi>0) and a convergence rate in h remain open.
 
 ## Claim and premises
 

@@ -6,3 +6,10 @@ __pycache__/
 code/runs/
 .build/
 local-preview/
+paper/
+assets/fonts/
+scripts/pdf/
+manuscript/*.tex
+manuscript/report.json
+manuscript/translation-verification.json
+README-zh.md

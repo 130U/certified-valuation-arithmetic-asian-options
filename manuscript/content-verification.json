@@ -1,5 +1,6 @@
 {
   "status": "PASS",
+  "source_commit": "f431e2789dd6a725211c7ba48e6b77d02a9db334",
   "counts": {
     "main_sections": 10,
     "appendices": 9,
@@ -10,13 +11,9 @@
     "tables": 14,
     "references": 13
   },
-  "formula_multiset_exactly_preserved": true,
+  "formula_sequence_sha256": "92929a5062d721356ea72399a08f48b33c3b888b9b9f4803cd872d856c8dedc7",
   "formula_sequence_exactly_preserved": true,
-  "forbidden_provenance_strings_absent": true,
   "artifacts": {
-    "report.md": "cc536ef9a2227f072d2978fbb82f90f2df52b9a6e3efbcc58fab557492cc8a53",
-    "report.json": "690987d9c5d8dcd76bcd2671bc702bf8c498e8cb10ede8738a33c167a8fa885d",
-    "report-source.tex": "afa5840405dfc999660a16a443c755f2950ab53a273bcab5966591e1f6ee639a",
-    "report.tex": "0d9478fcf3d49e13c7cc8f21efc34b564f96b75ee4e4d6fe6a3cb6405733c473"
+    "report.md": "469b862fd45aed381dca465830afea10f31535a0823a0832ee04f9eba36f217a"
   }
 }

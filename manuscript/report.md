@@ -6,6 +6,8 @@ Common Gaussian Smoothing and Projected Euler Error Bounds
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 
+[Project overview](../README.md) · [Code and evidence](../EVIDENCE.md)
+
 **Keywords:** Arithmetic Asian options; Heston model; projected Euler; conditional Gaussian smoothing; computable error bounds; weak error expansions; posterior quantiles.
 
 ## Abstract
@@ -1955,7 +1957,7 @@ The exact result is `code/revision/round2/results/coupling-v004-result.json`. Th
 
 ## Appendix H. Research timeline
 
-The research and initial writing took place in 2023–2024. The manuscript was prepared and checked for submission in 2026.
+Research began in the second half of 2023. The initial manuscript was written in the first half of 2024. The project was published on GitHub in 2026. Additional proof work and numerical verification were completed in 2026.
 
 ## Appendix I. A direct coupled-remainder inequality
 
