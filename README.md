@@ -1,14 +1,14 @@
 # Certified Valuation of Arithmetic Asian Options
 
-Mathematical finance research by **Theodore Ouyang**.
+Deterministic error bounds in price units for a specified Heston arithmetic Asian call spread and its projected Euler implementation.
 
-**[English PDF](paper/paper.pdf) · [Read online](manuscript/report.md)**
+[Read the paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Code and evidence](EVIDENCE.md)
 
-I derive a weighted payoff remainder through common Gaussian smoothing, then turn it into a computable bound on the pricing error of the original projected Euler scheme. The certificate accounts for variance projection, transform inversion, infinite tails, complex-logarithm branches and outward rounding in one price-unit error budget.
+Research by **Theodore Ouyang**.
 
-The work combines stochastic analysis with validated computation. Full price-bias certificates are completed at two stochastic Heston parameter points, including three step sizes at the original point. Every reported numerical endpoint is tied to frozen inputs, an exact error ledger and executable checks.
+Numerical valuation needs both a price and an account of its implementation error. This project derives a weighted payoff remainder from a Gaussian factor shared by the observation dates, then combines it with validated transforms for the original positive-part variance Euler scheme. The resulting certificate encloses the difference between the discrete and continuous model prices.
 
-## Main result
+## A complete price certificate
 
 For a one-year arithmetic Asian call spread with twelve monthly fixings, strikes 95 and 110, and $`h=1/768`$:
 
@@ -17,38 +17,49 @@ p_h-p_c\in[-0.011024692273,\;0.010642371599],
 \qquad |p_h-p_c|\lt0.011025.
 ```
 
-The parameter order is $`(\kappa,\bar v,\xi,\rho,v_0)`$; the original point is $`(3,.045,.23,-.55,.045)`$, with $`S_0=100`$ and $`r=.01`$. The article gives the continuous-price enclosure and all error contributions.
+Here $`p_h`$ is the projected-Euler price and $`p_c`$ the continuous Heston price. The parameter order is $`(\kappa,\bar v,\xi,\rho,v_0)`$, with $`(3,.045,.23,-.55,.045)`$, $`S_0=100`$ and $`r=.01`$. The continuous price is enclosed by $`[6.508371733,6.518868974]`$.
 
-| Completed result | Mathematical scope |
-| --- | --- |
-| Signed Heston pricing-error certificates | Original point at $`h=1/384,1/768,1/1536`$; second point $`v_0=.04`$ at $`h=1/768`$ |
-| Direct coupled payoff remainder | In a deterministic-variance example, the nonlinear width is about **0.573%** of the separate-law width |
-| Joint first-order expansion with explicit remainder bounds | Nine puts and the Asian spread on the deterministic-variance family $`\xi=0`$ |
-| Posterior quantile transfer | Restricted continuous prior with $`\xi\in[10^{-7},10^{-6}]`$ and synthetic quotes |
+These are outward-rounded deterministic enclosures under the paper's analytical bounds and interval-arithmetic assumptions. They concern the stated payoff, parameters and numerical scheme.
 
-The coupling improvement concerns the nonlinear component of the deterministic example. Each auxiliary result retains the parameter domain stated in the article.
+## The mathematical contribution
 
-## Verification
+The payoff argument controls the kink remainder through
 
-[Code and evidence](EVIDENCE.md) · [Current release](https://github.com/130U/certified-valuation-arithmetic-asian-options/releases/tag/paper)
-
-The numerical package preserves the original kernel, exact rational endpoints, execution records and alternative-construction checks. Both constructions use Arb interval arithmetic; their agreement checks implementation consistency within the stated analytical bounds.
-
-<details>
-<summary>Run the original Asian certificate</summary>
-
-On Windows x86-64 with CPython 3.12:
-
-```powershell
-py -3.12 -m venv .venv
-./.venv/Scripts/python.exe -m pip install -r code/requirements.txt
-./.venv/Scripts/python.exe code/run.py verify
-./.venv/Scripts/python.exe code/run.py run --module asian --independent
+```math
+E\!\left[(A-cG)^2I_1^{-1/2}\right],
 ```
 
-[Second parameter point and coupling](code/revision/round2/README.md) · [Step and posterior-grid experiments](code/revision/README.md)
+where $`A`$ and $`G`$ are arithmetic and geometric averages, and $`I_1`$ is first-period integrated variance. The full price budget also includes variance projection, transform inversion, infinite tails, complex-logarithm branches and outward rounding.
 
-</details>
+The paper builds on established Asian conditioning and Heston transform methods. [Section 1.1](manuscript/report.md#11-comparison-with-conditional-asian-bounds) identifies the comparison with Fusai–Kyriakou; [Sections 3–5](manuscript/report.md#3-the-core-argument-from-a-common-gaussian-factor-to-a-weighted-remainder) give the payoff argument and its application to the original discrete kernel.
+
+| Completed result | Domain and reading path |
+| --- | --- |
+| Full signed Heston price-error certificates | Original point at $`h=1/384,1/768,1/1536`$; second point $`v_0=.04`$ at $`h=1/768`$. [Step and parameter results](manuscript/report.md#82-step-grid-certificates-and-the-width-plateau). |
+| Direct coupled payoff remainder | A deterministic-variance example, $`\xi=0`$, reduces the nonlinear width to about **0.573%** of the separate-law width. [Proof and evidence](docs/revision-round2/README.md). |
+| Common first-order expansion with explicit remainders | Nine puts and the Asian spread on the deterministic-variance family. [Section 6](manuscript/report.md#6-a-common-density-perturbation-and-weak-expansions-for-ten-payoffs). |
+| Posterior quantile transfer | Restricted continuous prior with $`\xi\in[10^{-7},10^{-6}]`$ and synthetic quotes. [Section 7](manuscript/report.md#7-from-a-reference-family-to-stochastic-volatility-posterior-quantiles). |
+
+Refining the Euler grid alone does not ensure a narrower certificate: payoff conversion dominates the reported widths, and the fixed discrete-tail bound can grow. The coupled improvement applies to the deterministic example's nonlinear component; the required coupled moments for stochastic-variance Heston remain uncomputed. [Mathematical scope](code/SCOPE.md) gives the exact domains.
+
+## Reproduce the original Asian certificate
+
+Use **Windows x86-64, unoptimized CPython 3.12** and the pinned dependency. These commands select the certified [paper release](https://github.com/130U/certified-valuation-arithmetic-asian-options/releases/tag/paper):
+
+```powershell
+git clone --branch paper --depth 1 https://github.com/130U/certified-valuation-arithmetic-asian-options.git
+cd certified-valuation-arithmetic-asian-options
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r code/requirements.txt
+.\.venv\Scripts\python.exe code/run.py verify
+.\.venv\Scripts\python.exe code/run.py run --module asian --independent
+```
+
+The runner creates a fresh output directory and retains source identities, exact endpoints and execution records. The two numerical constructions share Arb arithmetic and the analytical bounds. Their agreement checks implementation consistency.
+
+[Environment and resource limits](code/ENVIRONMENT.md) · [Other calculations](code/README.md) · [Second point and coupling](code/revision/round2/README.md)
+
+Saved-result checks verify recorded identities and exact ledgers. Fresh execution recomputes finite interval calculations. The mathematical proofs require their own reading.
 
 ## Research timeline
 
@@ -57,3 +68,4 @@ Research began in the second half of 2023. The initial manuscript was written in
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 
 © Theodore Ouyang. All rights reserved.
+
