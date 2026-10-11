@@ -1,59 +1,37 @@
 # Certified Valuation of Arithmetic Asian Options
 
-**A mathematical framework that turns Heston discretization error into a complete, auditable price certificate.**
+**Theodore Ouyang**
 
-Research by **Theodore Ouyang** · [Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Code and evidence](EVIDENCE.md)
+An arithmetic Asian option depends on the average asset price along a path. Under Heston stochastic volatility, computing that average brings together a nonsmooth payoff, a random variance process and a time-discretized simulation law. The difficult question is how to connect the price produced by a particular implementation to the price defined by the continuous model, with an explicit error in monetary units.
 
-This project derives a weighted payoff remainder, certifies the original positive-part variance Euler implementation, and combines the analytical and numerical contributions into one signed error enclosure. Its central result bounds the discrete-versus-continuous price error by **less than 0.011025 price units** for the specified one-year Heston Asian call spread. A separate deterministic-variance experiment reduces the nonlinear remainder width by **99.4%** through a direct coupling construction.
-
-## Results
-
-| Result | Quantified outcome | Evidence |
-| --- | --- | --- |
-| Complete Heston price-error certificate | $`p_h-p_c\in[-0.011024692273,\;0.010642371599]`$ at $`h=1/768`$ | [Theorem and numerical certificate](manuscript/report.md#4-the-main-theorem-and-the-complete-price-certificate) |
-| Continuous-model price enclosure | $`p_c\in[6.508371733,\;6.518868974]`$ | [Paper](manuscript/report.md), [exact result ledger](code/revision/results/revision-summary.json) |
-| Direct coupled remainder | Nonlinear width **0.01538363715 → 0.00008815020**, a **99.4% reduction** in the $`\xi=0`$ example | [Proof](docs/revision-round2/coupling-v004-proof.md), [exact intervals](code/revision/round2/results/coupling-v004-result.json) |
-| Step and parameter study | Complete certificates at **three step sizes**; a second stochastic-Heston point at $`v_0=.04`$ | [Step study](manuscript/report.md#82-step-grid-certificates-and-the-width-plateau), [second-point result](code/revision/round2/results/point-v004-result.json) |
-| Common weak expansion | First-order formula with explicit remainders for **nine puts and one Asian spread** on the deterministic-variance family | [Theorem and derivation](manuscript/report.md#6-a-common-density-perturbation-and-weak-expansions-for-ten-payoffs) |
-
-The main certificate uses twelve monthly fixings, strikes 95 and 110, $`S_0=100`$, $`r=.01`$, and Heston parameters $`(\kappa,\bar v,\xi,\rho,v_0)=(3,.045,.23,-.55,.045)`$. The step study covers $`h=1/384,1/768,1/1536`$; the second point uses $`h=1/768`$. All reported price enclosures are deterministic and outward rounded.
-
-## Mathematical contributions
-
-**Weighted control of the payoff kink.** A Gaussian factor shared by all observation dates converts the arithmetic payoff into an exact linear-reference decomposition plus a nonnegative remainder. The key quantity is
+My main contribution is a weighted payoff decomposition that makes this connection possible for the original positive-part variance Euler scheme. I condition on a Gaussian factor shared by every observation date, smooth the payoff kink, and separate a linear reference from a nonnegative remainder. The remainder is controlled by
 
 ```math
 E\!\left[(A-cG)^2I_1^{-1/2}\right],
 ```
 
-where $`A`$ and $`G`$ are the arithmetic and geometric averages, and $`I_1`$ is first-period integrated variance. This structure connects the nonsmooth payoff directly to quantities that can be enclosed by validated transforms. [Sections 3–4](manuscript/report.md#3-the-core-argument-from-a-common-gaussian-factor-to-a-weighted-remainder) develop the argument and the price theorem.
+where $`A`$ and $`G`$ are the arithmetic and geometric averages, and $`I_1`$ is the first observation period's integrated variance. The weight captures how strongly that common Gaussian factor smooths the payoff. It turns the kink into a moment problem that can be handled analytically and enclosed numerically.
 
-**Certification of the actual discrete law.** The proof accounts for the original projected variance update, including the correction between the algebraic transform recursion and the positive-part Euler law. The full budget includes payoff conversion, projection, transform inversion, infinite tails, complex-logarithm branches and arithmetic rounding. Exact rational endpoints connect each contribution to the final signed price interval.
+I then combine this structure with validated characteristic transforms and a correction for the variance projection used by the actual Euler implementation. Projection, transform inversion, infinite tails, complex-logarithm branches and rounding enter the same price bound. This produces a signed enclosure of the implementation error, with every analytical contribution carried through to the final monetary result.
 
-**A sharper coupled construction.** The deterministic example couples both models through the same twelve Gaussian increments and evaluates the mixed moments in closed form. Executions at **384-bit and 512-bit precision**, each with **459 Gaussian-moment identity checks**, establish strict narrowing of the nonlinear remainder. [The execution record](code/revision/round2/results/coupling-v004-result.json) retains the exact width ratio and both precision runs.
+For a one-year arithmetic Asian call spread with twelve monthly fixings and strikes 95 and 110, the result is
 
-The framework builds on established Asian conditioning and Heston transform methods. Its specific research contribution is the weighted remainder and complete error accounting for the stated original discrete kernel. [The literature comparison](manuscript/report.md#11-comparison-with-conditional-asian-bounds) identifies the relationship to Fusai–Kyriakou.
-
-## Inspect and reproduce
-
-Start with the [paper](manuscript/report.md) for the theory and the [evidence index](EVIDENCE.md) for exact ledgers, source identities and execution archives. The [calculation guide](code/README.md) maps the original certificates, weak expansions and posterior-quantile transfer experiment to their commands.
-
-For the original Asian calculation, use **Windows x86-64 and unoptimized CPython 3.12** with the pinned dependency:
-
-```powershell
-git clone --branch paper --depth 1 https://github.com/130U/certified-valuation-arithmetic-asian-options.git
-cd certified-valuation-arithmetic-asian-options
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r code/requirements.txt
-.\.venv\Scripts\python.exe code/run.py verify
-.\.venv\Scripts\python.exe code/run.py run --module asian --independent
+```math
+p_h-p_c\in[-0.011024692273,\;0.010642371599],
+\qquad |p_h-p_c|\lt0.011025.
 ```
 
-The runner verifies the calculation package and writes fresh interval results with source identities, exact endpoints and execution records. [Environment](code/ENVIRONMENT.md) · [Step-grid calculations](code/revision/README.md) · [Second-point execution](code/revision/round2/README.md)
+Here $`p_h`$ is the projected-Euler price and $`p_c`$ the continuous Heston price. The calculation uses $`h=1/768`$, $`S_0=100`$, $`r=.01`$, and $`(\kappa,\bar v,\xi,\rho,v_0)=(3,.045,.23,-.55,.045)`$. The continuous price is enclosed by $`[6.508371733,6.518868974]`$.
 
-## Research timeline
+A second contribution exploits the relationship between the two model paths directly. In the deterministic-variance example, $`\xi=0`$, I couple their Gaussian increments and derive closed mixed-moment bounds for the difference of the payoff remainders. At $`v_0=.04`$ and the same fixing schedule and step size, the nonlinear remainder width falls from approximately **0.01538363715 to 0.00008815020**, a **99.4% reduction**. The improvement comes from controlling the difference between the models before bounding it, preserving information that separate remainder bounds discard.
+
+The practical consequence is a mathematically justified bridge from a discrete valuation to a continuous-model price interval. A valuation system can combine its discrete-price enclosure with the signed error certificate to assess a monetary accuracy budget. The decomposition also reveals which part of the mathematics determines that budget and where a sharper argument can have the greatest effect.
+
+The research builds on established Asian conditioning and Heston transform methods, including Fusai–Kyriakou. Its specific advance is the weighted kink control and complete price-error construction for the stated projected kernel. The paper also develops common weak expansions and posterior-quantile transfer on their specified model families.
 
 Research began in the second half of 2023. The initial manuscript was written in the first half of 2024. The project was published on GitHub in 2026.
+
+[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Price results](code/revision/results/revision-summary.json) · [Coupling proof](docs/revision-round2/coupling-v004-proof.md) · [Coupling result](code/revision/round2/results/coupling-v004-result.json) · [Code and evidence](EVIDENCE.md)
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 
