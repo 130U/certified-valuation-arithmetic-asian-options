@@ -2,6 +2,8 @@
 
 **Theodore Ouyang**
 
+[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Results](code/revision/results/revision-summary.json) · [Code and evidence](EVIDENCE.md)
+
 An arithmetic Asian option depends on the average asset price along a path. Under Heston stochastic volatility, computing that average brings together a nonsmooth payoff, a random variance process and a time-discretized simulation law. The difficult question is how to connect the price produced by a particular implementation to the price defined by the continuous model, with an explicit error in monetary units.
 
 My main contribution is a weighted payoff decomposition that makes this connection possible for the original positive-part variance Euler scheme. I condition on a Gaussian factor shared by every observation date, smooth the payoff kink, and separate a linear reference from a nonnegative remainder. The remainder is controlled by
@@ -31,7 +33,7 @@ The research builds on established Asian conditioning and Heston transform metho
 
 Research began in the second half of 2023. The initial manuscript was written in the first half of 2024. The project was published on GitHub in 2026.
 
-[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Price results](code/revision/results/revision-summary.json) · [Coupling proof](docs/revision-round2/coupling-v004-proof.md) · [Coupling result](code/revision/round2/results/coupling-v004-result.json) · [Code and evidence](EVIDENCE.md)
+[Coupling proof](docs/revision-round2/coupling-v004-proof.md) · [Coupling result](code/revision/round2/results/coupling-v004-result.json)
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 
