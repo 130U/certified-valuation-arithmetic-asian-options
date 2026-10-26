@@ -2,30 +2,30 @@
 
 **Theodore Ouyang**
 
-[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Results](code/revision/results/revision-summary.json) · [Code and evidence](EVIDENCE.md)
+[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Mathematical structure](docs/MATHEMATICAL-STRUCTURE.md) · [Code and evidence](EVIDENCE.md)
 
-I develop a mathematical method for certifying arithmetic Asian valuations through the structure of the payoff. For pricing laws satisfying a common conditional Gaussian structure and explicit moment conditions, I prove a weighted bound on the nonlinear payoff remainder. Combined with validated transform enclosures, this yields a signed bound on the price difference between two models.
+How much pricing error does a particular time discretization introduce into a Heston arithmetic Asian valuation? This paper derives a finite, signed bound for the difference between the continuous-model price and the price under positive-part variance Euler with a current-variance log-price update.
 
-I apply the method to the continuous Heston model and its original positive-part variance Euler discretization. The construction accounts for payoff conversion, variance projection, transform inversion, integration tails, complex-logarithm branches and rounding within one monetary error budget. For the paper’s one-year, twelve-fixing **95–110 Asian call spread**, the complete discretization-error bound is below **0.011025 price units**.
+The method starts from an **exact conditional price**. Every fixing shares the stock noise accumulated before the first observation, so one Gaussian integral can be evaluated explicitly. The geometric average preserves that common factor and has a logarithm that is linear in the observed log prices. It therefore provides a reference compatible with Heston transforms. Convexity and conditional curvature bound the remaining arithmetic-payoff contribution by a weighted second moment.
 
-A further coupling argument bounds the difference of the two models’ nonlinear remainders directly. In a separate deterministic-variance example, it reduces the remainder width by **99.4%**, demonstrating the value of preserving the relationship between the model laws throughout the error analysis.
+The resulting transform catalog follows from the payoff decomposition: 13 complex loadings for the linear term and 91 real loadings for the squared remainder in the twelve-fixing contract. Validated evaluation includes variance projection, inversion, integration tails, complex-logarithm branches and rounding in one price-unit error budget.
 
-The signed certificate for the Heston example is
+For the paper's one-year, twelve-fixing **95–110 Asian call spread**, the complete certificate is
 
 ```math
 p_h-p_c\in[-0.011024692273,\;0.010642371599],
 \qquad |p_h-p_c|\lt0.011025.
 ```
 
-Here $`p_h`$ is the projected-Euler price and $`p_c`$ the continuous Heston price. The calculation uses $`h=1/768`$, $`S_0=100`$, $`r=.01`$, and $`(\kappa,\bar v,\xi,\rho,v_0)=(3,.045,.23,-.55,.045)`$. The continuous price is enclosed by $`[6.508371733,6.518868974]`$.
+Here $`p_h`$ is the projected-Euler price and $`p_c`$ the continuous Heston price. The calculation uses $`h=1/768`$, $`S_0=100`$, $`r=.01`$, and $`(\kappa,\bar v,\xi,\rho,v_0)=(3,.045,.23,-.55,.045)`$. The continuous price is enclosed by $`[6.508371733,6.518868974]`$. These are certified bounds for this configuration, not measurements of the actual pricing error.
 
-In that separate coupling example, $`\xi=0`$ and $`v_0=.04`$, with the same fixing schedule and step size. The nonlinear remainder width falls from approximately **0.01538363715 to 0.00008815020**.
+The analysis also explains a limitation: separate bounds on the two payoff remainders can lose their cancellation, leaving a positive interval width even when the laws coincide. A direct coupling inequality addresses that loss. In a separate **deterministic-variance** example with $`\xi=0`$ and $`v_0=.04`$, it reduces the nonlinear remainder width from approximately **0.01538363715 to 0.00008815020**, a **99.4%** reduction. Those coupled moments have not been certified at the stochastic-variance Heston points. The main fixed-step certificate does not establish a vanishing-width rate.
 
-The research builds on established Asian conditioning and Heston transform methods, including Fusai–Kyriakou. Its specific advance is the weighted kink control and complete price-error construction for the stated projected kernel. The paper also develops common weak expansions and posterior-quantile transfer on their specified model families.
+The work builds on established Asian conditioning and geometric-reference methods, including Fusai–Kyriakou. Its contribution is the weighted kink control and complete error construction for the specified projected kernel. Weak expansions and posterior-quantile transfer are separate applications on explicitly restricted model families.
+
+The [26 October 2026 revision](docs/REVISION-2026-10-26.md) makes the conditional representation, choice of reference and limits of the certificate explicit. The numerical code, results and execution archives retain their original identities.
 
 Research began in the second half of 2023. The initial manuscript was written in the first half of 2024. The project was published on GitHub in 2026.
-
-[Coupling proof](docs/revision-round2/coupling-v004-proof.md) · [Coupling result](code/revision/round2/results/coupling-v004-result.json)
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 

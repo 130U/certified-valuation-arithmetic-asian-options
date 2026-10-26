@@ -1,12 +1,16 @@
 # Article
 
-[English PDF](../paper/paper.pdf) · [Read online](report.md). Both contain ten main sections, nine appendices, fourteen tables, thirteen references and 95 numbered equations.
+[English PDF](../paper/paper.pdf) · [Read online](report.md) · [Revision](../docs/REVISION-2026-10-26.md).
 
-`content-verification.json` records the ordered mathematical-content checksum and the article checksum. Run the reading and evidence checks from the repository root:
+The current article contains ten main sections, nine appendices, fourteen tables, thirteen references and 97 numbered equations. Its 179 display and 521 inline formulas are generated from the same author-side source as the PDF.
+
+`content-verification.json` records the revised formula sequence and article hash. `numbered-equation-baseline.json` preserves the preceding numbered formulas: 94 remain identical, the introductory equation (1.1) is replaced, and (2.9)–(2.10) are added. The original numerical code and evidence identities remain unchanged.
+
+Run from the repository root:
 
 ```sh
 python scripts/check_report.py
 python scripts/verify_revision.py
 ```
 
-The public repository contains the English PDF, online article, numerical code and supporting evidence. The author's typesetting files are retained locally; the [PDF build record](../paper/build-record-en.json) binds the published PDF to its source and mathematical content.
+The [PDF build record](../paper/build-record-en.json) binds the PDF, article and locally retained typesetting source. These checks verify document identity, preserved formulas and recorded numerical evidence; they do not independently certify the proofs.

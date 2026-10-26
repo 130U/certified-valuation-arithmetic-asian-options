@@ -1,4 +1,4 @@
-"""Verify the online Markdown paper against its preserved formula sequence."""
+"""Verify the reviewed article and preserve its preceding numbered results."""
 from pathlib import Path
 from collections import Counter
 import hashlib
@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / 'manuscript'
-SOURCE_COMMIT = 'f431e2789dd6a725211c7ba48e6b77d02a9db334'
+SOURCE_COMMIT = '7f5699def9ff1e899388574a7a8c60e749e9cdc9'
 MATH_PATTERN = re.compile(r'^```math\n(.*?)\n```$|\$`(.*?)`\$', re.M | re.S)
 TIMELINE = (
     'Research began in the second half of 2023.',
@@ -50,10 +50,10 @@ def main():
     assert receipt['source_commit'] == SOURCE_COMMIT
     counts = receipt['counts']
     assert {key: counts[key] for key in ('display_math', 'inline_math', 'equation_tags', 'tables', 'references')} == {
-        'display_math': 176, 'inline_math': 518, 'equation_tags': 95, 'tables': 14, 'references': 13}
+        'display_math': 179, 'inline_math': 521, 'equation_tags': 97, 'tables': 14, 'references': 13}
     actual = extract_formula_sequence(md)
     digest = formula_sequence_sha256(actual)
-    assert digest == receipt['formula_sequence_sha256'], 'The preserved mathematical sequence changed'
+    assert digest == receipt['formula_sequence_sha256'], 'The reviewed mathematical sequence changed'
     assert Counter(kind for kind, _ in actual) == {'display': counts['display_math'], 'inline': counts['inline_math']}
     for _, tex in actual:
         assert not re.search(r'(?<!\\)[<>]', tex), 'Use TeX comparison macros in rendered formulas'
@@ -63,6 +63,17 @@ def main():
     assert len(tags)==len(set(tags))==counts['equation_tags']
     baseline=json.loads((ROOT/'scripts/baseline-equation-tags.json').read_text(encoding='utf8'))
     assert set(baseline).issubset(set(tags)), 'An original numbered equation was removed'
+    preceding = json.loads((PAPER / 'numbered-equation-baseline.json').read_text(encoding='utf8'))
+    assert preceding['source_commit'] == SOURCE_COMMIT
+    numbered = {}
+    for kind, tex in actual:
+        if kind == 'display':
+            for tag in re.findall(r'\\tag\*?\{([^}]+)\}', tex):
+                numbered[tag] = tex
+    assert set(numbered) - set(preceding['equations']) == {'2.9', '2.10'}
+    changed = {tag for tag, tex in preceding['equations'].items() if numbered.get(tag) != tex}
+    assert changed == {'1.1'}, 'A preceding numbered result changed: ' + str(changed)
+    assert receipt['numbered_revision'] == {'preserved': 94, 'replaced': ['1.1'], 'added': ['2.9', '2.10']}
     assert '$$' not in md and MATH_PATTERN.sub('', md).count('$') == 0
     assert md.count('\n| ---') == counts['tables']
     references = re.findall(r'^<a id="ref-(\d+)"></a>$', md, re.M)
@@ -70,7 +81,7 @@ def main():
     assert set(receipt['artifacts']) == {'report.md'}
     for filename, artifact_digest in receipt['artifacts'].items():
         assert hashlib.sha256((PAPER / filename).read_bytes()).hexdigest() == artifact_digest
-    assert receipt['formula_sequence_exactly_preserved']
+    assert receipt['source_to_output_formula_sequence_preserved']
 
     readme = (ROOT / 'README.md').read_text(encoding='utf8')
     for sentence in TIMELINE:
@@ -91,7 +102,8 @@ def main():
                 continue
             assert (base / path).exists(), 'Missing repository link: ' + href
     print(json.dumps({'status': 'PASS', 'display_math': counts['display_math'], 'inline_math': counts['inline_math'],
-                      'equation_tags': len(tags), 'mathematical_sequence_preserved': True,
+                      'equation_tags': len(tags), 'reviewed_formula_sequence_verified': True,
+                      'preceding_numbered_results_preserved': 94,
                       'formula_sequence_sha256': digest, 'source_commit': SOURCE_COMMIT,
                       'research_timeline': list(TIMELINE), 'repository_links': 'PASS',
                       'author_pdf_entry': 'paper/paper.pdf', 'author_tex_download_links': 'ABSENT'}))

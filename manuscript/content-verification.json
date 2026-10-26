@@ -1,19 +1,31 @@
 {
   "status": "PASS",
-  "source_commit": "f431e2789dd6a725211c7ba48e6b77d02a9db334",
+  "revision_date": "2026-10-26",
+  "source_commit": "7f5699def9ff1e899388574a7a8c60e749e9cdc9",
   "counts": {
     "main_sections": 10,
     "appendices": 9,
-    "display_math": 176,
-    "inline_math": 518,
-    "equation_tags": 95,
-    "unique_tags": 95,
+    "display_math": 179,
+    "inline_math": 521,
+    "equation_tags": 97,
+    "unique_tags": 97,
     "tables": 14,
     "references": 13
   },
-  "formula_sequence_sha256": "92929a5062d721356ea72399a08f48b33c3b888b9b9f4803cd872d856c8dedc7",
-  "formula_sequence_exactly_preserved": true,
+  "formula_sequence_sha256": "88821b14c378509ebea31d8b5f3ca44db24497d4cf49a61353b524edbd69b687",
+  "source_to_output_formula_sequence_preserved": true,
+  "numbered_revision": {
+    "preserved": 94,
+    "replaced": [
+      "1.1"
+    ],
+    "added": [
+      "2.9",
+      "2.10"
+    ]
+  },
+  "scope": "Reviewed revision identity and exact preservation of preceding numbered results except the replaced introductory diagram. This is not a new proof certification.",
   "artifacts": {
-    "report.md": "da5bf4c9d003067ac1dccf80e5e71eb8f7d42220bb1b2f737fe2453bbce542b4"
+    "report.md": "ef3582528192d020ffb086c81ff22dd9c3c342c1c7db27a8132743091cf6e9de"
   }
 }

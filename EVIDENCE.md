@@ -1,5 +1,7 @@
 # Evidence and reproduction
 
+The current exposition is the [26 October 2026 revision](docs/REVISION-2026-10-26.md). Its [mathematical structure](docs/MATHEMATICAL-STRUCTURE.md) explains how each computational quantity arises from the valuation problem. The numerical sources and historical results below are unchanged.
+
 The [`paper` release](https://github.com/130U/certified-valuation-arithmetic-asian-options/releases/tag/paper) identifies the online article and all calculations listed below. `REVISION-MANIFEST.json` inventories the public reading and verification files; `code/MANIFEST.json` verifies the current calculation package. The [numerical baseline](code/verification/numerical-baseline.json) binds the original numerical sources and reference outputs.
 
 | Calculation | Inputs, results and execution records |
