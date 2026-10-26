@@ -1,6 +1,6 @@
 # Reproducible numerical certificates
 
-This directory contains deterministic, outward-rounded calculations for the accompanying paper. It includes six principal implementations, six independent implementations, and a compatibility implementation used to cross-check the posterior calculation. No simulated paths or downloaded market data are needed.
+This directory contains deterministic, outward-rounded calculations for the accompanying paper. It includes six principal implementations, six independent implementations, and a compatibility implementation used to cross-check the posterior calculation. The certificate calculations use no simulated paths or downloaded market data. Optional Monte Carlo diagnostics are labelled separately.
 
 ## Install and run
 
@@ -37,12 +37,26 @@ Replace the final placeholder with the actual run directory. `posterior-zero` is
 | --- | --- |
 | `core/` | Numerical implementations and resource helper |
 | `configuration.json` | Module selection, fixed parameter domains, resource contracts |
-| `reference/` | Numerical payloads established before the public-package rerun |
+| `reference/` | Exact numerical payloads for completed-run comparisons |
 | `data/synthetic_quotes.json` | Exact binary64 synthetic observations |
 | `SCOPE.md` | Mathematical scope and interpretation |
 | `ENVIRONMENT.md` | Dependency and execution requirements |
 | `DATA.md` | Observation values and provenance |
-| `verification/` | Portability identities and executed validation receipt |
+| `experiments/` | Step grids, parameter point, coupling bound, and optional diagnostics |
+| `results/` | Current mathematical ledgers and diagnostic summaries |
+| `evidence/executions.zip` | Saved executed sources, full result arrays, receipts, and logs |
+| `verification/` | Exact archive readers, source identities, and runner tests |
 | `MANIFEST.json` | SHA-256 integrity manifest for packaged files |
 
 All mathematical JSON fields, including rational endpoints, arrays, booleans and fee components, must match the reference exactly. Only hash identities and six explicitly listed timing fields are excluded. A match is a reproducibility check, not a substitute for the mathematical proof or the interval-arithmetic assumptions; see the paper and `SCOPE.md`.
+
+## Read the saved evidence
+
+This standard-library command checks archive identities, every retained source/result binding, all stored moment/frequency comparisons, and exact rational width ledgers. It does not execute the pricing kernels. Use a fresh directory for each readback.
+
+```powershell
+python code/verification/read_evidence.py --directory code/runs/evidence-readback --output code/runs/evidence-check.json
+python code/verification/test_run_integrity.py
+```
+
+See [the computation guide](../docs/COMPUTATION.md) for the step-grid, parameter-point, coupling, and posterior commands. The [scope statement](SCOPE.md) distinguishes complete certificates from statistical diagnostics and partial bounds.

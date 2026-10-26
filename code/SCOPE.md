@@ -4,7 +4,7 @@ Let P denote continuous-time Heston expectation and Q the positive-part Euler ex
 
 The numerical values below are outward enclosures under the standard inclusion semantics of Arb arithmetic and the analytical bounds proved in the accompanying paper. They are not statistical confidence intervals. Each module has a distinct parameter domain.
 
-## Arithmetic Asian at the original parameter point
+## Arithmetic Asian at the principal parameter point
 
 The parameter order is (kappa, vbar, xi, rho, v0), and the point is (3, 9/200, 23/100, -11/20, 9/200). The complete signed bias is enclosed by
 
@@ -46,3 +46,11 @@ The result controls the displacement between corresponding continuous and Euler 
 ## Program identities
 
 Source and helper hashes bind each result to the executed implementation. `scope_sha256` and related keys bind this scope statement, not a machine-checked proof. The proof is in the accompanying paper. The principal and independent implementations use different numerical constructions where indicated in their source. Agreement verifies the stated finite calculations; it does not enlarge their domains.
+
+## Further finite calculations
+
+`results/step-grid.json` records h = 1/192, 1/384, 1/768, and 1/1536. The h = 1/192 analytical projection guard fails and supplies no certificate. The other rows reconcile all six width components exactly; their widths do not establish a shrinking-width convergence rate.
+
+`results/point-v004-result.json` is a complete, independently checked stochastic-Heston certificate at v0 = 1/25, with the other principal parameters fixed. It is a second point, not a parameter-box certificate.
+
+`results/coupling-v004-result.json` encloses a nonlinear payoff-remainder coupling bound at xi = 0 and v0 = 1/25. Its closed Gaussian moments do not constitute a stochastic-Heston coupled-price certificate. `results/asian-beta-score-bounds.json` contains signed leading-coefficient enclosures that contain zero. The beta and path Monte Carlo files are statistical diagnostics only.

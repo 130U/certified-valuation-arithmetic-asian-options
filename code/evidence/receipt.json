@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE_EXECUTION_EVIDENCE_ARCHIVE",
+  "archive": "executions.zip",
+  "archive_sha256": "44c36e0fc6ffb16f6e76e7c74b984239ad2c60093ae21d498946028fabe85311",
+  "inventory_sha256": "fd2017473d8b827620c20f5221a50e8b83d9d34dd43ac3515eb0f7b251ecb876",
+  "file_count": 216,
+  "scope": "Saved numerical evidence and exact source/result identities. Packaging and readback are distinct from numerical recomputation.",
+  "baseline_run": "execution/base-run",
+  "parameter_point_run": "execution/asian-v004",
+  "parameter_point_check": "checks/parameter-point.json"
+}

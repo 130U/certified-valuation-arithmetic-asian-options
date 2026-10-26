@@ -1,0 +1,62 @@
+{
+  "status": "PASS_EXECUTION_EVIDENCE_AND_EXACT_ARITHMETIC",
+  "scope": "Saved-source/result consistency, exact interval comparisons, and ledger reconciliation. Pricing kernels are not rerun.",
+  "archive_sha256": "44c36e0fc6ffb16f6e76e7c74b984239ad2c60093ae21d498946028fabe85311",
+  "inventory_sha256": "fd2017473d8b827620c20f5221a50e8b83d9d34dd43ac3515eb0f7b251ecb876",
+  "inventory_file_count": 216,
+  "baseline_jobs_exactly_checked": 10,
+  "step_grid": [
+    {
+      "steps": 384,
+      "weighted_node_exact_checks": 386,
+      "frequency_exact_interval_overlap_checks": 1923,
+      "linear_fee_exact_interval_overlap_checks": 7,
+      "completed_jobs": 5
+    },
+    {
+      "steps": 1536,
+      "weighted_node_exact_checks": 386,
+      "frequency_exact_interval_overlap_checks": 1923,
+      "linear_fee_exact_interval_overlap_checks": 7,
+      "completed_jobs": 5
+    }
+  ],
+  "analytical_h192_guard_retained": true,
+  "saved_grid_driver_source_identities_checked": 5,
+  "diagnostic_source_identities_checked": 3,
+  "posterior_exact_transport_ledger_rows_checked": 6,
+  "posterior_grids": [
+    {
+      "cells": 8192,
+      "completed_jobs": 3,
+      "all_principal_compatibility_mathematical_fields_equal": true
+    },
+    {
+      "cells": 16384,
+      "completed_jobs": 3,
+      "all_principal_compatibility_mathematical_fields_equal": true
+    }
+  ],
+  "weighted_moment_node_checks": 2316,
+  "step_ledger_all_nonlocation_fields_equal": true,
+  "parameter_point": {
+    "status": "PASS_PARAMETER_POINT_EXACT_READBACK",
+    "scope": "Saved execution identities and exact arithmetic, without pricing-kernel reruns.",
+    "weighted_node_exact_checks": 386,
+    "frequency_exact_interval_overlap_checks": 1923,
+    "linear_fee_exact_interval_overlap_checks": 7,
+    "completed_jobs": 5,
+    "independent_math_and_literal_source_replay": "PASS",
+    "capsule_all_numerical_and_scope_fields_equal": true,
+    "exact_six_component_width_reconciliation": "PASS",
+    "executed_generator_sha256": "118278239eaa2ba9221e3d30cb4ef4503d425422660fc120961b14ef5055ddd5",
+    "current_capsule_reader_sha256": "cab72ffb51cdca61bdcef14167e5cdd37dc300c78a779168aed71bb85a28d657",
+    "bias_outward24": [
+      "-0.011798506839755763560265",
+      "0.011383739258625372365583"
+    ],
+    "width_outward24_upper": "0.023182246098381135925847",
+    "replay_script_sha256": "00370a994e9753dfc583f274a99c4e89a1c4da5bb0365a4dbf2139996e231901"
+  },
+  "reader_sha256": "d2a35fc0cf14cf8fbcb8e4d2947394df257a2bca883b58cd60038368b59e5881"
+}

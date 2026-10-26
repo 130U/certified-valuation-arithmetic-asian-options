@@ -7,7 +7,7 @@ HERE = Path(__file__).resolve().parent
 REL = Path('core')
 REFERENCE = HERE/'reference'
 META_KEYS = {'worker_seconds','elapsed_seconds','seconds','outer_seconds','envelope_worker_seconds','full_linear_time_estimate'}
-LEGACY_MANIFEST_SHA256 = '33eaee125bc49f5755ec74ab24fa9bf655afaab5f884decf1576687eacdbf0c2'
+EXECUTION_MANIFEST_SHA256 = '33eaee125bc49f5755ec74ab24fa9bf655afaab5f884decf1576687eacdbf0c2'
 
 def read(path): return json.loads(Path(path).read_text(encoding='utf8'))
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -81,8 +81,8 @@ def check_run(folder, *, allow_running=False):
     allowed_status={'COMPLETE','RUNNING'} if allow_running else {'COMPLETE'}
     need(rec.get('status') in allowed_status, 'Run is not complete')
     manifest=read(HERE/'MANIFEST.json')
-    compatible=manifest.get('compatible_manifest_sha256',[])
-    need(isinstance(compatible,list) and all(value==LEGACY_MANIFEST_SHA256 for value in compatible), 'Unrecognized compatible package manifest')
+    compatible=manifest.get('execution_manifest_identifiers',[])
+    need(isinstance(compatible,list) and all(value==EXECUTION_MANIFEST_SHA256 for value in compatible), 'Unrecognized execution manifest identifier')
     accepted={sha(HERE/'MANIFEST.json')}
     accepted.update(compatible)
     need(rec.get('manifest_sha256') in accepted, 'Run/package manifest mismatch')
@@ -97,6 +97,7 @@ def check_run(folder, *, allow_running=False):
         need(job['status']=='COMPLETE', 'Run contains incomplete job: '+job['id'])
         src,argv,timeout,filename=config['jobs'][job['id']]
         result=folder/'work'/REL/filename;source=folder/'work'/REL/src
+        need(sha(result)==job['result_sha256'], 'Run result identity mismatch: '+filename)
         need(sha(source)==sha(HERE/REL/src)==job['source_sha256'], 'Run source identity mismatch: '+src)
         need(read(result)['source_sha256']==sha(source), 'Result/source identity mismatch: '+filename)
         rows.append({'job':job['id'],**compare_result(result,REFERENCE/filename)})

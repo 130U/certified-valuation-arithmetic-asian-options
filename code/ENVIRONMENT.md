@@ -9,4 +9,6 @@
 
 The first installation may access a package index. For an offline machine, obtain an authentic compatible python-flint wheel separately and install it using pip before running these commands. This repository contains no dependency binary. Numerical runs perform no network calls.
 
-`run.py environment` reports the actual interpreter, python-flint version, platform and available memory. Run receipts record durations and source hashes. The checked-in validation receipt describes a completed run; it is not a promised runtime on other hardware.
+`run.py environment` reports the actual interpreter, python-flint version, platform and available memory. Run receipts record durations and source hashes. Saved execution receipts describe completed runs; their durations are not promised runtimes on other hardware.
+
+The archive reader and integrity tests use only the Python standard library. Optional statistical diagnostics require `experiments/requirements-diagnostic.txt`; they are not numerical certificates.

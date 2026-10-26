@@ -1,10 +1,11 @@
-"""Check completed-run integrity and historical-manifest compatibility offline."""
+"""Check completed-run integrity and execution-manifest identity offline."""
 from __future__ import annotations
 
 import argparse
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -14,8 +15,8 @@ import tempfile
 import zipfile
 
 CODE = Path(__file__).resolve().parents[1]
-LEGACY = '33eaee125bc49f5755ec74ab24fa9bf655afaab5f884decf1576687eacdbf0c2'
-ARCHIVE_SHA256 = 'd6af35332a1d3a91d0d575b815926e92c98bc8e84c740af4b80346dfe02bbb8a'
+EXECUTION_MANIFEST = '33eaee125bc49f5755ec74ab24fa9bf655afaab5f884decf1576687eacdbf0c2'
+ARCHIVE_SHA256 = json.loads((CODE/'evidence/receipt.json').read_text(encoding='utf8'))['archive_sha256']
 
 
 def read(path):
@@ -39,7 +40,7 @@ def load_runner():
 
 
 def extract_fixture(destination):
-    archive = CODE/'revision/results/evidence.zip'
+    archive = CODE/'evidence/executions.zip'
     require(hashlib.sha256(archive.read_bytes()).hexdigest() == ARCHIVE_SHA256,
             'Frozen execution archive identity changed')
     prefix = 'execution/base-run/'
@@ -100,6 +101,8 @@ def parser_check(runner):
 
 
 def main(reference=None):
+    if sys.flags.optimize or os.environ.get('PYTHONOPTIMIZE'):
+        raise RuntimeError('Optimized Python is prohibited; assertions enforce the certificate checks.')
     runner = load_runner()
     package = runner.verify()
     parser_check(runner)
@@ -157,7 +160,7 @@ def main(reference=None):
             return lambda folder, rec: rec.update({key: value})
 
         case('current-manifest', set_value('manifest_sha256', package['manifest_sha256']), success=True)
-        case('historical-manifest', set_value('manifest_sha256', LEGACY), success=True)
+        case('execution-manifest', set_value('manifest_sha256', EXECUTION_MANIFEST), success=True)
         case('internal-running', set_value('status', 'RUNNING'), success=True, allow_running=True)
         case('unknown-manifest', set_value('manifest_sha256', '0'*64))
         case('empty-jobs', set_value('jobs', []))
@@ -187,8 +190,14 @@ def main(reference=None):
             require(change_numeric_leaf(value, runner), 'No numeric field available for rejection test')
             write(path, value)
         case('mathematical-payload-mismatch', changed_result)
+        def changed_result_with_receipt_hash(folder, rec):
+            changed_result(folder, rec)
+            key = rec['jobs'][0]['id']
+            path = folder/'work/core'/config['jobs'][key][3]
+            rec['jobs'][0]['result_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        case('mathematical-payload-mismatch-with-updated-result-hash', changed_result_with_receipt_hash)
 
-    result = {'status': 'PASS_RUN_INTEGRITY_AND_HISTORICAL_COMPATIBILITY',
+    result = {'status': 'PASS_RUN_INTEGRITY_AND_SOURCE_BINDING',
               'cases': rows, 'current_argument_parser': 'PASS',
               'frozen_archive_modified': False, 'numerical_kernels_executed': False}
     print(json.dumps(result, ensure_ascii=True))

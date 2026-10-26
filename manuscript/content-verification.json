@@ -1,10 +1,9 @@
 {
   "status": "PASS",
-  "revision_date": "2026-10-26",
-  "source_commit": "7f5699def9ff1e899388574a7a8c60e749e9cdc9",
+  "publication_year": 2026,
   "counts": {
     "main_sections": 10,
-    "appendices": 9,
+    "appendices": 8,
     "display_math": 179,
     "inline_math": 521,
     "equation_tags": 97,
@@ -12,20 +11,10 @@
     "tables": 14,
     "references": 13
   },
-  "formula_sequence_sha256": "88821b14c378509ebea31d8b5f3ca44db24497d4cf49a61353b524edbd69b687",
+  "formula_sequence_sha256": "7194b343db958f95a99290d5d22fec807a4a921efe843f367a63f6019ff1b211",
   "source_to_output_formula_sequence_preserved": true,
-  "numbered_revision": {
-    "preserved": 94,
-    "replaced": [
-      "1.1"
-    ],
-    "added": [
-      "2.9",
-      "2.10"
-    ]
-  },
-  "scope": "Reviewed revision identity and exact preservation of preceding numbered results except the replaced introductory diagram. This is not a new proof certification.",
+  "scope": "Article identity, complete mathematical sequence and numbered formula inventory.",
   "artifacts": {
-    "report.md": "ef3582528192d020ffb086c81ff22dd9c3c342c1c7db27a8132743091cf6e9de"
+    "report.md": "5cc832257fcf1f02599f486057815533d48b8f658ade532697d43d08a8c28aa6"
   }
 }

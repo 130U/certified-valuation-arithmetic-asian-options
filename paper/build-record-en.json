@@ -1,25 +1,25 @@
 {
   "status": "PASS",
   "language": "en",
-  "revision_date": "2026-10-26",
+  "publication_year": 2026,
   "builder": "ReportLab / MathJax",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "6f8b8cc044c84913608033db7a2a1e0e7d1380d6f50cf14fd7dc14c97390e1f5",
-    "bytes": 4037710,
-    "pages": 42
+    "sha256": "97bd0fc3f757a08344eac6ba0c66c498833f267cfb4eba15e769bc0a1a7b8107",
+    "bytes": 4034392,
+    "pages": 41
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "ef3582528192d020ffb086c81ff22dd9c3c342c1c7db27a8132743091cf6e9de"
+    "sha256": "5cc832257fcf1f02599f486057815533d48b8f658ade532697d43d08a8c28aa6"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "c7366e8fec8f692c9988a954c094dea353ad0660ed262124b69dca37a75d7939",
+    "sha256": "036d394cc375340707005222c4fab1aa7bcaa01532324b3fbbe488d01fd5bc26",
     "retained_locally": true
   },
-  "builder_sha256": "a92638c9ed438599543c81f3cd520a52c25ae5ac0941ad45fdfd5f99f46ead44",
-  "formula_sequence_sha256": "88821b14c378509ebea31d8b5f3ca44db24497d4cf49a61353b524edbd69b687",
+  "builder_sha256": "031a4cd1d08b79e354d4be6c7fd6a6a423a8fa1fdfebb1892298c1b28844769b",
+  "formula_sequence_sha256": "7194b343db958f95a99290d5d22fec807a4a921efe843f367a63f6019ff1b211",
   "mathematical_counts": {
     "display_math": 179,
     "inline_math": 521,
@@ -27,25 +27,27 @@
     "tables": 14,
     "references": 13
   },
-  "pdf_and_online_article_match": "Both generated from the same TeX source. Generated Markdown equality and complete formula sequence checked; online navigation is the only added row.",
+  "pdf_and_online_article_match": "Generated from the same author source; complete formula sequence and generated body checked. The online article adds a navigation row.",
   "build_commands": [
     "python scripts/build_report.py",
     "python scripts/pdf/build_pdf.py --language en --node NODE_EXECUTABLE"
   ],
-  "build_files": "Author-side source, fonts and vector-math builder retained locally.",
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "6f8b8cc044c84913608033db7a2a1e0e7d1380d6f50cf14fd7dc14c97390e1f5",
-    "page_coverage": "1-42 contact sheets",
-    "full_size_pages": [
+    "pdf_sha256": "97bd0fc3f757a08344eac6ba0c66c498833f267cfb4eba15e769bc0a1a7b8107",
+    "page_coverage": "1-41 contact sheets",
+    "key_pages": [
       1,
       8,
       10,
-      39
+      36,
+      38,
+      39,
+      40,
+      41
     ],
-    "alignment_recheck_page": 36,
     "render_engine": "PDFium",
     "clipping_overlap_or_overflow_found": [],
-    "scope": "Visual layout and source/render consistency, not mathematical proof verification."
+    "scope": "Page layout and source/render consistency."
   }
 }

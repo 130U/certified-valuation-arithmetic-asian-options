@@ -1,10 +1,13 @@
 """Compare fresh Windows targeted examples with every frozen mathematical field.
 
 Source identity and mathematical guards are checked by the actual workers and
-the revision manifest. This comparison ignores only declared execution metadata.
+the publication manifest. This comparison ignores only declared execution metadata.
 """
 from pathlib import Path
-import argparse,json
+import argparse,json,sys
+
+if sys.flags.optimize:
+    raise RuntimeError('Run verification without -O or PYTHONOPTIMIZE; assertions are required.')
 
 ROOT=Path(__file__).resolve().parents[1]
 METADATA={'worker_seconds','elapsed_seconds','seconds','outer_seconds',
@@ -22,7 +25,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--point',type=Path,required=True)
     ap.add_argument('--coupling',type=Path,required=True)
-    a=ap.parse_args();reference=ROOT/'code/revision/round2/results'
+    a=ap.parse_args();reference=ROOT/'code/results'
     for actual,name in [(a.point,'point-v004-result.json'),(a.coupling,'coupling-v004-result.json')]:
         assert payload(read(actual))==payload(read(reference/name)),name+' mathematical payload differs'
     print(json.dumps({'status':'PASS_FRESH_TARGETED_EXAMPLES_EXACT_MATHEMATICAL_PAYLOAD',

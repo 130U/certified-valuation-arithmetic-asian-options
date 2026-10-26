@@ -1,16 +1,16 @@
 # Article
 
-[English PDF](../paper/paper.pdf) · [Read online](report.md) · [Revision](../docs/REVISION-2026-10-26.md).
+[English PDF](../paper/paper.pdf) · [Read online](report.md) · [Code and evidence](../EVIDENCE.md)
 
-The current article contains ten main sections, nine appendices, fourteen tables, thirteen references and 97 numbered equations. Its 179 display and 521 inline formulas are generated from the same author-side source as the PDF.
+The 2026 paper is available as a PDF and a GitHub-readable article. Both are generated from the same author-side source. The online format uses display mathematics and inline formulas compatible with GitHub rendering, with stable equation numbers and reference anchors.
 
-`content-verification.json` records the revised formula sequence and article hash. `numbered-equation-baseline.json` preserves the preceding numbered formulas: 94 remain identical, the introductory equation (1.1) is replaced, and (2.9)–(2.10) are added. The original numerical code and evidence identities remain unchanged.
+[equations.json](equations.json) inventories the numbered formulas. [content-verification.json](content-verification.json) records the formula sequence and article hash. The [PDF build record](../paper/build-record-en.json) binds the PDF, article and locally retained typesetting source; [PUBLICATION-MANIFEST.json](../PUBLICATION-MANIFEST.json) inventories the complete publication.
 
 Run from the repository root:
 
 ```sh
 python scripts/check_report.py
-python scripts/verify_revision.py
+python scripts/verify_publication.py
 ```
 
-The [PDF build record](../paper/build-record-en.json) binds the PDF, article and locally retained typesetting source. These checks verify document identity, preserved formulas and recorded numerical evidence; they do not independently certify the proofs.
+These checks validate document identity, formula inventory and the recorded numerical evidence. The [computational details](../docs/COMPUTATION.md) explain the quantities evaluated by the programs, and [EVIDENCE.md](../EVIDENCE.md) supplies the result links and reproduction commands.

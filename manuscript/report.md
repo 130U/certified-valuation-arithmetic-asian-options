@@ -1,12 +1,14 @@
 # Certified Valuation of Arithmetic Asian Options
 
+[English PDF](../paper/paper.pdf) · [Repository](../README.md) · [Code and evidence](../EVIDENCE.md)
+
 Conditional Representation, Geometric Reference and Heston Error Bounds
 
 **Theodore Ouyang**
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 
-[English PDF](../paper/paper.pdf) · [Project overview](../README.md) · [Code and evidence](../EVIDENCE.md)
+2026
 
 **Keywords:** Arithmetic Asian options; Heston model; projected Euler; conditional Gaussian smoothing; computable error bounds; weak error expansions; posterior quantiles.
 
@@ -56,7 +58,7 @@ e_h=e^{-rT}\bigl[&(E_{Q_h}\mathcal L-E_P\mathcal L)\\
 
 This identity separates the two mathematical tasks. The transform calculation must enclose the linear difference under the actual projected kernel. The remainder argument must control what is lost by replacing the arithmetic payoff with its reference. Lemma 3.1 gives the weighted remainder bound, and Theorem 4.1 combines the two parts into a signed interval. Appendices A–C verify the moment, projection, inversion and tail estimates needed to evaluate that interval.
 
-There is a limitation inherent in separate-law bounds. When the two laws coincide, their remainders cancel exactly in (1.1), but separate upper bounds need not cancel. The resulting width can therefore remain positive as the time step decreases. Section 4 identifies this obstruction analytically before examining the numerical grid study. Appendix I derives a direct bound on the difference of the remainders; its deterministic-variance example shows what can be gained by retaining the relation between the laws. The corresponding coupled moments remain uncomputed at the stochastic-variance Heston points.
+There is a limitation inherent in separate-law bounds. When the two laws coincide, their remainders cancel exactly in (1.1), but separate upper bounds need not cancel. The resulting width can therefore remain positive as the time step decreases. Section 4 identifies this obstruction analytically before examining the numerical grid study. Appendix H derives a direct bound on the difference of the remainders; its deterministic-variance example shows what can be gained by retaining the relation between the laws. The corresponding coupled moments remain uncomputed at the stochastic-variance Heston points.
 
 Conditioning and geometric reference variables have a well-established role in Asian option pricing [[1](#ref-1), [2](#ref-2), [3](#ref-3), [4](#ref-4)]. In particular, Fusai and Kyriakou treat Heston Asian options and derive conditional-variance error bounds [[4](#ref-4)]. Heston's affine structure supplies the continuous transforms [[5](#ref-5)]; recursive transforms for discrete geometric averages are also available [[6](#ref-6), [7](#ref-7)]. The result here concerns the weighted kink remainder and its combination with complete error accounting for the original projected Euler law. Neither the use of a geometric reference nor the general principle of conditioning is claimed as new.
 
@@ -517,7 +519,7 @@ For computed inputs the actual width in (4.2) is
 \tag{4.10}
 ```
 
-The original nonlinear interval has width approximately .02047859; its linear width is approximately .00118848, giving total width approximately .02166706. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix I gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so Corollary 4.2 retains its separate-law remainder. In the deterministic example of Appendix I, the nonlinear width falls from approximately .01538363715 to .00008815020, about 0.573 percent of the separate-law width. Both calculations use the same conditioning and common geometric scale. This comparison concerns only that example's nonlinear component.
+The original nonlinear interval has width approximately .02047859; its linear width is approximately .00118848, giving total width approximately .02166706. About 94.5 percent is therefore due to payoff conversion. Increasing precision or reducing an already small projection contribution has limited effect on the final width. Appendix H gives a sufficient coupling inequality for the difference of the remainders. Its additional moments have not been computed at the main point, so Corollary 4.2 retains its separate-law remainder. In the deterministic example of Appendix H, the nonlinear width falls from approximately .01538363715 to .00008815020, about 0.573 percent of the separate-law width. Both calculations use the same conditioning and common geometric scale. This comparison concerns only that example's nonlinear component.
 
 The positive-moment calculation at $`h=1/768`$ gives
 
@@ -1072,7 +1074,7 @@ Table 11 keeps the same prior (7.5), synthetic observations, likelihood covarian
 | 8192 | 0.006452960804 | 0.010367612938 | 2 / 7 |
 | 16384 | 0.006061495591 | 0.009584682511 | 3 / 12 |
 
-The common nonmesh error contributions remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated in this revision.
+The common nonmesh error contributions remain unchanged. Coupling step counts increase with refinement, so the final bound does not scale exactly as the cell width. The new bounds at 16384 cells are approximately 24.4 percent and 24.6 percent smaller than the original single- and nine-quote bounds. Adaptive cells and local target Lipschitz constants are not evaluated here.
 
 The absolute 2.5, 50, and 97.5 percent quantile brackets concern the initial-variance marginal. For the continuous-model posterior with 4096 cells, the single-quote brackets are approximately [.0307690,.0307764], [.0444067,.0444141], and [.0590917,.0590992]; the nine-quote brackets are [.0308203,.0308350], [.0435131,.0435425], and [.0587182,.0587256]. These brackets describe parameter uncertainty. Absolute Asian-price target quantiles have not been evaluated, so the displacement bounds do not yet measure the change relative to the target's posterior uncertainty scale.
 
@@ -1090,7 +1092,7 @@ The posterior displacement bounds apply to the restricted prior (7.5) and synthe
 
 in coordinate order $`(\kappa,\bar v,\xi,\rho,v_0)`$ requires uniform forward-error and posterior-transport inputs. Absolute Asian-price target quantiles and the signed Asian leading-coefficient integral remain uncomputed.
 
-The separate-law remainder produces the width plateau in Section 8. Proposition I.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix I, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width.
+The separate-law remainder produces the width plateau in Section 8. Proposition H.1 provides a direct coupled-remainder inequality. Its additional coupled moments are certified for a deterministic-variance example in Appendix H, but have not been established for the stochastic-variance Heston examples. Controlling those moments and tightening the discrete frequency tail are distinct mathematical requirements for a shrinking certificate width.
 
 ## 10. Conclusion
 
@@ -1928,21 +1930,21 @@ The target radii from Appendix E, together with (F.3) and (F.7), yield (7.8). Th
 
 ## Appendix G. Reproducible implementation
 
-Start with the `paper` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `REVISION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` retains the frozen original numerical package identity.
+Start with the `paper` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `PUBLICATION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` identifies the current numerical package.
 
-Historical data remain available at [commit `cf0d242f1590c7ca07ab8ca7afb57da5a583032b`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/cf0d242f1590c7ca07ab8ca7afb57da5a583032b) for the grid experiments, and [commit `1959f8f078e1fedd590000d6166cb20429ff31db`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db) for the second-point and coupling data. The original kernel baseline is `5bc72cf6036fdd73fea9c8bc6c85f85fd474b79a`.
+The execution archive described below contains the source copies, inputs, results and receipts supporting the calculations in this publication.
 
 **Table G.1. Numerical modules and their results.**
 
 | Module | Corresponding result |
 | --- | --- |
-| `asian` | Theorem 4.1 and Corollary 4.2 at the original point. |
+| `asian` | Theorem 4.1 and Corollary 4.2 at the principal parameter point. |
 | `tt` | Theorem 6.1 and constants on the deterministic face (6.10). |
 | `small-xi` | The five-dimensional perturbation box (7.4). |
 | `posterior-zero` | Gaussian-reference posterior and target constants. |
 | `posterior` | The restricted prior (7.5) and Theorem 7.1. |
 
-The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with `python-flint==0.8.0`. From the publication checkout, the commands below create the environment, verify the original package and execute the original Asian certificate with both implementations. Each double hyphen is a literal command-line character.
+The reference runtime is unoptimized CPython 3.12 on Windows x86-64 with `python-flint==0.8.0`. From the publication checkout, the commands below create the environment, verify the current package and execute the principal Asian certificate with both implementations. Each double hyphen is a literal command-line character.
 
 ```text
 py -3.12 -m venv .venv
@@ -1951,7 +1953,7 @@ py -3.12 -m venv .venv
 ./.venv/Scripts/python.exe code/run.py run --module asian --independent
 ```
 
-The run prints its new directory under `code/runs/`. Replace `run-ID` below with that directory name. To execute every original module, replace `asian` in the preceding command with `all`.
+The run prints its new directory under `code/runs/`. Replace `run-ID` below with that directory name. To execute every listed module, replace `asian` in the preceding command with `all`.
 
 ```text
 ./.venv/Scripts/python.exe code/run.py check --run code/runs/run-ID
@@ -1959,13 +1961,19 @@ The run prints its new directory under `code/runs/`. Replace `run-ID` below with
 
 Installation may require network access. The numerical calculations do not. No dependency wheel is included; offline installation requires an authentic compatible wheel obtained separately. Assertions enforce mathematical conditions and resource contracts. Each worker uses one thread and a 256 MiB hard memory limit.
 
-The original completed execution and the additional experiments are preserved in `code/revision/results/evidence.zip`. Its inventory binds each member's bytes and SHA-256. The index `code/revision/results/INDEX.md` gives archive extraction and ledger-replay commands; `code/revision/README.md` gives fresh calculation commands and experiment inputs. Saved-result verification and fresh kernel execution are distinct operations.
+The completed calculations are preserved in `code/evidence/executions.zip`. The archive and its member inventory are identified by `code/evidence/receipt.json`. To verify the saved evidence, use a fresh directory name and run
 
-The step-grid ledger `code/revision/results/revision-summary.json` maps each printed numerical row to the exact source field, result, hash and receipt. The original weighted moments are in `code/reference/asian-remainder-result.json`; the linear center, transform contributions and signed price enclosure are in `code/reference/asian-linear-result.json`. Exact synthetic observations are in `code/data/synthetic_quotes.json`. Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively.
+```text
+python code/verification/read_evidence.py --directory evidence-check --output evidence-readback.json
+```
+
+This standard-library check reads the archive, validates its inventory and reconciles the exact result ledgers. It does not rerun the pricing calculations. `EVIDENCE.md` lists the calculation programs, results and fresh execution commands. Saved-result verification and fresh numerical execution are distinct operations.
+
+The step-grid ledger `code/results/step-grid.json` maps each printed numerical row to the exact source field, result, hash and receipt. The principal weighted moments are in `code/reference/asian-remainder-result.json`; the linear center, transform contributions and signed price enclosure are in `code/reference/asian-linear-result.json`. Exact synthetic observations are in `code/data/synthetic_quotes.json`. Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively.
 
 The reference comparison includes every numerical JSON field, including arrays and rational endpoints. Only hash metadata and six named elapsed-time fields are excluded. The alternative constructions described below share Arb and the analytical inequalities; numerical agreement verifies the implemented finite calculations within those assumptions, without supplying an independent derivation of the common inequalities.
 
-The experiment archive retains stopped attempts and successful completions. At 192 steps the fixed projection inequality fails its required exponent bound. The initial 384-step attempt stopped at the original numerical radius target; the successful enclosure records that target as false while preserving every analytical condition. At 1536 steps the initial worker exceeded its original wall-time allowance. The completed run multiplies that finite allowance by `ceil(N/768)`, retaining the mathematical guards, precision, thread and memory limits. Separate weighted-moment experiments use the analogous declared runtime scaling. Receipts distinguish analytical exclusion, numerical acceptance targets and resource stops. Reported task times are machine- and load-specific.
+At 192 Euler steps, the projection exponent does not exceed 8, whereas the projection argument requires it to be strictly greater than 8. The argument therefore supplies no certificate for that grid. The execution records distinguish this analytical exclusion from numerical acceptance targets and resource stops. Reported task times are machine- and load-specific.
 
 ### G.1 Numerical constructions and recorded cost
 
@@ -1973,44 +1981,40 @@ The nonlinear-moment module evaluates 24,388 continuous real-flow blocks and 815
 
 For the weighted remainder, `check-asian-remainder.py` replaces the principal root/cross-ratio Riccati formula by a hyperbolic two-by-two flow, constructs the loading catalog from ordered pairs, and separately indexes the reverse discrete grid. It accumulates the projection prefix as a product rather than exponentiating a sum. For linear inversion, `check-asian-linear.py` replaces the principal real/imaginary discrete recursion by a complex `acb` recursion and expresses the continuous hyperbolic blocks through exponentials. It verifies every frequency contribution and recomputes the finite error allowances without calling the principal numerical functions. The checks share Arb, the analytic identities, and the theoretical bounds. They test implementation consistency and arithmetic stability rather than supplying independent derivations of those bounds. The root-flow and matrix-flow calculations also enclose the same grouped positive moments used in (4.11).
 
-Historical worker times for the original nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid study, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract.
+Recorded worker times for the nonlinear and linear modules were approximately 12.02 and 33.20 seconds, respectively, with one thread and a 256 MiB hard memory limit per process. In the step-grid study, the summed outer wall times for the five Asian tasks were approximately 122.3, 184.0, and 431.6 seconds at 384, 768, and 1536 steps. These latter observations include controllers and check programs under the recorded execution load; they are not portable performance guarantees. Each receipt retains its job times, operation counts, and resource contract.
 
 ### G.2 Sampling illustrations and posterior marginal envelopes
 
-The Asian coefficient illustration uses binary64 arithmetic and 2,097,152 Gaussian increment vectors per point. It evaluates the exact deterministic-variance Gaussian coefficient integrand and density-ratio residual with common vectors across the four step sizes. Subtracting the known zero-mean score and using `expm1` reduces cancellation in the scaled residual. Inputs, seeds, formulas, sampling estimates, and estimated standard errors are recorded in `code/revision/results/asian-beta-diagnostic.json`. Its normal-approximation sampling intervals are distinct from the analytic coefficient enclosures and deterministic remainder bounds in Section 6.
+The Asian coefficient illustration uses binary64 arithmetic and 2,097,152 Gaussian increment vectors per point. It evaluates the exact deterministic-variance Gaussian coefficient integrand and density-ratio residual with common vectors across the four step sizes. Subtracting the known zero-mean score and using `expm1` reduces cancellation in the scaled residual. Inputs, seeds, formulas, sampling estimates, and estimated standard errors are recorded in `code/results/asian-beta-diagnostic.json`. Its normal-approximation sampling intervals are distinct from the analytic coefficient enclosures and deterministic remainder bounds in Section 6.
 
-The separate NumPy path study uses 32,768 paths for each of fourteen cases, coupling the original projected Euler grid to a grid with twice as many steps. The file `code/revision/results/path-diagnostics.json` records seeds, binary64 inputs, sampled prices, standard errors, and negative-proposal counts. Its fine law retains discretization bias, so these sampling results do not enclose the continuous-model price.
+The separate NumPy path study uses 32,768 paths for each of fourteen cases, coupling the original projected Euler grid to a grid with twice as many steps. The file `code/results/path-diagnostics.json` records seeds, binary64 inputs, sampled prices, standard errors, and negative-proposal counts. Its fine law retains discretization bias, so these sampling results do not enclose the continuous-model price.
 
-The posterior grid summary, `code/revision/results/posterior-grid-summary.json`, retains full rational CDF envelopes and the 2.5, 50, and 97.5 percent quantile brackets of the initial-variance marginal. The absolute Asian-price target quantiles are not part of that computation.
+The posterior grid summary, `code/results/posterior-grid.json`, retains full rational CDF envelopes and the 2.5, 50, and 97.5 percent quantile brackets of the initial-variance marginal. The absolute Asian-price target quantiles are not part of that computation.
 
 ### G.3 Second-point and coupled-moment reproduction
 
-The completed second Heston point in Section 8.3 and the executed deterministic coupling example in Appendix I are frozen, together with their programs, inputs, results and receipts, at [commit `1959f8f078e1fedd590000d6166cb20429ff31db`](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/1959f8f078e1fedd590000d6166cb20429ff31db). Use the publication checkout and the same Windows environment, with a new directory name:
+The second Heston point in Section 8.3 and the deterministic coupling example in Appendix H are supplied with their programs, inputs, results and execution evidence in the publication package. To recompute the second point in the same Windows environment, choose a new output directory and run
 
 ```text
-./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py prepare --directory new-point
-./.venv/Scripts/python.exe code/revision/round2/asian_parameter_point.py run --directory new-point
+./.venv/Scripts/python.exe code/experiments/asian_parameter_point.py prepare --directory new-point
+./.venv/Scripts/python.exe code/experiments/asian_parameter_point.py run --directory new-point
 ```
 
-The run writes its result capsule in the new directory. The point configuration changes only $`v_0`$ to $`1/25`$. The preparation checks the original numerical manifest and constructs explicit parameter copies. The weighted, linear, pilot and two alternative-construction jobs recompute all affected quantities. Declared worker budgets are 120 seconds for each weighted calculation, 360 for each linear calculation and 30 for the pilot; the one-thread and 256 MiB limits remain fixed. The recorded five-job outer time is approximately 97.5 seconds. The archive `code/revision/round2/results/evidence-point-v004.zip` contains all 52 execution members and their inventory. Its SHA-256 and standard-library replay instructions are in `code/revision/round2/README.md`. The exact six-component width ledger is in `code/revision/round2/results/point-v004-result.json`.
+The run writes its result capsule in the new directory. The point configuration changes only $`v_0`$ to $`1/25`$. The preparation checks the current numerical manifest and constructs explicit parameter copies. The weighted, linear, pilot and two alternative-construction jobs recompute all affected quantities. Declared worker budgets are 120 seconds for each weighted calculation, 360 for each linear calculation and 30 for the pilot; the one-thread and 256 MiB limits remain fixed. The recorded five-job outer time is approximately 97.5 seconds. The source copies, results and execution records are included in `code/evidence/executions.zip`; its receipt identifies the complete member inventory. The exact six-component width ledger is in `code/results/point-v004-result.json`.
 
 The deterministic coupling example uses finite closed Gaussian moments at 384 and 512 bits. Its fresh calculation command is
 
 ```text
-./.venv/Scripts/python.exe code/revision/round2_coupling_example.py --output coupling.json
+./.venv/Scripts/python.exe code/experiments/coupling_example.py --output coupling.json
 ```
 
-The exact result is `code/revision/round2/results/coupling-v004-result.json`. The self-contained proof and source/result hash receipt are in `docs/revision-round2/`. A separate scalar covariance-moment evaluation also agrees with the enclosures. This comparison verifies the nonlinear component on $`\xi=0`$; it does not replace the positive-$`\xi`$ pricing calculation.
+The exact result is `code/results/coupling-v004-result.json`. Appendix H gives the proof, and `docs/COMPUTATION.md` describes the finite moment evaluation. The publication and numerical manifests record the source and result identities. The calculation verifies the nonlinear component on $`\xi=0`$; it does not replace the positive-$`\xi`$ pricing calculation.
 
-## Appendix H. Research timeline
-
-Research began in the second half of 2023. The initial manuscript was written in the first half of 2024. The project was published on GitHub in 2026. Additional proof work and numerical verification were completed in 2026. The present exposition was revised on 26 October 2026 to make the exact conditional representation and the structural choice of reference explicit. The numerical results retain their original evidence records.
-
-## Appendix I. A direct coupled-remainder inequality
+## Appendix H. A direct coupled-remainder inequality
 
 The following sufficient inequality preserves cancellation between the two conditional remainders under a coupling of their conditional variables.
 
-**Proposition I.1 (A remainder bound under a coupling).** Fix $`K\gt 0`$ and $`c\gt 0`$, assume that both marginal laws satisfy $`\mathsf H_s(c)`$, so that the remainders are finite, and couple conditional triples $`(a_P,b_P,\sigma_P)`$, $`(a_Q,b_Q,\sigma_Q)`$, where $`b_\nu=cg_\nu`$, all entries are positive, and each marginal is the conditional triple in (2.6). Set
+**Proposition H.1 (A remainder bound under a coupling).** Fix $`K\gt 0`$ and $`c\gt 0`$, assume that both marginal laws satisfy $`\mathsf H_s(c)`$, so that the remainders are finite, and couple conditional triples $`(a_P,b_P,\sigma_P)`$, $`(a_Q,b_Q,\sigma_Q)`$, where $`b_\nu=cg_\nu`$, all entries are positive, and each marginal is the conditional triple in (2.6). Set
 
 ```math
 s_- =\min(\sigma_P,\sigma_Q),\qquad
@@ -2034,7 +2038,7 @@ If $`E\Xi_K\le B_K\lt \infty`$, then
 \begin{gathered}
 |R_{K,Q}-R_{K,P}|\le B_K.
 \end{gathered}
-\tag{I.1}
+\tag{H.1}
 ```
 
 In particular, writing $`B=e^{-rT}(B_{K_1}+B_{K_2})`$, the exact nonlinear contribution to the call-spread price difference belongs to $`[-B,B]`$. This interval may be intersected with the nonlinear interval in (4.2) before adding the linear-transform interval. Under the diagonal coupling for identical conditional laws, $`\Xi_K=0`$.
@@ -2087,11 +2091,11 @@ Interpolate the three entries linearly between the coupled endpoints. All interp
 |r_K(a_Q,b_Q,\sigma_Q)-r_K(a_P,b_P,\sigma_P)|\le\Xi_K.
 ```
 
-Taking expectations proves (I.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement.  $`\square`$
+Taking expectations proves (H.1). Applying the triangle inequality to the two strikes and multiplying by the discount proves the price-unit statement.  $`\square`$
 
-The $`s_-^{-2}`$ factor requires coupled-moment control beyond (2.7) and the marginal affine catalog. If a family of verified couplings satisfies $`E\Xi_K\to0`$, then (I.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here.
+The $`s_-^{-2}`$ factor requires coupled-moment control beyond (2.7) and the marginal affine catalog. If a family of verified couplings satisfies $`E\Xi_K\to0`$, then (H.1) gives vanishing remainder differences. No such convergence bound or rate for the positive-volatility-of-volatility Heston example is asserted here.
 
-### I.1 An executed coupling example on the deterministic-variance face
+### H.1 An executed coupling example on the deterministic-variance face
 
 At $`\xi=0,\kappa=3,\bar v=9/200,v_0=1/25,S_0=100,r=1/100,T=1,h=1/768`$, retain the twelve monthly fixings, the call spread with strikes 95 and 110, and $`c=1254433/1250000`$. Write $`s_{\nu,j}=I_\nu(t_j)-I_\nu(t_{j-1})`$, using the exact continuous and Euler cumulative variances in (6.2). Couple the laws by twelve common independent standard normals. With $`\sigma_\nu=\sqrt{s_{\nu,1}}`$, remove the first centered normal factor and put
 
@@ -2175,7 +2179,7 @@ This is a closed-moment enclosure of the coupled remainder expectations, with no
 
 <a id="ref-7"></a>
 
-7. QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; fixed revision. [https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp](https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp).
+7. QuantLib contributors. AnalyticDiscreteGeometricAveragePriceAsianHestonEngine. Official source code; pinned source commit. [https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp](https://github.com/lballabio/QuantLib/blob/966a4cc101049ca36a888b2ce223aa96d3f3b22d/ql/experimental/asian/analytic_discr_geom_av_price_heston.hpp).
 
 <a id="ref-8"></a>
 
