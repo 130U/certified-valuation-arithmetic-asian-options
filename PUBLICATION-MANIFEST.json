@@ -1,6 +1,6 @@
 {
   "publication_year": 2026,
-  "publication_tag": "paper",
+  "publication_tag": "paper-2026-11-10",
   "scope": "All publication files, excluding this manifest itself and ignored local outputs.",
   "package_manifest": "code/MANIFEST.json",
   "evidence_archive": "code/evidence/executions.zip",
@@ -22,8 +22,8 @@
       "sha256": "a3f07f60ae804b1b50d5f4401d40519eea3bb1c878651872cec7512bfcb1fdcb"
     },
     "README.md": {
-      "bytes": 2872,
-      "sha256": "c4328569d1f9527de61a49f30cfae00ea6171085b294d3e7765958295d9f71a0"
+      "bytes": 3151,
+      "sha256": "5f02d547759e23dca5e78267bb609ee0e2762a5da7319b8ec5df2b4f506441be"
     },
     "code/DATA.md": {
       "bytes": 1221,
@@ -319,39 +319,39 @@
     },
     "manuscript/content-verification.json": {
       "bytes": 605,
-      "sha256": "2dc02f7a51db004aa2a1af464ceb4a0e6a20555032072fb42f00cf5edfe024a1"
+      "sha256": "cc36ad799e19355b73dac5bf0d57626b7764e1f83d2ff5f0eaceff6abbb45a97"
     },
     "manuscript/equations.json": {
       "bytes": 15032,
       "sha256": "1e122fc5b1972f5c36868148c25b55998186efe3dc85cf03531ba72162d80a0e"
     },
     "manuscript/report.md": {
-      "bytes": 108085,
-      "sha256": "7d3f835acd07eeb0b4c54376cd7d79d7eb0694731e7e0516f9659d4697b22aa1"
+      "bytes": 108118,
+      "sha256": "87aedfc643dcd60be8ca84a08b3930601251b5e38b578173823f4a76e7c58d79"
     },
     "paper/build-record-en.json": {
-      "bytes": 2587,
-      "sha256": "7e51773ef6a3ec265b3d9628cbfc2d421c2f1e50aaafece1c5f6d91688429c96"
+      "bytes": 2892,
+      "sha256": "86ebca96106996384f0bf94d40623f01fe189aaedde10fdde0bf0cbc02d79d03"
     },
     "paper/paper.pdf": {
-      "bytes": 4034388,
-      "sha256": "9aa4fdb92a6b16ecd5be76085f48f05c79300c6b196280f0c3afed24bc4f233e"
+      "bytes": 4034675,
+      "sha256": "dbca70be7630c0f05c639711a5bd0602cd92c637d261a5c0c026a5801fc46dcc"
     },
     "scripts/check_report.py": {
       "bytes": 5348,
       "sha256": "fb35ed3fca59e24497ea29878c97620a8158615cf2ca241d819b912cc386e421"
     },
     "scripts/update_manifest.py": {
-      "bytes": 1495,
-      "sha256": "e298133f43483a29b9aa501a85294d260d998ad390a461494a9a48e83743ebb8"
+      "bytes": 1506,
+      "sha256": "ce57c241cf3377cbbef981159c4dfd32ae61264f643379125fe198b2d1a6b7cd"
     },
     "scripts/verify_fresh_examples.py": {
       "bytes": 1751,
       "sha256": "670b4dded9f56193daf563cc7a8fa1c368971bc483da9a6b3fb86eb800b06ea4"
     },
     "scripts/verify_publication.py": {
-      "bytes": 6353,
-      "sha256": "cd27021ff0ac587e75a3452d61cd3810382c9859e3043dae025807d2eb58a12b"
+      "bytes": 6364,
+      "sha256": "dcd4e4e88593c2b28707f201df698e4e7fbc0b604aab665640953967fb1c14a6"
     }
   }
 }

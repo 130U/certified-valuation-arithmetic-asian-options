@@ -5,17 +5,17 @@
   "builder": "ReportLab / MathJax",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "9aa4fdb92a6b16ecd5be76085f48f05c79300c6b196280f0c3afed24bc4f233e",
-    "bytes": 4034388,
+    "sha256": "dbca70be7630c0f05c639711a5bd0602cd92c637d261a5c0c026a5801fc46dcc",
+    "bytes": 4034675,
     "pages": 41
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "7d3f835acd07eeb0b4c54376cd7d79d7eb0694731e7e0516f9659d4697b22aa1"
+    "sha256": "87aedfc643dcd60be8ca84a08b3930601251b5e38b578173823f4a76e7c58d79"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "3cc936e7e20d6d5e8444d7171cd48dd2cd6368aa8022be1a311d40a0f07047ae",
+    "sha256": "df360679e1a2193e7954675a769a9ba797f2a4ef8a1266b2cd3178515dcf1453",
     "retained_locally": true
   },
   "builder_sha256": "031a4cd1d08b79e354d4be6c7fd6a6a423a8fa1fdfebb1892298c1b28844769b",
@@ -34,17 +34,19 @@
   ],
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "9aa4fdb92a6b16ecd5be76085f48f05c79300c6b196280f0c3afed24bc4f233e",
-    "page_coverage": "All 41 page content streams compared; changed page rendered and inspected.",
+    "pdf_sha256": "dbca70be7630c0f05c639711a5bd0602cd92c637d261a5c0c026a5801fc46dcc",
+    "page_coverage": "All 41 page content streams and extracted text compared; changed page and both neighbouring pages rendered and inspected.",
     "key_pages": [
-      6
+      35,
+      36,
+      37
     ],
-    "render_engine": "PDFium",
-    "render_scale": 1.5,
+    "render_engine": "Poppler pdftoppm",
+    "render_dpi": 108,
     "clipping_overlap_or_overflow_found": [],
-    "scope": "Table 1 wording, page layout, source/render consistency and preserved navigation.",
+    "scope": "Fixed publication tag, page layout, source/render consistency and preserved navigation; the single publication-tag URI updated.",
     "changed_content_stream_pages": [
-      6
+      36
     ],
     "unchanged_content_stream_pages": [
       1,
@@ -52,6 +54,7 @@
       3,
       4,
       5,
+      6,
       7,
       8,
       9,
@@ -81,7 +84,6 @@
       33,
       34,
       35,
-      36,
       37,
       38,
       39,
@@ -89,13 +91,18 @@
       41
     ],
     "outline_entries_preserved": 69,
-    "annotations_preserved": 173,
+    "annotations_before": 173,
+    "annotations_after": 174,
+    "other_annotations_preserved": 172,
+    "publication_link_segments_before": 1,
+    "publication_link_segments_after": 2,
+    "external_uri_changes": 1,
     "internal_link_targets_valid": true
   },
   "baseline_rebuild": {
     "pdf_byte_identical": true,
-    "pdf_sha256": "97bd0fc3f757a08344eac6ba0c66c498833f267cfb4eba15e769bc0a1a7b8107",
-    "source_sha256": "036d394cc375340707005222c4fab1aa7bcaa01532324b3fbbe488d01fd5bc26",
+    "pdf_sha256": "9aa4fdb92a6b16ecd5be76085f48f05c79300c6b196280f0c3afed24bc4f233e",
+    "source_sha256": "3cc936e7e20d6d5e8444d7171cd48dd2cd6368aa8022be1a311d40a0f07047ae",
     "generated_article_matches_after_navigation": true
   }
 }

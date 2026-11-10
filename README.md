@@ -4,6 +4,8 @@
 
 [Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Mathematical structure](docs/MATHEMATICAL-STRUCTURE.md) · [Code and evidence](EVIDENCE.md)
 
+Current fixed publication: [paper-2026-11-10](https://github.com/130U/certified-valuation-arithmetic-asian-options/releases/tag/paper-2026-11-10). The earlier [paper tag](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper) remains a legacy archive.
+
 I develop a mathematical framework for certifying arithmetic Asian valuations under a specified Heston model. The framework gives a finite, signed bound on the price difference between the continuous model and positive-part variance Euler with a current-variance log-price update.
 
 The method starts from an **exact conditional price**. Every fixing shares the stock noise accumulated before the first observation, so one Gaussian integral can be evaluated explicitly. The geometric average preserves that common factor and has a logarithm that is linear in the observed log prices. It therefore provides a reference compatible with Heston transforms. Convexity and conditional curvature bound the remaining arithmetic-payoff contribution by a weighted second moment.

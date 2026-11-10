@@ -1930,7 +1930,7 @@ The target radii from Appendix E, together with (F.3) and (F.7), yield (7.8). Th
 
 ## Appendix G. Reproducible implementation
 
-Start with the `paper` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `PUBLICATION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` identifies the current numerical package.
+Start with the `paper-2026-11-10` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper-2026-11-10](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper-2026-11-10). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `PUBLICATION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` identifies the current numerical package.
 
 The execution archive described below contains the source copies, inputs, results and receipts supporting the calculations in this publication.
 
