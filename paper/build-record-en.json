@@ -5,17 +5,17 @@
   "builder": "ReportLab / MathJax",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "dbca70be7630c0f05c639711a5bd0602cd92c637d261a5c0c026a5801fc46dcc",
-    "bytes": 4034675,
+    "sha256": "7dd5fd0a9c945250e1e73874dad6bdf5c8a03c4e31e060c0ee81efade9bdfafe",
+    "bytes": 4034457,
     "pages": 41
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "87aedfc643dcd60be8ca84a08b3930601251b5e38b578173823f4a76e7c58d79"
+    "sha256": "364490abe9dd924cde9da71d775342ad3b64e46894a461772a5f4a2d917c507b"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "df360679e1a2193e7954675a769a9ba797f2a4ef8a1266b2cd3178515dcf1453",
+    "sha256": "50c3ba30eecb185fea524b9310633220cf459168254d01815c19937f3955af2f",
     "retained_locally": true
   },
   "builder_sha256": "031a4cd1d08b79e354d4be6c7fd6a6a423a8fa1fdfebb1892298c1b28844769b",
@@ -34,75 +34,11 @@
   ],
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "dbca70be7630c0f05c639711a5bd0602cd92c637d261a5c0c026a5801fc46dcc",
-    "page_coverage": "All 41 page content streams and extracted text compared; changed page and both neighbouring pages rendered and inspected.",
-    "key_pages": [
-      35,
-      36,
-      37
-    ],
-    "render_engine": "Poppler pdftoppm",
+    "pdf_sha256": "7dd5fd0a9c945250e1e73874dad6bdf5c8a03c4e31e060c0ee81efade9bdfafe",
+    "page_coverage": "All 41 page text and content streams checked; pages 35–39 rendered and inspected.",
+    "render_engine": "MuPDF",
     "render_dpi": 108,
     "clipping_overlap_or_overflow_found": [],
-    "scope": "Fixed publication tag, page layout, source/render consistency and preserved navigation; the single publication-tag URI updated.",
-    "changed_content_stream_pages": [
-      36
-    ],
-    "unchanged_content_stream_pages": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      37,
-      38,
-      39,
-      40,
-      41
-    ],
-    "outline_entries_preserved": 69,
-    "annotations_before": 173,
-    "annotations_after": 174,
-    "other_annotations_preserved": 172,
-    "publication_link_segments_before": 1,
-    "publication_link_segments_after": 2,
-    "external_uri_changes": 1,
     "internal_link_targets_valid": true
-  },
-  "baseline_rebuild": {
-    "pdf_byte_identical": true,
-    "pdf_sha256": "9aa4fdb92a6b16ecd5be76085f48f05c79300c6b196280f0c3afed24bc4f233e",
-    "source_sha256": "3cc936e7e20d6d5e8444d7171cd48dd2cd6368aa8022be1a311d40a0f07047ae",
-    "generated_article_matches_after_navigation": true
   }
 }

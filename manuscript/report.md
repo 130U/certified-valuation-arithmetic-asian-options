@@ -1,6 +1,6 @@
 # Certified Valuation of Arithmetic Asian Options
 
-[English PDF](../paper/paper.pdf) · [Repository](../README.md) · [Code and evidence](../EVIDENCE.md)
+[English PDF](../paper/paper.pdf) · [Repository](../README.md) · [Code and evidence](../docs/EVIDENCE.md)
 
 Conditional Representation, Geometric Reference and Heston Error Bounds
 
@@ -1930,7 +1930,7 @@ The target radii from Appendix E, together with (F.3) and (F.7), yield (7.8). Th
 
 ## Appendix G. Reproducible implementation
 
-Start with the `paper-2026-11-10` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper-2026-11-10](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper-2026-11-10). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `PUBLICATION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` identifies the current numerical package.
+Start with the `V_20261101` tag at [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101). It contains the manuscript, step-grid and posterior-grid experiments, the second Heston point, and the deterministic coupling example. The root `PUBLICATION-MANIFEST.json` lists the files in this checkout and their hashes; `code/MANIFEST.json` identifies the current numerical package.
 
 The execution archive described below contains the source copies, inputs, results and receipts supporting the calculations in this publication.
 
@@ -1967,7 +1967,7 @@ The completed calculations are preserved in `code/evidence/executions.zip`. The 
 python code/verification/read_evidence.py --directory evidence-check --output evidence-readback.json
 ```
 
-This standard-library check reads the archive, validates its inventory and reconciles the exact result ledgers. It does not rerun the pricing calculations. `EVIDENCE.md` lists the calculation programs, results and fresh execution commands. Saved-result verification and fresh numerical execution are distinct operations.
+This standard-library check reads the archive, validates its inventory and reconciles the exact result ledgers. It does not rerun the pricing calculations. `docs/EVIDENCE.md` lists the calculation programs, results and fresh execution commands. Saved-result verification and fresh numerical execution are distinct operations.
 
 The step-grid ledger `code/results/step-grid.json` maps each printed numerical row to the exact source field, result, hash and receipt. The principal weighted moments are in `code/reference/asian-remainder-result.json`; the linear center, transform contributions and signed price enclosure are in `code/reference/asian-linear-result.json`. Exact synthetic observations are in `code/data/synthetic_quotes.json`. Appendices A, B and C describe the nonlinear catalog, original projected recurrence and linear inversion, respectively.
 

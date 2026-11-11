@@ -1,6 +1,6 @@
 """Verify publication identities and exact saved price-unit calculations offline.
 
-Fresh interval-kernel execution is provided by the commands in EVIDENCE.md.
+Fresh interval-kernel execution is provided by the commands in docs/EVIDENCE.md.
 """
 from pathlib import Path
 from fractions import Fraction as F
@@ -16,7 +16,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--manifest',type=Path,default=ROOT/'PUBLICATION-MANIFEST.json')
     args=ap.parse_args();m=read(args.manifest)
-    assert m['publication_year']==2026 and m['publication_tag']=='paper-2026-11-10'
+    assert m['publication_year']==2026 and m['publication_tag']=='V_20261101'
     for name,row in m['files'].items():
         p=ROOT/name
         assert p.resolve().is_relative_to(ROOT.resolve()) and p.is_file(),name

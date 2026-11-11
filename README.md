@@ -2,9 +2,7 @@
 
 **Theodore Ouyang · 2026**
 
-[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Mathematical structure](docs/MATHEMATICAL-STRUCTURE.md) · [Code and evidence](EVIDENCE.md)
-
-Current fixed publication: [paper-2026-11-10](https://github.com/130U/certified-valuation-arithmetic-asian-options/releases/tag/paper-2026-11-10). The earlier [paper tag](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/paper) remains a legacy archive.
+[Paper](manuscript/report.md) · [English PDF](paper/paper.pdf) · [Mathematical structure](docs/MATHEMATICAL-STRUCTURE.md) · [Code and evidence](docs/EVIDENCE.md)
 
 I develop a mathematical framework for certifying arithmetic Asian valuations under a specified Heston model. The framework gives a finite, signed bound on the price difference between the continuous model and positive-part variance Euler with a current-variance log-price update.
 
@@ -25,7 +23,7 @@ A direct coupling argument preserves cancellation between the two nonlinear rema
 
 The work builds on established Asian conditioning and geometric-reference methods, including Fusai–Kyriakou. Its contribution is the weighted kink control and complete error construction for the specified projected kernel. Weak expansions and posterior-quantile transfer are separate applications on explicitly restricted model families.
 
-The [computational details](docs/COMPUTATION.md) connect the proof to its finite moment calculations, parameter inputs and exact error ledgers. [Code and evidence](EVIDENCE.md) provide the corresponding results and reproduction commands.
+The [computational details](docs/COMPUTATION.md) connect the proof to its finite moment calculations, parameter inputs and exact error ledgers. [Code and evidence](docs/EVIDENCE.md) provide the corresponding results and reproduction commands.
 
 [theodore.oy2025@gmail.com](mailto:theodore.oy2025@gmail.com) · [10@alumni.duke.edu](mailto:10@alumni.duke.edu)
 

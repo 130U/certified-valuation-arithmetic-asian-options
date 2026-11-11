@@ -1,6 +1,6 @@
 # From the proof to the finite calculations
 
-This note explains how the quantities in the [paper](../manuscript/report.md) are evaluated and checked. The [mathematical structure](MATHEMATICAL-STRUCTURE.md) gives the argument in outline; [EVIDENCE.md](../EVIDENCE.md) identifies the programs, exact results and reproduction commands.
+This note explains how the quantities in the [paper](../manuscript/report.md) are evaluated and checked. The [mathematical structure](MATHEMATICAL-STRUCTURE.md) gives the argument in outline; [EVIDENCE.md](EVIDENCE.md) identifies the programs, exact results and reproduction commands.
 
 ## Weighted moments and the geometric scale
 
@@ -173,4 +173,4 @@ The exact ledgers reconcile interval endpoints and their component allowances. S
 
 The alternative weighted-moment computation uses a hyperbolic matrix flow and separate reverse-grid indexing; the alternative linear computation uses complex recursions and exponential flow blocks. Both retain the same mathematical bounds and Arb arithmetic. Their agreement tests implementation consistency. Saved-result verification checks identities and rational ledgers, while a fresh execution recomputes the finite interval calculations. The proofs supply the mathematical assumptions connecting those calculations to the price statements.
 
-[Paper](../manuscript/report.md) · [Mathematical structure](MATHEMATICAL-STRUCTURE.md) · [Evidence and reproduction](../EVIDENCE.md)
+[Paper](../manuscript/report.md) · [Mathematical structure](MATHEMATICAL-STRUCTURE.md) · [Evidence and reproduction](EVIDENCE.md)

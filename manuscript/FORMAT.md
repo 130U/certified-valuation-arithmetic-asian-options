@@ -1,6 +1,6 @@
 # Article
 
-[English PDF](../paper/paper.pdf) · [Read online](report.md) · [Code and evidence](../EVIDENCE.md)
+[English PDF](../paper/paper.pdf) · [Read online](report.md) · [Code and evidence](../docs/EVIDENCE.md)
 
 The 2026 paper is available as a PDF and a GitHub-readable article. Both are generated from the same author-side source. The online format uses display mathematics and inline formulas compatible with GitHub rendering, with stable equation numbers and reference anchors.
 
@@ -13,4 +13,4 @@ python scripts/check_report.py
 python scripts/verify_publication.py
 ```
 
-These checks validate document identity, formula inventory and the recorded numerical evidence. The [computational details](../docs/COMPUTATION.md) explain the quantities evaluated by the programs, and [EVIDENCE.md](../EVIDENCE.md) supplies the result links and reproduction commands.
+These checks validate document identity, formula inventory and the recorded numerical evidence. The [computational details](../docs/COMPUTATION.md) explain the quantities evaluated by the programs, and [EVIDENCE.md](../docs/EVIDENCE.md) supplies the result links and reproduction commands.
