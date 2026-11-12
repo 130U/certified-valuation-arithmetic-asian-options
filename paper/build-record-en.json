@@ -5,17 +5,17 @@
   "builder": "ReportLab / MathJax",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "22f3a79fabbdfb5bb45af8df5b9499a329fc216ed878e1cdb05d322d57e523f0",
-    "bytes": 4032751,
+    "sha256": "879ed30b3ee7e589cb6e777cc2871624ec685bd1e72c1a0568103856abecc93e",
+    "bytes": 4032950,
     "pages": 41
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "4161138c0580cf5a33ed39f73c9dca7156eaf5b1b360d9bfaab1a45fbd2ebea3"
+    "sha256": "91d994e392935a5899548273c0940a4e7413fe451861b0819941412c15655731"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "9f21758037c09cf2b94538f34c10d6fa20a0b02541635f6146b5e6c34248a676",
+    "sha256": "adffc3224c37cdddb22d60f52ddcbcd768a80847748af67c7d4bd7426ea58220",
     "retained_locally": true
   },
   "builder_sha256": "031a4cd1d08b79e354d4be6c7fd6a6a423a8fa1fdfebb1892298c1b28844769b",
@@ -34,7 +34,7 @@
   ],
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "22f3a79fabbdfb5bb45af8df5b9499a329fc216ed878e1cdb05d322d57e523f0",
+    "pdf_sha256": "879ed30b3ee7e589cb6e777cc2871624ec685bd1e72c1a0568103856abecc93e",
     "page_coverage": "All 41 page text and content streams checked; pages 1–24 rendered and inspected.",
     "render_engine": "MuPDF",
     "render_dpi": 108,

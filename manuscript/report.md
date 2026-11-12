@@ -14,7 +14,7 @@ Conditional Representation, Geometric Reference and Heston Error Bounds
 
 ## Abstract
 
-How much numerical error is introduced when a Heston arithmetic Asian price is computed under a projected Euler law? We answer this question at a fixed time step for a bounded call spread with discrete monitoring. Integrating a Gaussian factor shared by every fixing gives an exact conditional price. The geometric average preserves this factor and has a logarithm that is linear in the observed log prices, making it a tractable reference for the arithmetic payoff. Convexity and an explicit curvature calculation then bound the residual by a second moment weighted by the inverse square root of first-period integrated variance. Combining this bound with validated transforms yields a signed enclosure for the Euler-minus-continuous price difference. For a one-year, twelve-fixing 95–110 spread at the specified Heston parameters and step $`h=1/768`$, this enclosure is
+How much numerical error is introduced when a Heston arithmetic Asian price is computed under a projected Euler law? We answer this question at a fixed time step for a bounded call spread with discrete monitoring, in the form of a signed enclosure for the Euler-minus-continuous price difference. For a one-year, twelve-fixing 95–110 spread at the specified Heston parameters and step $`h=1/768`$, this enclosure is
 
 ```math
 [-0.011024692273,\;0.010642371599],
@@ -26,13 +26,15 @@ and the continuous price belongs to
 [6.508371733,\;6.518868974].
 ```
 
-The calculation includes variance projection, transform inversion, integration tails and rounding. The separate-law bound can retain a positive width even for identical laws; this explains why finer time steps alone do not make the certificate arbitrarily sharp. A direct coupling estimate preserves the missing cancellation and gives a narrower remainder bound in a deterministic-variance example. Weak expansions and posterior-quantile transfer are developed separately on their stated parameter families.
+The calculation includes variance projection, transform inversion, integration tails and rounding. It rests on three steps. Integrating a Gaussian factor shared by every fixing gives an exact conditional price. The geometric average preserves this factor and has a logarithm that is linear in the observed log prices, making it a tractable reference for the arithmetic payoff. Convexity and an explicit curvature calculation then bound the residual by a second moment weighted by the inverse square root of first-period integrated variance, and validated transforms evaluate the result. The separate-law bound can retain a positive width even for identical laws; this explains why finer time steps alone do not make the certificate arbitrarily sharp. A direct coupling estimate preserves the missing cancellation and gives a narrower remainder bound in a deterministic-variance example. Weak expansions and posterior-quantile transfer are developed separately on their stated parameter families.
 
 ## 1. Introduction
 
 A valuation system replaces a continuous stochastic-volatility model by a discrete law. Even when sampling error is negligible, the resulting price need not equal the price of the model that was calibrated. For an arithmetic Asian contract, this difference depends on the joint law at all fixing dates and on the kinks of the payoff. We ask for a finite bound, in price units, on the error introduced by one specified implementation: positive-part Euler for the variance and a log-price update using the current variance.
 
 The contract is a bounded arithmetic call spread with a fixed observation schedule. Fixing the schedule separates the time discretization of the dynamics from any approximation of a continuously monitored average. The call spread supplies a deterministic bound on the payoff. The model parameters and the discrete kernel remain fixed throughout the comparison; the question is about implementation error within this model and not about which model describes the market.
+
+For the one-year, twelve-fixing spread studied here, at 768 Euler steps, the answer is a signed interval less than .0217 wide. The projected-Euler price lies within .011025 of the continuous Heston price, and the payoff remainder accounts for about 94.5 percent of the interval's width. The rest of this introduction describes how the interval is built and why it has this width.
 
 The first step is an exact reduction. The independent stock noise accumulated before the first fixing enters every later stock price through a common lognormal multiplier. Conditioning on the variance driver and the remaining stock noise leaves an ordinary lognormal call integral. This integrates out the payoff kink but leaves an expectation over the other conditional variables, and the remaining task is to bound that outer expectation.
 
@@ -1096,7 +1098,7 @@ The separate-law remainder produces the width plateau in Section 8. Proposition 
 
 ## 10. Conclusion
 
-The valuation problem leads to three objects in sequence: an exact conditional lognormal price, a geometric reference compatible with the fixing-date transforms, and a convex remainder weighted by the available conditional smoothing. Together they determine the moment catalog and the error budget. For the stated Heston model and projected Euler kernel it gives a signed finite-step price enclosure with absolute bound below $`.011025`$, together with a validated continuous-price interval.
+For the stated Heston model and projected Euler kernel, the paper gives a signed finite-step price enclosure with absolute bound below $`.011025`$, together with a validated continuous-price interval. The enclosure is built from three objects in sequence: an exact conditional lognormal price, a geometric reference compatible with the fixing-date transforms, and a convex remainder weighted by the available conditional smoothing. Together they determine the moment catalog and the error budget.
 
 The same decomposition shows where the result stops. Separate bounds discard cancellation between the two remainder expectations and need not shrink when the laws approach one another. Refining a grid cannot by itself recover that information. The direct coupled estimate addresses the missing comparison and is evaluated here on the deterministic-variance face. Extending it to the stochastic-variance examples requires additional coupled-moment estimates. The weak-expansion and posterior-transfer results add consequences on their specified families and leave this boundary of the main certificate unchanged.
 
