@@ -4,7 +4,7 @@ This note explains how the quantities in the [paper](../manuscript/report.md) ar
 
 ## Weighted moments and the geometric scale
 
-The twelve-fixing square expands into arithmetic-square, arithmetic–geometric and geometric-square terms. Combining repeated loadings gives the 91 real profiles in Appendix A. Each of the three positive moment groups has total coefficient 10000 at $`S_0=100`$. The finite catalog is determined by this expansion.
+The twelve-fixing square expands into arithmetic-square, arithmetic–geometric and geometric-square terms. Combining repeated loadings gives the 91 real profiles in Appendix A. Each of the three positive moment groups has total coefficient 10000 at $`S_0=100`$. This expansion determines the finite catalog.
 
 For each law, the conditional standard deviation is $`\sigma_\nu=\sqrt{1-\rho^2}\sqrt{I_\nu}`$. Section 4.1 assumes finite raw weighted moments before expanding the square. With
 
@@ -21,9 +21,9 @@ c_*=1+\frac{\sum_\nu E_\nu[(A-G)G I_\nu^{-1/2}]}
                  {\sum_\nu E_\nu[G^2 I_\nu^{-1/2}]}.
 ```
 
-Both Laplace integrands are nonnegative and nonincreasing in their nonnegative argument. The calculation subtracts the $`AG`$ and $`G^2`$ profiles at each node before integrating their difference. This retains cancellation while allowing Darboux bounds for the resulting positive integrand.
+Both Laplace integrands are nonnegative and nonincreasing in their nonnegative argument. The calculation subtracts the $`AG`$ and $`G^2`$ profiles at each node before integrating their difference. The cancellation is kept, and the resulting positive integrand still admits Darboux bounds.
 
-The nodal projection allowances are $`10000\delta_Q`$ for $`G^2`$, $`20000\delta_Q`$ for $`(A-G)G`$, and $`10000(1+c)^2\delta_Q`$ for the square. The continuous tail of a positive moment is bounded by $`10000C e^{-\zeta X}/\zeta`$. Since $`0\le(A-G)G\le AG`$, the same positive $`AG`$ tail controls the difference moment. The discrete tail uses $`I_Q\ge hv_0`$ and the outward nodal value at the cutoff. All inverse-square-root integrals retain their factor $`2/\sqrt\pi`$.
+The nodal projection allowances are $`10000\delta_Q`$ for $`G^2`$, $`20000\delta_Q`$ for $`(A-G)G`$, and $`10000(1+c)^2\delta_Q`$ for the square. The continuous tail of a positive moment is bounded by $`10000C e^{-\zeta X}/\zeta`$. Since $`0\le(A-G)G\le AG`$, the same positive $`AG`$ tail controls the difference moment. The discrete tail uses $`I_Q\ge hv_0`$ and the outward nodal value at the cutoff. All inverse-square-root integrals carry their factor $`2/\sqrt\pi`$.
 
 The scale bracket determines a rational candidate before the square and linear terms are evaluated. Rounding its midpoint to a lattice of spacing $`10^{-7}`$ adds at most $`5\cdot10^{-8}`$ to its distance from the exact midpoint. A bound on its exact-objective loss therefore uses
 
@@ -33,7 +33,7 @@ J(c_{\mathrm{selected}})-J(c_*)
 \left(\frac{c_+-c_-}{2}+5\cdot10^{-8}\right)^2,
 ```
 
-where $`d_{\mathrm{upper}}`$ is in $`\sigma^{-1}`$ units. Directly evaluating the full price construction at the selected rational scale includes that scale exactly. Minimizing the exact quadratic and minimizing a computed enclosure with its quadrature allowances are distinct optimization problems.
+where $`d_{\mathrm{upper}}`$ is in $`\sigma^{-1}`$ units. Directly evaluating the full price construction at the selected rational scale includes that scale exactly. Minimizing the exact quadratic is a different problem from minimizing a computed enclosure with its quadrature allowances.
 
 ## Changing the Euler step
 
@@ -67,7 +67,7 @@ The second stochastic-variance calculation uses
 =(3,9/200,23/100,-11/20,1/25).
 ```
 
-The contract, scale, fixing dates and $`h=1/768`$ agree with the principal calculation. Riccati coefficients, loading barriers and projection-prefix recurrences depend on $`\kappa,\kappa\bar v,\xi,\rho`$ and the transform arguments, and retain their form when only $`v_0`$ changes. The following quantities use the specified $`v_0`$ in every evaluation:
+The contract, scale, fixing dates and $`h=1/768`$ agree with the principal calculation. Riccati coefficients, loading barriers and projection-prefix recurrences depend on $`\kappa,\kappa\bar v,\xi,\rho`$ and the transform arguments, and keep their form when only $`v_0`$ changes. The following quantities use the specified $`v_0`$ in every evaluation:
 
 | Quantity | Dependence |
 | --- | --- |
@@ -91,7 +91,7 @@ For the enlarged stock-loading interval $`[-5/4,5/2]`$, the continuous generator
 
 The coupling example uses $`\xi=0`$ and the exact integrated variances in Section 6. Positive initial and long-run variance, with $`0\lt1-\kappa h\lt1`$, keep the deterministic Euler variance positive. Its projection is inactive. The combined stock driver $`\rho W+\sqrt{1-\rho^2}B`$ is Brownian, so the deterministic-variance stock law is independent of $`\rho`$.
 
-After removing the first centered monthly normal, the remaining conditional factors have the form $`100\exp(m+u\cdot Z)`$, with eleven independent standard normal coordinates. Their means retain the drift of the entire observation interval, including the first month. Every pair moment is evaluated through
+After removing the first centered monthly normal, the remaining conditional factors have the form $`100\exp(m+u\cdot Z)`$, with eleven independent standard normal coordinates. Their means carry the drift of the entire observation interval, including the first month. Every pair moment is evaluated through
 
 ```math
 E\left[100e^{m+u\cdot Z}\,100e^{n+v\cdot Z}\right]
@@ -163,14 +163,14 @@ With $`C=e^{-rT}(\psi(A)-7.5)`$, the expectations $`E[CS_d]`$ and $`E[C(L_h-1-hS
 
 ## Posterior cells and target transfer
 
-The posterior calculation uses the restricted prior and synthetic quotes specified in Section 7 and Appendix F. Endpoint reference put prices, monotonicity in variance and the positive-$`\xi`$ perturbation radii give price intervals over each complete initial-variance cell and nuisance slab. Likelihood squares are bounded term by term, and integer endpoints are rounded outward on the $`2^{-96}`$ lattice. CDF bounds retain the common cell masses in numerator and denominator.
+The posterior calculation uses the restricted prior and synthetic quotes specified in Section 7 and Appendix F. Endpoint reference put prices, monotonicity in variance and the positive-$`\xi`$ perturbation radii give price intervals over each complete initial-variance cell and nuisance slab. Likelihood squares are bounded term by term, and integer endpoints are rounded outward on the $`2^{-96}`$ lattice. CDF bounds keep the common cell masses in numerator and denominator.
 
-The 8192- and 16384-cell calculations check 32768 and 65536 whole-cell weight containments, respectively. Their inverse-CDF pairings support the target-price quantile displacement bounds in the paper. The stored absolute 2.5, 50 and 97.5 percent quantile brackets instead concern the initial-variance marginal. These two outputs answer different questions and retain their own units.
+The 8192- and 16384-cell calculations check 32768 and 65536 whole-cell weight containments, respectively. Their inverse-CDF pairings support the target-price quantile displacement bounds in the paper. The stored absolute 2.5, 50 and 97.5 percent quantile brackets instead concern the initial-variance marginal. The two outputs answer different questions, each in its own units.
 
 ## Verification and evidence
 
-The exact ledgers reconcile interval endpoints and their component allowances. Source and result hashes bind each calculation to its inputs and executed program. Complete execution requires all expected jobs and result files; an analytical exclusion, acceptance-target failure or resource stop retains its specific classification.
+The exact ledgers reconcile interval endpoints and their component allowances. Source and result hashes bind each calculation to its inputs and executed program. Complete execution requires all expected jobs and result files; an analytical exclusion, an acceptance-target failure and a resource stop are each recorded as such.
 
-The alternative weighted-moment computation uses a hyperbolic matrix flow and separate reverse-grid indexing; the alternative linear computation uses complex recursions and exponential flow blocks. Both retain the same mathematical bounds and Arb arithmetic. Their agreement tests implementation consistency. Saved-result verification checks identities and rational ledgers, while a fresh execution recomputes the finite interval calculations. The proofs supply the mathematical assumptions connecting those calculations to the price statements.
+The alternative weighted-moment computation uses a hyperbolic matrix flow and separate reverse-grid indexing; the alternative linear computation uses complex recursions and exponential flow blocks. Both use the same mathematical bounds and Arb arithmetic, so their agreement tests implementation consistency. Saved-result verification checks identities and rational ledgers, while a fresh execution recomputes the finite interval calculations. The proofs supply the mathematical assumptions connecting those calculations to the price statements.
 
 [Paper](../manuscript/report.md) · [Mathematical structure](MATHEMATICAL-STRUCTURE.md) · [Evidence and reproduction](EVIDENCE.md)

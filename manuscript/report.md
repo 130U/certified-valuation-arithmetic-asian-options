@@ -32,11 +32,11 @@ The calculation includes variance projection, transform inversion, integration t
 
 A valuation system replaces a continuous stochastic-volatility model by a discrete law. Even when sampling error is negligible, the resulting price need not equal the price of the model that was calibrated. For an arithmetic Asian contract, this difference depends on the joint law at all fixing dates and on the kinks of the payoff. We ask for a finite bound, in price units, on the error introduced by one specified implementation: positive-part Euler for the variance and a log-price update using the current variance.
 
-The contract is a bounded arithmetic call spread with a fixed observation schedule. Fixing the schedule separates the time discretization of the dynamics from any approximation of a continuously monitored average. The call spread supplies a deterministic bound on the payoff. The model parameters and the discrete kernel remain fixed throughout the comparison; the question concerns implementation error within this model, rather than uncertainty about which model describes the market.
+The contract is a bounded arithmetic call spread with a fixed observation schedule. Fixing the schedule separates the time discretization of the dynamics from any approximation of a continuously monitored average. The call spread supplies a deterministic bound on the payoff. The model parameters and the discrete kernel remain fixed throughout the comparison; the question is about implementation error within this model and not about which model describes the market.
 
-The first step is an exact reduction. The independent stock noise accumulated before the first fixing enters every later stock price through a common lognormal multiplier. Conditioning on the variance driver and the remaining stock noise leaves an ordinary lognormal call integral. This integrates out the payoff kink, but still leaves an expectation over the other conditional variables. The remaining task is to bound this outer expectation.
+The first step is an exact reduction. The independent stock noise accumulated before the first fixing enters every later stock price through a common lognormal multiplier. Conditioning on the variance driver and the remaining stock noise leaves an ordinary lognormal call integral. This integrates out the payoff kink but leaves an expectation over the other conditional variables, and the remaining task is to bound that outer expectation.
 
-The geometric average supplies a natural reference. It scales in exactly the same way as the arithmetic average under the common Gaussian factor, and its logarithm is a linear combination of the fixing-date log prices. The first property permits a conditional Taylor expansion; the second permits affine-transform evaluation. A weighted least-squares criterion characterizes the optimal exact scale and provides a benchmark for assessing the rational scale used in the finite calculation.
+The geometric average is a natural reference. It scales in exactly the same way as the arithmetic average under the common Gaussian factor, and its logarithm is a linear combination of the fixing-date log prices. The first property allows a conditional Taylor expansion, and the second allows evaluation by affine transforms. A weighted least-squares criterion characterizes the optimal exact scale and provides a benchmark for assessing the rational scale used in the finite calculation.
 
 Conditional curvature determines the weight in that criterion. If $`A`$ and $`G`$ denote the arithmetic and geometric averages and $`I`$ is the first-period integrated variance, the nonlinear error is controlled by
 
@@ -44,7 +44,7 @@ Conditional curvature determines the weight in that criterion. If $`A`$ and $`G`
 E\!\left[(A-cG)^2 I^{-1/2}\right].
 ```
 
-The inverse square root appears because less conditional variance gives less smoothing at a strike. Expanding the square produces the finite moment catalog needed for the proof; in the twelve-fixing case it contains 91 real loadings. The linear term requires one distribution transform and twelve stock-weighted transforms. Thus both catalogs follow from the contract and the exact decomposition.
+The inverse square root appears because less conditional variance gives less smoothing at a strike. Expanding the square produces the finite moment catalog needed for the proof; in the twelve-fixing case it contains 91 real loadings. The linear term requires one distribution transform and twelve stock-weighted transforms. Both catalogs are thus fixed by the contract and the exact decomposition.
 
 Writing $`\mathcal L`$ for the linear reference payoff and $`R_{K,\nu}`$ for its nonnegative call remainder under law $`\nu`$, the price difference has the exact form
 
@@ -56,17 +56,17 @@ e_h=e^{-rT}\bigl[&(E_{Q_h}\mathcal L-E_P\mathcal L)\\
 \tag{1.1}
 ```
 
-This identity separates the two mathematical tasks. The transform calculation must enclose the linear difference under the actual projected kernel. The remainder argument must control what is lost by replacing the arithmetic payoff with its reference. Lemma 3.1 gives the weighted remainder bound, and Theorem 4.1 combines the two parts into a signed interval. Appendices A–C verify the moment, projection, inversion and tail estimates needed to evaluate that interval.
+The identity splits the work in two. The transform calculation has to enclose the linear difference under the actual projected kernel, and the remainder argument has to control what is lost when the arithmetic payoff is replaced by its reference. Lemma 3.1 gives the weighted remainder bound, and Theorem 4.1 combines the two parts into a signed interval. Appendices A–C verify the moment, projection, inversion and tail estimates needed to evaluate that interval.
 
-There is a limitation inherent in separate-law bounds. When the two laws coincide, their remainders cancel exactly in (1.1), but separate upper bounds need not cancel. The resulting width can therefore remain positive as the time step decreases. Section 4 identifies this obstruction analytically before examining the numerical grid study. Appendix H derives a direct bound on the difference of the remainders; its deterministic-variance example shows what can be gained by retaining the relation between the laws. The corresponding coupled moments remain uncomputed at the stochastic-variance Heston points.
+Separate-law bounds have a built-in limitation. When the two laws coincide, their remainders cancel exactly in (1.1), but separate upper bounds need not cancel. The resulting width can therefore remain positive as the time step decreases. Section 4 identifies this obstruction analytically before examining the numerical grid study. Appendix H derives a direct bound on the difference of the remainders; its deterministic-variance example shows what can be gained by retaining the relation between the laws. The corresponding coupled moments have not been computed at the stochastic-variance Heston points.
 
-Conditioning and geometric reference variables have a well-established role in Asian option pricing [[1](#ref-1), [2](#ref-2), [3](#ref-3), [4](#ref-4)]. In particular, Fusai and Kyriakou treat Heston Asian options and derive conditional-variance error bounds [[4](#ref-4)]. Heston's affine structure supplies the continuous transforms [[5](#ref-5)]; recursive transforms for discrete geometric averages are also available [[6](#ref-6), [7](#ref-7)]. The result here concerns the weighted kink remainder and its combination with complete error accounting for the original projected Euler law. Neither the use of a geometric reference nor the general principle of conditioning is claimed as new.
+Conditioning and geometric reference variables have a well-established role in Asian option pricing [[1](#ref-1), [2](#ref-2), [3](#ref-3), [4](#ref-4)]. In particular, Fusai and Kyriakou treat Heston Asian options and derive conditional-variance error bounds [[4](#ref-4)]. Heston's affine structure supplies the continuous transforms [[5](#ref-5)]; recursive transforms for discrete geometric averages are also available [[6](#ref-6), [7](#ref-7)]. Our result concerns the weighted kink remainder and its combination with complete error accounting for the original projected Euler law. We claim neither the geometric reference nor the general principle of conditioning as new.
 
 Sections 2 and 3 develop the exact conditional representation and the payoff decomposition. Section 4 states the price certificate and explains its width. Section 5 verifies the common-factor structure for deterministic variance and Heston dynamics. Sections 6 and 7 study weak expansions and posterior transfer on separate parameter families. Section 8 uses the numerical certificates to examine the terms predicted by the analysis; Section 9 records the boundaries of the results.
 
 ### 1.1 Comparison with conditional Asian bounds
 
-Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The following table identifies the particular mathematical and computational objects studied here. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution.
+Fusai and Kyriakou [[4](#ref-4)] already obtain optimized conditioning bounds for Heston Asian options (Sections 2.2–3), conditional-variance error bounds (Theorem 4, equations (51)–(54)), and experiments at several monitoring frequencies (Section 5.1, Table 5). The table below shows which mathematical and computational objects are studied here. Our principal result is the finite error enclosure for the original kernel (2.2), built from a payoff remainder weighted by first-period integrated variance and a validated computation of every stated error contribution.
 
 Their conditional-variance argument uses a monotonicity condition on the relevant conditional expectation, which they check numerically in their experiments (Appendix A, p. 22).
 
@@ -82,7 +82,7 @@ Page references in Table 1 use the internal numbering of the accepted manuscript
 | Finite arithmetic | An outward-rounded error budget is not reported in the cited paper. | Rational endpoint combination and ball-arithmetic enclosures include rounding with the other finite errors (Appendices A–C and G). |
 | Certified output | Lower-bound approximation error (Theorem 4); no executable signed Euler-minus-continuous enclosure is reported. | Signed $`p_h-p_c`$ interval at the specified parameters and grid (Theorem 4.1 and Corollary 4.2), traceable to the accompanying executable package. |
 
-The increment studied here is the weighted remainder and its combination with error control for the original projected kernel. Section 4 analyzes the resulting certificate width.
+What this paper adds is the weighted remainder and its combination with error control for the original projected kernel. Section 4 analyzes the width of the resulting certificate.
 
 ### 1.2 Three distinct domains of validity
 
@@ -179,7 +179,7 @@ D_\nu(c):=E_\nu\!\left[\frac{(A-cG)^2}{\sigma}\right]\lt \infty.
 \tag{2.7}
 ```
 
-Here $`c\gt 0`$ is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition already contains the price-difference conclusion to be proved.
+Here $`c\gt 0`$ is a constant chosen in advance. Condition (2.6) describes the stochastic structure of the model, while (2.7) is an integrability condition that can be checked through moments or Laplace transforms. Neither condition presupposes the price-difference conclusion.
 
 ### 2.3 Exact conditional valuation
 
@@ -222,7 +222,7 @@ E[e^{sZ}\mathbf1_{\{Z\gt q\}}]=e^{s^2/2}\Phi(s-q),\qquad P(Z\gt q)=\Phi(-q).
 
 Substitution gives (2.9). Apply it at the two strikes and then take expectations. Integrability follows from (2.7), and the conditional spread itself lies between zero and $`K_2-K_1`$. $`\square`$
 
-Formula (2.10) solves the one-dimensional conditional integration exactly. It does not evaluate the outer expectation over the variance path and the remaining stock noise. That distinction is the reason for the approximation in the next section: we seek a transform-computable reference and an explicit bound on the residual in this exact representation.
+Formula (2.10) does the one-dimensional conditional integration exactly, but it leaves the outer expectation over the variance path and the remaining stock noise. This is why the next section introduces an approximation: we look for a reference that transforms can compute and an explicit bound on the residual in this exact representation.
 
 ## 3. A geometric reference and the weighted payoff remainder
 
@@ -230,9 +230,9 @@ Formula (2.10) solves the one-dimensional conditional integration exactly. It do
 
 Both averages inherit the common multiplier in (2.6): $`A=e^Ua`$ and $`G=e^Ug`$. The geometric average also satisfies $`\log(G/S_0)=n^{-1}\sum_i Z_{t_i}`$, so products of its powers with stock prices are exponential-affine loadings of the fixing-date log prices. These two properties connect the conditional price to the available transform formulas.
 
-There is a simple characterization within this class. Suppose a positive monomial reference has the form $`C\prod_i s_i^{w_i}`$, with $`C\gt 0`$ and real exponents. Invariance under every permutation of the fixing prices forces all exponents to agree, while degree-one homogeneity forces their sum to be one. Consequently $`w_i=1/n`$, and the reference is $`CG`$. This statement concerns monomials; it does not assert optimality among all symmetric functions of the prices.
+There is a simple characterization within this class. Suppose a positive monomial reference has the form $`C\prod_i s_i^{w_i}`$, with $`C\gt 0`$ and real exponents. Invariance under every permutation of the fixing prices forces all exponents to agree, while degree-one homogeneity forces their sum to be one. Consequently $`w_i=1/n`$, and the reference is $`CG`$. The statement is about monomials only and says nothing about optimality among all symmetric functions of the prices.
 
-We therefore expand the exact conditional call about $`cg`$, with one positive constant used under both laws. Convexity determines the sign of the residual. Its curvature determines the moment needed to bound it. Section 4.1 characterizes the scale minimizing the exact nonlinear width and compares an enclosure of that optimizer with the rational scale used in the certificate.
+We therefore expand the exact conditional call about $`cg`$, with one positive constant used under both laws. Convexity fixes the sign of the residual, and curvature fixes the moment needed to bound it. Section 4.1 characterizes the scale minimizing the exact nonlinear width and compares an enclosure of that optimizer with the rational scale used in the certificate.
 
 ### 3.2 Conditional curvature and the remainder
 
@@ -296,7 +296,7 @@ E[(A-cG)^2\mid\mathcal G]=e^{2\sigma^2}(a-cg)^2,
 
 taking expectations proves (3.2). The call and linear terms are integrable because $`E(A+G)\lt \infty`$. The conditional second-moment identity is used in the sense of nonnegative conditional expectations, and the weighted remainder is controlled by $`D_\nu(c)\lt \infty`$.  $`\square`$
 
-The crucial point is that the two factors $`e^{2\sigma^2}`$ match exactly. Consequently, the curvature contribution from conditional smoothing can be expressed directly as a weighted second moment under the true model. The residual $`A-cG`$ may have either sign.
+The point of the proof is that the two factors $`e^{2\sigma^2}`$ match exactly, so the curvature contribution from conditional smoothing becomes a weighted second moment under the true model. The residual $`A-cG`$ may have either sign.
 
 ### 3.3 The payoff decomposition
 
@@ -318,7 +318,7 @@ E_\nu\psi(A)=E_\nu\mathcal L+R_{K_1,\nu}-R_{K_2,\nu}.
 \tag{3.5}
 ```
 
-This identity retains the original arithmetic payoff as the object of interest, while producing a linear part that can be computed using a small number of transforms.
+The identity keeps the original arithmetic payoff as the object of interest and produces a linear part that a small number of transforms can compute.
 
 Let $`Y=\log(G/S_0)`$ and $`y_K=\log(K/(cS_0))`$, and define the distribution functions of two positive measures by
 
@@ -389,7 +389,7 @@ u+\gamma\!\left(\frac{d_Q}{K_1}+\frac{d_P}{K_2}\right)
 
 *Proof.* Apply (3.5) to each law and subtract. The lower-end contributions are $`-R_{K_2,Q}-R_{K_1,P}`$, and the upper-end contributions are $`R_{K_1,Q}+R_{K_2,P}`$. Lemma 3.1 and (4.1) give the result.  $`\square`$
 
-The final step of the theorem is interval combination after the probabilistic and analytic bounds have been established. Its mathematical substance lies in Lemma 3.1 and the rigorous verification of $`\mathsf H_v`$. The resulting interval is generally not symmetric about zero, and its center is retained in the computation.
+Once the probabilistic and analytic bounds are in place, the theorem itself is interval combination; the mathematical substance lies in Lemma 3.1 and in the rigorous verification of $`\mathsf H_v`$. The resulting interval is generally not symmetric about zero, and the computation keeps its center.
 
 **Corollary 4.2 (The specified Heston parameter point).** For (2.1)–(2.5), take
 
@@ -575,7 +575,7 @@ E(A-cG)^2=\frac1{n^2}\sum_{i,j}ES_iS_j
 
 whose terms are all Gaussian exponential moments. The corresponding finite transforms and Gaussian tails likewise have explicit bounds. Thus, for a single law with effectively computable inputs, $`\mathsf H`$ holds; for two such laws, Theorem 4.1 gives the price-difference enclosure.
 
-This shows that classical lognormal conditioning models fit within the framework. Identifying the common structure allows the same payoff-level argument to apply to different variance mechanisms; the model itself supplies the particular constants and computational catalog.
+Classical lognormal conditioning models therefore fit within the framework. Once the common structure is identified, the same payoff-level argument applies to different variance mechanisms, and the model supplies the particular constants and the computational catalog.
 
 ### 5.2 Heston dynamics and the projected variance kernel
 
@@ -610,7 +610,7 @@ The transform and tail bounds in the appendices verify $`W_\nu\lt \infty`$ and s
 
 ### 5.3 Why a boundary atom does not destroy smoothing
 
-The Gaussian factor depends on integrated variance over the first fixing interval. It does not require variance to have a positive density at every grid point. This distinction matters for a projected scheme, whose one-step transition can have an atom at zero.
+The Gaussian factor depends on integrated variance over the first fixing interval and does not need the variance to have a positive density at every grid point. That matters for a projected scheme, whose one-step transition can have an atom at zero.
 
 At the parameters in (4.3), the continuous variance is random:
 
@@ -771,7 +771,7 @@ the second-order remainder for the original Asian payoff has the uniform upper b
 \tag{6.11}
 ```
 
-The leading Asian coefficient has the exact integral representation (6.7) and an effective absolute bound. This common expansion treats several nonsmooth payoffs through one integrable density perturbation, with every remainder constant retained explicitly.
+The leading Asian coefficient has the exact integral representation (6.7) and an effective absolute bound. This common expansion treats several nonsmooth payoffs through one integrable density perturbation and keeps every remainder constant explicit.
 
 ### 6.1 Asian coefficient bounds and numerical illustration
 
@@ -959,7 +959,7 @@ The finite partition encloses the continuous posterior and retains the full norm
 
 ## 8. Numerical consequences of the error decomposition
 
-The numerical calculations address three predictions of the preceding analysis: whether the separate-law bound meets a fixed monetary tolerance, which term prevents the width from shrinking under refinement, and whether retaining a coupling can reduce that term in an analytically tractable case. The weak-expansion and posterior calculations retain their separate domains in Table 2. Simulation diagnostics are identified explicitly and are not used to certify any interval.
+The numerical calculations take up three questions raised by the preceding analysis: whether the separate-law bound meets a fixed monetary tolerance, which term keeps the width from shrinking under refinement, and whether a coupling can reduce that term in an analytically tractable case. The weak-expansion and posterior calculations keep their separate domains from Table 2. Simulation diagnostics are labeled as such and are not used to certify any interval.
 
 ### 8.1 From formulas to certified monetary bounds
 
@@ -1006,7 +1006,7 @@ At $`h=1/192`$, the fixed projection proof gives $`\beta=184040303/23040000\lt 8
 | Periodization | 0.000782917272 | 0.000782917272 | 0.000782917272 |
 | Rounding and endpoints | 1E-12 | 1E-12 | 1E-12 |
 
-Table 8 reports width contributions rather than one-sided error radii; rounding them separately can change their displayed sum. The nonlinear shares are approximately 95.5, 94.5, and 92.8 percent as the grid is refined. At the finest step, the increase in the discrete frequency-tail contribution exceeds the decreases in the payoff remainder and projection contribution. The frequency-tail bound in (C.7) uses the first-step lower bound $`i_0=hv_0`$, so refining the Euler grid alone does not tighten this fixed inversion design. This width plateau describes the enclosure, rather than the true price error.
+Table 8 reports width contributions rather than one-sided error radii; rounding them separately can change their displayed sum. The nonlinear shares are approximately 95.5, 94.5, and 92.8 percent as the grid is refined. At the finest step, the increase in the discrete frequency-tail contribution exceeds the decreases in the payoff remainder and projection contribution. The frequency-tail bound in (C.7) uses the first-step lower bound $`i_0=hv_0`$, so refining the Euler grid alone does not tighten this fixed inversion design. The plateau is a property of the enclosure and not of the true price error.
 
 ### 8.3 A second stochastic-variance parameter point
 
@@ -1096,9 +1096,9 @@ The separate-law remainder produces the width plateau in Section 8. Proposition 
 
 ## 10. Conclusion
 
-The valuation problem leads to a specific sequence of objects: an exact conditional lognormal price, a geometric reference compatible with the fixing-date transforms, and a convex remainder weighted by the available conditional smoothing. This sequence determines the moment catalog and the error budget. For the stated Heston model and projected Euler kernel it gives a signed finite-step price enclosure with absolute bound below $`.011025`$, together with a validated continuous-price interval.
+The valuation problem leads to three objects in sequence: an exact conditional lognormal price, a geometric reference compatible with the fixing-date transforms, and a convex remainder weighted by the available conditional smoothing. Together they determine the moment catalog and the error budget. For the stated Heston model and projected Euler kernel it gives a signed finite-step price enclosure with absolute bound below $`.011025`$, together with a validated continuous-price interval.
 
-The same decomposition identifies the limitation of the result. Separate bounds discard cancellation between the two remainder expectations and need not shrink when the laws approach one another. Refining a grid cannot by itself recover that information. The direct coupled estimate addresses the missing comparison and is evaluated here on the deterministic-variance face. Extending it to the stochastic-variance examples requires additional coupled-moment estimates. The weak-expansion and posterior-transfer results provide further consequences on their specified families, without changing this boundary of the main certificate.
+The same decomposition shows where the result stops. Separate bounds discard cancellation between the two remainder expectations and need not shrink when the laws approach one another. Refining a grid cannot by itself recover that information. The direct coupled estimate addresses the missing comparison and is evaluated here on the deterministic-variance face. Extending it to the stochastic-variance examples requires additional coupled-moment estimates. The weak-expansion and posterior-transfer results add consequences on their specified families and leave this boundary of the main certificate unchanged.
 
 ## Appendix A. Finite certification of the weighted second moment
 
