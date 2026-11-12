@@ -18,8 +18,8 @@
       "sha256": "8288901460b662a8c5a8a1ea326286dccaefd51d01850e2de155b9cc550d5014"
     },
     "README.md": {
-      "bytes": 2882,
-      "sha256": "033333936a0f576afae3397f30b25221e51e325c02ddf98b630ad5162163827b"
+      "bytes": 2930,
+      "sha256": "3679be4292c3287ffc781744de3a8d813649c4263f2a32f8ce640c0b74426f61"
     },
     "code/DATA.md": {
       "bytes": 1221,
@@ -302,16 +302,16 @@
       "sha256": "5e6f92bb254dda2ad222de0eff17abb0323c42a7f5c7456d495b0f430e742db3"
     },
     "docs/COMPUTATION.md": {
-      "bytes": 12842,
-      "sha256": "8e270724525cae3a897b473f9031960cfea85375423d6462731b028c63790169"
+      "bytes": 12807,
+      "sha256": "1a481e3a48ab10cf267f5244150c051112c96e1bb0de3fd993799b9483f153cb"
     },
     "docs/EVIDENCE.md": {
       "bytes": 5385,
       "sha256": "404cb1da710a2cd96b0227b1e2ea3617adfa6f39db82b672fbb35793c55ddc60"
     },
     "docs/MATHEMATICAL-STRUCTURE.md": {
-      "bytes": 2598,
-      "sha256": "f97658437c80d3e7b66dadffa55aabcb6f8acd92d9cae956bedf99a5b34d8ac2"
+      "bytes": 2671,
+      "sha256": "4c2f1d92cf9374a14a884179bbc270584348da0ab326b1da39681df3b58cadd3"
     },
     "manuscript/FORMAT.md": {
       "bytes": 1174,
@@ -319,23 +319,23 @@
     },
     "manuscript/content-verification.json": {
       "bytes": 605,
-      "sha256": "c3615ca0ca68175d08c3a1fab0f7e7d21a6fa0cf6f5e61d512b88e329a82fc74"
+      "sha256": "e98d3ec4a309c5dfaae852bcf791c5acc1a604c466e09ca663734b80dcfaafd9"
     },
     "manuscript/equations.json": {
       "bytes": 15032,
       "sha256": "1e122fc5b1972f5c36868148c25b55998186efe3dc85cf03531ba72162d80a0e"
     },
     "manuscript/report.md": {
-      "bytes": 108110,
-      "sha256": "364490abe9dd924cde9da71d775342ad3b64e46894a461772a5f4a2d917c507b"
+      "bytes": 108201,
+      "sha256": "4161138c0580cf5a33ed39f73c9dca7156eaf5b1b360d9bfaab1a45fbd2ebea3"
     },
     "paper/build-record-en.json": {
-      "bytes": 1608,
-      "sha256": "6ddb81d85d75b39bd7aeafa018a5ec97bf8cc5151fb0f74eae276f0b1f0204a2"
+      "bytes": 1607,
+      "sha256": "ff9e0e1fe95ecd2c7fffc9e388d7fdc1e86b0cc23ad13d8f6149bce8bdcbfa95"
     },
     "paper/paper.pdf": {
-      "bytes": 4034457,
-      "sha256": "7dd5fd0a9c945250e1e73874dad6bdf5c8a03c4e31e060c0ee81efade9bdfafe"
+      "bytes": 4032751,
+      "sha256": "22f3a79fabbdfb5bb45af8df5b9499a329fc216ed878e1cdb05d322d57e523f0"
     },
     "scripts/check_report.py": {
       "bytes": 5348,
