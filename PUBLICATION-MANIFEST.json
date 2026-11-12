@@ -9,6 +9,14 @@
       "bytes": 181,
       "sha256": "da11e4862b358cac580547fcdba66dc3536e95838e77158d1021403ff7984b40"
     },
+    ".github/readme/banner.png": {
+      "bytes": 438451,
+      "sha256": "1dd7aee0854bb4aec9e35c8f83dc70e2bbc14d1491b58fdd0d24ef516ecb361b"
+    },
+    ".github/readme/certificate.png": {
+      "bytes": 65133,
+      "sha256": "277a8aa6851847e3aa2e90735e00ebc72b59778326e134795533df4fce1c2e32"
+    },
     ".github/workflows/verify.yml": {
       "bytes": 2040,
       "sha256": "f2378c2b70d01adb03298732b49c3abf2bbc84961bbc297983cb5f5591984cbb"
@@ -18,8 +26,8 @@
       "sha256": "8288901460b662a8c5a8a1ea326286dccaefd51d01850e2de155b9cc550d5014"
     },
     "README.md": {
-      "bytes": 2930,
-      "sha256": "3679be4292c3287ffc781744de3a8d813649c4263f2a32f8ce640c0b74426f61"
+      "bytes": 5524,
+      "sha256": "1822fd4c371a95374dacc7ad517d21e3e53621cc7f2fe944d67e9995fd822906"
     },
     "code/DATA.md": {
       "bytes": 1221,
