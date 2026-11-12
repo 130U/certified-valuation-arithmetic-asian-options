@@ -984,6 +984,8 @@ We compute reported widths from the exact ledger and round them outward, so subt
 
 ### 8.2 Step-grid certificates and the width plateau
 
+Refining the Euler step narrows the certificate once and then stops. The width is about .0280 at 384 steps and about .0217 at both 768 and 1536.
+
 Table 7 changes the Euler step and retains the main Heston parameters, payoff, fixing dates and transform catalogs. Every successful row includes the full error accounting and the alternative numerical checks described in Appendix G.
 
 **Table 7. Signed Heston price-difference certificates at four Euler grids.**
@@ -1011,6 +1013,8 @@ The first row fails because of the fixed projection proof: at $`h=1/192`$ it giv
 The entries of Table 8 are width contributions, not one-sided error radii, and rounding them separately can change their displayed sum. As the grid is refined the nonlinear shares are approximately 95.5, 94.5, and 92.8 percent. The total width no longer improves at the finest step, where the discrete frequency-tail contribution grows by more than the payoff remainder and projection contribution shrink. The frequency-tail bound in (C.7) uses the first-step lower bound $`i_0=hv_0`$, so refining the Euler grid alone does not tighten this fixed inversion design. The plateau describes the enclosure, not the true price error.
 
 ### 8.3 A second stochastic-variance parameter point
+
+The certificate also holds at a second initial variance, where the signed interval is about 7 percent wider.
 
 Keep the contract, twelve monthly fixings, $`h=1/768`$, and all parameters in (4.3) except the initial variance, which is now $`v_0=.04`$. We evaluate the weighted moments, projection prefixes, transforms, and continuous and discrete tails afresh at this point. The same growth estimate gives $`\exp(.6+4v_0)=\exp(.76)`$, so the retained $`\exp(.78)`$ moment allowance remains conservative. All real-loading, denominator, coefficient and complex branch conditions pass both numerical constructions.
 
