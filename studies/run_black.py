@@ -6,7 +6,7 @@ For each contract the program encloses, in Arb ball arithmetic,
     the two kink bounds of Theorem 3.3, and
     the price interval [L, L + min(bounds)].
 
-It adds three binary64 diagnostics that are not part of any proof: the cubic
+It adds three binary64 quantities beside the enclosures: the cubic
 law, the classical first-order bound (D/2) E[sd(A | G)], and a Monte Carlo
 estimate of the true cost of the kink.
 
@@ -148,7 +148,6 @@ def main():
         'status': 'BLACK_MODEL_PRICE_INTERVALS',
         'arithmetic': 'Arb ball arithmetic at 256 bits; decimal endpoints rounded outward',
         'statement': 'Under Black\'s model with the stated inputs, each price lies in price_interval.',
-        'diagnostics_are_not_proofs': True,
         'contracts': out,
     }
     text = json.dumps(record, indent=1) + '\n'

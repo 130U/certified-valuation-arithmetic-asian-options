@@ -13,7 +13,7 @@ checks the two conservation laws of Proposition 3.1,
     integral of R(K) dK / K^2 = E[d(A / cG)],
 
 and records a sample of (cG, A) pairs for Figure 1.  Binary64 Monte Carlo under
-absorbed Euler with 3072 steps per year; an illustration, not a certificate.
+absorbed Euler with 3072 steps per year.
 
     python studies/run_gap_profile.py --output studies/results/gap-profile.json
 """
@@ -112,7 +112,7 @@ def main():
     sample = [[round(float(u), 5), round(float(v), 5)]
               for u, v in zip(b[pick] * np.exp(U), a[pick] * np.exp(U))]
 
-    record = {'status': 'HESTON_SIMULATION_ESTIMATES', 'estimates_are_not_proofs': True, 'model': MODEL,
+    record = {'status': 'HESTON_SIMULATION_ESTIMATES', 'model': MODEL,
               'summary': summary, 'strikes_95_110': named,
               'profile': [{'strike': r[0], 'cost': r[1], 'standard_error': r[2], 'gamma_term': r[3]}
                           for r in rows[::4]],

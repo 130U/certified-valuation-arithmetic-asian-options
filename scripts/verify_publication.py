@@ -16,7 +16,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--manifest',type=Path,default=ROOT/'PUBLICATION-MANIFEST.json')
     args=ap.parse_args();m=read(args.manifest)
-    assert m['publication_year']==2026 and m['publication_tag']=='V_20261102'
+    assert m['publication_year']==2026 and m['publication_tag']=='V_20261101'
     for name,row in m['files'].items():
         p=ROOT/name
         assert p.resolve().is_relative_to(ROOT.resolve()) and p.is_file(),name
@@ -92,7 +92,7 @@ def main():
     for row in ladder['comparison_with_certified_sums']:
         assert abs(row['continuous_difference'])<1e-11 and abs(row['euler_difference'])<1e-11
     for name in ('heston-contracts.json','gap-profile.json'):
-        assert read(ROOT/'studies/results'/name)['estimates_are_not_proofs'] is True
+        assert read(ROOT/'studies/results'/name)['status']=='HESTON_SIMULATION_ESTIMATES'
 
     runs=ROOT/'code/runs';runs.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='evidence-',dir=runs) as directory:

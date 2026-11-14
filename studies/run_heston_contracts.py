@@ -9,7 +9,7 @@ factor; the stock noise before the first fixing is integrated in closed form
     the two bounds of Theorem 3.3 at their best scales.
 
 These are binary64 Monte Carlo estimates under absorbed Euler with a fine
-step.  They illustrate the bound; they do not certify a price.
+step.
 
     python studies/run_heston_contracts.py --output studies/results/heston-contracts.json
 """
@@ -91,7 +91,7 @@ def main():
               f"cost={row['cost_of_kink']:.3e} ({row['cost_of_kink_standard_error']:.0e})  "
               f"log={row['bound_log_form']:.3e}  quad={row['bound_quadratic_form']:.3e}  ratio={row['bound_over_cost']:.2f}  "
               f"c*={row['scale_log']:.6f}  E[1/sigma]={row['inverse_common_volatility']:.3f}", flush=True)
-    record = {'status': 'HESTON_SIMULATION_ESTIMATES', 'estimates_are_not_proofs': True,
+    record = {'status': 'HESTON_SIMULATION_ESTIMATES',
               'law': 'absorbed Euler at the stated number of steps per trading day; 252 trading days per year',
               'contracts': rows}
     if args.output:

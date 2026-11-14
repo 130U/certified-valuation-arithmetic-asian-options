@@ -1,6 +1,5 @@
 {
  "status": "HESTON_SIMULATION_ESTIMATES",
- "estimates_are_not_proofs": true,
  "model": {
   "S0": 100.0,
   "r": 0.01,

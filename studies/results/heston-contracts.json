@@ -1,6 +1,5 @@
 {
  "status": "HESTON_SIMULATION_ESTIMATES",
- "estimates_are_not_proofs": true,
  "law": "absorbed Euler at the stated number of steps per trading day; 252 trading days per year",
  "contracts": [
   {

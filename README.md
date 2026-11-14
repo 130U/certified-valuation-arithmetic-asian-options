@@ -55,7 +55,7 @@ Conditioning on the geometric average goes back to Curran and to Rogers and Shi,
 - the reading of Euler's bias as an Euler error on the Riccati equation, and on the deterministic face as a vega times a quadrature error;
 - a transfer of the fixed-parameter bounds to every posterior quantile after calibration.
 
-- [Mathematical structure](docs/MATHEMATICAL-STRUCTURE.md): the argument in seven steps and its limits.
+- [Mathematical structure](docs/MATHEMATICAL-STRUCTURE.md): the argument in seven steps.
 - [Computational details](docs/COMPUTATION.md): how the proofs connect to finite calculations.
 - [Code and evidence](docs/EVIDENCE.md): each result with its program and its exact output.
 
