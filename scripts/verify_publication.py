@@ -79,6 +79,21 @@ def main():
         assert F(results['width_ratio_direct_over_separate']['exact_interval'][1])<F('0.005731')
         assert results['strict_improvement_proved_by_disjoint_width_bounds'] and run['closed_pair_moment_identity_checks']==459
 
+    black=read(ROOT/'studies/results/black-contracts.json')
+    assert black['status']=='BLACK_MODEL_PRICE_INTERVALS' and len(black['contracts'])==12
+    for row in black['contracts']:
+        lo,hi=map(F,row['price_interval']);proxy_lo,proxy_hi=map(F,row['proxy_value'])
+        bound=min(F(row['bound_log_form'][1]),F(row['bound_quadratic_form'][1]))
+        assert 0<lo==proxy_lo<=proxy_hi<hi<=proxy_hi+bound+F(1,10**12),row['name']
+        assert F(row['bound_over_strike'][1])*F(row['inputs']['strike'])>=hi-proxy_hi-F(1,10**11),row['name']
+    ladder=read(ROOT/'studies/results/euler-ladder.json')
+    assert ladder['status']=='EULER_LADDER' and [r['steps_per_year'] for r in ladder['rungs']]==[12*2**k for k in range(12)]
+    assert [r['steps_per_year'] for r in ladder['comparison_with_certified_sums']]==[384,768,1536]
+    for row in ladder['comparison_with_certified_sums']:
+        assert abs(row['continuous_difference'])<1e-11 and abs(row['euler_difference'])<1e-11
+    for name in ('heston-contracts.json','gap-profile.json'):
+        assert read(ROOT/'studies/results'/name)['estimates_are_not_proofs'] is True
+
     runs=ROOT/'code/runs';runs.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='evidence-',dir=runs) as directory:
         work=Path(directory)

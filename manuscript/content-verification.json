@@ -3,18 +3,19 @@
   "publication_year": 2026,
   "counts": {
     "main_sections": 10,
-    "appendices": 8,
-    "display_math": 179,
-    "inline_math": 521,
-    "equation_tags": 97,
-    "unique_tags": 97,
+    "appendices": 9,
+    "display_math": 197,
+    "inline_math": 948,
+    "equation_tags": 118,
+    "unique_tags": 118,
     "tables": 14,
-    "references": 13
+    "figures": 4,
+    "references": 35
   },
-  "formula_sequence_sha256": "7194b343db958f95a99290d5d22fec807a4a921efe843f367a63f6019ff1b211",
+  "formula_sequence_sha256": "b48e1df6cc1d47a12a335a47f3c239b4feda5468bc59ff6c2d8ba6382559c569",
   "source_to_output_formula_sequence_preserved": true,
-  "scope": "Article identity, complete mathematical sequence and numbered formula inventory.",
+  "scope": "Article identity, complete mathematical sequence, numbered formula inventory and figures.",
   "artifacts": {
-    "report.md": "7f7ccced6e8c9d4f37859028633db14ead260a4a907ba461f1dc54b5fd95cac4"
+    "report.md": "e656141e7008ca673b20fbcd6f5b309fe7f9b4508ecfdf99821bddda3fbd3d51"
   }
 }

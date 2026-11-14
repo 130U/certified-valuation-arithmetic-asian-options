@@ -2,43 +2,47 @@
   "status": "PASS",
   "language": "en",
   "publication_year": 2026,
-  "builder": "ReportLab / MathJax",
+  "builder": "LaTeX, typeset with Tectonic 0.17.0",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "eeb346112e6f0f5b647576db24686c9b12fa0943bbdab204a05bccc5b9cbcbbd",
-    "bytes": 4033189,
-    "pages": 41
+    "sha256": "7af84370163fdf6ccb794c601b5ff4857d174f3df1fe170745db7e927b00a80d",
+    "bytes": 429479,
+    "pages": 49
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "7f7ccced6e8c9d4f37859028633db14ead260a4a907ba461f1dc54b5fd95cac4"
+    "sha256": "e656141e7008ca673b20fbcd6f5b309fe7f9b4508ecfdf99821bddda3fbd3d51"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "2824e96605599f937f9b3a6cdfb67a3c66225b4a035a336062bc2b03d0509f21",
+    "sha256": "3f1c66e59a4eb1025e9201fb0e607f33ac3358d566e354caedc17c6993bb60c3",
     "retained_locally": true
   },
-  "builder_sha256": "031a4cd1d08b79e354d4be6c7fd6a6a423a8fa1fdfebb1892298c1b28844769b",
-  "formula_sequence_sha256": "7194b343db958f95a99290d5d22fec807a4a921efe843f367a63f6019ff1b211",
+  "builder_sha256": "d1e8294cccbc2249b47bd0368dc89a652ab5dcaf1e25e7a7a120a73b3bf47bc8",
+  "formula_sequence_sha256": "b48e1df6cc1d47a12a335a47f3c239b4feda5468bc59ff6c2d8ba6382559c569",
   "mathematical_counts": {
-    "display_math": 179,
-    "inline_math": 521,
-    "equation_tags": 97,
+    "display_math": 197,
+    "inline_math": 948,
+    "equation_tags": 118,
     "tables": 14,
-    "references": 13
+    "references": 35
   },
-  "pdf_and_online_article_match": "Generated from the same author source; complete formula sequence and generated body checked. The online article adds a navigation row.",
+  "figures": {
+    "disagreement.png": "4fa29af11bfaa77a27d428dc1af1eda4d28818b24f7d42147ce36d42c8036508",
+    "cubic-law.png": "214488981adaf4e650cc119435127ca33cd9c5a3485547ad956f0f05cbd0090f",
+    "profile.png": "fea5a4f95a4595eaec597655608f7d18fd5a95b6610cc97c61fd9378c96e4179",
+    "euler-ladder.png": "a95a7cae22d4be05c922602a736d1aa63de7a45143daefdd138f2926bf1a0f3d"
+  },
+  "pdf_and_online_article_match": "Generated from the same author source. Every numbered equation of the article appears in the PDF with the same number; the article adds a navigation row.",
   "build_commands": [
     "python scripts/build_report.py",
-    "python scripts/pdf/build_pdf.py --language en --node NODE_EXECUTABLE"
+    "tectonic manuscript/report.tex"
   ],
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "eeb346112e6f0f5b647576db24686c9b12fa0943bbdab204a05bccc5b9cbcbbd",
-    "page_coverage": "All 41 page text and content streams checked; pages 20–25 rendered and inspected.",
+    "pdf_sha256": "7af84370163fdf6ccb794c601b5ff4857d174f3df1fe170745db7e927b00a80d",
+    "page_coverage": "All 49 pages rendered at 78 dpi and inspected in pairs.",
     "render_engine": "MuPDF",
-    "render_dpi": 108,
-    "clipping_overlap_or_overflow_found": [],
-    "internal_link_targets_valid": true
+    "clipping_overlap_or_overflow_found": []
   }
 }

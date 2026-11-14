@@ -6,7 +6,7 @@ The [paper](../manuscript/report.md), [PDF](../paper/paper.pdf), programs and nu
 
 | Calculation | Program | Result |
 | --- | --- | --- |
-| Principal Heston price certificate | [Numerical runner](../code/run.py) and [core calculations](../code/core) | [Weighted moments](../code/reference/asian-remainder-result.json), [linear term and price interval](../code/reference/asian-linear-result.json) |
+| Heston price certificate (Corollary 5.2) | [Numerical runner](../code/run.py) and [core calculations](../code/core) | [Weighted moments](../code/reference/asian-remainder-result.json), [linear term and price interval](../code/reference/asian-linear-result.json) |
 | Euler step comparison and exact width components | [Step calculation](../code/experiments/asian_step_grid.py) | [Step and width ledger](../code/results/step-grid.json) |
 | Common geometric scale | [Grouped weighted moments](../code/experiments/weighted_grid.py) | [Scale calculation in the paper](../manuscript/report.md) and [execution evidence](../code/evidence/executions.zip) |
 | Second Heston point, $`v_0=.04`$ | [Parameter-point calculation](../code/experiments/asian_parameter_point.py) | [Price result](../code/results/point-v004-result.json), [inputs and analytical conditions](../code/results/point-v004-preflight.json), [execution receipt](../code/results/point-v004-receipt.json) |
@@ -15,6 +15,10 @@ The [paper](../manuscript/report.md), [PDF](../paper/paper.pdf), programs and nu
 | Gaussian score illustration | [Sampling calculation](../code/experiments/asian_beta_diagnostic.py) | [Estimates and standard errors](../code/results/asian-beta-diagnostic.json) |
 | Heston path illustration | [Coupled path calculation](../code/experiments/heston_path_diagnostics.py) | [Sampling results](../code/results/path-diagnostics.json) |
 | Posterior quantile transfer | [Cell calculation](../code/experiments/posterior_grid.py) | [CDF envelopes and displacement bounds](../code/results/posterior-grid.json) |
+| Price intervals in Black's model (Table 1) | [Closed forms in ball arithmetic](../studies/run_black.py) | [Enclosures and diagnostics](../studies/results/black-contracts.json) |
+| Cost of the kink under Heston (Table 2) | [Conditional simulation](../studies/run_heston_contracts.py) | [Estimates and standard errors](../studies/results/heston-contracts.json) |
+| Cost across strikes and conservation laws (Section 5.5) | [Strike profile](../studies/run_gap_profile.py) | [Profile, masses and sample](../studies/results/gap-profile.json) |
+| Euler bias of the proxy value (Table 8) | [Transform ladder and coupled simulation](../studies/run_euler_ladder.py) | [Ladder and comparison with the certified sums](../studies/results/euler-ladder.json) |
 
 The [execution archive](../code/evidence/executions.zip) contains the source copies, exact outputs, worker traces and job records used by these calculations. Its [receipt](../code/evidence/receipt.json) identifies the archive and member inventory. The [evidence read-back](../code/results/evidence-readback.json) records the checks of these materials. Analytical guards, result-acceptance targets and resource stops have distinct entries in the evidence.
 
@@ -27,6 +31,14 @@ python scripts/check_report.py
 python scripts/verify_publication.py
 python code/run.py verify
 python code/verification/read_evidence.py --directory evidence-check --output evidence-readback.json
+```
+
+The [studies](../studies/README.md) have their own checks, which recompute the ball-arithmetic enclosures and the deterministic ladder:
+
+```sh
+python -m pip install -r studies/requirements.txt
+python studies/run_black.py --check studies/results/black-contracts.json
+python studies/run_euler_ladder.py --check studies/results/euler-ladder.json
 ```
 
 Use a new directory name for each archive read-back. The [reader](../code/verification/read_evidence.py) checks the complete archive and its exact result ledgers using the Python standard library. [Parameter-point checks](../code/verification/check_parameter_point.py), [runner integrity tests](../code/verification/test_run_integrity.py) and [parameter-runner boundary tests](../code/verification/test_parameter_point_boundary.py) exercise the corresponding validation rules.
