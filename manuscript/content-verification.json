@@ -12,10 +12,10 @@
     "figures": 4,
     "references": 35
   },
-  "formula_sequence_sha256": "3c3c7136309422caa7cc8c90ee3a052f7f09071cf0713cda15f648e8821b0dca",
+  "formula_sequence_sha256": "1919da949407e7d1d5880dc258255005da0dee28a766aea70e19f346744ecab6",
   "source_to_output_formula_sequence_preserved": true,
   "scope": "Article identity, complete mathematical sequence, numbered formula inventory and figures.",
   "artifacts": {
-    "report.md": "698581dfd9ab7831c0df7a647c56675b32823d14cf24b4edd5bdc7f56290e3a9"
+    "report.md": "8e9b0772e5a760caf8310195857a929a73b52b13799a9887b6a6452980ccce3a"
   }
 }

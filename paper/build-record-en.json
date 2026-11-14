@@ -5,21 +5,21 @@
   "builder": "LaTeX, typeset with Tectonic 0.17.0",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "ac4dfe7bb59fb404806f1eedbe3cb04a70899db99dd5c0cc6859e5d3da2145a8",
-    "bytes": 429765,
+    "sha256": "ff72e1c4128e6858bd47c60e827bdaf1748d3bd37d3725a6ef0a13710b712251",
+    "bytes": 457198,
     "pages": 49
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "698581dfd9ab7831c0df7a647c56675b32823d14cf24b4edd5bdc7f56290e3a9"
+    "sha256": "8e9b0772e5a760caf8310195857a929a73b52b13799a9887b6a6452980ccce3a"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "8062827d9135b37f2af35b54189292de1839f3c6231082db7fbdbae58a1f7bcf",
+    "sha256": "59c5f72220b9303f78b9a21ff4cd9108a6bbee0543fa76de4c27a3c69dca5313",
     "retained_locally": true
   },
-  "builder_sha256": "d1e8294cccbc2249b47bd0368dc89a652ab5dcaf1e25e7a7a120a73b3bf47bc8",
-  "formula_sequence_sha256": "3c3c7136309422caa7cc8c90ee3a052f7f09071cf0713cda15f648e8821b0dca",
+  "builder_sha256": "1d4cb96ebec0f601fd671992fd9fcfe841787a6c1453d2273ae85eec7ec94c57",
+  "formula_sequence_sha256": "1919da949407e7d1d5880dc258255005da0dee28a766aea70e19f346744ecab6",
   "mathematical_counts": {
     "display_math": 197,
     "inline_math": 951,
@@ -40,7 +40,7 @@
   ],
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "ac4dfe7bb59fb404806f1eedbe3cb04a70899db99dd5c0cc6859e5d3da2145a8",
+    "pdf_sha256": "ff72e1c4128e6858bd47c60e827bdaf1748d3bd37d3725a6ef0a13710b712251",
     "page_coverage": "All 49 pages rendered at 78 dpi and inspected in pairs.",
     "render_engine": "MuPDF",
     "clipping_overlap_or_overflow_found": []

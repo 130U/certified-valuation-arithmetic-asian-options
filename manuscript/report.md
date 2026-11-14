@@ -14,6 +14,8 @@ The Cost of Exercising on the Geometric Average
 
 **JEL classification:** G13; C63; C65.
 
+**MSC 2020:** 91G20; 91G60; 60H35; 65G30.
+
 ## Abstract
 
 An arithmetic Asian option is worth more than the same payoff when exercise is decided by a scaled geometric average of the fixings. We call the difference the cost of the kink and prove three things about it. It is the expected overshoot on the event that the two averages fall on opposite sides of the strike. Integrated across strikes with the weights that replicate a log contract, it equals a Bregman divergence between the two averages. Whenever the return before the first fixing has a conditionally Gaussian component with volatility $`\sigma`$, it is at most
@@ -806,7 +808,7 @@ Table 5 repeats the certificate at other steps, and Table 6 separates the widths
 | Periodization | 0.000782917272 | 0.000782917272 | 0.000782917272 |
 | Rounding and endpoints | $`10^{-12}`$ | $`10^{-12}`$ | $`10^{-12}`$ |
 
-At $`h=1/192`$ the sufficient condition of Appendix B fails (its exponent is $`184040303/23040000\lt 8`$), so that step has no certificate. At the other three the cost of the kink is 95.5, 94.5 and 92.8 percent of the width. The width stops improving at the finest step because the tail bound for the discrete transforms rests on the floor $`I_Q\ge hv_0`$ of (5.8), which weakens as $`h`$ falls. The plateau belongs to the enclosure. What the Euler error itself does under refinement is the subject of Section 6.
+At $`h=1/192`$ the sufficient condition of Appendix B fails: its exponent must exceed 8 and equals $`184040303/23040000`$. That step has no certificate. At the other three the cost of the kink is 95.5, 94.5 and 92.8 percent of the width. The width stops improving at the finest step because the tail bound for the discrete transforms rests on the floor $`I_Q\ge hv_0`$ of (5.8), which weakens as $`h`$ falls. The plateau belongs to the enclosure. What the Euler error itself does under refinement is the subject of Section 6.
 
 The certificate also holds at a second parameter point, $`v_0=.04`$ with everything else unchanged and $`h=1/768`$:
 
@@ -1240,7 +1242,7 @@ for the endpoints $`[\ell,u]`$ of (5.19).
 
 ### 8.2 A numerical line in the valuation reserve
 
-Supervisory guidance on model risk names numerical routines, approximations and implementation among the places where a model can go wrong and asks that their effect be quantified [[5](#ref-5)]. European prudent valuation rules require a model risk adjustment built from a range of plausible valuations at 90 percent confidence, or from expert judgement where no range can be produced [[15](#ref-15)]. The numerical part of that uncertainty, the distance between the number a system prints and the price under the model it claims to implement, is usually handled by judgement. The results here replace judgement by an inequality in three situations.
+Supervisory guidance on model risk asks that validation establish whether a model performs as expected and identify its limitations and errors [[5](#ref-5)]. European prudent valuation rules require a model risk adjustment built from a range of plausible valuations at 90 percent confidence, or from expert judgement where no range can be produced [[15](#ref-15)]. The numerical part of that uncertainty, the distance between the number a system prints and the price under the model it claims to implement, is usually handled by judgement. The results here replace judgement by an inequality in three situations.
 
 For the monthly average options of Table 1 the closed-form proxy value is the Black price to within a hundredth of a cent per barrel, proved, and Table 2 puts the cost of the kink at the same order under stochastic volatility. No numerical reserve is needed for the kink.
 
@@ -2443,7 +2445,7 @@ in ball arithmetic.
 
 <a id="ref-5"></a>
 
-5. Board of Governors of the Federal Reserve System and Office of the Comptroller of the Currency. Supervisory Guidance on Model Risk Management. SR Letter 11-7 and OCC Bulletin 2011-12, 4 April 2011. [https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm).
+5. Board of Governors of the Federal Reserve System, Federal Deposit Insurance Corporation, and Office of the Comptroller of the Currency. Revised Guidance on Model Risk Management. SR Letter 26-2, 17 April 2026. [https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm).
 
 <a id="ref-6"></a>
 
