@@ -2,7 +2,7 @@
 
 [English PDF](../paper/paper.pdf) · [Read online](report.md) · [Code and evidence](../docs/EVIDENCE.md)
 
-The 2026 paper is available as a PDF and a GitHub-readable article. Both are generated from the same author-side source. The online format uses display mathematics and inline formulas compatible with GitHub rendering, with stable equation numbers and reference anchors.
+The 2026 paper is available as a PDF and a GitHub-readable article. Both are generated from the same author-side source, and every equation carries the same number in both. The online format uses display mathematics and inline formulas compatible with GitHub rendering, with stable equation numbers and reference anchors. The four figures are in [figures](figures); each is drawn from a result file in [studies/results](../studies/results).
 
 [equations.json](equations.json) inventories the numbered formulas. [content-verification.json](content-verification.json) records the formula sequence and article hash. The [PDF build record](../paper/build-record-en.json) binds the PDF, article and locally retained typesetting source; [PUBLICATION-MANIFEST.json](../PUBLICATION-MANIFEST.json) inventories the complete publication.
 

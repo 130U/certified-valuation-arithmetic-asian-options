@@ -1,0 +1,665 @@
+{
+ "status": "BLACK_MODEL_PRICE_INTERVALS",
+ "arithmetic": "Arb ball arithmetic at 256 bits; decimal endpoints rounded outward",
+ "statement": "Under Black's model with the stated inputs, each price lies in price_interval.",
+ "diagnostics_are_not_proofs": true,
+ "contracts": [
+  {
+   "name": "wti-1m",
+   "description": "Crude oil average price option: one calendar month of daily settlements, one month ahead",
+   "kind": "call",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "70",
+    "strike": "70",
+    "variance_rate": "49/400",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 21,
+    "first_fixing_years": "1/12",
+    "last_fixing_years": "41/252"
+   },
+   "proxy_value": [
+    "3.206407917721",
+    "3.206407917722"
+   ],
+   "bound_log_form": [
+    "0.000080493209",
+    "0.000080493210"
+   ],
+   "bound_quadratic_form": [
+    "0.000081302765",
+    "0.000081302766"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000850281696",
+    "1.000850281697"
+   ],
+   "price_interval": [
+    "3.206407917721",
+    "3.206488410932"
+   ],
+   "bound_over_strike": [
+    "0.000001149902995",
+    "0.000001149902996"
+   ],
+   "bound_in_quote_steps": [
+    "0.008049",
+    "0.008050"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 1.0367194128512294e-06,
+    "first_order_bound": 0.025897380048126917,
+    "simulated_cost": 5.227671291129472e-05,
+    "simulated_cost_standard_error": 1.2430207516621095e-07,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "wti-3m",
+   "description": "The same option three months ahead",
+   "kind": "call",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "70",
+    "strike": "70",
+    "variance_rate": "49/400",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 21,
+    "first_fixing_years": "1/4",
+    "last_fixing_years": "83/252"
+   },
+   "proxy_value": [
+    "5.058864876378",
+    "5.058864876379"
+   ],
+   "bound_log_form": [
+    "0.000046163988",
+    "0.000046163989"
+   ],
+   "bound_quadratic_form": [
+    "0.000047590058",
+    "0.000047590059"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000850281696",
+    "1.000850281697"
+   ],
+   "price_interval": [
+    "5.058864876378",
+    "5.058911040367"
+   ],
+   "bound_over_strike": [
+    "0.000000659485545",
+    "0.000000659485546"
+   ],
+   "bound_in_quote_steps": [
+    "0.004616",
+    "0.004617"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 5.98550232083768e-07,
+    "first_order_bound": 0.026241625952572685,
+    "simulated_cost": 3.8793930539685426e-05,
+    "simulated_cost_standard_error": 1.1292411273168062e-07,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "wti-6m",
+   "description": "The same option six months ahead",
+   "kind": "call",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "70",
+    "strike": "70",
+    "variance_rate": "49/400",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 21,
+    "first_fixing_years": "1/2",
+    "last_fixing_years": "73/126"
+   },
+   "proxy_value": [
+    "6.906595756745",
+    "6.906595756746"
+   ],
+   "bound_log_form": [
+    "0.000032318067",
+    "0.000032318068"
+   ],
+   "bound_quadratic_form": [
+    "0.000034352517",
+    "0.000034352518"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000850281696",
+    "1.000850281697"
+   ],
+   "price_interval": [
+    "6.906595756745",
+    "6.906628074813"
+   ],
+   "bound_over_strike": [
+    "0.000000461686673",
+    "0.000000461686674"
+   ],
+   "bound_in_quote_steps": [
+    "0.003231",
+    "0.003232"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 4.2323892798721414e-07,
+    "first_order_bound": 0.02606216960036274,
+    "simulated_cost": 2.9274687512474483e-05,
+    "simulated_cost_standard_error": 9.191086773819139e-08,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "wti-12m",
+   "description": "The same option twelve months ahead",
+   "kind": "call",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "70",
+    "strike": "70",
+    "variance_rate": "49/400",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 21,
+    "first_fixing_years": "1",
+    "last_fixing_years": "68/63"
+   },
+   "proxy_value": [
+    "9.431725731340",
+    "9.431725731341"
+   ],
+   "bound_log_form": [
+    "0.000022399818",
+    "0.000022399819"
+   ],
+   "bound_quadratic_form": [
+    "0.000025313850",
+    "0.000025313851"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000850281696",
+    "1.000850281697"
+   ],
+   "price_interval": [
+    "9.431725731340",
+    "9.431748131159"
+   ],
+   "bound_over_strike": [
+    "0.000000319997401",
+    "0.000000319997402"
+   ],
+   "bound_in_quote_steps": [
+    "0.002239",
+    "0.002240"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 2.99275116041884e-07,
+    "first_order_bound": 0.025570464217321717,
+    "simulated_cost": 2.0998188568520276e-05,
+    "simulated_cost_standard_error": 6.883043030914962e-08,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "wti-3m-put60",
+   "description": "Three months ahead, put struck at 60",
+   "kind": "put",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "70",
+    "strike": "60",
+    "variance_rate": "49/400",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 21,
+    "first_fixing_years": "1/4",
+    "last_fixing_years": "83/252"
+   },
+   "proxy_value": [
+    "1.315689237418",
+    "1.315689237419"
+   ],
+   "bound_log_form": [
+    "0.000039569132",
+    "0.000039569133"
+   ],
+   "bound_quadratic_form": [
+    "0.000055521735",
+    "0.000055521736"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000850281696",
+    "1.000850281697"
+   ],
+   "price_interval": [
+    "1.315689237418",
+    "1.315728806552"
+   ],
+   "bound_over_strike": [
+    "0.000000659485545",
+    "0.000000659485546"
+   ],
+   "bound_in_quote_steps": [
+    "0.003956",
+    "0.003957"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 5.98550232083768e-07,
+    "first_order_bound": 0.026241625952572685,
+    "simulated_cost": 2.77765049896083e-05,
+    "simulated_cost_standard_error": 1.0275646226186896e-07,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "wti-3m-call80",
+   "description": "Three months ahead, call struck at 80",
+   "kind": "call",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "70",
+    "strike": "80",
+    "variance_rate": "49/400",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 21,
+    "first_fixing_years": "1/4",
+    "last_fixing_years": "83/252"
+   },
+   "proxy_value": [
+    "1.850312476213",
+    "1.850312476214"
+   ],
+   "bound_log_form": [
+    "0.000052758843",
+    "0.000052758844"
+   ],
+   "bound_quadratic_form": [
+    "0.000041641301",
+    "0.000041641302"
+   ],
+   "bound_used": "quadratic",
+   "scale": [
+    "1.000850280954",
+    "1.000850280955"
+   ],
+   "price_interval": [
+    "1.850312476213",
+    "1.850354117516"
+   ],
+   "bound_over_strike": [
+    "0.000000520516269",
+    "0.000000520516270"
+   ],
+   "bound_in_quote_steps": [
+    "0.004164",
+    "0.004165"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 5.98550232083768e-07,
+    "first_order_bound": 0.026241625952572685,
+    "simulated_cost": 3.3347870150635334e-05,
+    "simulated_cost_standard_error": 1.226931086999095e-07,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "copper-3m",
+   "description": "Copper traded average price option: one month of official settlements, three months ahead",
+   "kind": "call",
+   "unit": "USD per tonne",
+   "inputs": {
+    "spot": "9500",
+    "strike": "9500",
+    "variance_rate": "121/2500",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 22,
+    "first_fixing_years": "1/4",
+    "last_fixing_years": "1/3"
+   },
+   "proxy_value": [
+    "432.887071884794",
+    "432.887071884795"
+   ],
+   "bound_log_form": [
+    "0.001699639609",
+    "0.001699639610"
+   ],
+   "bound_quadratic_form": [
+    "0.001720193594",
+    "0.001720193595"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000351648594",
+    "1.000351648595"
+   ],
+   "price_interval": [
+    "432.887071884794",
+    "432.888771524405"
+   ],
+   "bound_over_strike": [
+    "0.000000178909432",
+    "0.000000178909433"
+   ],
+   "bound_in_quote_steps": [
+    "0.169963",
+    "0.169964"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 1.638864738315762e-07,
+    "first_order_bound": 1.4729014638490636,
+    "simulated_cost": 0.0014247603005695928,
+    "simulated_cost_standard_error": 4.115411713976439e-06,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "eurusd-quarter",
+   "description": "EUR/USD average-rate call: one quarter of daily fixings, three months ahead",
+   "kind": "call",
+   "unit": "USD per EUR",
+   "inputs": {
+    "spot": "11/10",
+    "strike": "11/10",
+    "variance_rate": "4/625",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 63,
+    "first_fixing_years": "1/4",
+    "last_fixing_years": "125/252"
+   },
+   "proxy_value": [
+    "0.019810000434",
+    "0.019810000435"
+   ],
+   "bound_log_form": [
+    "0.000000076614",
+    "0.000000076615"
+   ],
+   "bound_quadratic_form": [
+    "0.000000076736",
+    "0.000000076737"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.000133337065",
+    "1.000133337066"
+   ],
+   "price_interval": [
+    "0.019810000434",
+    "0.019810077049"
+   ],
+   "bound_over_strike": [
+    "0.000000069649266",
+    "0.000000069649267"
+   ],
+   "bound_in_quote_steps": [
+    "0.000766",
+    "0.000767"
+   ],
+   "quote_step": "1/10000",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 6.868941522860424e-08,
+    "first_order_bound": 6.279765024559073e-05,
+    "simulated_cost": 4.9904734556784836e-08,
+    "simulated_cost_standard_error": 1.2056711732540728e-10,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "annual-put",
+   "description": "Annual-average put on the scale of a sovereign oil hedge: strike 70, 330 million barrels",
+   "kind": "put",
+   "unit": "USD per barrel",
+   "inputs": {
+    "spot": "100",
+    "strike": "70",
+    "variance_rate": "4/25",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 252,
+    "first_fixing_years": "1/3",
+    "last_fixing_years": "335/252"
+   },
+   "proxy_value": [
+    "1.723884351571",
+    "1.723884351572"
+   ],
+   "bound_log_form": [
+    "0.009083112532",
+    "0.009083112533"
+   ],
+   "bound_quadratic_form": [
+    "0.019550823877",
+    "0.019550823878"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.013712156065",
+    "1.013712156066"
+   ],
+   "price_interval": [
+    "1.723884351571",
+    "1.732967464105"
+   ],
+   "bound_over_strike": [
+    "0.000129758750461",
+    "0.000129758750462"
+   ],
+   "bound_in_quote_steps": [
+    "0.908311",
+    "0.908312"
+   ],
+   "quote_step": "1/100",
+   "volume": 330000000,
+   "bound_times_volume": [
+    "2997427.13",
+    "2997427.14"
+   ],
+   "proxy_value_times_volume": [
+    "568881836.01",
+    "568881836.02"
+   ],
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 0.00012186935926118312,
+    "first_order_bound": 0.5205883406792259,
+    "simulated_cost": 0.004234699373407137,
+    "simulated_cost_standard_error": 1.655135611510007e-05,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "twelve-monthly-95",
+   "description": "Twelve monthly fixings over one year, call struck at 95 (the Black face of Section 5)",
+   "kind": "call",
+   "unit": "price units",
+   "inputs": {
+    "spot": "100",
+    "strike": "95",
+    "variance_rate": "9/200",
+    "carry": "1/100",
+    "rate": "1/100",
+    "fixings": 12,
+    "first_fixing_years": "1/12",
+    "last_fixing_years": "1"
+   },
+   "proxy_value": [
+    "8.216007547078",
+    "8.216007547079"
+   ],
+   "bound_log_form": [
+    "0.003572051835",
+    "0.003572051836"
+   ],
+   "bound_quadratic_form": [
+    "0.004128181793",
+    "0.004128181794"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.003738762889",
+    "1.003738762890"
+   ],
+   "price_interval": [
+    "8.216007547078",
+    "8.219579598914"
+   ],
+   "bound_over_strike": [
+    "0.000037600545633",
+    "0.000037600545634"
+   ],
+   "bound_in_quote_steps": [
+    "0.357205",
+    "0.357206"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 3.079213746888193e-05,
+    "first_order_bound": 0.13340468784924744,
+    "simulated_cost": 0.0007497534601323786,
+    "simulated_cost_standard_error": 1.7203984130369278e-06,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "twelve-monthly-110",
+   "description": "The same contract, call struck at 110",
+   "kind": "call",
+   "unit": "price units",
+   "inputs": {
+    "spot": "100",
+    "strike": "110",
+    "variance_rate": "9/200",
+    "carry": "1/100",
+    "rate": "1/100",
+    "fixings": 12,
+    "first_fixing_years": "1/12",
+    "last_fixing_years": "1"
+   },
+   "proxy_value": [
+    "1.994944273816",
+    "1.994944273817"
+   ],
+   "bound_log_form": [
+    "0.004136060019",
+    "0.004136060020"
+   ],
+   "bound_quadratic_form": [
+    "0.003565247912",
+    "0.003565247913"
+   ],
+   "bound_used": "quadratic",
+   "scale": [
+    "1.003776067739",
+    "1.003776067740"
+   ],
+   "price_interval": [
+    "1.994944273816",
+    "1.998509521730"
+   ],
+   "bound_over_strike": [
+    "0.000032411344662",
+    "0.000032411344663"
+   ],
+   "bound_in_quote_steps": [
+    "0.356524",
+    "0.356525"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 3.079213746888193e-05,
+    "first_order_bound": 0.13340468784924744,
+    "simulated_cost": 0.000761905889340279,
+    "simulated_cost_standard_error": 2.4817828050219346e-06,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  },
+  {
+   "name": "starts-tomorrow",
+   "description": "One year of daily fixings starting the next day: the unfavourable limit",
+   "kind": "call",
+   "unit": "price units",
+   "inputs": {
+    "spot": "100",
+    "strike": "100",
+    "variance_rate": "1/25",
+    "carry": "0",
+    "rate": "1/25",
+    "fixings": 252,
+    "first_fixing_years": "1/252",
+    "last_fixing_years": "1"
+   },
+   "proxy_value": [
+    "4.434265064962",
+    "4.434265064963"
+   ],
+   "bound_log_form": [
+    "0.013894333174",
+    "0.013894333175"
+   ],
+   "bound_quadratic_form": [
+    "0.013896471239",
+    "0.013896471240"
+   ],
+   "bound_used": "log",
+   "scale": [
+    "1.003356701947",
+    "1.003356701948"
+   ],
+   "price_interval": [
+    "4.434265064962",
+    "4.448159398138"
+   ],
+   "bound_over_strike": [
+    "0.000138943331749",
+    "0.000138943331750"
+   ],
+   "bound_in_quote_steps": [
+    "1.389433",
+    "1.389434"
+   ],
+   "quote_step": "1/100",
+   "binary64_diagnostics": {
+    "cubic_law_over_strike": 0.00013961889092753478,
+    "first_order_bound": 0.10532105294836701,
+    "simulated_cost": 0.0006785032447830509,
+    "simulated_cost_standard_error": 2.6550539831457725e-06,
+    "paths": 1048576,
+    "seed": 20261113
+   }
+  }
+ ]
+}

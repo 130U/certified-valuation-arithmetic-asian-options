@@ -1,12 +1,12 @@
 # From the proof to the finite calculations
 
-This note explains how the quantities in the [paper](../manuscript/report.md) are evaluated and checked. The [mathematical structure](MATHEMATICAL-STRUCTURE.md) gives the argument in outline; [EVIDENCE.md](EVIDENCE.md) identifies the programs, exact results and reproduction commands.
+This note explains how the quantities in the [paper](../manuscript/report.md) are evaluated and checked. The certified package calls the cost of the kink the payoff remainder and the proxy value the linear term; the file names below keep those words. The [mathematical structure](MATHEMATICAL-STRUCTURE.md) gives the argument in outline; [EVIDENCE.md](EVIDENCE.md) identifies the programs, exact results and reproduction commands.
 
 ## Weighted moments and the geometric scale
 
 The twelve-fixing square expands into arithmetic-square, arithmetic–geometric and geometric-square terms. Combining repeated loadings gives the 91 real profiles in Appendix A. Each of the three positive moment groups has total coefficient 10000 at $`S_0=100`$. This expansion determines the finite catalog.
 
-For each law, the conditional standard deviation is $`\sigma_\nu=\sqrt{1-\rho^2}\sqrt{I_\nu}`$. Section 4.1 assumes finite raw weighted moments before expanding the square. With
+For each law, the conditional standard deviation is $`\sigma_\nu=\sqrt{1-\rho^2}\sqrt{I_\nu}`$. Section 5.6 assumes finite raw weighted moments before expanding the square. With
 
 ```math
 a=\sum_\nu E_\nu[A^2/\sigma_\nu],\qquad
@@ -17,7 +17,7 @@ d=\sum_\nu E_\nu[G^2/\sigma_\nu]\gt0,
 the exact objective is $`J(c)=a-2bc+dc^2=J(b/d)+d(c-b/d)^2`$. The common correlation factor cancels from the optimizing ratio. Arithmetic–geometric mean gives the nonnegative representation
 
 ```math
-c_*=1+\frac{\sum_\nu E_\nu[(A-G)G I_\nu^{-1/2}]}
+c_\dagger=1+\frac{\sum_\nu E_\nu[(A-G)G I_\nu^{-1/2}]}
                  {\sum_\nu E_\nu[G^2 I_\nu^{-1/2}]}.
 ```
 
@@ -28,7 +28,7 @@ The nodal projection allowances are $`10000\delta_Q`$ for $`G^2`$, $`20000\delta
 The scale bracket determines a rational candidate before the square and linear terms are evaluated. Rounding its midpoint to a lattice of spacing $`10^{-7}`$ adds at most $`5\cdot10^{-8}`$ to its distance from the exact midpoint. A bound on its exact-objective loss therefore uses
 
 ```math
-J(c_{\mathrm{selected}})-J(c_*)
+J(c_{\mathrm{selected}})-J(c_\dagger)
 \le d_{\mathrm{upper}}
 \left(\frac{c_+-c_-}{2}+5\cdot10^{-8}\right)^2,
 ```
@@ -89,7 +89,7 @@ For the enlarged stock-loading interval $`[-5/4,5/2]`$, the continuous generator
 
 ## Coupled moments on the deterministic-variance face
 
-The coupling example uses $`\xi=0`$ and the exact integrated variances in Section 6. Positive initial and long-run variance, with $`0\lt1-\kappa h\lt1`$, keep the deterministic Euler variance positive. Its projection is inactive. The combined stock driver $`\rho W+\sqrt{1-\rho^2}B`$ is Brownian, so the deterministic-variance stock law is independent of $`\rho`$.
+The coupling example uses $`\xi=0`$ and the exact integrated variances in Section 6.3. Positive initial and long-run variance, with $`0\lt1-\kappa h\lt1`$, keep the deterministic Euler variance positive. Its projection is inactive. The combined stock driver $`\rho W+\sqrt{1-\rho^2}B`$ is Brownian, so the deterministic-variance stock law is independent of $`\rho`$.
 
 After removing the first centered monthly normal, the remaining conditional factors have the form $`100\exp(m+u\cdot Z)`$, with eleven independent standard normal coordinates. Their means carry the drift of the entire observation interval, including the first month. Every pair moment is evaluated through
 
@@ -135,7 +135,7 @@ The coupled-remainder appendix assumes finite marginal remainders separately fro
 
 Since $`Ea=\infty`$, the marginal remainder expectations are infinite. Their difference is undefined. The marginal integrability conditions in the paper exclude this example.
 
-The positive width for identical laws in Section 4.1 also occurs in an elementary integrable model. Take $`S_1=e^U`$, $`S_2=e^{U+V}`$ with independent nondegenerate normal $`U,V`$. Then $`A/G=\cosh(V/2)`$ is nonconstant. All needed Gaussian exponential moments are finite, and $`E[(A-cG)^2/\sigma]\gt0`$ for every fixed $`c`$. The separate-law width is therefore positive although the actual difference between identical laws is zero. A diagonal coupling preserves that equality directly.
+The positive width for identical laws in Section 6.4 also occurs in an elementary integrable model. Take $`S_1=e^U`$, $`S_2=e^{U+V}`$ with independent nondegenerate normal $`U,V`$. Then $`A/G=\cosh(V/2)`$ is nonconstant. All needed Gaussian exponential moments are finite, and $`E[(A-cG)^2/\sigma]\gt0`$ for every fixed $`c`$. The separate-law width is therefore positive although the actual difference between identical laws is zero. A diagonal coupling preserves that equality directly.
 
 ## Gaussian score calculations
 
@@ -145,7 +145,7 @@ On $`\xi=0`$, continuous fixing increments have the form $`Y_j=m_j+\sqrt{s_j}Z_j
 S_d(Z)=\sum_jd_j\left[\frac{Z_j^2-1}{2s_j}-\frac{Z_j}{2\sqrt{s_j}}\right].
 ```
 
-The second term includes the derivative of the variance-dependent Gaussian mean. The score has mean zero and second moment $`\sum_jd_j^2J(s_j)`$. Centering the call-spread payoff at $`7.5`$ gives the analytic coefficient bound in Section 6:
+The second term includes the derivative of the variance-dependent Gaussian mean. The score has mean zero and second moment $`\sum_jd_j^2J(s_j)`$. Centering the call-spread payoff at $`7.5`$ gives the analytic coefficient bound in Section 6.3:
 
 ```math
 |\beta_{\mathrm{Asian}}|\le
@@ -166,6 +166,18 @@ With $`C=e^{-rT}(\psi(A)-7.5)`$, the expectations $`E[CS_d]`$ and $`E[C(L_h-1-hS
 The posterior calculation uses the restricted prior and synthetic quotes specified in Section 7 and Appendix F. Endpoint reference put prices, monotonicity in variance and the positive-$`\xi`$ perturbation radii give price intervals over each complete initial-variance cell and nuisance slab. Likelihood squares are bounded term by term, and integer endpoints are rounded outward on the $`2^{-96}`$ lattice. CDF bounds keep the common cell masses in numerator and denominator.
 
 The 8192- and 16384-cell calculations check 32768 and 65536 whole-cell weight containments, respectively. Their inverse-CDF pairings support the target-price quantile displacement bounds in the paper. The stored absolute 2.5, 50 and 97.5 percent quantile brackets instead concern the initial-variance marginal. The two outputs answer different questions, each in its own units.
+
+## Closed forms in ball arithmetic
+
+In Black's model the log fixings and the log geometric average are jointly normal, so the proxy value is a sum of $`n+1`$ normal distribution values and both kink bounds are finite sums of exponentials (Proposition 4.1 and Appendix I). [`studies/black.py`](../studies/black.py) writes each formula once against a small set of operations and runs it twice: in binary64, and in Arb at 256 bits from exact rational inputs. The model input is the variance rate $`v^2`$, since only $`v^2`$ enters. For the log-form bound the expectation of $`\log X`$ is replaced by the lower bound $`E(X-1)-E(X-1)^2/2`$, valid because $`X=A/G\ge1`$; the loss is of third order in the dispersion. Decimal endpoints are rounded outward from the exact dyadic endpoints of each ball.
+
+## Conditional simulation
+
+Given the variance driver and the stock noise after the first fixing, every fixing is a known shape times one lognormal factor. The simulations in [`studies/heston.py`](../studies/heston.py) generate only the shape and the volatility of that factor and integrate the factor in closed form (Proposition 3.2). The call, its proxy value and the cost of the kink are then smooth functions of each path, and the cost, which is three to five orders of magnitude below the price, is estimated to a fraction of a percent. Coupled runs at several Euler steps share their Brownian increments.
+
+## The Euler ladder
+
+By Proposition 6.1 the transforms of the scheme without its positive part are explicit Euler iterates of the Riccati system. [`studies/run_euler_ladder.py`](../studies/run_euler_ladder.py) evaluates the proxy value with the inversion design of Appendix C, 641 frequencies with damping $`1/2`$ and spacing $`1/5`$, under the exact Riccati flow and under those iterates at twelve step sizes. At 384, 768 and 1536 steps, and at the second parameter point, it compares its binary64 sums with the 24-digit enclosures stored in the execution archive and stops unless they agree to $`10^{-11}`$; the observed differences are below $`2\cdot10^{-13}`$. The first two coefficients of the bias are obtained from the two finest rungs by eliminating the quadratic term.
 
 ## Verification and evidence
 

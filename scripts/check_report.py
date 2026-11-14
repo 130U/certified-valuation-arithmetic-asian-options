@@ -13,7 +13,7 @@ if sys.flags.optimize:
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / 'manuscript'
 MATH_PATTERN = re.compile(r'^```math\n(.*?)\n```$|\$`(.*?)`\$', re.M | re.S)
-
+REVIEWED = {'display_math': 197, 'inline_math': 951, 'equation_tags': 118, 'tables': 14, 'figures': 4, 'references': 35}
 
 
 def compact(tex):
@@ -42,14 +42,22 @@ def formula_sequence_sha256(sequence):
     return hashlib.sha256(encoded).hexdigest()
 
 
+def numbered_formulas(sequence):
+    numbered = {}
+    for kind, tex in sequence:
+        if kind == 'display':
+            for tag in re.findall(r'\\tag\*?\{([^}]+)\}', tex):
+                numbered[tag] = tex
+    return numbered
+
+
 def main():
     md = (PAPER / 'report.md').read_text(encoding='utf8')
     receipt = json.loads((PAPER / 'content-verification.json').read_text(encoding='utf8'))
     assert receipt['status'] == 'PASS'
     assert receipt['publication_year'] == 2026
     counts = receipt['counts']
-    assert {key: counts[key] for key in ('display_math', 'inline_math', 'equation_tags', 'tables', 'references')} == {
-        'display_math': 179, 'inline_math': 521, 'equation_tags': 97, 'tables': 14, 'references': 13}
+    assert {key: counts[key] for key in REVIEWED} == REVIEWED
     actual = extract_formula_sequence(md)
     digest = formula_sequence_sha256(actual)
     assert digest == receipt['formula_sequence_sha256'], 'The reviewed mathematical sequence changed'
@@ -59,18 +67,28 @@ def main():
         assert r'\operatorname' not in tex, 'Use a base operator macro in rendered formulas'
         assert not re.search(r'\\nolimits[A-Za-z]', tex), 'A macro needs a token separator'
     tags = re.findall(r'\\tag\*?\{([^}]+)\}', md)
-    assert len(tags)==len(set(tags))==counts['equation_tags']
-    equations=json.loads((PAPER/'equations.json').read_text(encoding='utf8'))
-    numbered={}
-    for kind,tex in actual:
-        if kind=='display':
-            for tag in re.findall(r'\\tag\*?\{([^}]+)\}',tex): numbered[tag]=tex
-    assert numbered==equations['equations'], 'A numbered formula differs from the reviewed reference'
-    assert len(numbered)==97
+    assert len(tags) == len(set(tags)) == counts['equation_tags']
+    sections = {}
+    for tag in tags:
+        head, tail = tag.split('.')
+        sections.setdefault(head, []).append(int(tail))
+    for head, tails in sections.items():
+        assert tails == list(range(1, len(tails) + 1)), 'Equation numbers in section ' + head + ' are not consecutive'
+    equations = json.loads((PAPER / 'equations.json').read_text(encoding='utf8'))
+    numbered = numbered_formulas(actual)
+    assert numbered == equations['equations'], 'A numbered formula differs from the reviewed reference'
+    assert len(numbered) == REVIEWED['equation_tags']
     assert '$$' not in md and MATH_PATTERN.sub('', md).count('$') == 0
     assert md.count('\n| ---') == counts['tables']
+    figures = re.findall(r'^!\[Figure (\d+)\. [^\]]*\]\((figures/[a-z-]+\.png)\)$', md, re.M)
+    assert [number for number, _ in figures] == [str(i) for i in range(1, counts['figures'] + 1)]
+    for number, path in figures:
+        assert (PAPER / path).is_file(), path
+        assert md.count('**Figure ' + number + '. ') == 1, 'Figure ' + number + ' needs one caption'
     references = re.findall(r'^<a id="ref-(\d+)"></a>$', md, re.M)
     assert references == [str(i) for i in range(1, counts['references'] + 1)]
+    cited = set(re.findall(r'\]\(#ref-(\d+)\)', md))
+    assert cited == set(references), 'Every reference is cited and every citation resolves'
     assert set(receipt['artifacts']) == {'report.md'}
     for filename, artifact_digest in receipt['artifacts'].items():
         assert hashlib.sha256((PAPER / filename).read_bytes()).hexdigest() == artifact_digest
@@ -78,7 +96,7 @@ def main():
 
     readme = (ROOT / 'README.md').read_text(encoding='utf8')
     assert '**Theodore Ouyang**' in md and '\n\n2026\n\n' in md
-    assert not re.search(r'\brevision\b|round[ -]?2|26 October 2026|2026-10-26|Research timeline', md+readme, re.I)
+    assert not re.search(r'\brevision\b|round[ -]?2|26 October 2026|2026-10-26|Research timeline', md + readme, re.I)
     for text, base in ((md, PAPER), (readme, ROOT)):
         for href in re.findall(r'\]\(([^)]+)\)', text):
             path = urlsplit(href).path
@@ -93,7 +111,7 @@ def main():
             assert (base / path).exists(), 'Missing repository link: ' + href
     print(json.dumps({'status': 'PASS', 'display_math': counts['display_math'], 'inline_math': counts['inline_math'],
                       'equation_tags': len(tags), 'reviewed_formula_sequence_verified': True,
-                      'numbered_formula_reference_verified': 97,
+                      'numbered_formula_reference_verified': len(numbered), 'figures': len(figures),
                       'formula_sequence_sha256': digest, 'publication_year': 2026,
                       'repository_links': 'PASS',
                       'author_pdf_entry': 'paper/paper.pdf', 'author_tex_download_links': 'ABSENT'}))
