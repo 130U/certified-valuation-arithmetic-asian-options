@@ -5,17 +5,17 @@
   "builder": "LaTeX, typeset with Tectonic 0.17.0",
   "pdf": {
     "path": "paper/paper.pdf",
-    "sha256": "ff72e1c4128e6858bd47c60e827bdaf1748d3bd37d3725a6ef0a13710b712251",
-    "bytes": 457198,
+    "sha256": "1337b864f08cd760b7ee79d2ac24c14ae5dfabfa974fdb9a99fb49fb15b09f14",
+    "bytes": 457205,
     "pages": 49
   },
   "article": {
     "path": "manuscript/report.md",
-    "sha256": "8e9b0772e5a760caf8310195857a929a73b52b13799a9887b6a6452980ccce3a"
+    "sha256": "57b4a89969b040aac0033304cced7463bca2c187231b74bd867e54447390cf6d"
   },
   "source": {
     "path": "manuscript/report-source.tex",
-    "sha256": "59c5f72220b9303f78b9a21ff4cd9108a6bbee0543fa76de4c27a3c69dca5313",
+    "sha256": "a7d0d1cfe1568ffc0c63aa591c776ec70b949d423cba82268c932e2dbf6098e0",
     "retained_locally": true
   },
   "builder_sha256": "1d4cb96ebec0f601fd671992fd9fcfe841787a6c1453d2273ae85eec7ec94c57",
@@ -40,7 +40,7 @@
   ],
   "visual_review": {
     "status": "PASS",
-    "pdf_sha256": "ff72e1c4128e6858bd47c60e827bdaf1748d3bd37d3725a6ef0a13710b712251",
+    "pdf_sha256": "1337b864f08cd760b7ee79d2ac24c14ae5dfabfa974fdb9a99fb49fb15b09f14",
     "page_coverage": "All 49 pages rendered at 78 dpi and inspected in pairs.",
     "render_engine": "MuPDF",
     "clipping_overlap_or_overflow_found": []

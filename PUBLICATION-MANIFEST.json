@@ -1,6 +1,6 @@
 {
   "publication_year": 2026,
-  "publication_tag": "V_20261101",
+  "publication_tag": "V_20261102",
   "scope": "All publication files, excluding this manifest itself and ignored local outputs.",
   "package_manifest": "code/MANIFEST.json",
   "evidence_archive": "code/evidence/executions.zip",
@@ -331,7 +331,7 @@
     },
     "manuscript/content-verification.json": {
       "bytes": 634,
-      "sha256": "0eb7c604db562db2295cf2b211a6bd8994baa9180248f714693915f34fddda07"
+      "sha256": "a8a303620bf74473d9e6e25ff36d7180772a2d10770d3d502be0509a03fd7c51"
     },
     "manuscript/equations.json": {
       "bytes": 19375,
@@ -355,15 +355,15 @@
     },
     "manuscript/report.md": {
       "bytes": 139032,
-      "sha256": "8e9b0772e5a760caf8310195857a929a73b52b13799a9887b6a6452980ccce3a"
+      "sha256": "57b4a89969b040aac0033304cced7463bca2c187231b74bd867e54447390cf6d"
     },
     "paper/build-record-en.json": {
       "bytes": 1892,
-      "sha256": "0a5626ba9f5de8d61ce615e012b20599aefdae2f3f8e2c855bf32de9436ebb1a"
+      "sha256": "561f35e1be799176c2e758f85f01102b5416eeaec4524a897b6f3ea2c06435be"
     },
     "paper/paper.pdf": {
-      "bytes": 457198,
-      "sha256": "ff72e1c4128e6858bd47c60e827bdaf1748d3bd37d3725a6ef0a13710b712251"
+      "bytes": 457205,
+      "sha256": "1337b864f08cd760b7ee79d2ac24c14ae5dfabfa974fdb9a99fb49fb15b09f14"
     },
     "scripts/check_report.py": {
       "bytes": 6312,
@@ -371,7 +371,7 @@
     },
     "scripts/update_manifest.py": {
       "bytes": 1500,
-      "sha256": "8c2d6fdeed2a02a70a76006c3582f22ae3e6dc190cd4710a62764fee0f33a004"
+      "sha256": "767cd0008b53afa4f59bab51eebcec0255899a81f8e5814636df6ed5fca6f0a0"
     },
     "scripts/verify_fresh_examples.py": {
       "bytes": 1751,
@@ -379,7 +379,7 @@
     },
     "scripts/verify_publication.py": {
       "bytes": 7490,
-      "sha256": "8dd07bfc5bce68bcd2cfd2a31d208a1cb3ebaf03fba2fa928fed2198fb9b6255"
+      "sha256": "86b2d90e3f5dd4ecaf326ad23702310d581ac96008ff96cf329f4e7e535cd3c3"
     },
     "studies/README.md": {
       "bytes": 2967,
