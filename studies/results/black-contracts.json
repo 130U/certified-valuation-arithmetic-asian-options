@@ -2,7 +2,6 @@
  "status": "BLACK_MODEL_PRICE_INTERVALS",
  "arithmetic": "Arb ball arithmetic at 256 bits; decimal endpoints rounded outward",
  "statement": "Under Black's model with the stated inputs, each price lies in price_interval.",
- "diagnostics_are_not_proofs": true,
  "contracts": [
   {
    "name": "wti-1m",

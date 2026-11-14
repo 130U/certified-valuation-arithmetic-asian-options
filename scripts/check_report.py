@@ -13,7 +13,7 @@ if sys.flags.optimize:
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / 'manuscript'
 MATH_PATTERN = re.compile(r'^```math\n(.*?)\n```$|\$`(.*?)`\$', re.M | re.S)
-REVIEWED = {'display_math': 197, 'inline_math': 951, 'equation_tags': 118, 'tables': 14, 'figures': 4, 'references': 35}
+REVIEWED = {'display_math': 197, 'inline_math': 939, 'equation_tags': 118, 'tables': 14, 'figures': 4, 'references': 35}
 
 
 def compact(tex):

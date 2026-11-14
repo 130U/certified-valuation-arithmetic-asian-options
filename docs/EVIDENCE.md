@@ -12,10 +12,10 @@ The [paper](../manuscript/report.md), [PDF](../paper/paper.pdf), programs and nu
 | Second Heston point, $`v_0=.04`$ | [Parameter-point calculation](../code/experiments/asian_parameter_point.py) | [Price result](../code/results/point-v004-result.json), [inputs and analytical conditions](../code/results/point-v004-preflight.json), [execution receipt](../code/results/point-v004-receipt.json) |
 | Deterministic coupled remainder | [Closed Gaussian moments](../code/experiments/coupling_example.py) | [Coupled and separate-law widths](../code/results/coupling-v004-result.json) |
 | Gaussian weak coefficient bounds | [Analytic bounds](../code/experiments/asian_beta_bounds.py) | [Coefficient and remainder enclosures](../code/results/asian-beta-score-bounds.json) |
-| Gaussian score illustration | [Sampling calculation](../code/experiments/asian_beta_diagnostic.py) | [Estimates and standard errors](../code/results/asian-beta-diagnostic.json) |
-| Heston path illustration | [Coupled path calculation](../code/experiments/heston_path_diagnostics.py) | [Sampling results](../code/results/path-diagnostics.json) |
+| Gaussian score estimates | [Sampling calculation](../code/experiments/asian_beta_diagnostic.py) | [Estimates and standard errors](../code/results/asian-beta-diagnostic.json) |
+| Heston path study | [Coupled path calculation](../code/experiments/heston_path_diagnostics.py) | [Sampling results](../code/results/path-diagnostics.json) |
 | Posterior quantile transfer | [Cell calculation](../code/experiments/posterior_grid.py) | [CDF envelopes and displacement bounds](../code/results/posterior-grid.json) |
-| Price intervals in Black's model (Table 1) | [Closed forms in ball arithmetic](../studies/run_black.py) | [Enclosures and diagnostics](../studies/results/black-contracts.json) |
+| Price intervals in Black's model (Table 1) | [Closed forms in ball arithmetic](../studies/run_black.py) | [Enclosures and binary64 estimates](../studies/results/black-contracts.json) |
 | Cost of the kink under Heston (Table 2) | [Conditional simulation](../studies/run_heston_contracts.py) | [Estimates and standard errors](../studies/results/heston-contracts.json) |
 | Cost across strikes and conservation laws (Section 5.5) | [Strike profile](../studies/run_gap_profile.py) | [Profile, masses and sample](../studies/results/gap-profile.json) |
 | Euler bias of the proxy value (Table 8) | [Transform ladder and coupled simulation](../studies/run_euler_ladder.py) | [Ladder and comparison with the certified sums](../studies/results/euler-ladder.json) |
@@ -70,6 +70,6 @@ For the deterministic coupled-remainder example:
 python code/experiments/coupling_example.py --output coupling.json
 ```
 
-The score and path illustrations additionally use NumPy; their result files retain the sample sizes, seeds and estimated standard errors. The interval calculations use exact rational endpoints and Arb enclosures. The mathematical assumptions and interpretation of each result are stated alongside its theorem and numerical table in the paper.
+The score and path studies additionally use NumPy; their result files retain the sample sizes, seeds and estimated standard errors. The interval calculations use exact rational endpoints and Arb enclosures. The mathematical assumptions and interpretation of each result are stated alongside its theorem and numerical table in the paper.
 
 [Paper](../manuscript/report.md) · [English PDF](../paper/paper.pdf) · [Computational details](COMPUTATION.md)

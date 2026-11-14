@@ -18,7 +18,7 @@ def main():
         if name=='PUBLICATION-MANIFEST.json' or not p.is_file():continue
         assert p.resolve().is_relative_to(ROOT.resolve()),name
         files[name]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
-    record={'publication_year':2026,'publication_tag':'V_20261102',
+    record={'publication_year':2026,'publication_tag':'V_20261101',
         'scope':'All publication files, excluding this manifest itself and ignored local outputs.',
         'package_manifest':'code/MANIFEST.json','evidence_archive':'code/evidence/executions.zip',
         'files':files}

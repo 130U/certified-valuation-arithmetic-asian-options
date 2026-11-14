@@ -2,20 +2,20 @@
   "status": "PASS",
   "publication_year": 2026,
   "counts": {
-    "main_sections": 10,
+    "main_sections": 9,
     "appendices": 9,
     "display_math": 197,
-    "inline_math": 951,
+    "inline_math": 939,
     "equation_tags": 118,
     "unique_tags": 118,
     "tables": 14,
     "figures": 4,
     "references": 35
   },
-  "formula_sequence_sha256": "1919da949407e7d1d5880dc258255005da0dee28a766aea70e19f346744ecab6",
+  "formula_sequence_sha256": "d11a18b533c49b597dc35f9de1299b5e645ae0641c0310a46c79f4407e0c8d07",
   "source_to_output_formula_sequence_preserved": true,
   "scope": "Article identity, complete mathematical sequence, numbered formula inventory and figures.",
   "artifacts": {
-    "report.md": "57b4a89969b040aac0033304cced7463bca2c187231b74bd867e54447390cf6d"
+    "report.md": "201ecf9803af852e66b3fa3235a22e49c33a2f7283545f46114d55fb4dce3c9d"
   }
 }
