@@ -5,17 +5,17 @@
     "main_sections": 10,
     "appendices": 9,
     "display_math": 197,
-    "inline_math": 948,
+    "inline_math": 951,
     "equation_tags": 118,
     "unique_tags": 118,
     "tables": 14,
     "figures": 4,
     "references": 35
   },
-  "formula_sequence_sha256": "b48e1df6cc1d47a12a335a47f3c239b4feda5468bc59ff6c2d8ba6382559c569",
+  "formula_sequence_sha256": "3c3c7136309422caa7cc8c90ee3a052f7f09071cf0713cda15f648e8821b0dca",
   "source_to_output_formula_sequence_preserved": true,
   "scope": "Article identity, complete mathematical sequence, numbered formula inventory and figures.",
   "artifacts": {
-    "report.md": "e656141e7008ca673b20fbcd6f5b309fe7f9b4508ecfdf99821bddda3fbd3d51"
+    "report.md": "698581dfd9ab7831c0df7a647c56675b32823d14cf24b4edd5bdc7f56290e3a9"
   }
 }

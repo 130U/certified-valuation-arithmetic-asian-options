@@ -6,7 +6,7 @@ estimates, on a grid of strikes,
 
     R(K) = E[(A - K)^+] - E[(A - K) 1{cG > K}]      (undiscounted),
 
-its second-order (gamma) term, and the two bounds of Theorem 3.3.  It then
+its second-order (gamma) term, and the upper and lower bounds of Theorem 3.3.  It then
 checks the two conservation laws of Proposition 3.1,
 
     integral of R(K) dK       = E[(A - cG)^2] / 2,
@@ -35,6 +35,7 @@ STEPS_PER_MONTH = 256
 
 def write(record, path):
     """Save the record with one profile row and eight sample pairs per line."""
+    record = json.loads(json.dumps(record))
     head = json.dumps({k: v for k, v in record.items() if k not in ('profile', 'sample_cG_A')}, indent=1)
     profile = ',\n'.join('  ' + json.dumps(row) for row in record['profile'])
     pairs = record['sample_cG_A']
@@ -93,9 +94,11 @@ def main():
     for strike in (95.0, 110.0):
         call = disc * heston.conditional_call(a, sigma, strike)
         proxy = disc * heston.conditional_proxy(a, b, sigma, strike)
+        reach = np.maximum(np.abs(np.log(strike / a)), np.abs(np.log(strike / b)))
         named[str(int(strike))] = {
             'call': heston.mean_se(call), 'proxy_value': heston.mean_se(proxy),
             'cost_of_kink': heston.mean_se(call - proxy),
+            'lower_bound': heston.mean_se(disc * strike * bregman * np.exp(-0.5 * (reach / sigma) ** 2) / peak),
             'bound_log_form': heston.mean_se(disc * strike * bregman / peak),
             'bound_quadratic_form': heston.mean_se(disc * 0.5 * second / (strike * peak))}
     spread = disc * (heston.conditional_call(a, sigma, 95.0) - heston.conditional_call(a, sigma, 110.0))
