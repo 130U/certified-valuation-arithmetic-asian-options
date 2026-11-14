@@ -322,8 +322,8 @@
       "sha256": "572c25dbc16a996df1add43a72208ac82829a95d7d3c82853f197aff23ff4750"
     },
     "docs/MATHEMATICAL-STRUCTURE.md": {
-      "bytes": 3863,
-      "sha256": "e21c40548942cd7d92b8133bf994eb7839d75186ab09c84c954e12f2a5cbe853"
+      "bytes": 3864,
+      "sha256": "f6b8671eab041fdec3c4163d151c4e3554bd275ca9f02a9993a38e7f6e0eeafa"
     },
     "manuscript/FORMAT.md": {
       "bytes": 1345,
@@ -331,7 +331,7 @@
     },
     "manuscript/content-verification.json": {
       "bytes": 633,
-      "sha256": "1f92aa0105290b381e0bf5dbda8d9cf15717d14783f87231a053e1fd1abc5086"
+      "sha256": "3fec1df5195e3763d7ac51693e396856470d2f6b4afb0f873ce7c0e3ba46d1b3"
     },
     "manuscript/equations.json": {
       "bytes": 19375,
@@ -354,16 +354,16 @@
       "sha256": "fea5a4f95a4595eaec597655608f7d18fd5a95b6610cc97c61fd9378c96e4179"
     },
     "manuscript/report.md": {
-      "bytes": 136020,
-      "sha256": "201ecf9803af852e66b3fa3235a22e49c33a2f7283545f46114d55fb4dce3c9d"
+      "bytes": 136014,
+      "sha256": "65291b5808e760f5792c700c5d13d2448778a640e753d071c43b5b45bf3dfa31"
     },
     "paper/build-record-en.json": {
       "bytes": 1899,
-      "sha256": "050059f082da0ede77cbf0e78a1d791b0c96f83aa3a62377a36f8e658231f277"
+      "sha256": "67569342e0c0c0836658df8e35d689ecda1cdcc1a7156d05e12a05e3ba9a1c55"
     },
     "paper/paper.pdf": {
-      "bytes": 453067,
-      "sha256": "44d179338bc3421e2b76f2b3e4788705d5518bd442eeab8e3738877f1412a726"
+      "bytes": 453088,
+      "sha256": "1d41e21a07292fe52cf9e35957b5655172e78e3577ed8f7ada8f2cd95412477d"
     },
     "scripts/check_report.py": {
       "bytes": 6312,

@@ -28,7 +28,7 @@ In Black's model this bound is $`v^3\tau^2/(360\sqrt{2\pi t_1})`$ per unit of st
 
 ## 1. Introduction
 
-Most options written on oil, metals, freight and corporate currency flows pay on an average. A refiner buys crude every day of the month and an airline burns fuel every day of the quarter, so their physical contracts are priced on monthly averages and their hedges follow. The NYMEX average price option on crude oil settles on the mean of the daily futures settlements in a calendar month [[10](#ref-10)]. The London Metal Exchange lists options on the monthly average of its official settlement prices, the price at which physical metal changes hands [[25](#ref-25)]. Mexico's treasury insures its oil revenue with puts on the average price over a year [[35](#ref-35)]; the programme for 2009 covered 330 million barrels at 70 dollars and paid out 5.085 billion dollars [[4](#ref-4)].
+Most options written on oil, metals, freight and corporate currency flows pay on an average. A refiner buys crude every day of the month and an airline burns fuel every day of the quarter, so their physical contracts are priced on monthly averages and their hedges follow. The NYMEX average price option on crude oil settles on the mean of the daily futures settlements in a calendar month [[10](#ref-10)]. The London Metal Exchange lists options on the monthly average of its official settlement prices, the price at which physical metal changes hands [[25](#ref-25)]. Mexico's treasury insures its oil revenue with puts on the average price over a year [[35](#ref-35)]; the program for 2009 covered 330 million barrels at 70 dollars and paid out 5.085 billion dollars [[4](#ref-4)].
 
 The payoff of such a contract depends on the arithmetic average $`A`$ of the fixings, whose law has no closed form in any standard model. The geometric average $`G`$ does, and practice rests on that fact. Kemna and Vorst use the geometric option as a control variate [[21](#ref-21)]. Curran, and Rogers and Shi, condition on $`G`$ and obtain a lower bound that is accurate to several digits in Black's model [[12](#ref-12), [31](#ref-31)]. Fusai and Kyriakou carry the same bound to stochastic volatility and jumps by transform methods [[16](#ref-16)]. Under stochastic volatility the working alternative is simulation on a time grid, which adds a discretization bias to the sampling error.
 
@@ -463,7 +463,7 @@ For the monthly contracts the proxy value is the price for every commercial purp
 
 The bound is nearly attained. Its ratio to the simulated cost is 1.54, 1.19, 1.10 and 1.07 at one, three, six and twelve months, as the factor in (3.12) predicts: with a long lead the strike is within a small multiple of $`\sigma`$ of both averages on almost every path. The classical first-order estimate is 2.6 cents at every lead time, between 320 and 1,140 times larger.
 
-Scale changes the verdict. The annual put has the terms made public for Mexico's 2009 programme [[4](#ref-4)], a one-year average struck at 70 dollars on 330 million barrels, valued here at 40 percent volatility. The bound is 0.91 cents per barrel. On the full volume that is 3.0 million dollars against a proxy value of 569 million, and the simulated cost is 1.4 million. A proved interval of half a percent is a statement worth having on a trade of this size, and the cubic law says what moves it: at 50 percent volatility the bound would be about twice as large.
+Scale changes the verdict. The annual put has the terms made public for Mexico's 2009 program [[4](#ref-4)], a one-year average struck at 70 dollars on 330 million barrels, valued here at 40 percent volatility. The bound is 0.91 cents per barrel. On the full volume that is 3.0 million dollars against a proxy value of 569 million, and the simulated cost is 1.4 million. A proved interval of half a percent is a statement worth having on a trade of this size, and the cubic law says what moves it: at 50 percent volatility the bound would be about twice as large.
 
 The lead time is the resource. The last row is the same kind of contract as the first with the window lengthened to a year and the lead cut to a day. Theorem 3.3 draws on the one day of level risk before the first fixing, and the bound is 1.4 quote steps; the later fixings smooth the kink further, and the cost is a fifteenth of a quote step. For such contracts the theorem stands beside the lognormal bounds of Thompson [[33](#ref-33)] and Lord [[26](#ref-26)], which use the full covariance of the fixings.
 
@@ -744,7 +744,7 @@ Reported widths are computed from exact rational endpoints and rounded outward, 
 
 ### 5.5 What the interval contains
 
-The interval for $`p_c`$ is $`.0105`$ wide, 16 basis points of the price. Its centre is the proxy value, known to $`\pm.00021`$, and almost all of its width is the allowance for the two costs of the kink, $`.005407`$ above and $`.004670`$ below.
+The interval for $`p_c`$ is $`.0105`$ wide, 16 basis points of the price. Its center is the proxy value, known to $`\pm.00021`$, and almost all of its width is the allowance for the two costs of the kink, $`.005407`$ above and $`.004670`$ below.
 
 A simulation locates the price inside the interval. On $`2^{20}`$ paths with the first-period factor integrated in closed form, the discounted cost of the kink is $`.000813`$ at $`K_1`$ and $`.000711`$ at $`K_2`$, with standard errors below $`4\cdot10^{-6}`$. The two enter the spread with opposite signs, so the spread exceeds its proxy value by $`.000102`$ with standard error $`.000004`$, and the continuous price is close to $`6.51335`$. The certificate bounds each cost on its own and from one side, so its allowances add. They are about 6.6 times the simulated costs, in line with the Black rows of Table 1, where the ratio is 4.7 before volatility of volatility is added. The lower bound (3.12), evaluated on the same paths, is $`.000777`$ and $`.000682`$, within five percent of the two costs. The distance between the upper bound and the cost is therefore the Gaussian factor in (3.12): on most paths that carry dispersion the strike is several $`\sigma`$ away from both averages.
 
@@ -893,7 +893,7 @@ The expansion is read from the finite sums and the algebraic recursion. For the 
 
 The Euler gap of the option adds the change in the cost of the kink, $`(R_{K_1,Q}-R_{K_1,P})-(R_{K_2,Q}-R_{K_2,P})`$. A coupled simulation estimates it: $`2^{20}`$ paths of the scheme at several steps driven by the same Brownian increments, with the first-period factor integrated in closed form and the finest step, 3072 per year, standing in for $`P`$. At 768 steps the change is $`-0.3\cdot10^{-7}`$ at $`K_1`$ and $`1.0\cdot10^{-7}`$ at $`K_2`$, with standard errors $`0.9\cdot10^{-7}`$ and $`0.6\cdot10^{-7}`$, and $`-1.2\cdot10^{-7}`$ for the spread with standard error $`1.2\cdot10^{-7}`$. At 384 and 192 steps the spread values are $`-5.0\cdot10^{-7}`$ and $`-9.3\cdot10^{-7}`$. The kink contributes less than $`10^{-6}`$ at every step.
 
-Putting the two parts together, the price under the scheme at 768 steps is below the continuous price by about $`.000203`$: two hundredths of a cent on an underlying of 100 and 0.3 basis points of the option price. The proved bound of Corollary 5.2 is 54 times larger. Figure 4 puts the three quantities on one scale. The first-order behaviour agrees with the theorem of Mickel and Neuenkirch [[28](#ref-28)], who prove weak order one for this scheme and smooth payoffs when the Feller index exceeds one. The conditional integration is what resolves quantities of this size: a direct coupled-path estimate of the gap has a standard error of $`.00047`$ on 32,768 paths at this step.
+Putting the two parts together, the price under the scheme at 768 steps is below the continuous price by about $`.000203`$: two hundredths of a cent on an underlying of 100 and 0.3 basis points of the option price. The proved bound of Corollary 5.2 is 54 times larger. Figure 4 puts the three quantities on one scale. The first-order behavior agrees with the theorem of Mickel and Neuenkirch [[28](#ref-28)], who prove weak order one for this scheme and smooth payoffs when the Feller index exceeds one. The conditional integration is what resolves quantities of this size: a direct coupled-path estimate of the gap has a standard error of $`.00047`$ on 32,768 paths at this step.
 
 ![Figure 4. Three sizes of Euler error.](figures/euler-ladder.png)
 
@@ -998,7 +998,7 @@ C_2=
 \|D^2p_s[z,z]\|_1\le\sum_jz_j^2H_2(s_j),
 ```
 
-the first bound being the square root of the Fisher information form. Inserting (6.9) in the $`L^1`$ Taylor formula gives $`\|p_{s_h}-p_s-hDp_s[d]\|_1\le C_2h^2`$. The density remainder integrates to zero, so the payoff may be centred as $`g-l-L/2`$, which gives (6.11). Appendix D contains the derivative calculations and the dominated convergence. $`\square`$
+the first bound being the square root of the Fisher information form. Inserting (6.9) in the $`L^1`$ Taylor formula gives $`\|p_{s_h}-p_s-hDp_s[d]\|_1\le C_2h^2`$. The density remainder integrates to zero, so the payoff may be centered as $`g-l-L/2`$, which gives (6.11). Appendix D contains the derivative calculations and the dominated convergence. $`\square`$
 
 The score $`\mathcal S_j`$ is the derivative of the log density with respect to the variance of month $`j`$, so $`\beta_g`$ is the sum over months of the payoff's sensitivity to that month's variance times the Euler error $`d_j`$ of that variance. For a put with strike $`K`$ and maturity $`\tau`$ the sum collapses to
 
@@ -1239,7 +1239,7 @@ for the endpoints $`[\ell,u]`$ of (5.19).
 
 ### 8.2 A numerical line in the valuation reserve
 
-Supervisory guidance on model risk asks that validation establish whether a model performs as expected and identify its limitations and errors [[5](#ref-5)]. European prudent valuation rules require a model risk adjustment built from a range of plausible valuations at 90 percent confidence, or from expert judgement where no range can be produced [[15](#ref-15)]. The numerical part of that uncertainty, the distance between the number a system prints and the price under the model it claims to implement, is usually handled by judgement. The results here replace judgement by an inequality in three situations.
+Supervisory guidance on model risk asks that validation establish whether a model performs as expected and identify its limitations and errors [[5](#ref-5)]. European prudent valuation rules require a model risk adjustment built from a range of plausible valuations at 90 percent confidence, or from expert judgment where no range can be produced [[15](#ref-15)]. The numerical part of that uncertainty, the distance between the number a system prints and the price under the model it claims to implement, is usually handled by judgment. The results here replace judgment by an inequality in three situations.
 
 For the monthly average options of Table 1 the closed-form proxy value is the Black price to within a hundredth of a cent per barrel, proved, and Table 2 puts the cost of the kink at the same order under stochastic volatility. No numerical reserve is needed for the kink.
 
@@ -2083,7 +2083,7 @@ The target radii from Appendix E, together with (F.3) and (F.7), yield (7.8). Th
 
 ## Appendix G. Programs and evidence
 
-The publication is the `V_20261101` tag of [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101). It has two computational parts. The directory `code/` is the certified package: every number in Corollary 5.2, Tables 3–7, 9 and 11 and Appendix H is an outward-rounded enclosure produced there, and its file `code/MANIFEST.json` identifies the sources. The directory `studies/` holds the calculations of Sections 4 and 6 and the simulations quoted in Section 5: closed forms in ball arithmetic for Black's model, and binary64 estimates that are labelled as such wherever they appear. The root `PUBLICATION-MANIFEST.json` lists every file with its hash.
+The publication is the `V_20261101` tag of [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101). It has two computational parts. The directory `code/` is the certified package: every number in Corollary 5.2, Tables 3–7, 9 and 11 and Appendix H is an outward-rounded enclosure produced there, and its file `code/MANIFEST.json` identifies the sources. The directory `studies/` holds the calculations of Sections 4 and 6 and the simulations quoted in Section 5: closed forms in ball arithmetic for Black's model, and binary64 estimates that are labeled as such wherever they appear. The root `PUBLICATION-MANIFEST.json` lists every file with its hash.
 
 **Table G.1. Modules of the certified package.**
 
@@ -2274,7 +2274,7 @@ a_\nu=\frac1{12}\sum_i a_{\nu,i},\qquad
 g_\nu=100e^{\bar m_\nu+\bar\ell_\nu\cdot Z},\qquad b_\nu=cg_\nu.
 ```
 
-Here $`Z=(Z_2,\ldots,Z_{12})`$, and bars denote averaging over fixing index $`i=1,\ldots,12`$. The drift includes the first-month term $`-s_{\nu,1}/2`$; hence the removed factor has the centred Gaussian law required by (CF). Here the stock driver $`\rho W+\sqrt{1-\rho^2}B`$ is combined into a single Brownian motion. On $`\xi=0`$ the variance is deterministic and the price law is independent of $`\rho`$; hence $`\sigma_\nu^2=s_{\nu,1}`$, using the full first-month variance. The separate-law comparison below uses this same conditioning.
+Here $`Z=(Z_2,\ldots,Z_{12})`$, and bars denote averaging over fixing index $`i=1,\ldots,12`$. The drift includes the first-month term $`-s_{\nu,1}/2`$; hence the removed factor has the centered Gaussian law required by (CF). Here the stock driver $`\rho W+\sqrt{1-\rho^2}B`$ is combined into a single Brownian motion. On $`\xi=0`$ the variance is deterministic and the price law is independent of $`\rho`$; hence $`\sigma_\nu^2=s_{\nu,1}`$, using the full first-month variance. The separate-law comparison below uses this same conditioning.
 
 All conditional second moments, including mixed P/Q moments, follow from
 
@@ -2344,7 +2344,7 @@ E\,X-1=\frac{\varepsilon^2}{2}\,E\,s_\xi^2+O(\varepsilon^4),\qquad
 \mathop{\mathrm{Var}}X=\frac{\varepsilon^4}{4}\mathop{\mathrm{Var}}s_\xi^2+O(\varepsilon^6).
 ```
 
-The vector $`\xi`$ is centred Gaussian with covariance $`\Sigma`$, and for a Gaussian quadratic form $`E\,s_\xi^2=\mathrm{tr}\,\Sigma/n`$ and $`\mathop{\mathrm{Var}}s_\xi^2=2\,\mathrm{tr}\,\Sigma^2/n^2`$. To find the spectrum of $`\Sigma`$, let $`\Delta`$ be the $`(n-1)\times n`$ difference matrix, $`(\Delta x)_k=x_{k+1}-x_k`$. The increments $`\Delta\xi`$ are independent with variance $`1/(n-1)`$, and $`\xi`$ is the vector of zero mean with those increments, so $`\xi=\Delta^+\Delta\xi`$ with $`\Delta^+`$ the pseudo-inverse and
+The vector $`\xi`$ is centered Gaussian with covariance $`\Sigma`$, and for a Gaussian quadratic form $`E\,s_\xi^2=\mathrm{tr}\,\Sigma/n`$ and $`\mathop{\mathrm{Var}}s_\xi^2=2\,\mathrm{tr}\,\Sigma^2/n^2`$. To find the spectrum of $`\Sigma`$, let $`\Delta`$ be the $`(n-1)\times n`$ difference matrix, $`(\Delta x)_k=x_{k+1}-x_k`$. The increments $`\Delta\xi`$ are independent with variance $`1/(n-1)`$, and $`\xi`$ is the vector of zero mean with those increments, so $`\xi=\Delta^+\Delta\xi`$ with $`\Delta^+`$ the pseudo-inverse and
 
 ```math
 \Sigma=\frac1{n-1}\,\Delta^+(\Delta^+)^T=\frac1{n-1}\,(\Delta^T\Delta)^+ .
