@@ -33,6 +33,17 @@ SCALE = 1254433 / 1250000
 STEPS_PER_MONTH = 256
 
 
+def write(record, path):
+    """Save the record with one profile row and eight sample pairs per line."""
+    head = json.dumps({k: v for k, v in record.items() if k not in ('profile', 'sample_cG_A')}, indent=1)
+    profile = ',\n'.join('  ' + json.dumps(row) for row in record['profile'])
+    pairs = record['sample_cG_A']
+    sample = ',\n'.join('  ' + json.dumps(pairs[i:i + 8])[1:-1] for i in range(0, len(pairs), 8))
+    text = head[:-2] + ',\n "profile": [\n' + profile + '\n ],\n "sample_cG_A": [\n' + sample + '\n ]\n}\n'
+    assert json.loads(text) == record
+    path.write_text(text, encoding='utf8', newline='\n')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--output', type=Path)
@@ -104,7 +115,7 @@ def main():
                           for r in rows[::4]],
               'sample_cG_A': sample}
     if args.output:
-        args.output.write_text(json.dumps(record, indent=1) + '\n', encoding='utf8', newline='\n')
+        write(record, args.output)
     print(json.dumps(summary, indent=1))
     print(json.dumps(named, indent=1))
 

@@ -406,8 +406,8 @@
       "sha256": "8df582b58273fe949af1e892fcfe987c5dafe69425bd0ab76b3a219907d05e1f"
     },
     "studies/results/gap-profile.json": {
-      "bytes": 230252,
-      "sha256": "d4417b35976a115661face081f382ecaa676ff6df354369cfe16c3e038c75c1c"
+      "bytes": 157816,
+      "sha256": "491952a1336422e63ed98c67058726c608e64df058ae12d8f434b19a1c811f6f"
     },
     "studies/results/heston-contracts.json": {
       "bytes": 6120,
@@ -422,8 +422,8 @@
       "sha256": "3755d2bdc80b0de5f2f2813a50bd86fab395fd7cf8faea8fa4caef94c2594a78"
     },
     "studies/run_gap_profile.py": {
-      "bytes": 4962,
-      "sha256": "718589ba5b4cade4277e7aed3a530ed17220b3fb884380b3c98093e6c3084c03"
+      "bytes": 5524,
+      "sha256": "c503cdc054ade269a3c2af6850c2809cd6a61bce684b865cbbe604c036362294"
     },
     "studies/run_heston_contracts.py": {
       "bytes": 4875,
