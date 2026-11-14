@@ -2098,7 +2098,7 @@ The target radii from Appendix E, together with (F.3) and (F.7), yield (7.8). Th
 
 ## Appendix G. Programs and evidence
 
-The publication is the `V_20261101` tag of [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261101). It has two computational parts. The directory `code/` is the certified package: every number in Corollary 5.2, Tables 3–7, 9 and 11 and Appendix H is an outward-rounded enclosure produced there, and its file `code/MANIFEST.json` identifies the sources. The directory `studies/` holds the calculations of Sections 4 and 6 and the simulations quoted in Section 5: closed forms in ball arithmetic for Black's model, and binary64 estimates that are labelled as such wherever they appear. The root `PUBLICATION-MANIFEST.json` lists every file with its hash.
+The publication is the `V_20261102` tag of [https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261102](https://github.com/130U/certified-valuation-arithmetic-asian-options/tree/V_20261102). It has two computational parts. The directory `code/` is the certified package: every number in Corollary 5.2, Tables 3–7, 9 and 11 and Appendix H is an outward-rounded enclosure produced there, and its file `code/MANIFEST.json` identifies the sources. The directory `studies/` holds the calculations of Sections 4 and 6 and the simulations quoted in Section 5: closed forms in ball arithmetic for Black's model, and binary64 estimates that are labelled as such wherever they appear. The root `PUBLICATION-MANIFEST.json` lists every file with its hash.
 
 **Table G.1. Modules of the certified package.**
 
