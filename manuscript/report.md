@@ -2410,6 +2410,12 @@ E(A-cG)^2=\frac1{n^2}\sum_{i,j}F_iF_je^{v^2(t_i\wedge t_j)}-\frac{2c}{n}\sum_iF_
 
 in ball arithmetic.
 
+## Declarations
+
+### Use of artificial intelligence
+
+In accordance with editorial policies on the use of artificial intelligence, the author reports using DeepSeek to assist with brainstorming, literature review, language editing, and adversarial stress-testing. The author independently verified all mathematical arguments, derivations, and cited references, and assumes full responsibility for all content.
+
 ## References
 
 <a id="ref-1"></a>
