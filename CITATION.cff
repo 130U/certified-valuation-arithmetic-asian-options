@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "Certified Valuation of Arithmetic Asian Options: The Cost of Exercising on the Geometric Average"
+version: "V_202611"
+date-released: 2026-11-19
+abstract: "What does it cost to exercise an average-price option on the geometric average, and how far is a simulated price from the model that was calibrated? The paper, its PDF, and the proofs and code behind every bound."
+authors:
+  - family-names: Ouyang
+    given-names: "Letao (Theodore)"
+repository-code: "https://github.com/130U/RESEARCH-Certified-Valuation-of-Arithmetic-Asian-Options"
+url: "https://www.theodoreoy.com/certified-valuation-of-arithmetic-asian-options/"
+keywords:
+  - "mathematical finance"
+  - "quantitative finance"
+  - "Asian options"
+  - "Heston model"
+  - "interval arithmetic"
+  - "pricing error"
+preferred-citation:
+  type: unpublished
+  title: "Certified Valuation of Arithmetic Asian Options: The Cost of Exercising on the Geometric Average"
+  authors:
+    - family-names: Ouyang
+      given-names: "Letao (Theodore)"
+  year: 2026
+  url: "https://www.theodoreoy.com/certified-valuation-of-arithmetic-asian-options/"

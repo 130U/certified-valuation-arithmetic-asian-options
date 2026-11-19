@@ -1,0 +1,15 @@
+.venv/
+node_modules/
+.runtime/
+__pycache__/
+*.pyc
+code/runs/
+.build/
+local-preview/
+paper/*
+!paper/paper.pdf
+!paper/build-record-en.json
+assets/fonts/
+scripts/pdf/
+manuscript/*.tex
+manuscript/report.json

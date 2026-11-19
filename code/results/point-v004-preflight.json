@@ -1,0 +1,68 @@
+{
+  "status": "PASS_FIXED_PARAMETER_ANALYTICAL_PREFLIGHT",
+  "theta_order": [
+    "kappa",
+    "vbar",
+    "xi",
+    "rho",
+    "v0"
+  ],
+  "theta": [
+    "3",
+    "9/200",
+    "23/100",
+    "-11/20",
+    "1/25"
+  ],
+  "S0": "100",
+  "r": "1/100",
+  "h": "1/768",
+  "fixings": "m/12, m=1,...,12",
+  "payoff": "(A-95)+-(A-110)+",
+  "c": "1254433/1250000",
+  "weighted_projection_beta_exact": "3000866063/368640000",
+  "linear_projection_beta_exact": "8004253583/983040000",
+  "UI_beta_exact": "8001336523/983040000",
+  "UI_loading_range": [
+    "-5/4",
+    "5/2"
+  ],
+  "continuous_generator_endpoint_coefficients_exact": [
+    "-190761/20000",
+    "-27417/2500"
+  ],
+  "UI_growth_upper": {
+    "exact_interval": [
+      "17058132237208121958658168881049684860268962158271031863900800710210587163473/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+      "17058132237208121958658168881049684860268962158271031863900800710210587163475/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+    ],
+    "outward24": [
+      "0.589267620942478531035610",
+      "0.589267620942478531035611"
+    ]
+  },
+  "new_point_moment_exponent_bound_exact": "19/25",
+  "retained_conservative_M2_exponent_exact": "39/50",
+  "moment_reason": "B.5-B.6 growth is independent of v0; .6+4*.04=.76<.78, so exp(.78) still bounds all required price-profile moments.",
+  "first_Euler_integrated_variance_floor_exact": "1/19200",
+  "Feller_index_exact": "2700/529",
+  "must_recompute_at_new_v0": [
+    "All affine e^(A+Bv0) evaluations",
+    "Every exp(-v0*u/h) projection prefix",
+    "Weighted-tail C and zeta",
+    "Q weighted-tail denominator 128*h*v0",
+    "First-month Q Laplace LQ",
+    "Continuous price-tail CP and gamma",
+    "Discrete price-tail i0=h*v0 denominator",
+    "Both signed remainders, complete bias and separate P/Q prices"
+  ],
+  "must_pass_during_execution": [
+    "All 91-profile real coefficient and denominator guards",
+    "Positive projection u recurrence",
+    "All 641-frequency 13-ray Euler coefficient guards",
+    "All continuous complex-log branch guards",
+    "All first-month Laplace coefficient sign guards",
+    "All independent node/frequency/fee checks"
+  ],
+  "scope": "This is a preflight for one changed-v0 point, not a uniform parameter-region certificate."
+}

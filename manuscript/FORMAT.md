@@ -1,0 +1,16 @@
+# Article
+
+[English PDF](../paper/paper.pdf) · [Read online](report.md) · [Code and evidence](../docs/EVIDENCE.md)
+
+The 2026 paper is available as a PDF and a GitHub-readable article. Both are generated from the same author-side source, and every equation carries the same number in both. In the online article each displayed formula is a vector image typeset from the same TeX, with a light and a dark variant in [math](math) and the TeX kept as the image's alternative text. Inline formulas are GitHub mathematics, and equation numbers and reference anchors are those of the PDF. The four figures are in [figures](figures); each is drawn from a result file in [studies/results](../studies/results).
+
+[equations.json](equations.json) inventories the numbered formulas. [content-verification.json](content-verification.json) records the formula sequence and article hash. The [PDF build record](../paper/build-record-en.json) binds the PDF, article and locally retained typesetting source; [PUBLICATION-MANIFEST.json](../PUBLICATION-MANIFEST.json) inventories the complete publication.
+
+Run from the repository root:
+
+```sh
+python scripts/check_report.py
+python scripts/verify_publication.py
+```
+
+These checks validate document identity, formula inventory and the recorded numerical evidence. The [computational details](../docs/COMPUTATION.md) explain the quantities evaluated by the programs, and [EVIDENCE.md](../docs/EVIDENCE.md) supplies the result links and reproduction commands.

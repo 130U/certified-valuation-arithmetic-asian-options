@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "publication_year": 2026,
+  "counts": {
+    "main_sections": 9,
+    "appendices": 9,
+    "display_math": 197,
+    "inline_math": 939,
+    "equation_tags": 118,
+    "unique_tags": 118,
+    "tables": 14,
+    "figures": 4,
+    "references": 35
+  },
+  "formula_sequence_sha256": "74d69cf1babdf371e334f86d744f9ad580a80c3fc65d83505b205a720a8339d4",
+  "source_to_output_formula_sequence_preserved": true,
+  "scope": "Article identity, complete mathematical sequence, numbered formula inventory and figures.",
+  "artifacts": {
+    "report.md": "9390024a6e2cd57e036fbcac6aac05ef1fa8ef5580c5637f8403931472d1b055"
+  }
+}

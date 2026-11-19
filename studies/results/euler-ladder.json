@@ -1,0 +1,186 @@
+{
+ "status": "EULER_LADDER",
+ "binary64": true,
+ "model": {
+  "S0": 100.0,
+  "r": 0.01,
+  "kappa": 3.0,
+  "vbar": 0.045,
+  "xi": 0.23,
+  "rho": -0.55,
+  "v0": 0.045
+ },
+ "scale": 1.0035464,
+ "continuous_proxy_value": 6.513251661289306,
+ "rungs": [
+  {
+   "steps_per_year": 12,
+   "euler_proxy_value": 6.498526110038714,
+   "bias": -0.014725551250592162,
+   "bias_times_steps": -0.17670661500710594
+  },
+  {
+   "steps_per_year": 24,
+   "euler_proxy_value": 6.506375725963917,
+   "bias": -0.006875935325389548,
+   "bias_times_steps": -0.16502244780934916
+  },
+  {
+   "steps_per_year": 48,
+   "euler_proxy_value": 6.509916238247715,
+   "bias": -0.003335423041590957,
+   "bias_times_steps": -0.16010030599636593
+  },
+  {
+   "steps_per_year": 96,
+   "euler_proxy_value": 6.511607761304834,
+   "bias": -0.0016438999844723412,
+   "bias_times_steps": -0.15781439850934476
+  },
+  {
+   "steps_per_year": 192,
+   "euler_proxy_value": 6.512435462111586,
+   "bias": -0.0008161991777200228,
+   "bias_times_steps": -0.15671024212224438
+  },
+  {
+   "steps_per_year": 384,
+   "euler_proxy_value": 6.512844975548003,
+   "bias": -0.0004066857413036473,
+   "bias_times_steps": -0.15616732466060057
+  },
+  {
+   "steps_per_year": 768,
+   "euler_proxy_value": 6.513048668980272,
+   "bias": -0.00020299230903475518,
+   "bias_times_steps": -0.15589809333869198
+  },
+  {
+   "steps_per_year": 1536,
+   "euler_proxy_value": 6.513150252417642,
+   "bias": -0.00010140887166443235,
+   "bias_times_steps": -0.1557640268765681
+  },
+  {
+   "steps_per_year": 3072,
+   "euler_proxy_value": 6.5132009786298575,
+   "bias": -5.0682659448852974e-05,
+   "bias_times_steps": -0.15569712982687633
+  },
+  {
+   "steps_per_year": 6144,
+   "euler_proxy_value": 6.513226325398225,
+   "bias": -2.5335891081113004e-05,
+   "bias_times_steps": -0.1556637148023583
+  },
+  {
+   "steps_per_year": 12288,
+   "euler_proxy_value": 6.513238994702792,
+   "bias": -1.2666586513887523e-05,
+   "bias_times_steps": -0.1556470150826499
+  },
+  {
+   "steps_per_year": 24576,
+   "euler_proxy_value": 6.51324532833581,
+   "bias": -6.332953496723803e-06,
+   "bias_times_steps": -0.1556386651354842
+  }
+ ],
+ "first_order_coefficient": -0.1556303151883185,
+ "second_order_coefficient": -0.20520830154418945,
+ "second_point": {
+  "v0": 0.04,
+  "continuous_proxy_value": 6.504263527385472,
+  "euler_proxy_value_768": 6.504041573073355
+ },
+ "comparison_with_certified_sums": [
+  {
+   "steps_per_year": 384,
+   "stored_bias": -0.0004066857414972702,
+   "continuous_difference": -1.9273471707492718e-13,
+   "euler_difference": 8.881784197001252e-16
+  },
+  {
+   "steps_per_year": 768,
+   "stored_bias": -0.00020299230923725986,
+   "continuous_difference": -1.9273471707492718e-13,
+   "euler_difference": 9.769962616701378e-15
+  },
+  {
+   "steps_per_year": 1536,
+   "stored_bias": -0.00010140887185539071,
+   "continuous_difference": -1.9273471707492718e-13,
+   "euler_difference": -1.7763568394002505e-15
+  }
+ ],
+ "kink_cost_change": {
+  "paths": 1048576,
+  "seed": 20261113,
+  "rows": [
+   {
+    "steps_per_year": 192,
+    "reference_steps_per_year": 3072,
+    "change_at_95": [
+     -4.5563629694942857e-07,
+     2.152278591918342e-07
+    ],
+    "change_at_110": [
+     4.790825418866588e-07,
+     1.4300476319548614e-07
+    ],
+    "change_in_spread": [
+     -9.347188388360869e-07,
+     2.68590985026438e-07
+    ]
+   },
+   {
+    "steps_per_year": 384,
+    "reference_steps_per_year": 3072,
+    "change_at_95": [
+     -2.342014213874085e-07,
+     1.4430082594980273e-07
+    ],
+    "change_at_110": [
+     2.700341752451952e-07,
+     9.697924829056242e-08
+    ],
+    "change_in_spread": [
+     -5.042355966326036e-07,
+     1.8054965423317803e-07
+    ]
+   },
+   {
+    "steps_per_year": 768,
+    "reference_steps_per_year": 3072,
+    "change_at_95": [
+     -2.9485566384365367e-08,
+     9.492504200002816e-08
+    ],
+    "change_at_110": [
+     9.521342942726211e-08,
+     6.412189742893666e-08
+    ],
+    "change_in_spread": [
+     -1.2469899581162756e-07,
+     1.1884898356409197e-07
+    ]
+   },
+   {
+    "steps_per_year": 1536,
+    "reference_steps_per_year": 3072,
+    "change_at_95": [
+     9.977457477709397e-09,
+     5.6422557589018945e-08
+    ],
+    "change_at_110": [
+     4.120996144016487e-08,
+     3.6609996001792064e-08
+    ],
+    "change_in_spread": [
+     -3.123250396245547e-08,
+     6.979513832306417e-08
+    ]
+   }
+  ]
+ }
+}

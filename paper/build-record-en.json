@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "language": "en",
+  "publication_year": 2026,
+  "builder": "LaTeX, typeset with Tectonic 0.17.0",
+  "pdf": {
+    "path": "paper/paper.pdf",
+    "sha256": "e1c6706e5d21297672f40defc5001a97a645f3a259407631cf962665dacfef11",
+    "bytes": 454917,
+    "pages": 48
+  },
+  "article": {
+    "path": "manuscript/report.md",
+    "sha256": "9390024a6e2cd57e036fbcac6aac05ef1fa8ef5580c5637f8403931472d1b055"
+  },
+  "source": {
+    "path": "manuscript/report-source.tex",
+    "sha256": "d28b8a9e4697655dabb588fb02445782552cd7d8693c9b91d6efad0518558829",
+    "retained_locally": true
+  },
+  "builder_sha256": "4ea5f050dcfb6ca0173791692c4d40f702fb22f8a16190365918d900152ef812",
+  "formula_sequence_sha256": "74d69cf1babdf371e334f86d744f9ad580a80c3fc65d83505b205a720a8339d4",
+  "mathematical_counts": {
+    "display_math": 197,
+    "inline_math": 939,
+    "equation_tags": 118,
+    "tables": 14,
+    "references": 35
+  },
+  "figures": {
+    "disagreement.png": "4fa29af11bfaa77a27d428dc1af1eda4d28818b24f7d42147ce36d42c8036508",
+    "cubic-law.png": "214488981adaf4e650cc119435127ca33cd9c5a3485547ad956f0f05cbd0090f",
+    "profile.png": "fea5a4f95a4595eaec597655608f7d18fd5a95b6610cc97c61fd9378c96e4179",
+    "euler-ladder.png": "a95a7cae22d4be05c922602a736d1aa63de7a45143daefdd138f2926bf1a0f3d"
+  },
+  "pdf_and_online_article_match": "Generated from the same author source. Every numbered equation of the article appears in the PDF with the same number; the article adds a navigation row.",
+  "build_commands": [
+    "python scripts/build_report.py",
+    "tectonic manuscript/report.tex"
+  ],
+  "visual_review": {
+    "status": "PASS",
+    "pdf_sha256": "e1c6706e5d21297672f40defc5001a97a645f3a259407631cf962665dacfef11",
+    "page_coverage": "All 48 pages; pages 1, 12, 13, 16, 18, 24, 25, 26, 30, 39 and 43 reviewed for clipping, overlap and overflow",
+    "render_engine": "MuPDF",
+    "clipping_overlap_or_overflow_found": []
+  }
+}

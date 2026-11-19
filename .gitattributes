@@ -1,0 +1,7 @@
+# Preserve byte identities used by the numerical integrity checks.
+* text eol=lf
+*.pdf binary
+*.zip binary
+*.png binary
+*.webp binary
+code/** -text whitespace=cr-at-eol
